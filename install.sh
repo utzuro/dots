@@ -17,3 +17,6 @@ ln -sv $(pwd)/vim/.tmux ~/
 echo "configuring zsh..."
 ln -sv $(pwd)/vim/.zshrc ~/
 
+echo "configuring i3..."
+# TODO: check if i3 folder exists
+ln -sv $(pwd)/i3/config ~/.config/i3/
