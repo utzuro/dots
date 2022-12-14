@@ -1,0 +1,187 @@
+### BUTTONS ###
+
+# MOD KEYS
+set $super Mod4
+set $alt Mod1
+
+# SHORTCUTS
+bindsym $super+Return exec /usr/bin/xfce4-terminal #konsole
+bindsym $alt+s exec xfce4-terminal -e "safe-suspend.sh"
+bindsym $super+shift+x exec i3lock -t -i ~/m/i/wallpapers/820012.png -e
+bindsym $super+s exec rofi-search 
+bindsym $alt+space exec rofi -show run 
+bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=20'"
+bindsym $super+Shift+q kill
+bindsym $super+Shift+r restart
+bindsym $super+Shift+e exec i3-msg exit
+
+# WINDOWS
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+h focus left
+bindsym $super+l focus right
+bindsym $super+Shift+j move down
+bindsym $super+Shift+k move up
+bindsym $super+Shift+h move left
+bindsym $super+Shift+l move right
+bindsym $super+z split h
+bindsym $super+x split v
+bindsym $super+f fullscreen toggle
+bindsym $super+Shift+space floating toggle
+
+# SOUND
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl prev
+bindsym XF86AudioPlay exec playerctl toggle
+bindsym XF86AudioStop exec playerctl stop
+# In case pactl is not a option
+#bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
+#bindsym XF86AudioLowerVolume exec pulseaudio-ctl down
+#bindsym XF86AudioMute exec pulseaudio-ctl mute
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+ 
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%-
+#bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle#
+
+# LIGHT
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%;
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-;
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 150;
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 150;
+#bindsym XF86MonBrightnessUp exec light -A 5;
+#bindsym XF86MonBrightnessDown exec light -U 5;
+
+#MPC
+bindsym $super+m exec mpc toggle
+bindsym $super+Shift+n exec mpc next && ~/bin/showalbum
+bindsym $super+Shift+p exec mpc prev && ~/bin/showalbum
+bindsym $super+Shift+d exec mu d
+#MPV
+bindsym $super+p exec xdotool key --window "$(xdotool search --class mpv)" p
+
+
+### SCREENS ###
+
+# WORKSPACES
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: " 
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10: "
+#other icons:                
+
+# APPS
+assign [class="jetbrains-goland"] $ws3
+assign [class="firefox"] $ws4
+assign [class="TelegramDesktop"] $ws5
+assign [class="discord"] $ws6
+assign [class="Pavucontrol"] $ws7
+assign [class="Anki"] $ws7
+assign [class="Steam"] $ws9
+
+# DISPLAYS
+# workspace $ws1 output eDP-1
+# workspace $ws2 output HDMI-1
+# workspace $ws3 output HDMI-1
+# workspace $ws4 output HDMI-1
+# workspace $ws5 output eDP-1
+# workspace $ws6 output eDP-1
+# workspace $ws7 output HDMI-1
+# workspace $ws8 output HDMI-1
+# workspace $ws9 output HDMI-1
+# workspace $ws10 output HDMI-1
+
+# NAVIGATION
+bindsym $super+1 workspace $ws1
+bindsym $super+2 workspace $ws2
+bindsym $super+3 workspace $ws3
+bindsym $super+4 workspace $ws4
+bindsym $super+5 workspace $ws5
+bindsym $super+6 workspace $ws6
+bindsym $super+7 workspace $ws7
+bindsym $super+8 workspace $ws8
+bindsym $super+9 workspace $ws9
+bindsym $super+0 workspace $ws10
+
+# MOVING
+bindsym $super+Shift+1 move container to workspace $ws1
+bindsym $super+Shift+2 move container to workspace $ws2
+bindsym $super+Shift+3 move container to workspace $ws3
+bindsym $super+Shift+4 move container to workspace $ws4
+bindsym $super+Shift+5 move container to workspace $ws5
+bindsym $super+Shift+6 move container to workspace $ws6
+bindsym $super+Shift+7 move container to workspace $ws7
+bindsym $super+Shift+8 move container to workspace $ws8
+bindsym $super+Shift+9 move container to workspace $ws9
+bindsym $super+Shift+0 move container to workspace $ws10
+
+# RESIZE
+bindsym $super+r mode "resize"
+mode "resize" {
+        bindsym h resize shrink width 3 px or 3 ppt
+        bindsym j resize grow height 3 px or 3 ppt
+        bindsym k resize shrink height 3 px or 3 ppt
+        bindsym l resize grow width 3 px or 3 ppt
+        bindsym Return mode "default"
+        bindsym $super+r mode "default"
+        bindsym Escape mode "default"
+}
+
+
+### APPS ###
+
+#autostart
+exec xrdb ~/.Xresources
+exec --no-startup-id picom -b
+exec_always feh --no-aehbg --bg-fill --randomize ~/m/i/wallpapers/* &
+exec --no-startup-id telegram-desktop &
+exec --no-startup-id firefox &
+exec --no-startup-id xsettingsd &
+exec --no-startup-id pasystray
+exec --no-startup-id copyq
+exec --no-startup-id dunst
+exec --no-startup-id nm-applet
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id setcursor
+
+bar { status_command bumblebee-status -m cpu sensors memory weather progress bluetooth2 battery pasink pasource datetime -t iceberg-contrast
+        font pango:DejaVu Sans Mono, Awesome 10
+}
+# taskwarrior ping dunst nvidiagpu
+
+
+### THEME ###
+
+# class                 border  bground text    indicator child_border
+client.focused          #000000 #000000 #6272a4 #BBBBBB   #222222
+client.focused_inactive #000000 #000000 #6272a4 #BBBBBB   #222222
+client.unfocused        #000000 #282a36 #6272a4 #BBBBBB   #222222
+client.urgent           #000000 #bd93f9 #6272a4 #BBBBBB   #222222
+client.placeholder      #000000 #000000 #6272a4 #BBBBBB   #222222
+new_window 1pixel
+for_window [class=".*"] border pixel 0
+
+# Specific window settings
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+# Open specific applications in floating mode
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Lxappearance"] floating enable border normal
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+
+for_window [class=".*"] border pixel 4
+assign [class=URxvt] 1
+for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|upgrade2ultimate.sh] floating enable
+for_window [class=URxvt|firedragon|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
+for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
