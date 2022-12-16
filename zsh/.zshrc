@@ -1,3 +1,14 @@
+# Init p10k
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#----------------------------------------------
+
 # Configs
 source ~/.oh-my-zsh/oh-my-zsh.sh
 HYPHEN_INSENSITIVE="true"
@@ -8,10 +19,8 @@ source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
-#zplug "zsh-users/zsh-completions"
-zplug "dracula/zsh", as:theme
 zplug load
-plugins=(git gitignore colored-man-pages command-not-found history zsh-interactive-cd tmux z) #zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
+plugins=(git gitignore colored-man-pages command-not-found history zsh-interactive-cd tmux web-search z)
 
 # Plugin configs
 bindkey -M vicmd 'k' history-substring-search-up
@@ -23,17 +32,23 @@ bindkey '[B' history-substring-search-down
 set -o vi
 export VISUAL=vim
 export EDITOR=vim
-export DISPLAY=:0
 export fpath=(~/.zsh/completion $fpath)
 
 # PATH
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
 export PATH="$PATH:$(du "$alchemy/scripts" | cut -f2 | sed '/.git/d' | tr '\n' ':' | sed 's/%*$//')"
+export GOPATH=$HOME/go
+export GOENV_DISABLE_GOPATH=1
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+# Import system specific configurations
+source ~/.profile
 
 # Program specific
 export npm_config_prefix=~/.node_modules
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export LD_LIBRARY_PATH=/usr/local/lib/
 export MANGOHUD=0 #1 for fps in steam games
 export STARDICT_DATA_DIR=$manuscripts/ingredients/dicts/dic
