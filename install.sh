@@ -5,6 +5,13 @@ DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 # `cd --` in case directory starts with `-`
 # `>/dev/null` in case cd has some output
 
+# install packages
+echo "Installing missing packages..."
+#TODO: if archlinux
+$DIR/packages/archlinux.sh
+#TODO: if mac
+$DIR/packages/mac.sh
+
 echo "Linking configuration files to the correspoding places in the system..."
 echo "For safety, link won't be created if file already exists."
 
@@ -25,6 +32,7 @@ echo "configuring zsh..."
 ln -sv $DIR/vim/.zshrc ~/
 
 # window manager
+# TODO: check if xorg
 echo "configuring xorg..."
 ln -sv $DIR/xorg/.Xresources ~/
 ln -sv $DIR/xorg/.xinitrc ~/
