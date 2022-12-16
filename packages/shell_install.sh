@@ -1,6 +1,6 @@
 #!usr/bin/env bash
 
-# Install homebrew and use it to install all the tools.
+# Use wget or curl to install OS agnostic tools.
 
 # General: activate in any case.
 

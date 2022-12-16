@@ -20,6 +20,8 @@ else
     echo "Unkown system, packages won't be installed."
 fi
 
+$DIR/packages/shell_install.sh
+
 echo "Linking configuration files to the correspoding places in the system..."
 echo "For safety, link won't be created if file already exists."
 
