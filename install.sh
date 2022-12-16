@@ -7,10 +7,18 @@ DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 # install packages
 echo "Installing missing packages..."
-#TODO: if archlinux
-$DIR/packages/archlinux.sh
-#TODO: if mac
-$DIR/packages/mac.sh
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    $DIR/packages/archlinux.sh
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    $DIR/packages/mac.sh
+elif [[ "$OSTYPE" == "cygwin"* ]]; then
+    $DIR/packages/cygwin.sh
+elif [[ "$OSTYPE" == "msys"* ]]; then
+    $DIR/packages/ms.sh
+else
+    echo "Unkown system, packages won't be installed."
+fi
 
 echo "Linking configuration files to the correspoding places in the system..."
 echo "For safety, link won't be created if file already exists."
