@@ -42,10 +42,13 @@ echo "configuring zsh..."
 ln -sv $DIR/vim/.zshrc ~/
 
 # window manager
-# TODO: check if xorg
-echo "configuring xorg..."
-ln -sv $DIR/xorg/.Xresources ~/
-ln -sv $DIR/xorg/.xinitrc ~/
-echo "configuring i3..."
-# TODO: check if i3 folder exists
-ln -sv $DIR/i3/config ~/.config/i3/
+if xhost >& /dev/null ; then 
+    echo "Detected Xorg, configuring..."
+    ln -sv $DIR/xorg/.Xresources ~/
+    ln -sv $DIR/xorg/.xinitrc ~/
+else echo "it's not xorg, skipping..." ; fi
+
+if [ -f "$HOME/.config/i3/config" ]; then 
+    echo "Detected i3, configuring..."
+    ln -sv $DIR/i3/config ~/.config/i3/
+fi
