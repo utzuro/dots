@@ -1,0 +1,43 @@
+* {
+  background-color: rgba(24, 0, 37, 100%);
+  border-color: rgba(24, 0, 37, 100%);
+  text-color: rgba(255, 252, 255, 100%);
+  spacing: 0;
+  width: 1524;
+}
+
+inputbar {
+  border: 0 0 1px 0;
+  children: [prompt,entry];
+}
+
+prompt {
+  padding: 16px;
+  border: 0 1px 0 0;
+}
+
+textbox {
+  background-color: rgba(14, 0, 27, 100%);
+  border: 0 0 1px 0;
+  border-color: rgba(14, 0, 27, 100%);
+  padding: 8px 16px;
+}
+
+entry {
+  padding: 16px;
+}
+
+listview {
+  cycle: false;
+  margin: 0 0 -1px 0;
+  scrollbar: false;
+}
+
+element {
+  border: 0 0 1px 0;
+  padding: 16px;
+}
+
+element selected {
+  background-color: rgba(161,103,165,100%);
+}
