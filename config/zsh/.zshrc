@@ -19,6 +19,7 @@ source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
+zplug romkatv/powerlevel10k, as:theme, depth:1
 zplug load
 plugins=(git gitignore colored-man-pages command-not-found history zsh-interactive-cd tmux web-search z)
 

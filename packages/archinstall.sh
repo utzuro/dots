@@ -47,7 +47,20 @@ cd "${DIR:?}" || exit
 rm -rf "${DIR:?}/${tempdir:?}"
 
 # Get fonts
-paru -S ttf-anonymous-pro ttf-liberation ttf-font-awesome adobe-source-han-sans-jp-fonts otf-ipafont terminus-font bdf-unifont font-bh-ttf ttf-bitstream-vera ttf-dejavu ttf-opensans noto-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji ttf-ubuntu-font-family ttf-ancient-fonts ttf-font-icons ttf-font-logos otf-ipaexfont otf-ipafont otf-ipamjfont
+## Favorite fonts
+paru -S ttf-anonymous-pro adobe-source-code-pro-fonts noto-fonts 
+## Japanese
+paru -S adobe-source-han-sans-jp-fonts
+## Handwriting fonts
+paru -S ttf-quintessential otf-miama
+## Backwards compatibility fonts
+paru -S ttf-liberation 
+## Icons
+paru -S ttf-font-awesome nerd-fonts-complete powerline-fonts
+## Just in case fonts
+paru -S ttf-ancient-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji
+## Just for fun fonts
+paru -R ttf-macedonian-church
 
 # Get Nvidia driver, nvidia realated tools and libraries for games
 if [[ $(lshw -C display 2>/dev/null | ack vendor) =~ Nvidia ]]; then
@@ -116,6 +129,6 @@ sudo usermod -aG lp "$USER" # bluetooth
 
 # Not aur tools:
 go install github.com/masakichi/tango@latest
-echo "NOTE: 📚 Import japanese dictionaries with: tango -import ..."
+echo "📝 Import japanese dictionaries with: tango -import... 📚"
 
-echo "🔥Installation complete!🔥"
+echo "🔥Archlinux installation complete!🔥"

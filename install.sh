@@ -1,57 +1,55 @@
 #!/usr/bin/env bash
 
 # Reliable way to get full path
-DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
 # `cd --` in case directory starts with `-`
 # `>/dev/null` in case cd has some output
 
-# install packages
-echo "Installing missing packages..."
+# Install packages
+echo "⌛... Installing missing packages... 📦☄"
+#if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+#    "$DIR"/packages/archlinux.sh
+#elif [[ "$OSTYPE" == "darwin"* ]]; then
+#    "$DIR"/packages/mac.sh
+#elif [[ "$OSTYPE" == "linux-android"* ]]; then
+#    "$DIR"/packages/termux.sh
+#elif [[ "$OSTYPE" == "cygwin"* ]]; then
+#    "$DIR"/packages/cygwin.sh
+#elif [[ "$OSTYPE" == "msys"* ]]; then
+#    "$DIR"/packages/ms.sh
+#else
+#    echo " ¯ \ _ (ツ) _ / ¯  Unknown system, packages won't be installed."
+#fi
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    "$DIR"/packages/archlinux.sh
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    "$DIR"/packages/mac.sh
-elif [[ "$OSTYPE" == "cygwin"* ]]; then
-    "$DIR"/packages/cygwin.sh
-elif [[ "$OSTYPE" == "msys"* ]]; then
-    "$DIR"/packages/ms.sh
-else
-    echo "Unknown system, packages won't be installed."
-fi
+echo "⌛... Creating default folders... 📂"
+mkdir -p ~/alchemy/{scripts,ingredients} ~/magic/{manuscripts,ingredients}
 
+# Install all the OS agnostic shell tools
 "$DIR"/packages/shell_install.sh
 
-echo "Linking configuration files to the corresponding places in the system..."
-echo "For safety, link won't be created if file already exists."
-
-# vim
-echo "configuring vim..."
-ln -sv "$DIR"/vim/.vimrc ~/
-ln -sv "$DIR"/vim/.vim/* ~/.vim/
-echo "Creating folder ~/.vim/after/syntax..."
+echo "⌛... Linking configuration files to the corresponding places in the system... 🖇"
+# Vim
+ln -sfv "$DIR"/config/vim/.vimrc ~/
+ln -sfv "$DIR"/config/vim/.vim/* ~/.vim/
 mkdir -p ~/.vim/after/syntax
-# shellcheck disable=SC2086
-ln -sv "$DIR"/vim/.vim/after/syntax/asciidoc.vim ~/.vim/after/syntax/
+ln -sfv "$DIR"/config/vim/.vim/after/syntax/asciidoc.vim ~/.vim/after/syntax/
+vim +PluginInstall +qall
 
-# tmux
-echo "configuring tmux..."
-ln -sv "$DIR"/vim/.tmux ~/
+# Tmux
+ln -sfv "$DIR"/config/vim/.tmux ~/
 
-# shell
-echo "configuring zsh..."
-ln -sv "$DIR"/vim/.zshrc ~/
+# Shell
+ln -sfv "$DIR"/config/zsh/.zshrc ~/
+zplug install
 
-# window manager
+# Window manager
 if xhost >& /dev/null ; then 
-    echo "Detected Xorg, configuring..."
-    # shellcheck disable=SC2086
-    # shellcheck disable=SC2086
-    ln -sv "$DIR"/xorg/.Xresources ~/
-    ln -sv "$DIR"/xorg/.xinitrc ~/
-else echo "it's not xorg, skipping..." ; fi
+    echo "🧿 Detected Xorg, configuring..."
+    ln -sfv "$DIR"/config/xorg/.Xresources ~/
+    ln -sfv "$DIR"/config/xorg/.xinitrc ~/
+fi
 
 if [ -f "$HOME/.config/i3/config" ]; then 
-    echo "Detected i3, configuring..."
-    ln -sv "$DIR"/i3/config ~/.config/i3/
+    echo "🧿 Detected i3, configuring..."
+    ln -sfv "$DIR"/config/i3/config ~/.config/i3/
 fi
