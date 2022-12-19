@@ -20,7 +20,6 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug romkatv/powerlevel10k, as:theme, depth:1
 zplug load
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git gitignore colored-man-pages command-not-found history zsh-interactive-cd tmux web-search z)
 source $ZSH/oh-my-zsh.sh
 
