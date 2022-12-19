@@ -3,8 +3,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #----------------------------------------------
@@ -21,7 +19,10 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug romkatv/powerlevel10k, as:theme, depth:1
 zplug load
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git gitignore colored-man-pages command-not-found history zsh-interactive-cd tmux web-search z)
+source $ZSH/oh-my-zsh.sh
 
 # Plugin configs
 bindkey -M vicmd 'k' history-substring-search-up
