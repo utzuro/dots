@@ -1,5 +1,7 @@
 echo "⌛... Installing all the packages for the archlinux... 🖳"
 
+# Update
+sudo pacman -Syu
 # Get essentials:
 sudo pacman -S ack imagemagick coreutils asciidoctor maim net-tools lshw polkit
 
@@ -45,6 +47,9 @@ cd "${DIR:?}"/"${tempdir:?}" || exit
 makepkg -si
 cd "${DIR:?}" || exit
 rm -rf "${DIR:?}/${tempdir:?}"
+
+# Update just in case
+paru -Syu
 
 # Get fonts
 ## Favorite fonts
