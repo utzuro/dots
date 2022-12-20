@@ -14,3 +14,4 @@ brew install zathura zathura-pdf-mupdf
 brew tap versent/homebrew-taps
 brew install tfenv goenv saml2aws
 brew install ledger
+brew install obsidian

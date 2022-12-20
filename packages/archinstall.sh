@@ -2,14 +2,20 @@ echo "⌛... Installing all the packages for the archlinux... 🖳"
 
 # Update
 sudo pacman -Syu
-# Get essentials:
-sudo pacman -S ack imagemagick coreutils asciidoctor maim net-tools lshw polkit
 
-# Install everything and preconfigured system (light packages)
-???paru -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode xclip cmake man-db man-pages texinfo gvim git git-lfs tmux openssh sshfs wget mpv mpd ncmpcpp tree unzip unrar htop rsync ranger rtorrent uim ibus zinnia libmtp ninja clang progress firefox chromium vlc gedit kate nautilus redshift sxiv feh arandr imagemagick stow konsole asciidoctor xf86-input-libinput adobe-source-han-sans-jp-fonts ttf-font-awesome ttf-anonymous-pro ntfs-3g clerk-git copyq rofi-search-git rofi-calc android-tools simple-mtpfs adbfs-rootless-git anki zathura zathura-cb zathura-djvu zathura-pdf-mupdf calibre epub2txt epub2pdf pdf2png sdcv goldendict poppler html2pdf telegram-desktop telegram-tg-git discord slack-desktop zoom youtube-dl pipe-viewer-git obs-studio cplay gimp inkscape krita libreoffice-fresh-ja hunspell hunspell-en_US hunspell-uk hunspell-ru libmythes libreoffice-extension-languagetool docker docker-compose steam wine-staging wine-gecko wine-mono winetricks dosbox python-myougiden indicator-stickynotes virtualbox virtualbox-guest-iso virtualbox-ext-oracle i7z intel-undervolt powertop bumblebee-status polkit googler ddgr zoxide transfer.sh rofi polybar iotop bind indicator-stickynotes go php elixir
+>> pacstrap /mnt -S base base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode man-db man-pages texinfo vim zsh git tmux openssh sshfs wget w3m mpv tree unzip unrar htop rsync ranger mpd ncmpcpp mpc rtorrent ntp grub efibootmgr dosfstools os-prober mtools cmake xsettingsd pasystray xfce4-power-manager dhpcd wpa_supplicant iw iwd
+
+# Get essentials:
+sudo pacman -S ack imagemagick coreutils asciidoctor maim net-tools lshw polkit rsync ranger rtorrent progress
+
+sudo pacman -S xfce-power-manager xfce-terminal xfce-notifyd
+
+sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode
+xclip cmake man-db man-pages texinfo gvim git git-lfs tmux openssh sshfs wget mpv mpd ncmpcpp tree unzip unrar htop
+python-myougiden
 
 # Dev tools
-pacman -S docker docker-compose
+pacman -S docker docker-compose go
 
 # i3 and tools
 sudo pacman -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom dunst rofi gvim arandr redshift sxiv feh
@@ -73,7 +79,7 @@ if [[ $(lshw -C display 2>/dev/null | ack vendor) =~ Nvidia ]]; then
 fi
 
 # Get aur utils:
-paru -S ntfs-3g bumblebee-status ddgr transfer.sh
+paru -S ntfs-3g bumblebee-status ddgr transfer.sh yt-dlp pipe-viewer-git 
 
 # System monitors
 paru -S i7z iotop powertop
@@ -82,7 +88,7 @@ paru -S i7z iotop powertop
 paru -S clerk-git copyq rofi-bluetooth-git rofi-search-git rofi-calc
 
 # for bumblebee:
-paru -S xininfo-git ffmpeg slop copyq imgurbash2 filebin openssh ix progress
+paru -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress
 
 # Convert audiable to mp3
 paru -S aaxtomp3 #--authcode 55b7ab34
@@ -90,12 +96,11 @@ paru -S aaxtomp3 #--authcode 55b7ab34
 # Work with Android:
 paru -S android-tools simple-mtpfs adbfs-rootless-git
 
-
 # Get chats and other
-paru -S telegram-desktop telegram-tg-git discord slack-desktop zoom youtube-dl pipe-viewer-git
+paru -S telegram-desktop discord zoom 
 
 # Get creative
-paru -S simplescreenrecorder-git audio-recorder cplay lmms gimp inkscape krita blender
+paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage
 
 # Make gui look good:
 paru -S qt5ct lxappearance adwaita-qt materia-gtk-theme
@@ -126,6 +131,7 @@ paru -S goland goland-jre pycharm-community pycharm-community-jre
 
 # Set up user groups:
 echo "⌛... Adding user to a necessary groups... 👥"
+if [ -n "$USER" ]; then USER=$(whoami); fi
 sudo usermod -aG input "$USER"
 sudo usermod -aG docker "$USER"
 sudo usermod -aG plugdev "$USER"

@@ -26,7 +26,7 @@ printf "⌛... Installing missing packages... 📦☄\n"
 #fi
 
 printf "\n⌛... Creating default folders... 📂\n"
-mkdir -p ~/alchemy/{scripts,ingredients} ~/magic/{manuscripts,ingredients}
+mkdir -p "$alchemy"/ingredients "$HOME"/magic/ingredients
 if [ -d "$alchemy"/scripts ]; then
   git clone https://gitlab.com/utzuro/scripts.git "$alchemy"/scripts
   cd "$alchemy"/scripts || exit
@@ -36,7 +36,7 @@ if [ -d "$alchemy"/scripts ]; then
 fi
 
 # Install all the OS agnostic shell tools
-"$DIR"/packages/shell_install.sh
+#"$DIR"/packages/shell_install.sh
 
 printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 # Vim
