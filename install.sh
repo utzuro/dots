@@ -11,7 +11,7 @@ cd "$DIR" || exit
 # Install packages
 printf "⌛... Installing missing packages... 📦☄\n"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    "$DIR"/packages/archlinux.sh
+    "$DIR"/packages/archinstall.sh
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     "$DIR"/packages/mac.sh
 elif [[ "$OSTYPE" == "linux-android"* ]]; then

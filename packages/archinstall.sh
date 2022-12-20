@@ -3,22 +3,17 @@ echo "⌛... Installing all the packages for the archlinux... 🖳"
 # Update
 sudo pacman -Syu
 
->> pacstrap /mnt -S base base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode man-db man-pages texinfo vim zsh git tmux openssh sshfs wget w3m mpv tree unzip unrar htop rsync ranger mpd ncmpcpp mpc rtorrent ntp grub efibootmgr dosfstools os-prober mtools cmake xsettingsd pasystray xfce4-power-manager dhpcd wpa_supplicant iw iwd
-
 # Get essentials:
-sudo pacman -S ack imagemagick coreutils asciidoctor maim net-tools lshw polkit rsync ranger rtorrent progress
-
-sudo pacman -S xfce-power-manager xfce-terminal xfce-notifyd
-
 sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode
-xclip cmake man-db man-pages texinfo gvim git git-lfs tmux openssh sshfs wget mpv mpd ncmpcpp tree unzip unrar htop
-python-myougiden
+sudo pacman -S coreutils ntp grub efibootmgr dosfstools os-prober mtools cmake xsettingsd pasystray dhpcd wpa_supplicant iw iwd
+sudo pacman -S zsh ack imagemagick asciidoctor maim net-tools lshw polkit rsync ranger rtorrent progress jq
+sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip unrar htop
 
 # Dev tools
-pacman -S docker docker-compose go
+pacman -S docker docker-compose go php node
 
 # i3 and tools
-sudo pacman -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom dunst rofi gvim arandr redshift sxiv feh
+sudo pacman -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom dunst rofi gvim arandr redshift sxiv feh xfce-terminal konsole st
 
 # Japanese input
 sudo pacman -S uim ibus zinnia libmtp ninja clang
@@ -33,7 +28,7 @@ sudo pacman -S xf86-video-intel mesa lib32-mesa vulkan-intel
 sudo pacman -S firefox chromium vlc gedit nautilus
 
 # Work with Documents
-sudo pacman -S anki zathura zathura-cb zathura-djvu zathura-pdf-mupdf sdcv calibre
+sudo pacman -S anki zathura zathura-cb zathura-djvu zathura-pdf-mupdf sdcv calibre python-myougiden
 
 # Enable battery manager:
 if [[ $(upower --enumerate 2>/dev/null | ack battery) =~ battery ]]; then
@@ -41,8 +36,9 @@ if [[ $(upower --enumerate 2>/dev/null | ack battery) =~ battery ]]; then
   systemctl enable --now tlp
 fi
 
-# Get bluetooth:
+# Set up bluetooth:
 sudo pacman -S bluez bluez-utils bluez-plugins
+systemctl enable --now bluetooth
 
 # To get paru
 echo "⌛... Installing paru to get even more packages!🚀"
