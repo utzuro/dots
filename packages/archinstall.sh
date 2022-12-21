@@ -1,43 +1,43 @@
 echo "⌛... Installing all the packages for the archlinux... 🖳"
 
 # Update
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm --sudoloop
 
 # Get essentials:
-sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode
-sudo pacman -S coreutils ntp grub efibootmgr dosfstools os-prober mtools cmake xsettingsd pasystray dhpcd wpa_supplicant iw iwd
-sudo pacman -S zsh ack imagemagick asciidoctor maim net-tools lshw polkit rsync ranger rtorrent progress jq
-sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip unrar htop
+sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode --noconfirm
+sudo pacman -S coreutils ntp grub efibootmgr dosfstools mtools cmake xsettingsd pasystray dhcpcd wpa_supplicant iw iwd --noconfirm
+sudo pacman -S zsh ack imagemagick asciidoctor maim net-tools lshw polkit rsync rtorrent progress jq --noconfirm
+sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip unrar htop --noconfirm
 
 # Dev tools
 pacman -S docker docker-compose go php node
 
 # i3 and tools
-sudo pacman -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom dunst rofi gvim arandr redshift sxiv feh xfce-terminal konsole st
+sudo pacman -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom dunst rofi gvim arandr redshift sxiv feh xfce4-terminal konsole st --noconfirm
 
 # Japanese input
-sudo pacman -S uim ibus zinnia libmtp ninja clang
+sudo pacman -S uim ibus libmtp ninja clang --noconfirm
 
 # Sound:
-sudo pacman -S alsa-lib alsa-plugins alsa-utils pavucontrol pulseaudio pulseaudio-alsa lib32-alsa-plugins lib32-libpulse
+sudo pacman -S alsa-lib alsa-plugins alsa-utils pavucontrol pulseaudio pulseaudio-alsa lib32-alsa-plugins lib32-libpulse --noconfirm
 
 # Graphics:
-sudo pacman -S xf86-video-intel mesa lib32-mesa vulkan-intel
+sudo pacman -S xf86-video-intel mesa lib32-mesa vulkan-intel --noconfirm
 
 # Apps:
-sudo pacman -S firefox chromium vlc gedit nautilus
+sudo pacman -S firefox chromium vlc gedit nautilus --noconfirm
 
 # Work with Documents
-sudo pacman -S anki zathura zathura-cb zathura-djvu zathura-pdf-mupdf sdcv calibre python-myougiden
+sudo pacman -S anki zathura zathura-cb zathura-djvu zathura-pdf-mupdf sdcv calibre --noconfirm
 
 # Enable battery manager:
 if [[ $(upower --enumerate 2>/dev/null | ack battery) =~ battery ]]; then
-  sudo pacman -S acpi tlp
+  sudo pacman -S acpi tlp --noconfirm
   systemctl enable --now tlp
 fi
 
 # Set up bluetooth:
-sudo pacman -S bluez bluez-utils bluez-plugins
+sudo pacman -S bluez bluez-utils bluez-plugins --noconfirm
 systemctl enable --now bluetooth
 
 # To get paru
@@ -51,21 +51,21 @@ cd "${DIR:?}" || exit
 rm -rf "${DIR:?}/${tempdir:?}"
 
 # Update just in case
-paru -Syu
+paru -Syu --noconfirm --sudoloop
 
 # Get fonts
 ## Favorite fonts
-paru -S ttf-anonymous-pro adobe-source-code-pro-fonts noto-fonts 
+paru -S ttf-anonymous-pro adobe-source-code-pro-fonts noto-fonts  --noconfirm
 ## Japanese
-paru -S adobe-source-han-sans-jp-fonts
+paru -S adobe-source-han-sans-jp-fonts --noconfirm
 ## Handwriting fonts
-paru -S ttf-quintessential otf-miama
+paru -S ttf-quintessential otf-miama --noconfirm
 ## Backwards compatibility fonts
-paru -S ttf-liberation 
+paru -S ttf-liberation  --noconfirm
 ## Icons
-paru -S ttf-font-awesome nerd-fonts-complete powerline-fonts
+paru -S ttf-font-awesome nerd-fonts-complete powerline-fonts --noconfirm
 ## Just in case fonts
-paru -S ttf-ancient-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji
+paru -S ttf-ancient-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji --noconfirm
 ## Just for fun fonts
 paru -R ttf-macedonian-church
 
@@ -75,34 +75,34 @@ if [[ $(lshw -C display 2>/dev/null | ack vendor) =~ Nvidia ]]; then
 fi
 
 # Get aur utils:
-paru -S ntfs-3g bumblebee-status ddgr transfer.sh yt-dlp pipe-viewer-git 
+paru -S ntfs-3g bumblebee-status ddgr transfer.sh yt-dlp pipe-viewer-git python-myougiden zinnia ranger-sixel --noconfirm
 
 # System monitors
-paru -S i7z iotop powertop
+paru -S i7z iotop powertop --noconfirm
 
 # for rofi:
-paru -S clerk-git copyq rofi-bluetooth-git rofi-search-git rofi-calc
+paru -S clerk-git copyq rofi-bluetooth-git rofi-search-git rofi-calc --noconfirm
 
 # for bumblebee:
-paru -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress
+paru -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress --noconfirm
 
 # Convert audiable to mp3
-paru -S aaxtomp3 #--authcode 55b7ab34
+paru -S aaxtomp3 #--authcode 55b7ab34 --noconfirm
 
 # Work with Android:
-paru -S android-tools simple-mtpfs adbfs-rootless-git
+paru -S android-tools simple-mtpfs adbfs-rootless-git --noconfirm
 
 # Get chats and other
-paru -S telegram-desktop discord zoom 
+paru -S telegram-desktop discord zoom  --noconfirm
 
 # Get creative
-paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage
+paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage --noconfirm
 
 # Make gui look good:
-paru -S qt5ct lxappearance adwaita-qt materia-gtk-theme
+paru -S qt5ct lxappearance adwaita-qt materia-gtk-theme --noconfirm
 
 # Get office in need:
-paru -S libreoffice-fresh-ja hunspell hunspell-en_US hunspell-uk hunspell-ru libmythes libreoffice-extension-languagetool
+paru -S libreoffice-fresh-ja hunspell hunspell-en_US hunspell-uk hunspell-ru libmythes libreoffice-extension-languagetool --noconfirm
 
 # Games
 read -rp "👾 Is this gaming PC? (y/n) 👀" yn
@@ -123,7 +123,7 @@ if [ "$yn" == "y" ];
 fi
 
 # IDE from aur
-paru -S goland goland-jre pycharm-community pycharm-community-jre
+paru -S goland goland-jre pycharm-community pycharm-community-jre --noconfirm
 
 # Set up user groups:
 echo "⌛... Adding user to a necessary groups... 👥"
