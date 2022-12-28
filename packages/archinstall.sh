@@ -1,48 +1,52 @@
 echo "⌛... Installing all the packages for the archlinux... 🖳"
 
 # Update
-sudo pacman -Syu --noconfirm --sudoloop
+sudo pacman -Syu
 
 # Get essentials:
-sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode --noconfirm
-sudo pacman -S coreutils ntp grub efibootmgr dosfstools mtools cmake xsettingsd pasystray dhcpcd wpa_supplicant iw iwd --noconfirm
-sudo pacman -S zsh ack imagemagick asciidoctor maim net-tools lshw polkit rsync rtorrent progress jq --noconfirm
-sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip unrar htop --noconfirm
+sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode
+sudo pacman -S coreutils ntp grub efibootmgr dosfstools os-prober mtools cmake xsettingsd pasystray dhpcd wpa_supplicant iw iwd
+sudo pacman -S zsh ack imagemagick asciidoctor maim net-tools lshw polkit rsync ranger rtorrent progress jq
+sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip unrar htop
 
 # Dev tools
 pacman -S docker docker-compose go php node
 
 # i3 and tools
-sudo pacman -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom dunst rofi gvim arandr redshift sxiv feh xfce4-terminal konsole st --noconfirm
+sudo pacman -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom dunst rofi gvim arandr redshift sxiv feh xfce-terminal konsole st
 
 # Japanese input
-sudo pacman -S uim ibus libmtp ninja clang --noconfirm
+sudo pacman -S uim ibus zinnia libmtp ninja clang
 
 # Sound:
-sudo pacman -S alsa-lib alsa-plugins alsa-utils pavucontrol pulseaudio pulseaudio-alsa lib32-alsa-plugins lib32-libpulse --noconfirm
+sudo pacman -S alsa-lib alsa-plugins alsa-utils pavucontrol pulseaudio pulseaudio-alsa lib32-alsa-plugins lib32-libpulse
 
 # Graphics:
-sudo pacman -S xf86-video-intel mesa lib32-mesa vulkan-intel --noconfirm
+sudo pacman -S xf86-video-intel mesa lib32-mesa vulkan-intel
 
 # Apps:
-sudo pacman -S firefox chromium vlc gedit nautilus --noconfirm
+sudo pacman -S firefox chromium vlc gedit nautilus
 
 # Work with Documents
-sudo pacman -S anki zathura zathura-cb zathura-djvu zathura-pdf-mupdf sdcv calibre --noconfirm
+sudo pacman -S anki zathura zathura-cb zathura-djvu zathura-pdf-mupdf sdcv calibre python-myougiden
 
 # Enable battery manager:
 if [[ $(upower --enumerate 2>/dev/null | ack battery) =~ battery ]]; then
-  sudo pacman -S acpi tlp --noconfirm
+  sudo pacman -S acpi tlp
   systemctl enable --now tlp
 fi
 
 # Set up bluetooth:
-sudo pacman -S bluez bluez-utils bluez-plugins --noconfirm
+sudo pacman -S bluez bluez-utils bluez-plugins
 systemctl enable --now bluetooth
 
 # To get paru
 echo "⌛... Installing paru to get even more packages!🚀"
 tempdir="temp_paru_install_folder"
+if [ -d "${DIR}/${tempdir}" ];
+then
+  rm -rf "${DIR:?}/${tempdir:?}"
+fi
 git clone https://aur.archlinux.org/paru.git "${DIR:?}/${tempdir:?}"
 cd "${DIR:?}"/"${tempdir:?}" || exit
 makepkg -si
@@ -50,21 +54,21 @@ cd "${DIR:?}" || exit
 rm -rf "${DIR:?}/${tempdir:?}"
 
 # Update just in case
-paru -Syu --noconfirm --sudoloop
+paru -Syu
 
 # Get fonts
 ## Favorite fonts
-paru -S ttf-anonymous-pro adobe-source-code-pro-fonts noto-fonts  --noconfirm
+paru -S ttf-anonymous-pro adobe-source-code-pro-fonts noto-fonts
 ## Japanese
-paru -S adobe-source-han-sans-jp-fonts --noconfirm
+paru -S adobe-source-han-sans-jp-fonts
 ## Handwriting fonts
-paru -S ttf-quintessential otf-miama --noconfirm
+paru -S ttf-quintessential otf-miama
 ## Backwards compatibility fonts
-paru -S ttf-liberation  --noconfirm
+paru -S ttf-liberation
 ## Icons
-paru -S ttf-font-awesome nerd-fonts-complete powerline-fonts --noconfirm
+paru -S ttf-font-awesome nerd-fonts-complete powerline-fonts
 ## Just in case fonts
-paru -S ttf-ancient-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji --noconfirm
+paru -S ttf-ancient-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji
 ## Just for fun fonts
 paru -R ttf-macedonian-church
 
@@ -74,34 +78,34 @@ if [[ $(lshw -C display 2>/dev/null | ack vendor) =~ Nvidia ]]; then
 fi
 
 # Get aur utils:
-paru -S ntfs-3g bumblebee-status ddgr transfer.sh yt-dlp pipe-viewer-git python-myougiden zinnia ranger-sixel --noconfirm
+paru -S ntfs-3g bumblebee-status ddgr transfer.sh yt-dlp pipe-viewer-git
 
 # System monitors
-paru -S i7z iotop powertop --noconfirm
+paru -S i7z iotop powertop
 
 # for rofi:
-paru -S clerk-git copyq rofi-bluetooth-git rofi-search-git rofi-calc --noconfirm
+paru -S clerk-git copyq rofi-bluetooth-git rofi-search-git rofi-calc
 
 # for bumblebee:
-paru -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress --noconfirm
+paru -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress
 
 # Convert audiable to mp3
-paru -S aaxtomp3 #--authcode 55b7ab34 --noconfirm
+paru -S aaxtomp3 #--authcode 55b7ab34
 
 # Work with Android:
-paru -S android-tools simple-mtpfs adbfs-rootless-git --noconfirm
+paru -S android-tools simple-mtpfs adbfs-rootless-git
 
 # Get chats and other
-paru -S telegram-desktop discord zoom  --noconfirm
+paru -S telegram-desktop discord zoom
 
 # Get creative
-paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage --noconfirm
+paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage
 
 # Make gui look good:
-paru -S qt5ct lxappearance adwaita-qt materia-gtk-theme --noconfirm
+paru -S qt5ct lxappearance adwaita-qt materia-gtk-theme
 
 # Get office in need:
-paru -S libreoffice-fresh-ja hunspell hunspell-en_US hunspell-uk hunspell-ru libmythes libreoffice-extension-languagetool --noconfirm
+paru -S libreoffice-fresh-ja hunspell hunspell-en_US hunspell-uk hunspell-ru libmythes libreoffice-extension-languagetool
 
 # Games
 read -rp "👾 Is this gaming PC? (y/n) 👀" yn
@@ -122,7 +126,7 @@ if [ "$yn" == "y" ];
 fi
 
 # IDE from aur
-paru -S goland goland-jre pycharm-community pycharm-community-jre --noconfirm
+paru -S goland goland-jre pycharm-community pycharm-community-jre
 
 # Set up user groups:
 echo "⌛... Adding user to a necessary groups... 👥"
