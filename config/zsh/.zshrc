@@ -73,3 +73,5 @@ alias real="ledger -f $LEDGER bal Assets --real"
 alias budgets="ledger -f $LEDGER bal Budget"
 
 # Other
+source ~/.awsrc
+

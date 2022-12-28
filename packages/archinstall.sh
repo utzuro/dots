@@ -43,7 +43,6 @@ systemctl enable --now bluetooth
 # To get paru
 echo "⌛... Installing paru to get even more packages!🚀"
 tempdir="temp_paru_install_folder"
-rm -rf "${DIR:?}/${tempdir:?}"
 git clone https://aur.archlinux.org/paru.git "${DIR:?}/${tempdir:?}"
 cd "${DIR:?}"/"${tempdir:?}" || exit
 makepkg -si
