@@ -15,6 +15,6 @@ brew install zathura zathura-pdf-mupdf
 
 # Extra: can be skipped safely.
 brew tap versent/homebrew-taps
-brew install tfenv goenv saml2aws
+brew install tfenv goenv saml2aws jq
 brew install ledger
 brew install obsidian
