@@ -43,7 +43,7 @@ systemctl enable --now bluetooth
 # To get paru
 echo "⌛... Installing paru to get even more packages!🚀"
 tempdir="temp_paru_install_folder"
-if [ -d "${DIR}/${tempdir}" ];
+if [ -d "$DIR/$tempdir" ];
 then
   rm -rf "${DIR:?}/${tempdir:?}"
 fi
