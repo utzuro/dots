@@ -3,9 +3,12 @@
 
 # General: activate in any case.
 xcode-select --install 
-#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # shell tools
 brew install curl wget zsh git tmux vim docker jq peco ranger zplug
+
 # pdf
 brew tap zegervdv/zathura
 brew install zathura zathura-pdf-mupdf
