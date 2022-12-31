@@ -33,4 +33,8 @@ if ! [ -d "$HOME/.goenv" ]; then
 else printf "📝 GoENV seems to be already installed! Remove ~/.goenv to reinstall. 🚀\n"
 fi
 
+if ! [ -d "$HOME/.config/ranger/plugins/ranger_devicons" ] && [ -d "$HOME/.config/ranger"  ]; then
+  git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+fi
+
 printf "\n🔥 Shell tools installation complete! 🔥\n"

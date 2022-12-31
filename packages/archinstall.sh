@@ -1,4 +1,5 @@
 echo "⌛... Installing all the packages for the archlinux... 🖳"
+DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
 
 # Update
 sudo pacman -Syu --noconfirm --sudoloop
@@ -49,7 +50,7 @@ then
 fi
 git clone https://aur.archlinux.org/paru.git "${DIR:?}/${tempdir:?}"
 cd "${DIR:?}"/"${tempdir:?}" || exit
-makepkg -si
+yes | makepkg -si
 cd "${DIR:?}" || exit
 rm -rf "${DIR:?}/${tempdir:?}"
 
@@ -90,7 +91,7 @@ paru -S clerk-git copyq rofi-bluetooth-git rofi-search-git rofi-calc --noconfirm
 paru -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress --noconfirm
 
 # Convert audiable to mp3
-paru -S aaxtomp3 #--authcode 55b7ab34 --noconfirm
+paru -S aaxtomp3 --noconfirm #--authcode 55b7ab34
 
 # Work with Android:
 paru -S android-tools simple-mtpfs adbfs-rootless-git --noconfirm
@@ -108,25 +109,25 @@ paru -S qt5ct lxappearance adwaita-qt materia-gtk-theme --noconfirm
 paru -S libreoffice-fresh-ja hunspell hunspell-en_US hunspell-uk hunspell-ru libmythes libreoffice-extension-languagetool --noconfirm
 
 # Games
-read -rp "👾 Is this gaming PC? (y/n) 👀" yn
+read -rp "👾 Is this gaming PC? (y/N) 👀  " yn
 if [ "$yn" == "y" ];
  then
   ## Get emulators:
-  sudo pacman -S steam wine-staging winetricks wine-gecko wine-mono
+  paru -S steam wine-staging winetricks wine-gecko wine-mono --noconfirm
   ## Libraries for the wine to work properly
-  sudo pacman -S giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba
+  paru -S giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba --noconfirm
   ## Dosbox
-  sudo pacman -S dosbox doomsday
+  paru -S dosbox doomsday --noconfirm
   ## PlayStation
-  sudo pacman -S duckstation-git pcsx2 rpcs3-git
+  paru -S duckstation-git pcsx2 rpcs3-git --noconfirm
   ## Other consoles (genesis, neko-project
-  sudo pacman -S gens-gs xnp2 assimp
+  paru -S xnp2 assimp --noconfirm
   ## Virtual box
-  sudo pacman -S virtualbox virtualbox-guest-iso virtualbox-ext-oracle
+  paru -S virtualbox virtualbox-guest-iso virtualbox-ext-oracle --noconfirm
 fi
 
 # IDE from aur
-paru -S goland goland-jre pycharm-community pycharm-community-jre --noconfirm
+paru -S goland goland-jre pycharm-community-eap --noconfirm
 
 # Set up user groups:
 echo "⌛... Adding user to a necessary groups... 👥"
