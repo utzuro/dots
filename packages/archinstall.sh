@@ -7,11 +7,11 @@ sudo pacman -Syu --noconfirm --sudoloop
 # Get essentials:
 sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode --noconfirm
 sudo pacman -S coreutils ntp grub efibootmgr dosfstools mtools cmake xsettingsd pasystray dhcpcd wpa_supplicant iw iwd --noconfirm
-sudo pacman -S zsh ack imagemagick asciidoctor maim net-tools lshw polkit rsync rtorrent progress jq --noconfirm
+sudo pacman -S zsh ack imagemagick foremost asciidoctor maim net-tools lshw polkit rsync rtorrent progress jq --noconfirm
 sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip unrar htop --noconfirm
 
 # Dev tools
-pacman -S docker docker-compose go php node
+pacman -S docker docker-compose go goenv php node python
 
 # i3 and tools
 sudo pacman -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom dunst rofi gvim arandr redshift sxiv feh xfce4-terminal konsole st --noconfirm
@@ -81,6 +81,13 @@ fi
 # Get aur utils:
 paru -S ntfs-3g bumblebee-status ddgr transfer.sh yt-dlp pipe-viewer-git python-myougiden zinnia ranger-sixel --noconfirm
 
+# Network
+paru -S tor protonvpn-cli openvpn --noconfirm
+
+# IDE from aur
+paru -S nvim python-pynvim nvimpager nvim-packer-git --noconfirm
+paru -S goland goland-jre pycharm-community-eap --noconfirm
+
 # System monitors
 paru -S i7z iotop powertop --noconfirm
 
@@ -97,7 +104,10 @@ paru -S aaxtomp3 --noconfirm #--authcode 55b7ab34
 paru -S android-tools simple-mtpfs adbfs-rootless-git --noconfirm
 
 # Get chats and other
-paru -S telegram-desktop discord zoom  --noconfirm
+paru -S telegram-desktop discord zoom --noconfirm
+
+# GUI tools
+paru -S qbittorrent-enhanced-git
 
 # Get creative
 paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage --noconfirm
@@ -126,8 +136,8 @@ if [ "$yn" == "y" ];
   paru -S virtualbox virtualbox-guest-iso virtualbox-ext-oracle --noconfirm
 fi
 
-# IDE from aur
-paru -S goland goland-jre pycharm-community-eap --noconfirm
+# Dev tools from aur
+paru -S graphviz --noconfirm
 
 # Set up user groups:
 echo "⌛... Adding user to a necessary groups... 👥"

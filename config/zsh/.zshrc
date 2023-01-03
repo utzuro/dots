@@ -77,3 +77,4 @@ if [ -f ~/.awsrc ]; then
   source ~/.awsrc
 fi
 
+export PAGER=nvimpager
