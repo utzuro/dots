@@ -4,7 +4,6 @@
  call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
 " WRITING
-    Plugin 'xuhdev/vim-latex-live-preview'   
     Plugin 'hedrok/vim-plugin-ruscmd'
     Plugin 'https://gitlab.com/hedrok/langtool-adoc-vim.git'
     Plugin 'rhysd/vim-grammarous'
@@ -16,6 +15,7 @@
     " Plugin 'inkarkat/vim-ingo-library' | Plugin 'inkarkat/vim-SpellCheck'
 " IDE
     Plugin 'vim-scripts/ReplaceWithRegister'
+    Plugin 'sheerun/vim-polyglot'
     Plugin 'tommcdo/vim-exchange'
     Plugin 'tpope/vim-surround'
     Plugin 'preservim/nerdtree'
@@ -74,6 +74,7 @@
 
 "Visual
     Plugin 'dracula/vim'
+    Plugin 'ryanoasis/vim-devicons'
     
 call vundle#end()            " required
 

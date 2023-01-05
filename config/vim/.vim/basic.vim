@@ -1,7 +1,5 @@
 " GENERAL
-  set clipboard=unnamedplus
   set completeopt=noinsert,menuone,noselect
-  set inccommand=split
   set mouse=a
   set ttyfast
   set t_Co=256
