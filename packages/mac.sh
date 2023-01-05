@@ -5,6 +5,7 @@
 xcode-select --install 
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew update
 
 # shell tools
 brew install curl wget zsh git tmux vim docker jq peco ranger zplug

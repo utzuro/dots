@@ -40,8 +40,9 @@ fi
 printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 # Vim
 ln -sfv "$DIR"/config/vim/.vimrc "$HOME"/
-mkdir -p "$HOME"/.config/nvim
-ln -sfv "$DIR"/config/vim/init.lua "$HOME"/.config/nvim/
+mkdir -p "$HOME"/.config/nvim/lua
+ln -sfv "$DIR"/config/vim/nvim/init.vim "$HOME"/.config/nvim/
+ln -sfv "$DIR"/config/vim/nvim/lua/*.lua "$HOME"/.config/nvim/lua/
 ln -sfv "$DIR"/config/vim/.ideavimrc "$HOME"/
 ln -sfv "$DIR"/config/vim/.vim/*.vim "$HOME"/.vim/
 mkdir -p "$HOME"/.vim/after/syntax
