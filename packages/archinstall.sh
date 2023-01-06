@@ -1,3 +1,4 @@
+echo
 echo "⌛... Installing all the packages for the archlinux... 🖳"
 DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
 
@@ -107,7 +108,7 @@ paru -S android-tools simple-mtpfs adbfs-rootless-git --noconfirm
 paru -S telegram-desktop discord zoom --noconfirm
 
 # GUI tools
-paru -S qbittorrent-enhanced-git
+paru -S qbittorrent-enhanced-git --noconfirm
 
 # Get creative
 paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage --noconfirm
@@ -140,6 +141,7 @@ fi
 paru -S graphviz --noconfirm
 
 # Set up user groups:
+echo
 echo "⌛... Adding user to a necessary groups... 👥"
 if [ -n "$USER" ]; then USER=$(whoami); fi
 sudo usermod -aG input "$USER"
@@ -150,6 +152,8 @@ sudo usermod -aG lp "$USER" # bluetooth
 
 # Not aur tools:
 go install github.com/masakichi/tango@latest
+echo
 echo "📝 Import japanese dictionaries with: tango -import... 📚"
 
+echo
 echo "🔥Archlinux installation complete!🔥"
