@@ -1,7 +1,7 @@
 filetype plugin indent on
 
 so ~/.vim/basic.vim
-so ~/.vim/maps.vim
+"so ~/.vim/maps.vim
 so ~/.vim/auto.vim
 so ~/.vim/plugins.vim
 
