@@ -26,3 +26,9 @@ map <S-Space> <Action>(GotoNextError)
 
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>o <Action>(FileStructurePopup)
+
+""" Unset vim mapping that don't work in Idea
+iunmap .
+iunmap !
+iunmap ?
+iunmap :
