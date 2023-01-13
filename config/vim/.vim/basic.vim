@@ -1,5 +1,5 @@
 " GENERAL
-  " set completeopt=noinsert,menuone,noselect
+  set completeopt=noinsert,menuone,noselect
   set mouse=a
   set ttyfast
   set t_Co=256
