@@ -19,3 +19,10 @@ brew tap versent/homebrew-taps
 brew install tfenv goenv saml2aws jq
 brew install ledger
 brew install obsidian
+brew install scdoc
+brew install graphviz
+
+git clone https://github.com/lucc/nvimpager "${alchemy:?}"/summons
+cd "${alchemy:?}"/summons/nvimpager || exit
+make install
+cd -1 || exit

@@ -25,7 +25,7 @@ else
 fi
 
 printf "\n⌛... Creating default folders... 📂\n"
-mkdir -p "${alchemy:?}"/ingredients "$HOME"/magic/ingredients
+mkdir -p "${alchemy:?}"/{ingredients,summons} "$HOME"/magic/ingredients
 if ! [ -d "$alchemy"/scripts ]; then
   git clone https://gitlab.com/utzuro/scripts.git "$alchemy"/scripts
   cd "$alchemy"/scripts || exit
