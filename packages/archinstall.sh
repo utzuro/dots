@@ -140,20 +140,5 @@ fi
 # Dev tools from aur
 paru -S graphviz --noconfirm
 
-# Set up user groups:
-echo
-echo "⌛... Adding user to a necessary groups... 👥"
-if [ -n "$USER" ]; then USER=$(whoami); fi
-sudo usermod -aG input "$USER"
-sudo usermod -aG docker "$USER"
-sudo usermod -aG plugdev "$USER"
-sudo usermod -aG vboxusers "$USER"
-sudo usermod -aG lp "$USER" # bluetooth
-
-# Not aur tools:
-go install github.com/masakichi/tango@latest
-echo
-echo "📝 Import japanese dictionaries with: tango -import... 📚"
-
 echo
 echo "🔥Archlinux installation complete!🔥"
