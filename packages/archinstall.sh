@@ -9,7 +9,8 @@ sudo pacman -Syu --noconfirm --sudoloop
 sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode --noconfirm
 sudo pacman -S coreutils ntp grub efibootmgr dosfstools mtools cmake xsettingsd pasystray dhcpcd wpa_supplicant iw iwd --noconfirm
 sudo pacman -S zsh ack imagemagick foremost asciidoctor maim net-tools lshw polkit rsync rtorrent progress jq --noconfirm
-sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip unrar htop --noconfirm
+sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip htop --noconfirm 
+# Ignored non free: unrar 
 
 # Dev tools
 pacman -S docker docker-compose go goenv php node python
