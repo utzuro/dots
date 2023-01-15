@@ -19,7 +19,7 @@ elif [[ "$OSTYPE" == "linux-android"* ]]; then
 elif [[ "$OSTYPE" == "cygwin"* ]]; then
     "$DIR"/packages/cygwin.sh
 elif [[ "$OSTYPE" == "msys"* ]]; then
-    "$DIR"/packages/ms.sh
+    "$DIR"/packages/win.sh
 else
     printf " ¯ \ _ (ツ) _ / ¯  Unknown system, packages won't be installed.\n"
 fi

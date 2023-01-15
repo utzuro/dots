@@ -26,3 +26,5 @@ git clone https://github.com/lucc/nvimpager "${alchemy:?}"/summons
 cd "${alchemy:?}"/summons/nvimpager || exit
 make install
 cd -1 || exit
+
+sh <(curl -L https://nixos.org/nix/install)
