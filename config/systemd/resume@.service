@@ -1,0 +1,11 @@
+[Unit]
+Description=Lock the screen on resume suspend
+Before=suspend.target
+
+[Service]
+User=%i
+Environment="DISPLAY=:0"
+ExecStart=/home/void/.config/i3/lock.sh
+
+[Install]
+WantedBy=suspend.target

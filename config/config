@@ -1,0 +1,18 @@
+Host gitlab.com-custom
+	HostName gitlab.com
+	User git
+	AddKeysToAgent yes
+	IdentityFile ~/.ssh/id_custom
+
+Host ssh.custom
+	HostName 124.0.0.0
+    Port 22
+	User root
+	AddKeysToAgent yes
+	IdentityFile ~/.ssh/id_custom
+
+Host custom.ftp.domen
+	HostName custom.ftp.domen
+	User user
+	AddKeysToAgent yes
+	IdentityFile ~/.ssh/id_custom

@@ -48,8 +48,3 @@ export SDL_SOUNDFONTS=/usr/share/soundfonts/default.sf2
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
 export XMODIFIERS='@im=uim'
-uim-xim &
-
-# Run windows manager
-lxsession &
-exec i3

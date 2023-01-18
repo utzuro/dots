@@ -1,0 +1,2 @@
+sudo systemctl enable --now suspend@void.service
+sudo systemctl enable resume@void.service

@@ -97,7 +97,7 @@ paru -S i7z iotop powertop --noconfirm
 paru -S clerk-git copyq rofi-bluetooth-git rofi-search-git rofi-calc --noconfirm
 
 # for bumblebee:
-paru -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress --noconfirm
+paru -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress python-requests --noconfirm
 
 # Convert audiable to mp3
 paru -S aaxtomp3 --noconfirm #--authcode 55b7ab34
