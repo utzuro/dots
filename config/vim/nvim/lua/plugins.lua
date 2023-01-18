@@ -1,51 +1,27 @@
 return require('packer').startup(function()
-
-  -- Packer can manage itself as an optional plugin
+-- Packer init
   use {'wbthomason/packer.nvim', opt = true}
 
-  -- Color scheme
+-- Theme
   use { 'sainnhe/gruvbox-material' }
 
-  -- Fuzzy finder
+-- Tools
+  -- search
   use {
       'nvim-telescope/telescope.nvim',
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 
-  -- LSP and completion
+-- Dev
   use { 'neovim/nvim-lspconfig' }
   use { 'nvim-lua/completion-nvim' }
-
-  -- Lua development
   use { 'tjdevries/nlua.nvim' }
-
-
-  -- Vim dispatch
+  -- git
   use { 'tpope/vim-dispatch' }
-
-  -- Fugitive for Git
   use { 'tpope/vim-fugitive' }
 
 end)
 
-
-
----- This file can be loaded by calling `lua require('plugins')` from your init.vim
---
---vim.cmd([[
---  augroup packer_user_config
---    autocmd!
---    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
---  augroup end
---]])
---
----- Only required if you have packer configured as `opt`
---vim.cmd [[packadd packer.nvim]]
---
---return require('packer').startup(function(use)
---  -- Packer can manage itself
---  use 'wbthomason/packer.nvim'
---
 --  -- Simple plugins can be specified as strings
 --  use 'rstacruz/vim-closer'
 --
