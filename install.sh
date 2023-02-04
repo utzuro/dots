@@ -11,7 +11,10 @@ cd "$DIR" || exit
 # Install packages
 printf "⌛... Installing missing packages... 📦☄\n"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    "$DIR"/packages/archinstall.sh
+    read -rp "👾 Install archlinux packages? (y/N) 👀  " yn
+    if [ "$yn" == "y" ]; then
+        "$DIR"/packages/archinstall.sh
+    fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     "$DIR"/packages/mac.sh
 elif [[ "$OSTYPE" == "linux-android"* ]]; then
@@ -33,6 +36,14 @@ if ! [ -d "$alchemy"/scripts ]; then
   git remote add origin git@gitlab.com:utzuro-utzuro/scripts.git
   cd "$DIR" || exit
 fi
+
+printf "\n⌛... Coping system depended files to be eddited by user... 🖇\n"
+cp "$DIR"/system-depended/.profile "$HOME"/
+source "$HOME"/.profile
+
+printf "\n⌛... Linking scripts to ~/bin... 🖇\n"
+mkdir -p "$HOME"/bin
+ln -sfv "$DIR"/scripts/term "$HOME"/bin/
 
 # Install all the OS agnostic shell tools
 "$DIR"/packages/shell_install.sh

@@ -8,7 +8,7 @@ sudo pacman -Syu --noconfirm --sudoloop
 # Get essentials:
 sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode --noconfirm
 sudo pacman -S coreutils ntp grub efibootmgr dosfstools mtools cmake xsettingsd pasystray dhcpcd wpa_supplicant iw iwd --noconfirm
-sudo pacman -S zsh ack imagemagick foremost asciidoctor maim net-tools lshw polkit rsync rtorrent progress jq --noconfirm
+sudo pacman -S zsh ack peco imagemagick foremost asciidoctor maim net-tools lshw polkit rsync rtorrent progress jq --noconfirm
 sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip htop --noconfirm 
 # Ignored non free: unrar 
 
@@ -44,17 +44,20 @@ sudo pacman -S bluez bluez-utils bluez-plugins --noconfirm
 systemctl enable --now bluetooth
 
 # To get paru
-echo "⌛... Installing paru to get even more packages!🚀"
-tempdir="temp_paru_install_folder"
-if [ -d "$DIR/$tempdir" ];
+if ! command -v paru &> /dev/null
 then
+  echo "⌛... Installing paru to get even more packages!🚀"
+  tempdir="temp_paru_install_folder"
+  if [ -d "$DIR/$tempdir" ];
+  then
+    rm -rf "${DIR:?}/${tempdir:?}"
+  fi
+  git clone https://aur.archlinux.org/paru.git "${DIR:?}/${tempdir:?}"
+  cd "${DIR:?}"/"${tempdir:?}" || exit
+  yes | makepkg -si
+  cd "${DIR:?}" || exit
   rm -rf "${DIR:?}/${tempdir:?}"
 fi
-git clone https://aur.archlinux.org/paru.git "${DIR:?}/${tempdir:?}"
-cd "${DIR:?}"/"${tempdir:?}" || exit
-yes | makepkg -si
-cd "${DIR:?}" || exit
-rm -rf "${DIR:?}/${tempdir:?}"
 
 # Update just in case
 paru -Syu --noconfirm --sudoloop
