@@ -71,13 +71,19 @@ ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
 # Window manager
 if xhost >& /dev/null ; then 
     printf "🧿 Detected Xorg, configuring...\n"
-    ln -sfv "$DIR"/config/xorg/.Xresources "$HOME"/
     ln -sfv "$DIR"/config/xorg/.xinitrc "$HOME"/
     ln -sfv "$DIR"/config/dunst "$HOME"/.config/
     ln -sfv "$DIR"/config/rasi "$HOME"/.config/
     ln -sfv "$DIR"/config/rofi "$HOME"/.config/
     ln -sfv "$DIR"/config/mpd "$HOME"/.config/
     ln -sfv "$DIR"/config/qt5ct "$HOME"/.config/
+    cp "$DIR"/config/xorg/.Xresources "$HOME"/
+    # Remove 4K configs if no 4K monitor is found
+    4K=$(xrandr | awk '/3840x/ {print $1}')
+    if [ ! "$4K" ]; then
+        echo it works!
+        sed -i -e 's/^Xft.dpi: 192/!Xft.dpi: 192/' ~/.Xresources --follow-symlinks
+    fi
 fi
 
 if [ -d "$HOME/.config/i3" ]; then
@@ -85,4 +91,3 @@ if [ -d "$HOME/.config/i3" ]; then
     ln -sfv "$DIR"/config/i3/config "$HOME"/.config/i3/
 fi
 
-sed -i -e 's/^!Xft.dpi: 192/Xft.dpi: 192/' ~/.Xresources --follow-symlinks

@@ -4,8 +4,6 @@
 set $super Mod4
 set $alt Mod1
 
-exec ~/alchemy/scripts/automation/setup
-
 # SHORTCUT
 bindsym $super+Return exec term
 bindsym $alt+s exec xfce4-terminal -e "safe-suspend.sh"
@@ -143,7 +141,7 @@ mode "resize" {
 #autostart
 exec xrdb ~/.Xresources
 exec --no-startup-id picom -b
-exec_always feh --no-aehbg --bg-fill --randomize ~/m/i/wallpapers/* &
+exec_always feh --no-aehbg --bg-fill --randomize ~/m/mysticism/i/wallpapers/* &
 exec --no-startup-id telegram-desktop &
 exec --no-startup-id firefox &
 exec --no-startup-id xsettingsd &
@@ -154,7 +152,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id setcursor
 
-bar { status_command ~/alchemy/summons/bumblebee-status/bumblebee-status -m sensors memory progress battery pasink pasource datetime -t iceberg-contrast
+bar { status_command bumblebee-status -m sensors memory progress battery pasink pasource datetime -t iceberg-contrast
         font pango:DejaVu Sans Mono, Awesome 10
 }
 # taskwarrior ping dunst nvidiagpu
