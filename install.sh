@@ -84,4 +84,5 @@ if [ -d "$HOME/.config/i3" ]; then
     printf "🧿 Detected i3, configuring...\n"
     ln -sfv "$DIR"/config/i3/config "$HOME"/.config/i3/
 fi
-sed -i -e 's/^ 192/Xft.dpi: 192/' ~/.Xresources --follow-symlinks
+
+sed -i -e 's/^!Xft.dpi: 192/Xft.dpi: 192/' ~/.Xresources --follow-symlinks
