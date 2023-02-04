@@ -72,11 +72,10 @@ ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
 if xhost >& /dev/null ; then 
     printf "🧿 Detected Xorg, configuring...\n"
     ln -sfv "$DIR"/config/xorg/.xinitrc "$HOME"/
-    ln -sfv "$DIR"/config/dunst "$HOME"/.config/
-    ln -sfv "$DIR"/config/rasi "$HOME"/.config/
-    ln -sfv "$DIR"/config/rofi "$HOME"/.config/
-    ln -sfv "$DIR"/config/mpd "$HOME"/.config/
-    ln -sfv "$DIR"/config/qt5ct "$HOME"/.config/
+    mkdir -p "$HOME"/.config/{dunst,rofi,mpd}
+    ln -sfv "$DIR"/config/dunst/* "$HOME"/.config/dunst/
+    ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
+    ln -sfv "$DIR"/config/mpd/* "$HOME"/.config/mpd/
     cp "$DIR"/config/xorg/.Xresources "$HOME"/
     # Remove 4K configs if no 4K monitor is found
     4K="$(xrandr | awk '/3840x/ {print $1}')"
