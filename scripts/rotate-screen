@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+screen=eDP-1
+if xrandr | grep "$screen" | grep "0 inverted" ; then
+    xrandr --output eDP-1 --rotate normal
+else
+    xrandr --output eDP-1 --rotate inverted
+fi

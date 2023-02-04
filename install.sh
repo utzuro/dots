@@ -37,13 +37,13 @@ if ! [ -d "$alchemy"/scripts ]; then
   cd "$DIR" || exit
 fi
 
-printf "\n⌛... Coping system depended files to be eddited by user... 🖇\n"
+printf "\n⌛... Coping system depended files to be edited by user... 🖇\n"
 cp "$DIR"/system-depended/.profile "$HOME"/
 source "$HOME"/.profile
 
 printf "\n⌛... Linking scripts to ~/bin... 🖇\n"
 mkdir -p "$HOME"/bin
-ln -sfv "$DIR"/scripts/term "$HOME"/bin/
+ln -sfv "$DIR"/scripts/* "$HOME"/bin/
 
 # Install all the OS agnostic shell tools
 "$DIR"/packages/shell_install.sh
@@ -79,7 +79,7 @@ if xhost >& /dev/null ; then
     ln -sfv "$DIR"/config/qt5ct "$HOME"/.config/
     cp "$DIR"/config/xorg/.Xresources "$HOME"/
     # Remove 4K configs if no 4K monitor is found
-    4K=$(xrandr | awk '/3840x/ {print $1}')
+    4K="$(xrandr | awk '/3840x/ {print $1}')"
     if [ ! "$4K" ]; then
         echo it works!
         sed -i -e 's/^Xft.dpi: 192/!Xft.dpi: 192/' ~/.Xresources --follow-symlinks
