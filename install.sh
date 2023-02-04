@@ -38,7 +38,7 @@ if ! [ -d "$alchemy"/scripts ]; then
 fi
 
 printf "\n⌛... Coping system depended files to be edited by user... 🖇\n"
-cp "$DIR"/system-depended/.profile "$HOME"/
+cp -n "$DIR"/system-depended/.profile "$HOME"/
 source "$HOME"/.profile
 
 printf "\n⌛... Linking scripts to ~/bin... 🖇\n"
@@ -68,6 +68,10 @@ ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
 ln -sfv "$DIR"/config/zsh/.zshrc "$HOME"/
 ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
 
+# SSH
+mkdir -p "$HOME"/.ssh
+cp -n "$DIR"/config/ssh/config "$HOME"/.ssh/
+
 # Window manager
 if xhost >& /dev/null ; then 
     printf "🧿 Detected Xorg, configuring...\n"
@@ -76,10 +80,10 @@ if xhost >& /dev/null ; then
     ln -sfv "$DIR"/config/dunst/* "$HOME"/.config/dunst/
     ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
     ln -sfv "$DIR"/config/mpd/* "$HOME"/.config/mpd/
-    cp "$DIR"/config/xorg/.Xresources "$HOME"/
+    cp -n "$DIR"/config/xorg/.Xresources "$HOME"/
     # Remove 4K configs if no 4K monitor is found
-    4K="$(xrandr | awk '/3840x/ {print $1}')"
-    if [ ! "$4K" ]; then
+    UHD="$(xrandr | awk '/3840x/ {print $1}')"
+    if [ ! "$UHD" ]; then
         echo it works!
         sed -i -e 's/^Xft.dpi: 192/!Xft.dpi: 192/' ~/.Xresources --follow-symlinks
     fi
