@@ -3,6 +3,12 @@
  set rtp+=~/.vim/bundle/Vundle.vim
  call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
+
+" lua
+    Plugin 'nvim-lua/popup.nvim'
+    Plugin 'nvim-lua/plenary.nvim'
+    Plugin 'nvim-telescope/telescope.nvim'
+    Plugin 'nvim-telescope/telescope-media-files.nvim'
 " WRITING
     Plugin 'hedrok/vim-plugin-ruscmd'
     Plugin 'https://gitlab.com/hedrok/langtool-adoc-vim.git'
@@ -14,7 +20,8 @@
     Plugin 'junegunn/goyo.vim'
     " Plugin 'inkarkat/vim-ingo-library' | Plugin 'inkarkat/vim-SpellCheck'
 " IDE
-    Plugin 'vim-scripts/ReplaceWithRegister'
+    Plugin 'github/copilot.vim'  
+    Plugin 'vim-scripts/ReplaceWithRegister'  
     Plugin 'sheerun/vim-polyglot'
     Plugin 'tommcdo/vim-exchange'
     Plugin 'tpope/vim-surround'
@@ -26,7 +33,6 @@
     Plugin 'tpope/vim-repeat'
     Plugin 'tpope/vim-speeddating'
     Plugin 'tpope/vim-vinegar'
-    Plugin 'ycm-core/YouCompleteMe'
     Plugin 'vim-scripts/argtextobj.vim'
     Plugin 'mattn/emmet-vim'
     Plugin 'vim-syntastic/syntastic'

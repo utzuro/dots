@@ -69,7 +69,7 @@ alias roff="redshift -P -O 6200 -b1"
 alias ino=arduino-cli
 
 # Ledger cli
-export LEDGER="$manuscripts/ledger/main.ledger"
+export LEDGER="$alchemy/manuscripts/ledger/main.ledger"
 alias real="ledger -f $LEDGER bal Assets --real"
 alias budgets="ledger -f $LEDGER bal Budget"
 

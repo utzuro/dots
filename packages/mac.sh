@@ -8,7 +8,7 @@ xcode-select --install
 brew update
 
 # shell tools
-brew install curl wget zsh git tmux vim docker jq peco ranger zplug
+brew install curl wget zsh git tmux vim docker jq peco ranger zplug node
 
 # pdf
 brew tap zegervdv/zathura
