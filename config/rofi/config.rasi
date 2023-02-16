@@ -1,1 +1,6 @@
 @theme "void.rasi"
+configuration {
+	modes: "run,calc,filebrowser";
+	font: "mono 32";
+	show-icons: true;
+}

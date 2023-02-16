@@ -9,7 +9,7 @@ bindsym $super+Return exec term
 bindsym $alt+s exec xfce4-terminal -e "safe-suspend.sh"
 bindsym $super+shift+x exec i3lock -t -i ~/m/i/wallpapers/820012.png -e
 bindsym $super+s exec rofi-search 
-bindsym $alt+space exec rofi -show run 
+bindsym $alt+space exec rofi -show run calc
 bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=20'"
 bindsym $super+Shift+q kill
 bindsym $super+Shift+r restart
@@ -91,16 +91,16 @@ assign [class="Anki"] $ws7
 assign [class="Steam"] $ws9
 
 # DISPLAYS
-workspace $ws1 output eDP-1
-workspace $ws2 output DP3
-workspace $ws3 output DP3
-workspace $ws4 output DP3
-workspace $ws5 output eDP-1
-workspace $ws6 output eDP-1
-workspace $ws7 output DP3
-workspace $ws8 output DP3
-workspace $ws9 output DP3
-workspace $ws10 output DP3
+# workspace $ws1 output eDP-1
+# workspace $ws2 output DP3
+# workspace $ws3 output DP3
+# workspace $ws4 output DP3
+# workspace $ws5 output eDP-1
+# workspace $ws6 output eDP-1
+# workspace $ws7 output DP3
+# workspace $ws8 output DP3
+# workspace $ws9 output DP3
+# workspace $ws10 output DP3
 
 # NAVIGATION
 bindsym $super+1 workspace $ws1

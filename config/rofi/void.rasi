@@ -11,8 +11,20 @@ prompt {
 
 entry {
   padding: 8px;
+	cursor: pointer;
+	cursor-color: rgb(220,20,60);
+	cursor-width: 8px;
 }
 
 element {
   padding: 8px;
+	spacing: 2em;
+}
+
+element-icon {
+		size: 2.5em;
+}
+
+element-text {
+		vertical-align: 0.5;
 }
