@@ -8,7 +8,7 @@ xcode-select --install
 brew update
 
 # shell tools
-brew install curl wget zsh git tmux vim docker jq peco ranger zplug
+brew install curl wget zsh git tmux vim docker jq peco ranger zplug node
 
 # pdf
 brew tap zegervdv/zathura
@@ -19,3 +19,12 @@ brew tap versent/homebrew-taps
 brew install tfenv goenv saml2aws jq
 brew install ledger
 brew install obsidian
+brew install scdoc
+brew install graphviz
+
+git clone https://github.com/lucc/nvimpager "${alchemy:?}"/summons
+cd "${alchemy:?}"/summons/nvimpager || exit
+make install
+cd -1 || exit
+
+sh <(curl -L https://nixos.org/nix/install)

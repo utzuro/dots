@@ -11,7 +11,10 @@ cd "$DIR" || exit
 # Install packages
 printf "⌛... Installing missing packages... 📦☄\n"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    "$DIR"/packages/archinstall.sh
+    read -rp "👾 Install archlinux packages? (y/N) 👀  " yn
+    if [ "$yn" == "y" ]; then
+        "$DIR"/packages/archinstall.sh
+    fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     "$DIR"/packages/mac.sh
 elif [[ "$OSTYPE" == "linux-android"* ]]; then
@@ -19,13 +22,13 @@ elif [[ "$OSTYPE" == "linux-android"* ]]; then
 elif [[ "$OSTYPE" == "cygwin"* ]]; then
     "$DIR"/packages/cygwin.sh
 elif [[ "$OSTYPE" == "msys"* ]]; then
-    "$DIR"/packages/ms.sh
+    "$DIR"/packages/win.sh
 else
     printf " ¯ \ _ (ツ) _ / ¯  Unknown system, packages won't be installed.\n"
 fi
 
 printf "\n⌛... Creating default folders... 📂\n"
-mkdir -p "${alchemy:?}"/ingredients "$HOME"/magic/ingredients
+mkdir -p "${alchemy:?}"/{ingredients,summons} "$HOME"/magic/ingredients
 if ! [ -d "$alchemy"/scripts ]; then
   git clone https://gitlab.com/utzuro/scripts.git "$alchemy"/scripts
   cd "$alchemy"/scripts || exit
@@ -33,6 +36,14 @@ if ! [ -d "$alchemy"/scripts ]; then
   git remote add origin git@gitlab.com:utzuro-utzuro/scripts.git
   cd "$DIR" || exit
 fi
+
+printf "\n⌛... Coping system depended files to be edited by user... 🖇\n"
+cp -n "$DIR"/system-depended/.profile "$HOME"/
+source "$HOME"/.profile
+
+printf "\n⌛... Linking scripts to ~/bin... 🖇\n"
+mkdir -p "$HOME"/bin
+ln -sfv "$DIR"/scripts/* "$HOME"/bin/
 
 # Install all the OS agnostic shell tools
 "$DIR"/packages/shell_install.sh
@@ -57,19 +68,29 @@ ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
 ln -sfv "$DIR"/config/zsh/.zshrc "$HOME"/
 ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
 
+# SSH
+mkdir -p "$HOME"/.ssh
+cp -n "$DIR"/config/ssh/config "$HOME"/.ssh/
+
 # Window manager
 if xhost >& /dev/null ; then 
     printf "🧿 Detected Xorg, configuring...\n"
-    ln -sfv "$DIR"/config/xorg/.Xresources "$HOME"/
     ln -sfv "$DIR"/config/xorg/.xinitrc "$HOME"/
-    ln -sfv "$DIR"/config/dunst "$HOME"/.config/
-    ln -sfv "$DIR"/config/rasi "$HOME"/.config/
-    ln -sfv "$DIR"/config/rofi "$HOME"/.config/
-    ln -sfv "$DIR"/config/mpd "$HOME"/.config/
-    ln -sfv "$DIR"/config/qt5ct "$HOME"/.config/
+    mkdir -p "$HOME"/.config/{dunst,rofi,mpd}
+    ln -sfv "$DIR"/config/dunst/* "$HOME"/.config/dunst/
+    ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
+    ln -sfv "$DIR"/config/mpd/* "$HOME"/.config/mpd/
+    cp -n "$DIR"/config/xorg/.Xresources "$HOME"/
+    # Remove 4K configs if no 4K monitor is found
+    UHD="$(xrandr | awk '/3840x/ {print $1}')"
+    if [ ! "$UHD" ]; then
+        echo it works!
+        sed -i -e 's/^Xft.dpi: 192/!Xft.dpi: 192/' ~/.Xresources --follow-symlinks
+    fi
 fi
 
 if [ -d "$HOME/.config/i3" ]; then
     printf "🧿 Detected i3, configuring...\n"
     ln -sfv "$DIR"/config/i3/config "$HOME"/.config/i3/
 fi
+

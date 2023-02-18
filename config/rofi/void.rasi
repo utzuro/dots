@@ -1,0 +1,30 @@
+* {
+  background-color: rgba(24, 0, 37, 100%);
+  text-color: rgba(255, 252, 255, 100%);
+  width: 50%;
+  height: 60%;
+}
+
+prompt {
+  padding: 8px;
+}
+
+entry {
+  padding: 8px;
+	cursor: pointer;
+	cursor-color: rgb(220,20,60);
+	cursor-width: 8px;
+}
+
+element {
+  padding: 8px;
+	spacing: 2em;
+}
+
+element-icon {
+		size: 2.5em;
+}
+
+element-text {
+		vertical-align: 0.5;
+}

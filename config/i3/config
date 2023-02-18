@@ -4,12 +4,12 @@
 set $super Mod4
 set $alt Mod1
 
-# SHORTCUTS
-bindsym $super+Return exec /usr/bin/xfce4-terminal #konsole
+# SHORTCUT
+bindsym $super+Return exec term
 bindsym $alt+s exec xfce4-terminal -e "safe-suspend.sh"
 bindsym $super+shift+x exec i3lock -t -i ~/m/i/wallpapers/820012.png -e
 bindsym $super+s exec rofi-search 
-bindsym $alt+space exec rofi -show run 
+bindsym $alt+space exec rofi -show run calc
 bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=20'"
 bindsym $super+Shift+q kill
 bindsym $super+Shift+r restart
@@ -28,6 +28,9 @@ bindsym $super+z split h
 bindsym $super+x split v
 bindsym $super+f fullscreen toggle
 bindsym $super+Shift+space floating toggle
+
+# Laptop Screen Rotation
+bindsym XF86Launch2 exec rotate-screen
 
 # SOUND
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
@@ -88,16 +91,16 @@ assign [class="Anki"] $ws7
 assign [class="Steam"] $ws9
 
 # DISPLAYS
-workspace $ws1 output eDP-1
-workspace $ws2 output DP3
-workspace $ws3 output DP3
-workspace $ws4 output DP3
-workspace $ws5 output eDP-1
-workspace $ws6 output eDP-1
-workspace $ws7 output DP3
-workspace $ws8 output DP3
-workspace $ws9 output DP3
-workspace $ws10 output DP3
+# workspace $ws1 output eDP-1
+# workspace $ws2 output DP3
+# workspace $ws3 output DP3
+# workspace $ws4 output DP3
+# workspace $ws5 output eDP-1
+# workspace $ws6 output eDP-1
+# workspace $ws7 output DP3
+# workspace $ws8 output DP3
+# workspace $ws9 output DP3
+# workspace $ws10 output DP3
 
 # NAVIGATION
 bindsym $super+1 workspace $ws1
@@ -141,7 +144,7 @@ mode "resize" {
 #autostart
 exec xrdb ~/.Xresources
 exec --no-startup-id picom -b
-exec_always feh --no-aehbg --bg-fill --randomize ~/m/i/wallpapers/* &
+exec_always feh --no-aehbg --bg-fill --randomize ~/m/mysticism/i/wallpapers/* &
 exec --no-startup-id telegram-desktop &
 exec --no-startup-id firefox &
 exec --no-startup-id xsettingsd &
@@ -152,7 +155,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id setcursor
 
-bar { status_command bumblebee-status -m cpu sensors memory weather progress bluetooth2 battery pasink pasource datetime -t iceberg-contrast
+bar { status_command bumblebee-status -m sensors memory progress battery pasink pasource datetime -t iceberg-contrast
         font pango:DejaVu Sans Mono, Awesome 10
 }
 # taskwarrior ping dunst nvidiagpu

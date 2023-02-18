@@ -8,8 +8,9 @@ sudo pacman -Syu --noconfirm --sudoloop
 # Get essentials:
 sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode --noconfirm
 sudo pacman -S coreutils ntp grub efibootmgr dosfstools mtools cmake xsettingsd pasystray dhcpcd wpa_supplicant iw iwd --noconfirm
-sudo pacman -S zsh ack imagemagick foremost asciidoctor maim net-tools lshw polkit rsync rtorrent progress jq --noconfirm
-sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip unrar htop --noconfirm
+sudo pacman -S zsh ack peco imagemagick foremost asciidoctor maim net-tools lshw polkit rsync rtorrent progress jq --noconfirm
+sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip htop --noconfirm 
+# Ignored non free: unrar 
 
 # Dev tools
 pacman -S docker docker-compose go goenv php node python
@@ -42,118 +43,106 @@ fi
 sudo pacman -S bluez bluez-utils bluez-plugins --noconfirm
 systemctl enable --now bluetooth
 
-# To get paru
-echo "⌛... Installing paru to get even more packages!🚀"
-tempdir="temp_paru_install_folder"
-if [ -d "$DIR/$tempdir" ];
+# To get yay
+if ! command -v yay &> /dev/null
 then
+  echo "⌛... Installing yay to get even more packages!🚀"
+  tempdir="temp_yay_install_folder"
+  if [ -d "$DIR/$tempdir" ];
+  then
+    rm -rf "${DIR:?}/${tempdir:?}"
+  fi
+  git clone https://aur.archlinux.org/yay.git "${DIR:?}/${tempdir:?}"
+  cd "${DIR:?}"/"${tempdir:?}" || exit
+  yes | makepkg -si
+  cd "${DIR:?}" || exit
   rm -rf "${DIR:?}/${tempdir:?}"
 fi
-git clone https://aur.archlinux.org/paru.git "${DIR:?}/${tempdir:?}"
-cd "${DIR:?}"/"${tempdir:?}" || exit
-yes | makepkg -si
-cd "${DIR:?}" || exit
-rm -rf "${DIR:?}/${tempdir:?}"
 
 # Update just in case
-paru -Syu --noconfirm --sudoloop
+yay -Syu --noconfirm --sudoloop
 
 # Get fonts
 ## Favorite fonts
-paru -S ttf-anonymous-pro adobe-source-code-pro-fonts noto-fonts  --noconfirm
+yay -S ttf-anonymous-pro adobe-source-code-pro-fonts noto-fonts  --noconfirm
 ## Japanese
-paru -S adobe-source-han-sans-jp-fonts --noconfirm
+yay -S adobe-source-han-sans-jp-fonts --noconfirm
 ## Handwriting fonts
-paru -S ttf-quintessential otf-miama --noconfirm
+yay -S ttf-quintessential otf-miama --noconfirm
 ## Backwards compatibility fonts
-paru -S ttf-liberation  --noconfirm
+yay -S ttf-liberation  --noconfirm
 ## Icons
-paru -S ttf-font-awesome nerd-fonts-complete powerline-fonts --noconfirm
+yay -S ttf-font-awesome nerd-fonts-complete powerline-fonts --noconfirm
 ## Just in case fonts
-paru -S ttf-ancient-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji --noconfirm
+yay -S ttf-ancient-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji --noconfirm
 ## Just for fun fonts
-paru -R ttf-macedonian-church
+yay -R ttf-macedonian-church
 
 # Get Nvidia driver, nvidia realated tools and libraries for games
 if [[ $(lshw -C display 2>/dev/null | ack vendor) =~ Nvidia ]]; then
-  paru -S nvidia nvidia-utils nvidia-xrun nvidia-docker nvidia-docker-compose bbswitch lib32-nvidia-utils lib32-openal lib32-gnutls lib32-libldap lib32-libgpg-error lib32-sqlite
+  yay -S nvidia nvidia-utils nvidia-xrun nvidia-docker nvidia-docker-compose bbswitch lib32-nvidia-utils lib32-openal lib32-gnutls lib32-libldap lib32-libgpg-error lib32-sqlite
 fi
 
 # Get aur utils:
-paru -S ntfs-3g bumblebee-status ddgr transfer.sh yt-dlp pipe-viewer-git python-myougiden zinnia ranger-sixel --noconfirm
+yay -S ntfs-3g bumblebee-status ddgr transfer.sh yt-dlp pipe-viewer-git python-myougiden zinnia ranger-sixel --noconfirm
 
 # Network
-paru -S tor protonvpn-cli openvpn --noconfirm
+yay -S tor protonvpn-cli openvpn --noconfirm
 
 # IDE from aur
-paru -S nvim python-pynvim nvimpager nvim-packer-git --noconfirm
-paru -S goland goland-jre pycharm-community-eap --noconfirm
+yay -S nvim python-pynvim nvimpager nvim-packer-git --noconfirm
+#yay -S goland goland-jre pycharm-community-eap --noconfirm
 
 # System monitors
-paru -S i7z iotop powertop --noconfirm
+yay -S i7z iotop powertop --noconfirm
 
 # for rofi:
-paru -S clerk-git copyq rofi-bluetooth-git rofi-search-git rofi-calc --noconfirm
+yay -S clerk-git copyq rofi-bluetooth-git rofi-search-git rofi-calc --noconfirm
 
 # for bumblebee:
-paru -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress --noconfirm
+yay -S xininfo-git ffmpeg slop imgurbash2 filebin openssh ix progress python-requests --noconfirm
 
 # Convert audiable to mp3
-paru -S aaxtomp3 --noconfirm #--authcode 55b7ab34
+yay -S aaxtomp3 --noconfirm #--authcode 55b7ab34
 
 # Work with Android:
-paru -S android-tools simple-mtpfs adbfs-rootless-git --noconfirm
+yay -S android-tools simple-mtpfs adbfs-rootless-git --noconfirm
 
 # Get chats and other
-paru -S telegram-desktop discord zoom --noconfirm
+yay -S telegram-desktop discord zoom --noconfirm
 
 # GUI tools
-paru -S qbittorrent-enhanced-git --noconfirm
+yay -S qbittorrent-enhanced-git --noconfirm
 
 # Get creative
-paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage --noconfirm
+yay -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage --noconfirm
 
 # Make gui look good:
-paru -S qt5ct lxappearance adwaita-qt materia-gtk-theme --noconfirm
+yay -S qt5ct lxappearance adwaita-qt materia-gtk-theme --noconfirm
 
 # Get office in need:
-paru -S libreoffice-fresh-ja hunspell hunspell-en_US hunspell-uk hunspell-ru libmythes libreoffice-extension-languagetool --noconfirm
+#yay -S libreoffice-fresh-ja hunspell hunspell-en_US hunspell-uk hunspell-ru libmythes libreoffice-extension-languagetool --noconfirm
 
 # Games
 read -rp "👾 Is this gaming PC? (y/N) 👀  " yn
 if [ "$yn" == "y" ];
  then
   ## Get emulators:
-  paru -S steam wine-staging winetricks wine-gecko wine-mono --noconfirm
+  yay -S steam wine-staging winetricks wine-gecko wine-mono --noconfirm
   ## Libraries for the wine to work properly
-  paru -S giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba --noconfirm
+  yay -S giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba --noconfirm
   ## Dosbox
-  paru -S dosbox doomsday --noconfirm
+  yay -S dosbox doomsday --noconfirm
   ## PlayStation
-  paru -S duckstation-git pcsx2 rpcs3-git --noconfirm
+  yay -S duckstation-git pcsx2 rpcs3-git --noconfirm
   ## Other consoles (genesis, neko-project
-  paru -S xnp2 assimp --noconfirm
+  yay -S xnp2 assimp --noconfirm
   ## Virtual box
-  paru -S virtualbox virtualbox-guest-iso virtualbox-ext-oracle --noconfirm
+  yay -S virtualbox virtualbox-guest-iso virtualbox-ext-oracle --noconfirm
 fi
 
 # Dev tools from aur
-paru -S graphviz --noconfirm
-
-# Set up user groups:
-echo
-echo "⌛... Adding user to a necessary groups... 👥"
-if [ -n "$USER" ]; then USER=$(whoami); fi
-sudo usermod -aG input "$USER"
-sudo usermod -aG docker "$USER"
-sudo usermod -aG plugdev "$USER"
-sudo usermod -aG vboxusers "$USER"
-sudo usermod -aG lp "$USER" # bluetooth
-
-# Not aur tools:
-go install github.com/masakichi/tango@latest
-echo
-echo "📝 Import japanese dictionaries with: tango -import... 📚"
+yay -S graphviz --noconfirm
 
 echo
 echo "🔥Archlinux installation complete!🔥"

@@ -41,6 +41,7 @@ export manuscripts="$HOME/magic/manuscripts"
 
 # PATH
 export PATH="$PATH:$(du "$alchemy/scripts" | cut -f2 | sed '/.git/d' | tr '\n' ':' | sed 's/%*$//')"
+export PATH=$PATH:$HOME/bin
 export GOPATH=$HOME/go
 export GOENV_DISABLE_GOPATH=1
 export GOENV_ROOT="$HOME/.goenv"
@@ -68,7 +69,7 @@ alias roff="redshift -P -O 6200 -b1"
 alias ino=arduino-cli
 
 # Ledger cli
-export LEDGER="$manuscripts/ledger/main.ledger"
+export LEDGER="$alchemy/manuscripts/ledger/main.ledger"
 alias real="ledger -f $LEDGER bal Assets --real"
 alias budgets="ledger -f $LEDGER bal Budget"
 

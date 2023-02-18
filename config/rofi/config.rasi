@@ -1,13 +1,6 @@
+@theme "void.rasi"
 configuration {
-	modi: "run,calc";
-	lines: 10;
-	font: "Anonymous Pro 36";
-	bw: 2;
-	location: 0;
-	padding: 5;
-	fixed-num-lines: true;
-	sidebar-mode: false;
-	combi-modi: "widnowcd,drun";
-	hide-scrollbar: true;
+	modes: "run,calc,filebrowser";
+	font: "mono 32";
+	show-icons: true;
 }
-@theme "/home/void/.config/rasi/void.rasi"
