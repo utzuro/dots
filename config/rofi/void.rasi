@@ -6,23 +6,23 @@
 }
 
 prompt {
-  padding: 8px;
+  padding: 0.3em;
 }
 
 entry {
-  padding: 8px;
+  padding: 0.3em;
 	cursor: pointer;
 	cursor-color: rgb(220,20,60);
-	cursor-width: 8px;
+	cursor-width: 0.3em;
 }
 
 element {
-  padding: 8px;
-	spacing: 2em;
+  padding: 0.3em;
+	spacing: 1em;
 }
 
 element-icon {
-		size: 2.5em;
+		size: 2em;
 }
 
 element-text {
