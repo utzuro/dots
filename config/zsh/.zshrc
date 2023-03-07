@@ -80,3 +80,5 @@ if [ -f ~/.awsrc ]; then
 fi
 
 export PAGER=nvimpager
+
+if [ -e /home/ssm-user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ssm-user/.nix-profile/etc/profile.d/nix.sh; fi
