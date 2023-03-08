@@ -1,3 +1,6 @@
+# Default search engine
+https://duckduckgo.com/?t=ffab&q=$s Duck
+
 # Custom search engines
 ```
 j|ji|jisho: https://jisho.org/search/$s Jisho
