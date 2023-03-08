@@ -1,8 +1,10 @@
 * {
-  background-color: rgba(24, 0, 37, 100%);
+  background-color: rgba(14, 0, 27, 100%);
   text-color: rgba(255, 252, 255, 100%);
+  highlight: bold rgb(250, 22, 185);
   width: 50%;
-  height: 60%;
+  height: 40%; 
+  font: "FontAwesome 44px";
 }
 
 prompt {
@@ -10,21 +12,26 @@ prompt {
 }
 
 entry {
-  padding: 0.3em;
-	cursor: pointer;
-	cursor-color: rgb(220,20,60);
-	cursor-width: 0.3em;
+  padding: 0.3em; 
+  cursor: pointer; 
+  cursor-color: rgb(220,20,60); 
+  cursor-width: 0.3em;
 }
 
 element {
-  padding: 0.3em;
-	spacing: 1em;
+  padding: 0.3em; 
+  spacing: 1em;
+}
+
+element selected {
+  background-color: rgba(34, 30, 57, 100%);
 }
 
 element-icon {
-		size: 2em;
+	size: 2em;
 }
 
-element-text {
-		vertical-align: 0.5;
+element.selected-text { 
+	vertical-align: 0.5; 
+	highlight: bold rgb(250, 22, 185);
 }
