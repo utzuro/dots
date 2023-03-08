@@ -1,14 +1,14 @@
 * {
   bg: 					rgba(14, 0, 27, 100%);
-	fg: 					rgba(255, 252, 255, 100%);
+  fg: 					rgba(255, 252, 255, 100%);
   bg-hl: 				rgba(34, 30, 57, 100%);
-	fg-hl: 				bold rgb(250, 22, 185);
+  fg-hl: 				bold rgb(250, 22, 185);
 
-	background-color: @bg;
+  background-color: @bg;
   text-color: @fg;
   highlight: @fg-hl;
-  width: 40%;
-  height: 30%; 
+  width: calc (40% min 512);
+  height: calc(30% min 240); 
   font: "FontAwesome 28px";
 }
 
@@ -32,10 +32,10 @@ element selected {
 }
 
 element-icon {
-	size: 2em;
+  size: 2em;
 }
 
 element-text {
-    background-color: inherit;
-    text-color:       inherit;
+  background-color: inherit; 
+  text-color:       inherit;
 }
