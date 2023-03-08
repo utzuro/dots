@@ -1,10 +1,15 @@
 * {
-  background-color: rgba(14, 0, 27, 100%);
-  text-color: rgba(255, 252, 255, 100%);
-  highlight: bold rgb(250, 22, 185);
-  width: 50%;
-  height: 40%; 
-  font: "FontAwesome 44px";
+  bg: 					rgba(14, 0, 27, 100%);
+	fg: 					rgba(255, 252, 255, 100%);
+  bg-hl: 				rgba(34, 30, 57, 100%);
+	fg-hl: 				bold rgb(250, 22, 185);
+
+	background-color: @bg;
+  text-color: @fg;
+  highlight: @fg-hl;
+  width: 40%;
+  height: 30%; 
+  font: "FontAwesome 28px";
 }
 
 prompt {
@@ -13,7 +18,6 @@ prompt {
 
 entry {
   padding: 0.3em; 
-  cursor: pointer; 
   cursor-color: rgb(220,20,60); 
   cursor-width: 0.3em;
 }
@@ -24,14 +28,14 @@ element {
 }
 
 element selected {
-  background-color: rgba(34, 30, 57, 100%);
+  background-color: @bg-hl;
 }
 
 element-icon {
 	size: 2em;
 }
 
-element.selected-text { 
-	vertical-align: 0.5; 
-	highlight: bold rgb(250, 22, 185);
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
 }
