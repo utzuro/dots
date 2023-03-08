@@ -1,0 +1,20 @@
+# Custom search engines
+```
+j|ji|jisho: https://jisho.org/search/$s Jisho
+
+g.m|gm|g.map|gmap: https://www.google.com/maps?q=%s \
+  blank=https://www.google.com/maps Google Maps
+y|yt: https://www.youtube.com/results?search_query=%s \
+  blank=https://www.youtube.com/ YouTube
+w|wiki: https://www.wikipedia.org/w/index.php?search=%s Wikipedia
+
+az|amazon: https://www.amazon.co.jp/s?k=%s \
+  blank=https://www.amazon.co.jp/ Amazon
+
+\:i: vimium://sed/s/^//,lower\ $S re= Lower case
+v.m|math: vimium://math\ $S re= Calculate
+v.p: vimium://parse\ $S re= Redo Search
+gh|github: https://github.com/search?q=$s \
+  blank=https://github.com/ GitHub Repo
+js\:|Js: javascript:\ $S; JavaScript
+```
