@@ -67,7 +67,7 @@ export STARDICT_DATA_DIR=$manuscripts/ingredients/dicts/dic
 
 # Aliases
 alias c="clear"
-alias gu='git commit -am "update"'
+alias upd='git commit -am "update"'
 alias push='git push'
 alias pull='git pull --ff-only'
 
