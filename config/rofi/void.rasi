@@ -7,8 +7,8 @@
   background-color: @bg;
   text-color: @fg;
   highlight: @fg-hl;
-  width: calc (40% min 512);
-  height: calc(30% min 240); 
+  width: calc (40% max 640);
+  height: calc(30% max 480); 
   font: "FontAwesome 28px";
 }
 
