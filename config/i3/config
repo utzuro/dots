@@ -14,6 +14,7 @@ bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=20'
 bindsym $super+Shift+q kill
 bindsym $super+Shift+r restart
 bindsym $super+Shift+e exec i3-msg exit
+bindsym $super+Shift+s exec --no-startup-id xfce4-terminal -e shotter
 
 # WINDOWS
 bindsym $super+j focus down
@@ -91,16 +92,16 @@ assign [class="Anki"] $ws7
 assign [class="Steam"] $ws9
 
 # DISPLAYS
-# workspace $ws1 output eDP-1
-# workspace $ws2 output DP3
-# workspace $ws3 output DP3
-# workspace $ws4 output DP3
-# workspace $ws5 output eDP-1
-# workspace $ws6 output eDP-1
-# workspace $ws7 output DP3
-# workspace $ws8 output DP3
-# workspace $ws9 output DP3
-# workspace $ws10 output DP3
+workspace $ws1 output DP-1
+workspace $ws2 output DP-1
+workspace $ws3 output DP-1
+workspace $ws4 output DP-1
+workspace $ws5 output DP-1
+workspace $ws6 output DP-1
+workspace $ws7 output DP-1
+workspace $ws8 output DP-1
+workspace $ws9 output DP-1
+workspace $ws10 output eDP-1
 
 # NAVIGATION
 bindsym $super+1 workspace $ws1

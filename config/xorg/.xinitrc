@@ -18,4 +18,7 @@ export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
 export XMODIFIERS='@im=uim'
 
+# Touch
+MOZ_USE_XINPUT2=1
+
 i3
