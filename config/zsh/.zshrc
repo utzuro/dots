@@ -54,6 +54,11 @@ export PATH="$PATH:$GOPATH/bin"
 # Import system specific configurations
 source ~/.profile
 
+# Other
+if [ -f ~/.awsrc ]; then
+  source ~/.awsrc
+fi
+
 # Program specific
 export npm_config_prefix=~/.node_modules
 export LD_LIBRARY_PATH=/usr/local/lib/
@@ -62,22 +67,21 @@ export STARDICT_DATA_DIR=$manuscripts/ingredients/dicts/dic
 
 # Aliases
 alias c="clear"
+alias gu='git commit -am "update"'
+
 alias m="myougiden"
 alias t="tango"
+
 alias pv="pipe-viewer"
+
 alias ron="redshift -P -O 3200 -b1"
 alias roff="redshift -P -O 6200 -b1"
+
 alias ino=arduino-cli
 
-# Ledger cli
 export LEDGER="$alchemy/manuscripts/ledger/main.ledger"
 alias real="ledger -f $LEDGER bal Assets --real"
 alias budgets="ledger -f $LEDGER bal Budget"
-
-# Other
-if [ -f ~/.awsrc ]; then
-  source ~/.awsrc
-fi
 
 export PAGER=nvimpager
 
