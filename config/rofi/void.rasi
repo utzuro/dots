@@ -10,20 +10,15 @@
   width: calc (40% max 640);
   height: calc(30% max 480); 
   font: "FontAwesome 28px";
-}
-
-prompt {
   padding: 0.3em;
 }
 
 entry {
-  padding: 0.3em; 
   cursor-color: rgb(220,20,60); 
   cursor-width: 0.3em;
 }
 
 element {
-  padding: 0.3em; 
   spacing: 1em;
 }
 
