@@ -170,7 +170,7 @@ client.focused_inactive #000000 #000000 #6272a4 #BBBBBB   #222222
 client.unfocused        #000000 #282a36 #6272a4 #BBBBBB   #222222
 client.urgent           #000000 #bd93f9 #6272a4 #BBBBBB   #222222
 client.placeholder      #000000 #000000 #6272a4 #BBBBBB   #222222
-new_window 1pixel
+default_border none
 for_window [class=".*"] border pixel 0
 
 # Specific window settings
