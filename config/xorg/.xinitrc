@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#System
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
 # Keyboard layout
 setxkbmap -option grp:switch,grp:caps_toggle,grp_led:caps us,ua
 
