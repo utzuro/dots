@@ -84,7 +84,6 @@ if xhost >& /dev/null ; then
     # Remove 4K configs if no 4K monitor is found
     UHD="$(xrandr | awk '/3840x/ {print $1}')"
     if [ ! "$UHD" ]; then
-        echo it works!
         sed -i -e 's/^Xft.dpi: 192/!Xft.dpi: 192/' ~/.Xresources --follow-symlinks
     fi
 fi
