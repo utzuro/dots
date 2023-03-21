@@ -1,5 +1,5 @@
 * {
-  bg: 					rgba(14, 0, 27, 100%);
+  bg: 					rgba(14, 0, 27, 0%);
   fg: 					rgba(255, 252, 255, 100%);
   bg-hl: 				rgba(34, 30, 57, 100%);
   fg-hl: 				bold rgb(250, 22, 185);
@@ -12,6 +12,12 @@
   font: "FontAwesome 28px";
   padding: 0.3em;
 }
+
+window {
+  background-image:            url("~/m/mysticism/i/backgrounds/cyber_abstract_draw.png", none);
+  background-size: 100%;
+}
+
 
 entry {
   cursor-color: rgb(220,20,60); 

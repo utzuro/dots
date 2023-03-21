@@ -34,13 +34,13 @@ yay -Syu --noconfirm --sudoloop
 paru -S paru --noconfirm --sudoloop
 
 # WM Essentials
-paru -S polkit-gnome ffmpeg --noconfirm
-
+paru -S polkit-gnome ffmpeg --noconfirm --sudoloop
+ 
 # Wayland
-paru -S hyprland-bin dunst rofi pavucontrol wl-clipboard wf-recorder swaybg grimblast-git ffmpegthumbnailer tumbler playerctl noise-suppression-for-voice thunar-archive-plugin kitty waybar-hyprland wlogout swaylock-effects sddm-git nwg-look-bin nordic-theme papirus-icon-theme pamixer --noconfirm
+paru -S hyprland-bin dunst rofi pavucontrol wl-clipboard wf-recorder swaybg grimblast-git ffmpegthumbnailer tumbler playerctl noise-suppression-for-voice thunar-archive-plugin kitty waybar-hyprland wlogout swaylock-effects sddm-git nwg-look-bin nordic-theme papirus-icon-theme pamixer --noconfirm --sudoloop
 
 # Xorg and tools
-sudo pacman -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom arandr 
+paru -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom arandr bumblebee-status --noconfirm --sudoloop
 
 # WM Tools
 dunst rofi gvim neovim redshift viewnior feh xfce4-terminal konsole kitty --noconfirm
@@ -96,7 +96,10 @@ if [[ $(lshw -C display 2>/dev/null | ack vendor) =~ Nvidia ]]; then
 fi
 
 # Get aur utils:
-paru -S ntfs-3g bumblebee-status ddgr transfer.sh yt-dlp pipe-viewer-git python-myougiden zinnia ranger-sixel --noconfirm
+paru -S ddgr python-myougiden zinnia ranger-sixel --noconfirm
+
+# Storage
+paru -S ntfs-3g transfer.sh yt-dlp ai pipe-viewer-git --noconfirm
 
 # Network
 paru -S tor protonvpn-cli openvpn --noconfirm
