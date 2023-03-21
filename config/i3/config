@@ -14,7 +14,10 @@ bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=20'
 bindsym $super+Shift+q kill
 bindsym $super+Shift+r restart
 bindsym $super+Shift+e exec i3-msg exit
-bindsym $super+Shift+s exec --no-startup-id xfce4-terminal -e shotter
+# screenshots
+bindsym $super+Shift+s exec --no-startup-id shotter
+bindsym --release Print exec --no-startup-id shotter
+
 
 # WINDOWS
 bindsym $super+j focus down
