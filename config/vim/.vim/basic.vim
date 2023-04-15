@@ -1,4 +1,5 @@
 " GENERAL
+  set shellslash
   set completeopt=noinsert,menuone,noselect
   set mouse=a
   set ttyfast
