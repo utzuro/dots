@@ -35,10 +35,17 @@ set -o vi
 export VISUAL=vim
 export EDITOR=vim
 export fpath=(~/.zsh/completion $fpath)
+autoload -U compinit && compinit
 
 # Directories
 export alchemy="$HOME/alchemy"
 export manuscripts="$alchemy/manuscripts"
+
+# Program specific
+export npm_config_prefix=~/.node_modules
+export LD_LIBRARY_PATH=/usr/local/lib/
+export MANGOHUD=0 #1 for fps in steam games
+export STARDICT_DATA_DIR=$manuscripts/ingredients/dicts/dic
 
 # PATH
 export PATH="$PATH:$(du "$alchemy/scripts" | cut -f2 | sed '/.git/d' | tr '\n' ':' | sed 's/%*$//')"
@@ -50,6 +57,7 @@ export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$npm_config_prefix"
 
 # Import system specific configurations
 source ~/.profile
@@ -58,12 +66,6 @@ source ~/.profile
 if [ -f ~/.awsrc ]; then
   source ~/.awsrc
 fi
-
-# Program specific
-export npm_config_prefix=~/.node_modules
-export LD_LIBRARY_PATH=/usr/local/lib/
-export MANGOHUD=0 #1 for fps in steam games
-export STARDICT_DATA_DIR=$manuscripts/ingredients/dicts/dic
 
 # Aliases
 alias c="clear"
