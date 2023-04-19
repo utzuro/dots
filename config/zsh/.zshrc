@@ -21,7 +21,7 @@ zplug "unixorn/fzf-zsh-plugin"
 zplug romkatv/powerlevel10k, as:theme, depth:1
 zplug load
 
-plugins=(git gitignore colored-man-pages command-not-found history zsh-interactive-cd tmux web-search z)
+plugins=(git gitignore colored-man-pages command-not-found history zsh-interactive-cd web-search z)
 source $ZSH/oh-my-zsh.sh
 
 # Plugin configs
