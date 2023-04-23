@@ -1,58 +1,57 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+; Navigation
 
-; LANG
-*CapsLock::
-    Send, {LWin down}{Space}{Lwin up}
-    return
+; windows
+#f::WinMaximize "A"
 
-;NAVIGATION
-Alt & j::AltTab
-Alt & k::ShiftAltTab
+; vim like navigation
+!j::Send "{Down}"
+!k::Send "{Up}"
+!h::Send "{Left}"
+!l::Send "{Right}"
+!n::Send "{PgDn}"
+!p::Send "{PgUp}"
 
-; NUMLOCK
-!q::
-    send, {Numpad7}
-    return
-!w::
-    send, {Numpad8}
-    return
-!e::
-    send, {Numpad9}
-    return
-!a::
-    send, {Numpad6}
-    return
-!s::
-    send, {Numpad5}
-    return
-!d::
-    send, {Numpad4}
-    return
-!z::
-    send, {Numpad1}
-    return
-!x::
-    send, {Numpad2}
-    return
-!c::
-    send, {Numpad3}
-    return
-!r::
-    send, {Numpad0}
-    return
+; switch between windows
+^j::Send "{Alt down}{Tab}{Alt up}"
+^k::Send "{Alt down}{Shift down}{Tab}{Shift up}{Alt up}"
 
-; Multimedia
-#m::
-    send, {Media_Play_Pause}
-    return
+; Keyboard Layout
+CapsLock::Send "{Shift down}{Alt}{Shift up}"
 
+; Media keys
+#m::Send "{Media_Play_Pause}"
 
-; Text
+; Open apps
+#n::
+{
+    if WinExist("ahk_class Notepad")
+        WinActivate 
+    else
+        Run "notepad"
+}
+#enter::Run "C:\Users\void\scoop\apps\git\current\git-bash.exe"
+
+; Emulate numpad
+!q::Send "{Numpad7}"
+!w::Send "{Numpad8}"
+!e::Send "{Numpad9}"
+!a::Send "{Numpad4}"
+!s::Send "{Numpad5}"
+!d::Send "{Numpad6}"
+!z::Send "{Numpad1}"
+!x::Send "{Numpad2}"
+!c::Send "{Numpad3}"
+
+; Shortcuts overwriting
+
+; macOS like shortcuts
+#v::Send "^v"
+#x::Send "^x"
+#z::Send "^z"
+#c::Send "^c"
+; move between desktops with super + arrow keys
+#Left::Send "{Ctrl down}{LWin down}{Left}{LWin up}{Ctrl up}"
+#Right::Send "{Ctrl down}{LWin down}{Right}{LWin up}{Ctrl up}"
+
+; Text shortcuts
 ::ue::Unreal Engine 5
-
-; links
-#+u::
-    Run, https://duckduckgo.com/?t=ffab&q=unreal+engine+5&ia=web
