@@ -31,13 +31,13 @@ fi
 yay -Syu --noconfirm --sudoloop
 
 # Get paru
-paru -S paru --noconfirm --sudoloop
+yay -S paru --noconfirm --sudoloop
 
 # WM Essentials
-paru -S polkit-gnome ffmpeg --noconfirm --sudoloop
+paru -S polkit-gnome ffmpeg libva qt5ct --noconfirm --sudoloop
  
 # Wayland
-paru -S hyprland-bin dunst rofi pavucontrol wl-clipboard wf-recorder swaybg grimblast-git ffmpegthumbnailer tumbler playerctl noise-suppression-for-voice thunar-archive-plugin kitty waybar-hyprland wlogout swaylock-effects sddm-git nwg-look-bin nordic-theme papirus-icon-theme pamixer --noconfirm --sudoloop
+paru -S hyprland-bin qt5-wayland qt6-wayland dunst rofi pavucontrol wl-clipboard wf-recorder swaybg grimblast-git ffmpegthumbnailer tumbler playerctl noise-suppression-for-voice thunar-archive-plugin kitty waybar-hyprland wlogout swaylock-effects sddm-git nwg-look-bin nordic-theme papirus-icon-theme pamixer --noconfirm --sudoloop
 
 # Xorg and tools
 paru -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom arandr bumblebee-status --noconfirm --sudoloop
@@ -124,7 +124,7 @@ paru -S aaxtomp3 --noconfirm #--authcode 55b7ab34
 paru -S android-tools simple-mtpfs adbfs-rootless-git --noconfirm
 
 # Get chats and other
-paru -S telegram-desktop discord zoom --noconfirm
+paru -S signal-desktop telegram-desktop discord zoom --noconfirm
 
 # GUI tools
 paru -S qbittorrent-enhanced-git --noconfirm
