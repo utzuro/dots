@@ -1,13 +1,10 @@
-# WIP
-# sh <(curl -L https://nixos.org/nix/install) --no-daemon
-
 # Install scoop as package manager (powershell req)
 # Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 # irm get.scoop.sh | iex
 
 scoop bucket add extras 
 # tools
-scoop install ffmpeg vim 7zip curl wget sudo openssh coreutils yt-dlp
+scoop install ffmpeg vim 7zip curl wget openssh coreutils yt-dlp
 # utils
 scoop install autohotkey powertoys
 # apps
