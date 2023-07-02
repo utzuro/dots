@@ -74,6 +74,7 @@ mkdir -p "$HOME"/.ssh
 cp -n "$DIR"/config/ssh/config "$HOME"/.ssh/
 
 # Window manager
+# TODO: Add support for wayland
 if xhost >& /dev/null ; then 
     printf "🧿 Detected Xorg, configuring...\n"
     ln -sfv "$DIR"/config/xorg/.xinitrc "$HOME"/
@@ -81,6 +82,7 @@ if xhost >& /dev/null ; then
     ln -sfv "$DIR"/config/dunst/* "$HOME"/.config/dunst/
     ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
     ln -sfv "$DIR"/config/mpd/* "$HOME"/.config/mpd/
+    ln -sfv "$DIR"/config/ncmpcpp/* "$HOME"/.config/ncmpcpp/
     cp -n "$DIR"/config/xorg/.Xresources "$HOME"/
     # Remove 4K configs if no 4K monitor is found
     UHD="$(xrandr | awk '/3840x/ {print $1}')"
