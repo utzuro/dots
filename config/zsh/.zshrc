@@ -51,10 +51,6 @@ export STARDICT_DATA_DIR=$manuscripts/ingredients/dicts/dic
 export PATH="$PATH:$(du "$alchemy/scripts" | cut -f2 | sed '/.git/d' | tr '\n' ':' | sed 's/%*$//')"
 export PATH=$PATH:$HOME/bin
 export GOPATH=$HOME/go
-export GOENV_DISABLE_GOPATH=1
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$npm_config_prefix"
@@ -69,6 +65,7 @@ fi
 
 # Aliases
 alias c="clear"
+alias vim="nvim"
 alias upd='git commit -am "update"'
 alias push='git push'
 alias pull='git pull --ff-only'

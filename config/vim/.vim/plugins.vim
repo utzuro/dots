@@ -54,6 +54,7 @@
     "Plugin 'SirVer/ultisnips' | Plugin 'honza/vim-snippets'
     Plugin 'vim-scripts/AutoComplPop'
     Plugin 'fatih/vim-go'
+    Plugin 'rust-lang/rust.vim'
     " Languages and file types.
     Plugin 'cakebaker/scss-syntax.vim'
     Plugin 'chr4/nginx.vim'

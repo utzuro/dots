@@ -6,5 +6,5 @@ let @k='y:!fk "' 				" Lookup kanji meaning
 let @f='y:vimgrep " ./**/*'  	" Lookup for the current word in near files
 
 " Ledger macrosses
-let @e="oo2023.03.x[Budget:Exp][Exp:Exp]\t\t\t\t\t"
-let @r="oo2023.03.x[Budget:Food][Exp:Food]\t\t\t\t\t"
+let @e="oo2023.06.x[Budget:Exp][Exp:Exp]\t\t\t\t\t"
+let @r="oo2023.06.x[Budget:Food][Exp:Food]\t\t\t\t\t"
