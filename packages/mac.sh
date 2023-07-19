@@ -8,27 +8,18 @@ xcode-select --install > /dev/null
 brew update
 
 # shell tools
-brew install curl wget zsh git tmux vim docker jq peco ranger zplug node
+brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc
 
-# pdf
-brew tap zegervdv/zathura
-brew install zathura zathura-pdf-mupdf
+# dev
+brew install go tinygo python docker node deno yarn postgresql visual-studio-code
+deno completions zsh > ~/.zsh/_deno
 
-# Extra: can be skipped safely.
+# tools
+brew install graphviz ledger obsidian kitty
+
+# extra tools
 brew tap versent/homebrew-taps
-brew install tfenv goenv saml2aws jq
-brew install ledger
-brew install obsidian
-brew install scdoc
-brew install graphviz
-brew install ffmpeg
-
-git clone https://github.com/lucc/nvimpager "${alchemy:?}"/summons
-cd "${alchemy:?}"/summons/nvimpager || exit
-make install
-cd -1 || exit
-
-sh <(curl -L https://nixos.org/nix/install)
+brew install tfenv saml2aws
 
 # Configure macOS
 # Disable auto-capitalization
@@ -48,3 +39,6 @@ for app in "Dock" \
 	"SystemUIServer"; do
 	killall "${app}" &> /dev/null
 done
+
+brew install koekeishiya/formulae/skhd
+skhd --start-service

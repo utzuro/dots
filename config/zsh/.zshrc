@@ -54,6 +54,7 @@ export GOPATH=$HOME/go
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$npm_config_prefix"
+export PATH="$PATH:$HOME/.deno/bin"
 
 # Import system specific configurations
 source ~/.profile
