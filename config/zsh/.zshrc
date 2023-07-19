@@ -85,5 +85,9 @@ alias real="ledger -f $LEDGER bal Assets --real"
 alias budgets="ledger -f $LEDGER bal Budget"
 
 export PAGER=nvimpager
+export MANPAGER="nvimpager"
+alias less="nvimpager"
+alias cat="nvimpager"
+
 
 if [ -e /home/ssm-user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ssm-user/.nix-profile/etc/profile.d/nix.sh; fi
