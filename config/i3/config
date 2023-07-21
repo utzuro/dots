@@ -3,9 +3,9 @@
 # AUTOSTART
 exec xrdb ~/.Xresources
 exec --no-startup-id picom -b
-exec_always feh --no-aehbg --bg-fill --randomize ~/m/mysticism/i/wallpapers/* &
-exec --no-startup-id telegram-desktop &
-exec --no-startup-id firefox &
+exec_always feh --no-aehbg --bg-fill --randomize ~/m/mysticism/i/back/wallpapers/* &
+# exec --no-startup-id telegram-desktop &
+# exec --no-startup-id firefox &
 exec --no-startup-id xsettingsd &
 exec --no-startup-id pasystray
 exec --no-startup-id copyq
