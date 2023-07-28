@@ -17,7 +17,6 @@ source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
-zplug "unixorn/fzf-zsh-plugin"
 zplug romkatv/powerlevel10k, as:theme, depth:1
 zplug load
 
@@ -58,6 +57,7 @@ export PATH="$PATH:$HOME/.deno/bin"
 
 # Import system specific configurations
 source ~/.profile
+source ~/.secrets
 
 # Other
 if [ -f ~/.awsrc ]; then
@@ -89,6 +89,3 @@ export PAGER=nvimpager
 export MANPAGER="nvimpager"
 alias less="nvimpager"
 alias cat="nvimpager"
-
-
-if [ -e /home/ssm-user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ssm-user/.nix-profile/etc/profile.d/nix.sh; fi

@@ -1,0 +1,10 @@
+categories:
+    - name: Tech
+      desc: Tech news
+      subscriptions:
+        - name: Wired
+          desc: News from the wired team
+          url: https://www.wired.com/feed/rss
+        - name: Chris Titus Tech (virtualization)
+          desc: Chris Titus Tech on virtualization
+          url: https://christitus.com/categories/virtualization/index.xml

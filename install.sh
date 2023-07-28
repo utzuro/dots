@@ -78,8 +78,9 @@ cp -n "$DIR"/config/ssh/config "$HOME"/.ssh/
 if xhost >& /dev/null ; then 
     printf "🧿 Detected Xorg, configuring...\n"
     ln -sfv "$DIR"/config/xorg/.xinitrc "$HOME"/
-    mkdir -p "$HOME"/.config/{dunst,rofi,mpd,ncmpcpp,waybar}
+    mkdir -p "$HOME"/.config/{dunst,rofi,mpd,ncmpcpp,waybar,goread}
     ln -sfv "$DIR"/config/dunst/* "$HOME"/.config/dunst/
+    ln -sfv "$DIR"/config/goread/* "$HOME"/.config/goread/
     ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
     ln -sfv "$DIR"/config/mpd/* "$HOME"/.config/mpd/
     ln -sfv "$DIR"/config/ncmpcpp/* "$HOME"/.config/ncmpcpp/
