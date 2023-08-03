@@ -89,3 +89,4 @@ export PAGER=nvimpager
 export MANPAGER="nvimpager"
 alias less="nvimpager"
 alias cat="nvimpager"
+alias ls="exa"
