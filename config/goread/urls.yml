@@ -1,10 +1,10 @@
 categories:
     - name: Tech
-      desc: Tech news
+      desc: Tech
       subscriptions:
-        - name: Wired
-          desc: News from the wired team
-          url: https://www.wired.com/feed/rss
-        - name: Chris Titus Tech (virtualization)
-          desc: Chris Titus Tech on virtualization
-          url: https://christitus.com/categories/virtualization/index.xml
+        - name: go
+          desc: Go Weekly
+          url: https://cprss.s3.amazonaws.com/golangweekly.com.xml
+        - name: rust
+          desc: ""
+          url: https://blog.rust-lang.org/feed.xml
