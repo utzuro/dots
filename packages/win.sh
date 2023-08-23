@@ -2,14 +2,15 @@
 # Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 # irm get.scoop.sh | iex
 
+# note: chats don't work well when installed with scoop so install manually
+
 scoop bucket add extras 
 # tools
 scoop install ffmpeg vim 7zip curl wget openssh coreutils yt-dlp
 # utils
-scoop install autohotkey powertoys
+scoop install autohotkey powertoys ueli wiztree openssh-connect
 # apps
 scoop install firefox libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
-scoop install discord signal forkgram 
 # dev
 scoop install python go nodejs rustup 
 scoop install neovim jetbrains-toolbox vscode docker docker-compose 
@@ -20,6 +21,7 @@ scoop install steam
 # run with admin rights (buckets can be installed as normal user)
 scoop bucket add games
 scoop bucket add nonportable 
+# scoop install protonvpn-np 
 # scoop install epic-games-launcher
-# scoop install protonvpn-np voicemeeter-np 
+# scoop install voicemeeter-np 
 
