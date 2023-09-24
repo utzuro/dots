@@ -20,7 +20,7 @@
     Plugin 'junegunn/goyo.vim'
     " Plugin 'inkarkat/vim-ingo-library' | Plugin 'inkarkat/vim-SpellCheck'
 " IDE
-    Plugin 'github/copilot.vim'  
+   " Plugin 'github/copilot.vim'  
     Plugin 'vim-scripts/ReplaceWithRegister'  
     Plugin 'sheerun/vim-polyglot'
     Plugin 'tommcdo/vim-exchange'
@@ -53,29 +53,35 @@
     "Plugin 'mhinz/vim-signify'
     "Plugin 'SirVer/ultisnips' | Plugin 'honza/vim-snippets'
     Plugin 'vim-scripts/AutoComplPop'
+
+    " Tools
+    Plugin 'tpope/vim-git'
+
+    " Programming languages support
+    " Server
     Plugin 'fatih/vim-go'
+    Plugin 'vim-python/python-syntax'
     Plugin 'rust-lang/rust.vim'
-    " Languages and file types.
-    Plugin 'cakebaker/scss-syntax.vim'
-    Plugin 'chr4/nginx.vim'
+    " Frontend
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'othree/html5.vim'
     Plugin 'chrisbra/csv.vim'
+    Plugin 'cakebaker/scss-syntax.vim'
+
+    " Config scripts support
+    Plugin 'elkowar/yuck.vim'
+    Plugin 'PotatoesMaster/i3-vim-syntax'
+    Plugin 'chr4/nginx.vim'
+    Plugin 'lifepillar/pgsql.vim'
     Plugin 'ekalinin/dockerfile.vim'
     Plugin 'elixir-editors/vim-elixir'
     Plugin 'Glench/Vim-Jinja2-Syntax'
     Plugin 'godlygeek/tabular' | Plugin 'tpope/vim-markdown'
     Plugin 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
     Plugin 'jvirtanen/vim-hcl'
-    Plugin 'lifepillar/pgsql.vim'
-    Plugin 'othree/html5.vim'
-    Plugin 'pangloss/vim-javascript'
-    Plugin 'PotatoesMaster/i3-vim-syntax'
     Plugin 'stephpy/vim-yaml'
     Plugin 'tmux-plugins/vim-tmux'
-    Plugin 'tpope/vim-git'
     Plugin 'tpope/vim-liquid'
-    Plugin 'tpope/vim-rails'
-    Plugin 'vim-python/python-syntax'
-    Plugin 'vim-ruby/vim-ruby'
     Plugin 'wgwoods/vim-systemd-syntax'
     Plugin 'towolf/vim-helm'
 
