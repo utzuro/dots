@@ -41,6 +41,7 @@ export alchemy="$HOME/alchemy"
 export manuscripts="$alchemy/manuscripts"
 
 # Program specific
+export GPG_TTY=$(tty)
 export npm_config_prefix=~/.node_modules
 export LD_LIBRARY_PATH=/usr/local/lib/
 export MANGOHUD=0 #1 for fps in steam games
