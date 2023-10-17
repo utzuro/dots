@@ -1,0 +1,43 @@
+categories:
+    - name: Tech
+      desc: Tech News etc
+      subscriptions:
+        - name: go
+          desc: Go Weekly
+          url: https://cprss.s3.amazonaws.com/golangweekly.com.xml
+        - name: rust
+          desc: rust blog
+          url: https://blog.rust-lang.org/feed.xml
+        - name: Ars Technica
+          desc: ""
+          url: http://feeds.arstechnica.com/arstechnica/technology-lab
+        - name: Hackday
+          desc: ""
+          url: https://hackaday.com/feed/
+        - name: ACM Queue
+          desc: ""
+          url: http://queue.acm.org/rss/feeds/queuecontent.xml
+        - name: The Morning Paper
+          desc: ""
+          url: https://blog.acolyer.org/feed/
+    - name: Academia
+      desc: Research, Articles
+      subscriptions:
+        - name: arXiv CS
+          desc: Computer Science Articles
+          url: https://arxiv.org/rss/cs
+        - name: 3 Quakrs Daily
+          desc: Articles
+          url: https://www.3quarksdaily.com/feed
+        - name: Philosophy Now
+          desc: ""
+          url: https://philosophynow.org/rss
+    - name: Fantasy
+      desc: Sci-fi, Fantasy, etc...
+      subscriptions:
+        - name: Tor.com
+          desc: ""
+          url: http://feeds.feedburner.com/Torcom/Frontpage_Partial
+        - name: Lightspeed Magazine
+          desc: ""
+          url: http://www.lightspeedmagazine.com/feed/

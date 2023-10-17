@@ -7,6 +7,7 @@
 
 printf "\n⌛... Installing shell tools... 🛠\n"
 touch "${HOME:?}"/.profile
+touch "${HOME:?}"/.secrets
 if ! [ -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else printf "📝 Oh My Zsh seems to be already installed! Remove ~/.oh-my-zsh to reinstall. 🚀\n"

@@ -1,1 +1,3 @@
 ctrl - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd - h : :
+ctrl - p : skhd -k "play"

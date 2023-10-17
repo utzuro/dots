@@ -17,7 +17,6 @@ source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
-zplug "unixorn/fzf-zsh-plugin"
 zplug romkatv/powerlevel10k, as:theme, depth:1
 zplug load
 
@@ -42,6 +41,7 @@ export alchemy="$HOME/alchemy"
 export manuscripts="$alchemy/manuscripts"
 
 # Program specific
+export GPG_TTY=$(tty)
 export npm_config_prefix=~/.node_modules
 export LD_LIBRARY_PATH=/usr/local/lib/
 export MANGOHUD=0 #1 for fps in steam games
@@ -51,16 +51,14 @@ export STARDICT_DATA_DIR=$manuscripts/ingredients/dicts/dic
 export PATH="$PATH:$(du "$alchemy/scripts" | cut -f2 | sed '/.git/d' | tr '\n' ':' | sed 's/%*$//')"
 export PATH=$PATH:$HOME/bin
 export GOPATH=$HOME/go
-export GOENV_DISABLE_GOPATH=1
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$npm_config_prefix"
+export PATH="$PATH:$HOME/.deno/bin"
 
 # Import system specific configurations
 source ~/.profile
+source ~/.secrets
 
 # Other
 if [ -f ~/.awsrc ]; then
@@ -69,6 +67,7 @@ fi
 
 # Aliases
 alias c="clear"
+alias vim="nvim"
 alias upd='git commit -am "update"'
 alias push='git push'
 alias pull='git pull --ff-only'
@@ -88,5 +87,8 @@ alias real="ledger -f $LEDGER bal Assets --real"
 alias budgets="ledger -f $LEDGER bal Budget"
 
 export PAGER=nvimpager
-
-if [ -e /home/ssm-user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ssm-user/.nix-profile/etc/profile.d/nix.sh; fi
+export MANPAGER="nvimpager"
+alias less="nvimpager"
+alias cat="nvimpager"
+alias ls="exa"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"

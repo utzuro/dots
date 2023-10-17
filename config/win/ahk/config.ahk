@@ -18,6 +18,7 @@
 ; Keyboard Layout
 CapsLock::Send "{Shift down}{Alt}{Shift up}"
 F2::Send "{Alt down}{``}{Alt up}"
+F1::Send "{Alt down}{``}{Alt up}"
 
 ; Media keys
 #m::Send "{Media_Play_Pause}"

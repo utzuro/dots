@@ -47,6 +47,7 @@ dunst rofi gvim neovim redshift viewnior feh xfce4-terminal konsole kitty --noco
 
 # GUI Apps
 sudo pacman -S thunar firefox chromium vlc gedit nautilus --noconfirm
+# Note on chromium add this flag "ozone-platform-hint=auto" to /etc/chromium-flags.conf
 
 # Dev tools
 pacman -S docker docker-compose go goenv php node python
@@ -143,7 +144,16 @@ read -rp "👾 Is this gaming PC? (y/N) 👀  " yn
 if [ "$yn" == "y" ];
  then
   ## Get emulators:
-  paru -S steam wine-staging winetricks wine-gecko wine-mono --noconfirm
+  paru -S gamescope steam wine-staging winetricks wine-gecko wine-mono --noconfirm
+
+  ## How to use GameScope: on any X11 or Wayland desktop, set the Steam launch arguments of game: 
+  ### Upscale a 720p game to 1440p with integer scaling
+  # gamescope -h 720 -H 1440 -i -- %command%
+  ### Limit a vsynced game to 30 FPS
+  # gamescope -r 30 -- %command%
+  ### Run the game at 1080p, but scale output to a fullscreen 3440×1440 pillarboxed ultrawide window
+  # gamescope -w 1920 -h 1080 -W 3440 -H 1440 -b -- %command%
+
   ## Libraries for the wine to work properly
   paru -S giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba --noconfirm
   ## Dosbox
