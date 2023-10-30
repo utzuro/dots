@@ -92,3 +92,4 @@ alias less="nvimpager"
 alias cat="nvimpager"
 alias ls="exa"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export ZATHURA_PLUGINS_PATH=/usr/lib/zathura
