@@ -92,3 +92,4 @@ alias less="nvimpager"
 alias cat="nvimpager"
 alias ls="exa"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
