@@ -20,7 +20,7 @@
     Plugin 'junegunn/goyo.vim'
     " Plugin 'inkarkat/vim-ingo-library' | Plugin 'inkarkat/vim-SpellCheck'
 " IDE
-   " Plugin 'github/copilot.vim'  
+    Plugin 'github/copilot.vim'  
     Plugin 'vim-scripts/ReplaceWithRegister'  
     Plugin 'sheerun/vim-polyglot'
     Plugin 'tommcdo/vim-exchange'

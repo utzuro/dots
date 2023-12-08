@@ -11,8 +11,13 @@ brew update
 brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc
 
 # dev
-brew install go tinygo python docker node deno yarn postgresql visual-studio-code
+brew install go goenv tinygo python docker node deno yarn postgresql sqlc
 deno completions zsh > ~/.zsh/_deno
+
+# install go versions but don't activate them
+goenv install 1.19.0
+goenv install 1.19.4
+goenv install 1.20.0
 
 # tools
 brew install graphviz ledger obsidian kitty
@@ -20,6 +25,10 @@ brew install graphviz ledger obsidian kitty
 # extra tools
 brew tap versent/homebrew-taps
 brew install tfenv saml2aws
+
+# fonts
+brew tap homebrew/cask-fonts
+brew install font-monaspace
 
 # Configure macOS
 # Disable auto-capitalization
