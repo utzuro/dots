@@ -5,52 +5,71 @@ DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
 # Update
 sudo pacman -Syu --noconfirm --sudoloop
 
-# Get essentials:
-sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode --noconfirm
-sudo pacman -S coreutils ntp grub efibootmgr dosfstools mtools cmake xsettingsd pasystray dhcpcd wpa_supplicant iw iwd --noconfirm
+read -rp "👾 Is this fresh install? (y/N) 👀  " yn
+if [ "$yn" == "y" ];
+ then
+	# Get essentials:
+	sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode --noconfirm
+	sudo pacman -S coreutils ntp grub efibootmgr dosfstools mtools cmake xsettingsd pasystray dhcpcd wpa_supplicant iw iwd --noconfirm
+
+	# To get yay
+	if ! command -v yay &> /dev/null
+	then
+	  echo "⌛... Installing yay to get even more packages!🚀"
+	  tempdir="temp_yay_install_folder"
+	  if [ -d "$DIR/$tempdir" ];
+	  then
+	    rm -rf "${DIR:?}/${tempdir:?}"
+	  fi
+	  git clone https://aur.archlinux.org/yay.git "${DIR:?}/${tempdir:?}"
+	  cd "${DIR:?}"/"${tempdir:?}" || exit
+	  yes | makepkg -si
+	  cd "${DIR:?}" || exit
+	  rm -rf "${DIR:?}/${tempdir:?}"
+	fi
+
+	# Update just in case
+	yay -Syu --noconfirm --sudoloop
+
+	# Get paru
+	yay -S paru --noconfirm --sudoloop
+
+	# WM Essentials
+	paru -S polkit-gnome ffmpeg libva qt5ct --noconfirm --sudoloop
+
+	# Enable battery manager:
+	if [[ $(upower --enumerate 2>/dev/null | ack battery) =~ battery ]]; then
+		sudo pacman -S acpi tlp --noconfirm
+		systemctl enable --now tlp
+	fi
+
+	# Set up bluetooth:
+	sudo pacman -S bluez bluez-utils bluez-plugins --noconfirm
+	systemctl enable --now bluetooth
+
+	# Wayland
+	paru -S hyprland-bin qt5-wayland qt6-wayland dunst rofi pavucontrol wl-clipboard wf-recorder swaybg grimblast-git ffmpegthumbnailer tumbler playerctl noise-suppression-for-voice thunar-archive-plugin waybar-hyprland wlogout swaylock-effects sddm-git nwg-look-bin nordic-theme papirus-icon-theme pamixer --noconfirm --sudoloop
+
+	# Xorg and tools
+	paru -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom arandr bumblebee-status --noconfirm --sudoloop
+fi
+
+# cli tools
 sudo pacman -S zsh ack peco imagemagick foremost asciidoctor maim net-tools lshw rsync rtorrent progress jq --noconfirm
 sudo pacman -S man-db man-pages texinfo git git-lfs tmux openssh sshfs wget mpv mpd mpc ncmpcpp tree zip unzip htop --noconfirm 
 
-# To get yay
-if ! command -v yay &> /dev/null
-then
-  echo "⌛... Installing yay to get even more packages!🚀"
-  tempdir="temp_yay_install_folder"
-  if [ -d "$DIR/$tempdir" ];
-  then
-    rm -rf "${DIR:?}/${tempdir:?}"
-  fi
-  git clone https://aur.archlinux.org/yay.git "${DIR:?}/${tempdir:?}"
-  cd "${DIR:?}"/"${tempdir:?}" || exit
-  yes | makepkg -si
-  cd "${DIR:?}" || exit
-  rm -rf "${DIR:?}/${tempdir:?}"
-fi
-
-# Update just in case
-yay -Syu --noconfirm --sudoloop
-
-# Get paru
-yay -S paru --noconfirm --sudoloop
-
-# WM Essentials
-paru -S polkit-gnome ffmpeg libva qt5ct --noconfirm --sudoloop
- 
-# Wayland
-paru -S hyprland-bin qt5-wayland qt6-wayland dunst rofi pavucontrol wl-clipboard wf-recorder swaybg grimblast-git ffmpegthumbnailer tumbler playerctl noise-suppression-for-voice thunar-archive-plugin kitty waybar-hyprland wlogout swaylock-effects sddm-git nwg-look-bin nordic-theme papirus-icon-theme pamixer --noconfirm --sudoloop
-
-# Xorg and tools
-paru -S xorg xorg-xinit xclip xsel xss-lock xorg-xbacklight xf86-input-libinput i3 picom arandr bumblebee-status --noconfirm --sudoloop
+# build tools
+sudo packan -S check
 
 # WM Tools
-dunst rofi gvim neovim redshift viewnior feh xfce4-terminal konsole kitty --noconfirm
+kitty dunst rofi gvim neovim nvimpager redshift viewnior feh xfce4-terminal konsole kitty --noconfirm
 
 # GUI Apps
 sudo pacman -S thunar firefox chromium vlc gedit nautilus --noconfirm
 # Note on chromium add this flag "ozone-platform-hint=auto" to /etc/chromium-flags.conf
 
 # Dev tools
-pacman -S docker docker-compose go goenv php node python
+pacman -S docker docker-compose go goenv rustup php node python python-pip
 
 # Japanese input
 sudo pacman -S uim ibus libmtp ninja clang --noconfirm
@@ -61,19 +80,8 @@ sudo pacman -S alsa-lib alsa-plugins alsa-utils pavucontrol pulseaudio pulseaudi
 # Graphics:
 sudo pacman -S xf86-video-intel mesa lib32-mesa vulkan-intel --noconfirm
 
-
 # Work with Documents
-sudo pacman -S anki zathura zathura-cb zathura-djvu zathura-pdf-mupdf sdcv calibre --noconfirm
-
-# Enable battery manager:
-if [[ $(upower --enumerate 2>/dev/null | ack battery) =~ battery ]]; then
-  sudo pacman -S acpi tlp --noconfirm
-  systemctl enable --now tlp
-fi
-
-# Set up bluetooth:
-sudo pacman -S bluez bluez-utils bluez-plugins --noconfirm
-systemctl enable --now bluetooth
+sudo pacman -S anki pdftk zathura zathura-cb zathura-djvu zathura-pdf-mupdf sdcv calibre --noconfirm
 
 # Get fonts
 ## Favorite fonts
@@ -125,13 +133,13 @@ paru -S aaxtomp3 --noconfirm #--authcode 55b7ab34
 paru -S android-tools simple-mtpfs adbfs-rootless-git --noconfirm
 
 # Get chats and other
-paru -S signal-desktop telegram-desktop discord zoom --noconfirm
+paru -S signal-desktop telegram-desktop webcord zoom --noconfirm
 
 # GUI tools
 paru -S qbittorrent-enhanced-git --noconfirm
 
 # Get creative
-paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian-appimage --noconfirm
+paru -S simplescreenrecorder-git audio-recorder cplay gimp inkscape krita obsidian --noconfirm
 
 # Make gui look good:
 paru -S qt5ct lxappearance adwaita-qt materia-gtk-theme --noconfirm
