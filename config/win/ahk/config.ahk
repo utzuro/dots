@@ -51,6 +51,8 @@ F1::Send "{Alt down}{``}{Alt up}"
 #x::Send "^x"
 #z::Send "^z"
 #c::Send "^c"
+#q::Send "{Alt down}{F4}{Alt up}"
+^q::Send "{Alt down}{F4}{Alt up}"
 ; move between desktops with super + arrow keys
 #Left::Send "{Ctrl down}{LWin down}{Left}{LWin up}{Ctrl up}"
 #Right::Send "{Ctrl down}{LWin down}{Right}{LWin up}{Ctrl up}"
