@@ -40,6 +40,7 @@
     Plugin 'michaeljsmith/vim-indent-object'
     Plugin 'nvie/vim-flake8'
     Plugin 'honza/vim-snippets'
+    Plugin 'justinmk/vim-sneak'
     Plugin 'tobyS/vmustache'
     Plugin 'djoshea/vim-autoread'
     Plugin 'easymotion/vim-easymotion'
