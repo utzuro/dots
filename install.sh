@@ -83,6 +83,7 @@ if xhost >& /dev/null ; then
     ln -sfv "$DIR"/config/dunst/* "$HOME"/.config/dunst/
     ln -sfv "$DIR"/config/goread/* "$HOME"/.config/goread/
     ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
+    ln -sfv "$DIR"/config/ranger/* "$HOME"/.config/ranger/
     ln -sfv "$DIR"/config/mpd/* "$HOME"/.config/mpd/
     ln -sfv "$DIR"/config/ncmpcpp/* "$HOME"/.config/ncmpcpp/
     ln -sfv "$DIR"/config/waybar/* "$HOME"/.config/waybar/
