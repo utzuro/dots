@@ -8,7 +8,7 @@ xcode-select --install > /dev/null
 brew update
 
 # shell tools
-brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc
+brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc coreutils fd ripgrep 
 
 # dev
 brew install go goenv tinygo python docker node deno yarn postgresql sqlc
@@ -20,7 +20,7 @@ goenv install 1.19.4
 goenv install 1.20.0
 
 # tools
-brew install graphviz ledger obsidian kitty
+brew install graphviz ledger obsidian kitty 
 
 # extra tools
 brew tap versent/homebrew-taps
