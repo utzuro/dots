@@ -22,6 +22,10 @@ goenv install 1.20.0
 # tools
 brew install graphviz ledger obsidian kitty 
 
+brew tap railwaycat/emacsmacport
+brew install emacs-mac --with-modules
+ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications/Emacs.app
+
 # extra tools
 brew tap versent/homebrew-taps
 brew install tfenv saml2aws
