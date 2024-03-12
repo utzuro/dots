@@ -33,6 +33,10 @@ brew install tfenv saml2aws
 # fonts
 brew tap homebrew/cask-fonts
 brew install font-monaspace
+brew install --cask homebrew/cask-fonts/font-0xproto-nerd-font
+brew install --cask homebrew/cask-fonts/font-go-mono-nerd-font
+brew install --cask homebrew/cask-fonts/font-noto-nerd-font
+brew install --cask homebrew/cask-fonts/font-symbols-only-nerd-font
 
 # Configure macOS
 # Disable auto-capitalization
