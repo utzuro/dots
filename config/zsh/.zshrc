@@ -55,7 +55,7 @@ export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$npm_config_prefix"
 export PATH="$PATH:$HOME/.deno/bin"
-export PATH="$PATH:$HOME/.config/emacs/bin"
+export PATH="$PATH:$HOME/.emacs/bin"
 
 # Import system specific configurations
 source ~/.profile

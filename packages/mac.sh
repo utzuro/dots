@@ -22,9 +22,9 @@ goenv install 1.20.0
 # tools
 brew install graphviz ledger obsidian kitty 
 
-brew tap railwaycat/emacsmacport
-brew install emacs-mac --with-modules
-ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications/Emacs.app
+brew install emacs-plus
+osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@29/Emacs.app" at POSIX file "/Applications"'
+brew services start d12frosted/emacs-plus/emacs-plus@29
 
 # extra tools
 brew tap versent/homebrew-taps
