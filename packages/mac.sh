@@ -9,6 +9,9 @@ brew update
 
 # shell tools
 brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc coreutils fd ripgrep 
+# git
+brew install gh
+gh extension install dlvhdr/gh-dash
 
 # dev
 brew install go goenv tinygo python docker node deno yarn postgresql sqlc
@@ -16,11 +19,11 @@ deno completions zsh > ~/.zsh/_deno
 
 # install go versions but don't activate them
 goenv install 1.19.0
-goenv install 1.19.4
 goenv install 1.20.0
 
 # tools
-brew install graphviz ledger obsidian kitty 
+brew install graphviz ledger kitty 
+brew install --cask obsidian drawio anki
 
 brew install emacs-plus
 osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@29/Emacs.app" at POSIX file "/Applications"'
