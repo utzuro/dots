@@ -14,6 +14,7 @@ brew install gh
 gh extension install dlvhdr/gh-dash
 
 # dev
+brew tap tinygo-org/tools
 brew install go goenv tinygo python docker node deno yarn postgresql sqlc
 deno completions zsh > ~/.zsh/_deno
 
@@ -28,6 +29,11 @@ brew install --cask obsidian drawio anki
 brew install emacs-plus
 osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@29/Emacs.app" at POSIX file "/Applications"'
 brew services start d12frosted/emacs-plus/emacs-plus@29
+
+brew install --cask amethyst
+brew install --cask clipy
+brew install --cask karabiner-elements
+
 
 # extra tools
 brew tap versent/homebrew-taps
