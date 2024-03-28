@@ -16,7 +16,7 @@ gh extension install dlvhdr/gh-dash
 # dev
 brew tap tinygo-org/tools
 brew install go goenv tinygo python docker node deno yarn postgresql sqlc
-deno completions zsh > ~/.zsh/_deno
+deno completions zsh > ~/.zsh/_deno 
 
 # install go versions but don't activate them
 goenv install 1.19.0
@@ -37,7 +37,7 @@ brew install --cask karabiner-elements
 
 # extra tools
 brew tap versent/homebrew-taps
-brew install tfenv saml2aws
+brew install tfenv saml2aws awscli
 
 # fonts
 brew tap homebrew/cask-fonts
