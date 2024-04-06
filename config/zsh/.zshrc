@@ -98,4 +98,3 @@ alias less="nvimpager"
 alias cat="nvimpager"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export ZATHURA_PLUGINS_PATH=/usr/lib/zathura
-source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh

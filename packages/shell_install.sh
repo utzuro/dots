@@ -7,6 +7,7 @@
 
 printf "\n⌛... Installing shell tools... 🛠\n"
 touch "${HOME:?}"/.profile
+touch "${HOME:?}"/.zprofile
 touch "${HOME:?}"/.secrets
 if ! [ -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

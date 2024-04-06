@@ -52,6 +52,7 @@ printf "\n⌛... Linking configuration files to the corresponding places in the 
 # Vim
 ln -sfv "$DIR"/config/vim/.vimrc "$HOME"/
 ln -sfv "$DIR"/config/vim/nvim/init.vim "$HOME"/.config/nvim/init.vim
+ln -sfv "$DIR"/config/kitty/kitty.conf "$HOME"/.config/kitty/kitty.conf
 # mkdir -p "$HOME"/.config/nvim/lua/utils
 # ln -sfv "$DIR"/config/vim/nvim/init.lua "$HOME"/.config/nvim/
 # ln -sfv "$DIR"/config/vim/nvim/lua/*.lua "$HOME"/.config/nvim/lua/
