@@ -7,8 +7,11 @@ xcode-select --install > /dev/null
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew update
 
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/oleh.skotar/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # shell tools
-brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc coreutils fd ripgrep 
+brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc coreutils fd ripgrep ynqa/tap/jnv
 # git
 brew install gh
 gh extension install dlvhdr/gh-dash
@@ -17,6 +20,8 @@ gh extension install dlvhdr/gh-dash
 brew tap tinygo-org/tools
 brew install go goenv tinygo python docker node deno yarn postgresql sqlc
 deno completions zsh > ~/.zsh/_deno 
+brew install go goenv tinygo python pip node deno yarn postgresql sqlc
+deno completions zsh > ~/.zsh/_deno
 
 # install go versions but don't activate them
 goenv install 1.19.0
@@ -24,10 +29,11 @@ goenv install 1.20.0
 
 # tools
 brew install graphviz ledger kitty 
-brew install --cask obsidian drawio anki
+brew install --cask obsidian drawio anki visual-studio-code docker
 
+brew tap d12frosted/emacs-plus
 brew install emacs-plus
-osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@29/Emacs.app" at POSIX file "/Applications"'
+osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus/Emacs.app" at POSIX file "/Applications"'
 brew services start d12frosted/emacs-plus/emacs-plus@29
 
 brew install --cask amethyst

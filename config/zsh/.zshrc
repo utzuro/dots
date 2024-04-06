@@ -9,6 +9,7 @@ fi
 
 # Configs
 source ~/.oh-my-zsh/oh-my-zsh.sh
+source ~/.zprofile
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
@@ -49,8 +50,10 @@ export STARDICT_DATA_DIR=$manuscripts/ingredients/dicts/dic
 
 # PATH
 export PATH="$PATH:$(du "$alchemy/scripts" | cut -f2 | sed '/.git/d' | tr '\n' ':' | sed 's/%*$//')"
-export PATH=$PATH:$HOME/bin
-export GOPATH=$HOME/go
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin"
+export PATH="$PATH:/usr/local/opt/python/libexec/bin"
+export GOPATH="$HOME/go"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$npm_config_prefix"
@@ -72,6 +75,8 @@ alias vim="nvim"
 alias upd='git commit -am "update"'
 alias push='git push'
 alias pull='git pull --ff-only'
+alias pip='pip3'
+alias python='python3'
 
 alias m="myougiden"
 alias t="tango"
@@ -91,7 +96,6 @@ export PAGER=nvimpager
 export MANPAGER="nvimpager"
 alias less="nvimpager"
 alias cat="nvimpager"
-alias ls="exa"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export ZATHURA_PLUGINS_PATH=/usr/lib/zathura
 source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
