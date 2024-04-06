@@ -4,6 +4,7 @@
 
 { config, lib, pkgs, ... }:
 
+
 let
   unstable = import <nixos-unstable> {};
 in {
@@ -11,6 +12,8 @@ in {
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.initrd.luks.devices = {
     nixenc = {

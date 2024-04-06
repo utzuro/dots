@@ -51,6 +51,7 @@ ln -sfv "$DIR"/scripts/* "$HOME"/bin/
 printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 # Vim
 ln -sfv "$DIR"/config/vim/.vimrc "$HOME"/
+mkdir "$HOME"/.config/nvim
 ln -sfv "$DIR"/config/vim/nvim/init.vim "$HOME"/.config/nvim/init.vim
 ln -sfv "$DIR"/config/kitty/kitty.conf "$HOME"/.config/kitty/kitty.conf
 # mkdir -p "$HOME"/.config/nvim/lua/utils
