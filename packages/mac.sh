@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Install homebrew and use it to install all the tools. If packages are already installed, brew should automatically skip it.
 
+DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
+
 # General: activate in any case.
 xcode-select --install > /dev/null
 
@@ -44,6 +46,14 @@ brew install --cask karabiner-elements
 # extra tools
 brew tap versent/homebrew-taps
 brew install tfenv saml2aws awscli
+
+# install aws ssm-plugin
+cd /tmp/
+curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/sessionmanager-bundle.zip" -o "sessionmanager-bundle.zip"
+unzip sessionmanager-bundle.zip
+sudo ./sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
+session-manager-plugin --version
+cd $DIR
 
 # fonts
 brew tap homebrew/cask-fonts
