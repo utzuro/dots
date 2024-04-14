@@ -5,9 +5,7 @@
 { config, lib, pkgs, ... }:
 
 
-let
-  unstable = import <nixos-unstable> {};
-in {
+{
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
@@ -66,7 +64,7 @@ in {
         brightnessctl
         xorg.xbacklight
         xorg.xhost
-        unstable.bumblebee-status
+        bumblebee-status
         dmenu
         i3status
         i3lock
@@ -119,19 +117,18 @@ in {
 
       #tools
       qbittorrent-qt5
-      #unstable.obsidian
       gimp
       inkscape
       krita
       obs-cli
 
       # chats
-      unstable.signal-desktop
+      signal-desktop
       signald
       signaldctl
       signal-cli
-      unstable.webcord
-      unstable.telegram-desktop
+      webcord
+      telegram-desktop
 
       #wayland
       #wineWowPackages.waylandFull
@@ -241,6 +238,6 @@ in {
   networking.firewall.enable = false;
 
   # Don't change
-  system.copySystemConfiguration = true;
+  system.copySystemConfiguration = false;
   system.stateVersion = "23.11";
 }
