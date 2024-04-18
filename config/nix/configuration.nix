@@ -9,6 +9,7 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+      ./configs/low.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
