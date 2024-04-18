@@ -1,5 +1,5 @@
 {
-  description = "system-wide configs";
+  description = "root config file";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -10,19 +10,32 @@
   outputs = { self, nixpkgs, home-manager, ... }: 
   let
     lib = nixpkgs.lib;
-    system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    system = {
+      arch = "x86_64-linux";
+    };
+    user = rec {
+      name = "utzuro";
+      email = "utzuro@pm.me";
+    };
   in {
     nixosConfigurations = {
-      void = lib.nixosSystem {
-        inherit system;
+      system = lib.nixosSystem {
+        system = system.arch;
         modules = [ ./configuration.nix ];
+        specialArgs = {
+          inherit system;
+          inherit user;
+        };
       };
     };
     homeConfigurations = {
       void = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        inherit user;
         modules = [ ./home.nix ];
+        extraSpecialArgs = {
+        };
       };
     };
   };
