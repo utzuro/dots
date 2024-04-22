@@ -1,36 +1,19 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
+{ config, lib, pkgs, user, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       /etc/nixos/hardware-configuration.nix
-      ./configs/low.nix
-      ./configs/storage.nix
+      ./ingredients/system.nix
+      ./ingredients/video.nix
+      ./ingredients/storage.nix
+      ./ingredients/network.nix
+      ( import ./ingredients/virtualization.nix {
+        storageDriver = null; inherit pkgs user lib;
+      })
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-# battery
-  powerManagement.enable = true;
-  services.thermald.enable = true;
-  services.tlp.enable = true;
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "void-x240";
-  networking.wireless = {
-    enable = true; 
-    userControlled.enable = true; 
-    networks = {
-      "nihonbu-guest".psk = "nihonbuingakakkoii";
-    };
-  };
 
   time.timeZone = "Asia/Tokyo";
 
