@@ -22,5 +22,8 @@
 
   environment.systemPackages = with pkgs; [
     dig
+    openvpn
   ];
+
+  environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
 }
