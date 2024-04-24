@@ -23,5 +23,6 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
     docker
     docker-compose
     lazydocker
+    virtualbox
   ];
 }

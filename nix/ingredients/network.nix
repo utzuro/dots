@@ -22,7 +22,9 @@
 
   environment.systemPackages = with pkgs; [
     dig
+    tor
     openvpn
+    protonvpn-cli
   ];
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
