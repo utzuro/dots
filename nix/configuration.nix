@@ -16,13 +16,20 @@
       ./ingredients/theme.nix
     ];
 
+  nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "nixos-config=$HOME/dots/nix/configuration.nix"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
+  nixpkgs.config.allowUnfree = true;
 
   # | Move to the Home Manager
   # v
   users.users.void = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "input" "dialout" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       kitty

@@ -3,14 +3,17 @@
 {
   time.timeZone = "Asia/Tokyo";
 
-  nixpkgs.config.allowUnfree = true;
   hardware.enableAllFirmware = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.consoleLogLevel = 0;
-  boot.supportedFilesystems = [ "btrfs" ];
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_zen;
+    # use cpufreq_powersave to save power
+    kernelModules = [ "i2c-dev" "i2c-piix4" "cpufreq_schedutil" ];
+    consoleLogLevel = 0;
+    supportedFilesystems = [ "btrfs" ];
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+  };
 
 # hardware
   sound.enable = true;
