@@ -28,4 +28,54 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # | move all non-mandotary pkgs to the Home Manager
+  # V
+  environment.systemPackages = with pkgs; [
+    #shell
+    zsh
+    vim
+    tmux
+    git
+    git-lfs
+    wget
+    ranger
+    ack
+    peco
+    progress
+    jq
+    imagemagick
+    foremost
+    rsync
+    tree
+    zip
+    unzip
+    htop
+    ddgr
+    aaxtomp3
+
+    #docs
+    asciidoctor
+    pdftk
+    zathura
+    calibre
+
+    #media
+    rtorrent
+    mpv
+    mpd
+    mpc-cli
+    ncmpcpp
+
+    # dev
+    go
+    rustup
+    php
+    nodejs_21
+    python3
+
+    # learn
+    anki
+  ];
+  
+
 }

@@ -26,7 +26,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # | Move to the Home Manager
-  # v
+  # V
   users.users.void = {
     isNormalUser = true;
     extraGroups = [ "wheel" "input" "dialout" ];
@@ -80,53 +80,6 @@
     gamescopeSession.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    #shell
-    zsh
-    vim
-    tmux
-    git
-    git-lfs
-    wget
-    ranger
-    ack
-    peco
-    progress
-    jq
-    imagemagick
-    foremost
-    rsync
-    tree
-    zip
-    unzip
-    htop
-    ddgr
-    aaxtomp3
-
-    #docs
-    asciidoctor
-    pdftk
-    zathura
-    calibre
-
-    #media
-    rtorrent
-    mpv
-    mpd
-    mpc-cli
-    ncmpcpp
-
-    # dev
-    go
-    rustup
-    php
-    nodejs_21
-    python3
-
-    # learn
-    anki
-  ];
-  
   programs.zsh = {
     enable = true;
     enableCompletion = true;
