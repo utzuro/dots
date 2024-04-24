@@ -80,6 +80,8 @@
     gamescopeSession.enable = true;
   };
 
+  environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -91,6 +93,17 @@
       update = "sudo nixos-rebuild switch";
       conf = "sudo vim /etc/nixos/configuration.nix";
     };
+  };
+
+  fonts.fontDir.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.common.default = "*";
   };
 
   system.copySystemConfiguration = false;
