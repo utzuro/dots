@@ -5,9 +5,13 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    blocklist-repo = {
+      url = "github:StevenBlack/hosts";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
   let
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
@@ -15,7 +19,7 @@
       arch = "x86_64-linux";
     };
     user = rec {
-      name = "utzuro";
+      name = "void";
       email = "utzuro@pm.me";
     };
   in {
@@ -26,6 +30,7 @@
         specialArgs = {
           inherit system;
           inherit user;
+          inherit inputs;
         };
       };
     };
@@ -33,6 +38,7 @@
       void = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         inherit user;
+        inherit inputs;
         modules = [ ./home.nix ];
         extraSpecialArgs = {
         };

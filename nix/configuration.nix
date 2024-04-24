@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, user, inputs, ... }:
 
 {
   imports =
@@ -8,8 +8,9 @@
       ./ingredients/video.nix
       ./ingredients/storage.nix
       ./ingredients/network.nix
+      ./ingredients/security.nix
       ( import ./ingredients/virtualization.nix {
-        storageDriver = null; inherit pkgs user lib;
+        storageDriver = "btrfs"; inherit pkgs user lib;
       })
     ];
 
@@ -192,22 +193,6 @@
       conf = "sudo vim /etc/nixos/configuration.nix";
     };
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
 
   # Don't change
   system.copySystemConfiguration = false;

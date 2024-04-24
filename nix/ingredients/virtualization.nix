@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ...}:
+{ pkgs, lib, user, storageDriver ? null, ...}:
 
 assert lib.asserts.assertOneOf "storageDriver" storageDriver
 [
@@ -12,7 +12,7 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
 ];
 
 {
-  virtualization.docker = {
+  virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
     storageDriver = storageDriver;

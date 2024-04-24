@@ -14,7 +14,6 @@
   nixpkgs.config.cudaSupport = true;
   environment.systemPackages = with pkgs; [
     cudatoolkit
-    nvidia_x11
     ocl-icd
     rocm-opencl-runtime
   ];

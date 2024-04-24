@@ -1,4 +1,4 @@
-{ config, pkgs, ...}
+{ config, pkgs, ...}:
 
 {
   networking.hostName = "void-x240";
@@ -10,4 +10,17 @@
     };
   };
   services.timesyncd.enable = true;
+
+  # services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  networking.firewall.enable = false;
+
+
+  environment.systemPackages = with pkgs; [
+    dig
+  ];
 }

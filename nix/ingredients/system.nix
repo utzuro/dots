@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, user, ...}:
+{ config, pkgs, ...}:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -19,28 +19,4 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-#security
-  security.doas.enable = true;
-  security.sudo.enable = false;
-  security.doas.extraRules = [{
-    users = [ "${user.name}" ];
-    keepEnv = true;
-    persist = true;
-  }];
-  environment.systemPackages = [
-    (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
-  ];
-
-  programs.gpupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  let blocklist = builtins.readFile "github:StevenBlack/hosts/alternates/fakenes-gambling-porn-social/hosts";
-  in
-  {
-    networking.extraHosts = ''
-      "${blocklist}"
-      '';
-  }
 }
