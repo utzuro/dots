@@ -30,6 +30,7 @@
   users.users.void = {
     isNormalUser = true;
     extraGroups = [ "wheel" "input" "dialout" ];
+    uid = 1000;
     shell = pkgs.zsh;
     packages = with pkgs; [
       kitty
