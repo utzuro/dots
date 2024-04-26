@@ -1,7 +1,6 @@
 { config, pkgs, ...}:
 
 {
-  time.timeZone = "Asia/Tokyo";
 
   hardware.enableAllFirmware = true;
 
@@ -27,6 +26,10 @@
 # bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+# TimeZone
+  time.timeZone = "Asia/Tokyo";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # | move all non-mandotary pkgs to the Home Manager
   # V
