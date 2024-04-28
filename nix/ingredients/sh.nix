@@ -29,6 +29,42 @@ in
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     shellAliases = aliases;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ 
+        "git" "gitignore" 
+        "colored-man-pages" 
+        "command-not-found" 
+        "history" 
+        "zsh-interactive-cd" 
+        "web-search" 
+        "z" 
+      ];
+    };
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "zsh-users/zsh-history-substring-search"; }
+        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
+      ];
+   };
+
+   initExtra = ''
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+    HYPHEN_INSENSITIVE="true"
+    ENABLE_CORRECTION="true"
+
+    # Plugin configs
+    bindkey -M vicmd 'k' history-substring-search-up
+    bindkey -M vicmd 'j' history-substring-search-down
+    bindkey '[A' history-substring-search-up
+    bindkey '[B' history-substring-search-down
+
+    # Shell options
+    set -o vi
+    export fpath=(~/.zsh/completion $fpath)
+   '';
   };
 
   home.packages = with pkgs; [
