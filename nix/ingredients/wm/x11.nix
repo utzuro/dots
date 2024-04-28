@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./pipewire.nix
     ./fonts.nix
   ];
 
@@ -10,7 +9,7 @@
     enable = true;
     xkb = {
       layout = "us";
-      options = "eurosign:e,setxkbmap -option grp:switch,grp:caps_toggle,grp_led:caps us,ua"
+      options = "eurosign:e,setxkbmap -option grp:switch,grp:caps_toggle,grp_led:caps us,ua";
     };
     desktopManager = {
       xterm.enable = false;
