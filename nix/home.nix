@@ -13,14 +13,14 @@ in {
   home.homeDirectory = homeDir;
 
   imports = [
-    ./ingredients/sh.nix 
-    ./ingredients/git.nix
-    ./ingredients/libs.nix
-    # (./. + "ingredients/wm"+"/"+user.wm+".nix")
-    # ./ingredients/wm/i3.nix
-    ./ingredients/gamedev.nix
-    ./ingredients/media.nix
-    ./ingredients/dev.nix
+    ./ingredients/home/sh.nix 
+    ./ingredients/home/git.nix
+    ./ingredients/home/libs.nix
+    # (./. + "ingredients/home/wm"+"/"+user.wm+".nix")
+    # ./ingredients/home/wm/i3.nix
+    ./ingredients/home/gamedev.nix
+    ./ingredients/home/media.nix
+    ./ingredients/home/dev.nix
   ];
 
   home.packages = (with pkgs; [

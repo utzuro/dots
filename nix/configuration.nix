@@ -7,15 +7,15 @@
   imports =
     [ 
       /etc/nixos/hardware-configuration.nix
-      ./ingredients/system.nix
-      ./ingredients/wm/i3.nix
-      # ./ingredients/wm/hyprland.nix
-      ./ingredients/video.nix
-      ./ingredients/gaming.nix
-      ./ingredients/storage.nix
-      ./ingredients/network.nix
-      ./ingredients/security.nix
-      ( import ./ingredients/virtualization.nix {
+      ./ingredients/system/system.nix
+      ./ingredients/system/wm/i3.nix
+      # ./ingredients/system/wm/hyprland.nix
+      ./ingredients/system/video.nix
+      ./ingredients/system/gaming.nix
+      ./ingredients/system/storage.nix
+      ./ingredients/system/network.nix
+      ./ingredients/system/security.nix
+      ( import ./ingredients/system/virtualization.nix {
         storageDriver = "btrfs"; inherit pkgs user lib;
       })
       ./ingredients/theme.nix
