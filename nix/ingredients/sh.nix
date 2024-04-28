@@ -1,25 +1,25 @@
 { pkgs, ... }:
 let
   aliases = {
-    c = "clear"
-    vim = "nvim"
-    less = "nvimpager"
-    cat = "nvimpager"
+    c = "clear";
+    vim = "nvim";
+    less = "nvimpager";
+    cat = "nvimpager";
 
     # git
-    upd = 'git commit -am "update"'
-    push = 'git push'
-    pull = 'git pull --ff-only'
+    upd = 'git commit -am "update"';
+    push = 'git push';
+    pull = 'git pull --ff-only';
 
     # apps
-    pv = "pipe-viewer"
-    m = "myougiden"
-    t = "tango"
-    ron = "redshift -P -O 3200 -b1"
-    roff = "redshift -P -O 6200 -b1"
-    ino = arduino-cli
-    real = "ledger -f $LEDGER bal Assets --real"
-    budgets = "ledger -f $LEDGER bal Budget"
+    pv = "pipe-viewer";
+    m = "myougiden";
+    t = "tango";
+    ron = "redshift -P -O 3200 -b1";
+    roff = "redshift -P -O 6200 -b1";
+    ino = arduino-cli;
+    real = "ledger -f $LEDGER bal Assets --real";
+    budgets = "ledger -f $LEDGER bal Budget";
   };
 in
 {
