@@ -13,11 +13,18 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
   let
-    lib = nixpkgs.lib;
-    pkgs = nixpkgs.legacyPackages.${system};
     system = {
       arch = "x86_64-linux";
     };
+    lib = nixpkgs.lib;
+    # pkgs = nixpkgs.legacyPackages.${system.arch};
+    pkgs = (import inputs.nixpkgs { 
+      system = system.arch; 
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = (_: true);
+      };
+    });
     user = rec {
       name = "void";
       email = "utzuro@pm.me";
@@ -37,10 +44,10 @@
     homeConfigurations = {
       void = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        inherit user;
-        inherit inputs;
         modules = [ ./home.nix ];
         extraSpecialArgs = {
+          inherit user;
+          inherit inputs;
         };
       };
     };

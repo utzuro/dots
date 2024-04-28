@@ -25,61 +25,15 @@
   ];
   nixpkgs.config.allowUnfree = true;
 
-  # | Move to the Home Manager
-  # V
   users.users.void = {
     isNormalUser = true;
     extraGroups = [ "wheel" "input" "dialout" ];
     uid = 1000;
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      kitty
-      neovim
-      nvimpager
-      firefox
-      chromium
-      vlc
-      yt-dlp
-      pipe-viewer
-
-      #tools
-      qbittorrent-qt5
-      gimp
-      inkscape
-      krita
-      obs-cli
-
-      # chats
-      signal-desktop
-      signald
-      signaldctl
-      signal-cli
-      webcord
-      telegram-desktop
-
-      #wayland
-      #wineWowPackages.waylandFull
-
-      #gaming
-      dosbox-staging
-      wineWowPackages.staging
-      winetricks
-      (retroarch.override {
-        cores = with libretro; [
-          genesis-plus-gx
-          snes9x
-          beetle-psx-hw
-        ];
-      })
-    ];
-  };
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
   };
 
+  # zsh env is defined with home-manager
+  # but I keep some configs here for the root too
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
@@ -89,6 +43,7 @@
     syntaxHighlighting.enable = true;
     
     shellAliases = {
+      c = "clear";
       ll = "ls -l";
       update = "sudo nixos-rebuild switch";
       conf = "sudo vim /etc/nixos/configuration.nix";

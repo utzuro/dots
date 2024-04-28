@@ -1,27 +1,34 @@
 # put home-manager configs here when needed
-# install with `home-manager switch --flake .#void`
+# install home-manager with
+# `nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager`
+# `nix-shell '<home-manager> -A install`
+# update configs with `home-manager switch --flake .#void`
 
-
-{ config, pkgs, user, ... }:
+{ config, pkgs, user, inputs, ... }:
 
 {
   home.username = user.name;
   home.homeDirectory = "/home/"+user.name;
 
   imports = [
-
+    ./ingredients/sh.nix
   ];
 
-  home.packages = [
-    # core
+  home.packages = (with pkgs; [
+    #libs
+    ffmpeg texinfo
+    glib libffi zlib
+
+    # shell
     kitty
-    neovim
-    nvimpager
+    mpv yt-dlp pipe-viewer
+
+    # core
+    rofi
     firefox
+    zathura
     chromium
     vlc
-    yt-dlp
-    pipe-viewer
 
     #tools
     qbittorrent-qt5
@@ -29,6 +36,15 @@
     inkscape
     krita
     obs-cli
+    obs-studio
+    libreoffice-fresh
+    xournalpp
+    openboard
+    shared-mime-info
+    foliate
+    texliveSmall
+    numbat
+
 
     # chats
     signal-desktop
@@ -52,14 +68,21 @@
         beetle-psx-hw
       ];
     })
-  ];
+  ]);
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    gamescopeSession.enable = true;
   };
 
-  home.file.".zshrc".source = ../zsh/zshrc;
-  home.file.".config/i3/config".source = ../i3/config;
+  # home.sessionVariables = {
+  #   EDITOR = "nvim";
+  # };
+
+  # home.file.".zshrc".source = ../zsh/zshrc;
+  # home.file.".config/i3/config".source = ../i3/config;
   #... source all the dots file like that to move to the home-manager.
 
   programs.home-manager.enable = true;
