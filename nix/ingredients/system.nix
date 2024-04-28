@@ -31,54 +31,9 @@
   time.timeZone = "Asia/Tokyo";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # | move all non-mandotary pkgs to the Home Manager
-  # V
   environment.systemPackages = with pkgs; [
-    #shell
-    zsh
-    vim
-    tmux
-    git
-    git-lfs
-    wget
-    ranger
-    ack
-    peco
-    progress
-    jq
-    imagemagick
-    foremost
-    rsync
-    tree
-    zip
-    unzip
-    htop
-    ddgr
-    aaxtomp3
-
-    #docs
-    asciidoctor
-    pdftk
-    zathura
-    calibre
-
-    #media
-    rtorrent
-    mpv
-    mpd
-    mpc-cli
-    ncmpcpp
-
-    # dev
-    go
-    rustup
-    php
-    nodejs_21
-    python3
-
-    # learn
-    anki
+    # some shell available for the root
+    zsh vim tmux git wget ranger
+    ack peco progress jq
   ];
-  
-
 }

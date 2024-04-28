@@ -12,72 +12,18 @@
 
   imports = [
     ./ingredients/sh.nix
+    ./ingredients/git.nix
+    ./ingredients/libs.nix
+    ./ingredients/gamedev.nix
+    ./ingredients/media.nix
+    ./ingredients/dev.nix
   ];
 
   home.packages = (with pkgs; [
-    #libs
-    ffmpeg texinfo
-    glib libffi zlib
-
-    # shell
-    zsh
-    kitty
-    mpv yt-dlp pipe-viewer
-
-    # core
-    rofi
-    firefox
-    zathura
-    chromium
-    vlc
-
-    #tools
-    qbittorrent-qt5
-    gimp
-    inkscape
-    krita
-    obs-cli
-    obs-studio
-    libreoffice-fresh
-    xournalpp
-    openboard
-    shared-mime-info
-    foliate
-    texliveSmall
-    numbat
-
-
-    # chats
-    signal-desktop
-    signald
-    signaldctl
-    signal-cli
-    webcord
-    telegram-desktop
-
-    #wayland
-    #wineWowPackages.waylandFull
-
-    #gaming
-    dosbox-staging
-    wineWowPackages.staging
-    winetricks
-    (retroarch.override {
-      cores = with libretro; [
-        genesis-plus-gx
-        snes9x
-        beetle-psx-hw
-      ];
-    })
+    kitty firefox chromium
   ]);
 
-  # home.sessionVariables = {
-  #   EDITOR = "nvim";
-  # };
-
-  # home.file.".zshrc".source = ../zsh/zshrc;
   # home.file.".config/i3/config".source = ../i3/config;
-  #... source all the dots file like that to move to the home-manager.
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.11";
