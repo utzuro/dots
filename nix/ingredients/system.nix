@@ -1,8 +1,8 @@
 { config, pkgs, ...}:
 
 {
-
   hardware.enableAllFirmware = true;
+  environment.pathsToLink = [ "/libexec" ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;

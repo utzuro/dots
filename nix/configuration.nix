@@ -8,12 +8,13 @@
     [ 
       /etc/nixos/hardware-configuration.nix
       ./ingredients/system.nix
+      ./ingredients/wm/i3.nix
+      # ./ingredients/wm/hyprland.nix
       ./ingredients/video.nix
       ./ingredients/gaming.nix
       ./ingredients/storage.nix
       ./ingredients/network.nix
       ./ingredients/security.nix
-      ./ingredients/wm.nix
       ( import ./ingredients/virtualization.nix {
         storageDriver = "btrfs"; inherit pkgs user lib;
       })
