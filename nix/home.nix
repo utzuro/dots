@@ -20,6 +20,7 @@
     glib libffi zlib
 
     # shell
+    zsh
     kitty
     mpv yt-dlp pipe-viewer
 
@@ -69,13 +70,6 @@
       ];
     })
   ]);
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
-  };
 
   # home.sessionVariables = {
   #   EDITOR = "nvim";
