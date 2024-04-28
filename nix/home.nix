@@ -6,12 +6,14 @@
 
 { config, pkgs, user, inputs, ... }:
 
-{
+let 
+  homeDir = "/home/"+user.name;
+in {
   home.username = user.name;
-  home.homeDirectory = "/home/"+user.name;
+  home.homeDirectory = homeDir;
 
   imports = [
-    ./ingredients/sh.nix
+    ./ingredients/sh.nix 
     ./ingredients/git.nix
     ./ingredients/libs.nix
     ./ingredients/gamedev.nix

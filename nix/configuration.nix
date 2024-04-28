@@ -1,3 +1,6 @@
+# install and update with 
+# `sudo nixos-rebuild switch --flake .#system --impure`
+
 { config, lib, pkgs, user, inputs, ... }:
 
 {
@@ -61,6 +64,7 @@
     ];
     config.common.default = "*";
   };
+  xdg.mime.enable = true;
 
   system.copySystemConfiguration = false;
   system.stateVersion = "23.11";

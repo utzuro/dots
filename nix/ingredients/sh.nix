@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   aliases = {
     c = "clear";
@@ -35,7 +35,7 @@ in
     vim neovim nvimpager
     tmux ranger peco progress jq
     wget curl unzip zip 
-    killall libnotify timer 
+    killall timer 
     disfetch lolcat
     ack ripgrep fd bat rsync tree
     w3m asciidoctor pandoc pdftk foremost
@@ -49,26 +49,11 @@ in
     VISUAL = "nvim";
     alchemy = "$HOME/alchemy";
     manuscripts = "$alchemy/manuscripts";
-    GPG_TTY = $(tty);
-    npm_config_prefix = ~/.node_modules;
-    LD_LIBRARY_PATH = /usr/local/lib/;
-    MANGOHUD = 0 #1 for fps in steam games;
-    STARDICT_DATA_DIR = $manuscripts/ingredients/dicts/dic;
+    STARDICT_DATA_DIR = "$manuscripts/ingredients/dicts/dic";
     LEDGER = "$alchemy/manuscripts/ledger/main.ledger";
-    PAGER = nvimpager;
+    PAGER = "nvimpager";
     MANPAGER = "nvimpager";
-    PATH = "/opt/homebrew/opt/postgresql@15/bin:$PATH";
-    ZATHURA_PLUGINS_PATH = /usr/lib/zathura;
-    PATH = "$PATH:$(du "$alchemy/scripts" | cut -f2 | sed '/.git/d' | tr '\n' ':' | sed 's/%*$//')";
-    PATH = "$PATH:$HOME/bin";
-    PATH = "$PATH:/usr/local/bin:/usr/local/sbin";
-    PATH = "$PATH:/usr/local/opt/python/libexec/bin";
+    ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
     GOPATH = "$HOME/go";
-    PATH = "$GOROOT/bin:$PATH";
-    PATH = "$PATH:$GOPATH/bin";
-    PATH = "$PATH:$npm_config_prefix";
-    PATH = "$PATH:$HOME/.deno/bin";
-    PATH = "$PATH:$HOME/.emacs/bin";
   };
-
 }

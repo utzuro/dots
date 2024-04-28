@@ -4,7 +4,7 @@
     gcc gnumake cmake
     autoconf automake libtool
     ffmpeg texinfo
-    glib libffi zlib libmediainfo
-    shared-mime-info
+    glib libffi zlib libmediainfo libffi
+    shared-mime-info libnotify 
   ];
 }
