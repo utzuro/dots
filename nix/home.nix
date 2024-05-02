@@ -16,8 +16,6 @@ in {
     ./ingredients/home/sh.nix 
     ./ingredients/home/git.nix
     ./ingredients/home/libs.nix
-    # (./. + "ingredients/home/wm"+"/"+user.wm+".nix")
-    # ./ingredients/home/wm/i3.nix
     ./ingredients/home/gamedev.nix
     ./ingredients/home/media.nix
     ./ingredients/home/dev.nix
