@@ -8,8 +8,9 @@
     [ 
       /etc/nixos/hardware-configuration.nix
       ./ingredients/system/system.nix
+      ./ingredients/system/wm/fonts.nix
       ./ingredients/system/wm/i3.nix
-      # ./ingredients/system/wm/hyprland.nix
+      ./ingredients/system/wm/hyprland.nix
       ./ingredients/system/video.nix
       ./ingredients/system/gaming.nix
       ./ingredients/system/storage.nix
