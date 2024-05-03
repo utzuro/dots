@@ -22,6 +22,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    xclip
+  ];
+
   services = {
     gnome = {
       gnome-keyring.enable = true;
