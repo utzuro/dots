@@ -17,6 +17,7 @@ in {
     ./ingredients/home/git.nix
     ./ingredients/home/libs.nix
     ./ingredients/home/gamedev.nix
+    ./ingredients/home/comms.nix
     ./ingredients/home/media.nix
     ./ingredients/home/dev.nix
     ./ingredients/librewolf.nix
