@@ -25,10 +25,6 @@
     jack.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    playerctl
-  ];
-
 # battery
   powerManagement.enable = true;
   services.thermald.enable = true;
@@ -46,5 +42,6 @@
     # some shell available for the root
     zsh vim tmux git wget ranger
     ack peco progress jq
+    playerctl cmatrix
   ];
 }
