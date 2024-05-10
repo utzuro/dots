@@ -39,7 +39,8 @@ autoload -U compinit && compinit
 
 # Directories
 export alchemy="$HOME/alchemy"
-export manuscripts="$alchemy/manuscripts"
+export magic="$HOME/magic"
+export manuscripts="$magic/manuscripts"
 
 # Program specific
 export GPG_TTY=$(tty)
@@ -88,7 +89,7 @@ alias roff="redshift -P -O 6200 -b1"
 
 alias ino=arduino-cli
 
-export LEDGER="$alchemy/manuscripts/ledger/main.ledger"
+export LEDGER="$manuscripts/ledger/main.ledger"
 alias real="ledger -f $LEDGER bal Assets --real"
 alias budgets="ledger -f $LEDGER bal Budget"
 
