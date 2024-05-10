@@ -20,14 +20,12 @@ gh extension install dlvhdr/gh-dash
 
 # dev
 brew tap tinygo-org/tools
-brew install go goenv tinygo python docker node deno yarn postgresql sqlc
+brew install go tinygo python docker node deno yarn postgresql sqlc
 deno completions zsh > ~/.zsh/_deno 
-brew install go goenv tinygo python pip node deno yarn postgresql sqlc
-deno completions zsh > ~/.zsh/_deno
 
-# install go versions but don't activate them
-goenv install 1.19.0
-goenv install 1.20.0
+# sys
+brew tap context-labs/mactop https://github.com/context-labs/mactop
+brew install mactop
 
 # tools
 brew install graphviz ledger kitty 
