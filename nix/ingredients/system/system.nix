@@ -43,5 +43,6 @@
     zsh vim tmux git wget ranger
     ack peco progress jq
     playerctl cmatrix
+    pavucontrol
   ];
 }

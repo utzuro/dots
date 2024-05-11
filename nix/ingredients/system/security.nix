@@ -1,7 +1,7 @@
 { inputs, pkgs, user, ... }:
 
 let 
-  blocklist = builtins.readFile "${inputs.blocklist-repo}/alternates/fakenews-gambling-porn-social/hosts";
+  blocklist = builtins.readFile "${inputs.blocklist-repo}/alternates/fakenews-gambling-porn/hosts";
 in
 {
   programs.mtr.enable = true;

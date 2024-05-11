@@ -5,6 +5,11 @@
     ./wayland.nix
   ];
 
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
+
   security = {
     pam.services.swaylock = {
       text = ''
@@ -25,4 +30,17 @@
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
   };
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+
+  environment.systemPackages = with pkgs; [
+    # enable eww when ready to create DIY bar
+    waybar # eww
+    libnotify swww rofi-wayland wofi
+    grim slurp wl-clipboard
+    dolphin
+  ];
 }

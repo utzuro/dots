@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 alchemy="$HOME/alchemy"
+magic="$HOME/magic"
 
 # Reliable way to get full path
 DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
@@ -28,12 +29,16 @@ else
 fi
 
 printf "\n⌛... Creating default folders... 📂\n"
-mkdir -p "${alchemy:?}"/{ingredients,summons} "$HOME"/magic/ingredients
+touch "${HOME:?}"/.profile
+touch "${HOME:?}"/.zprofile
+touch "${HOME:?}"/.secrets
+touch "${HOME:?}"/.awsrc
+mkdir -p "${alchemy:?}"/{ingredients,summons} ${magic:?}/ingredients "$HOME"/aws
 if ! [ -d "$alchemy"/scripts ]; then
   git clone https://gitlab.com/utzuro/scripts.git "$alchemy"/scripts
   cd "$alchemy"/scripts || exit
   git remote remove origin
-  git remote add origin git@gitlab.com:utzuro-utzuro/scripts.git
+  git remote add origin git@gitlab.com:utzuro/scripts.git
   cd "$DIR" || exit
 fi
 
@@ -41,12 +46,8 @@ printf "\n⌛... Coping system depended files to be edited by user... 🖇\n"
 cp -n "$DIR"/system-depended/.profile "$HOME"/
 source "$HOME"/.profile
 
-printf "\n⌛... Linking scripts to ~/bin... 🖇\n"
-mkdir -p "$HOME"/bin
-ln -sfv "$DIR"/scripts/* "$HOME"/bin/
-
 # Install all the OS agnostic shell tools
-"$DIR"/packages/shell_install.sh
+# "$DIR"/packages/shell_install.sh
 
 printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 # Vim
@@ -68,9 +69,9 @@ vim +PluginInstall +qall
 ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
 
 # Shell
-ln -sfv "$DIR"/config/zsh/.zshrc "$HOME"/
+# ln -sfv "$DIR"/config/zsh/.zshrc "$HOME"/
 ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
-ln -sfv "$DIR"/config/.bashrc "$HOME"/
+# ln -sfv "$DIR"/config/.bashrc "$HOME"/
 
 # SSH
 mkdir -p "$HOME"/.ssh
@@ -84,7 +85,7 @@ if xhost >& /dev/null ; then
     mkdir -p "$HOME"/.config/{dunst,rofi,mpd,ncmpcpp,waybar,goread}
     ln -sfv "$DIR"/config/dunst/* "$HOME"/.config/dunst/
     ln -sfv "$DIR"/config/goread/* "$HOME"/.config/goread/
-    ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
+    # ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
     ln -sfv "$DIR"/config/ranger/* "$HOME"/.config/ranger/
     ln -sfv "$DIR"/config/mpd/* "$HOME"/.config/mpd/
     ln -sfv "$DIR"/config/ncmpcpp/* "$HOME"/.config/ncmpcpp/

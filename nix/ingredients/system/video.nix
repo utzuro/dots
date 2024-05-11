@@ -1,6 +1,7 @@
 { config, pkgs, ...}:
 
 {
+  hardware.nvidia.modesetting.enable = true;
   hardware.opengl.enable = true;
   hardware.opengl.extraPackages = with pkgs; 
   [

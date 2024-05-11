@@ -9,16 +9,16 @@ printf "\n⌛... Installing shell tools... 🛠\n"
 touch "${HOME:?}"/.profile
 touch "${HOME:?}"/.zprofile
 touch "${HOME:?}"/.secrets
-if ! [ -d "$HOME/.oh-my-zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else printf "📝 Oh My Zsh seems to be already installed! Remove ~/.oh-my-zsh to reinstall. 🚀\n"
-fi
-
-if ! [ -d "$HOME/.zplug/" ]; then
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-  printf "📝 Install zsh plugins with zplug install! 🚀\n"
-else printf "📝 Zplug seems to be already installed! Remove ~/.zplug to reinstall. 🚀\n"
-fi
+#if ! [ -d "$HOME/.oh-my-zsh" ]; then
+#  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#else printf "📝 Oh My Zsh seems to be already installed! Remove ~/.oh-my-zsh to reinstall. 🚀\n"
+#fi
+#
+#if ! [ -d "$HOME/.zplug/" ]; then
+#  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+#  printf "📝 Install zsh plugins with zplug install! 🚀\n"
+#else printf "📝 Zplug seems to be already installed! Remove ~/.zplug to reinstall. 🚀\n"
+#fi
 
 if ! [ -d "$HOME/.vim/bundle/Vundle.vim" ]; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -29,11 +29,6 @@ if ! [ -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   printf "📝 Install tmux plugins with ctrl+B + I 🚀\n"
 else printf "📝 TPM seems to be already installed! Remove ~/.tmux/plugins/tpm to reinstall. 🚀\n"
-fi
-
-if ! [ -d "$HOME/.goenv" ]; then
-  git clone https://github.com/syndbg/goenv.git "$HOME/.goenv"
-else printf "📝 GoENV seems to be already installed! Remove ~/.goenv to reinstall. 🚀\n"
 fi
 
 if ! [ -d "$HOME/.config/ranger/plugins/ranger_devicons" ] && [ -d "$HOME/.config/ranger"  ]; then
