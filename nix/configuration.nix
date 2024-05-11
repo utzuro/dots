@@ -1,5 +1,7 @@
 # install and update with 
 # `sudo nixos-rebuild switch --flake .#system --impure`
+# on first install enable unstable channel
+# `nix-channel --add https://nixos.org/channels/nixos-unstable nixos`
 
 { config, lib, pkgs, user, inputs, ... }:
 
