@@ -27,12 +27,12 @@ in {
     kitty firefox chromium
   ]);
 
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi;
-    theme = ./themes/void.rasi;
-    plugins = [ pkgs.rofi-calc ];
-  };
+  # programs.rofi = {
+  #   enable = true;
+  #   package = pkgs.rofi;
+  #   theme = ./themes/void.rasi;
+  #   plugins = [ pkgs.rofi-calc ];
+  # };
 
   # home.file.".config/i3/config".source = ../i3/config;
 

@@ -4,7 +4,9 @@ let
     c = "clear";
     vim = "nvim";
     less = "nvimpager";
-    cat = "nvimpager";
+    ls = "eza"
+    tree = "eza --tree"
+    cat = "bat"
 
     # git
     upd = "git commit -am 'update'";
@@ -69,11 +71,11 @@ in
 
   home.packages = with pkgs; [
     vim neovim nvimpager
-    tmux ranger peco progress jq
+    tmux ranger peco progress jq eza
     wget curl unzip zip 
     killall timer 
     disfetch lolcat
-    ack ripgrep fd bat rsync tree
+    ack ripgrep fd bat rsync
     w3m asciidoctor pandoc pdftk foremost
     imagemagick aaxtomp3
     htop ddgr bottom hwinfo pciutils 
