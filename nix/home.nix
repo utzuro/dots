@@ -21,11 +21,15 @@ in {
     ./ingredients/home/media.nix
     ./ingredients/home/dev.nix
     ./ingredients/librewolf.nix
+    ./ingredients/home/wm/input.nix
   ];
 
   home.packages = (with pkgs; [
     kitty firefox chromium
   ]);
+
+  gtk.enable = true;
+  qt.enable = true;
 
   # programs.rofi = {
   #   enable = true;

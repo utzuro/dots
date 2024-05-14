@@ -1,6 +1,9 @@
 { pkgs, ...}:
 
 {
-  gtk.enable = true;
-  qt.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    kdePackages.qt6ct
+  ];
+
 }

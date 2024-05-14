@@ -4,9 +4,9 @@ let
     c = "clear";
     vim = "nvim";
     less = "nvimpager";
-    ls = "eza"
-    tree = "eza --tree"
-    cat = "bat"
+    ls = "eza";
+    tree = "eza --tree";
+    cat = "bat";
 
     # git
     upd = "git commit -am 'update'";
