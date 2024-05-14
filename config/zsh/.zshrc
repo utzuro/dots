@@ -72,7 +72,6 @@ fi
 
 # Aliases
 alias c="clear"
-alias vim="nvim"
 alias upd='git commit -am "update"'
 alias push='git push'
 alias pull='git pull --ff-only'
@@ -81,6 +80,7 @@ alias python='python3'
 
 alias m="myougiden"
 alias t="tango"
+alias goread="goread -u ~/dots/config/goread/urls.yml"
 
 alias pv="pipe-viewer"
 
@@ -95,7 +95,10 @@ alias budgets="ledger -f $LEDGER bal Budget"
 
 export PAGER=nvimpager
 export MANPAGER="nvimpager"
+alias vim="nvim"
 alias less="nvimpager"
-alias cat="nvimpager"
+alias cat="bat"
+alias ls="eza"
+alias tree="eza --tree"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export ZATHURA_PLUGINS_PATH=/usr/lib/zathura

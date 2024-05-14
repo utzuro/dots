@@ -13,7 +13,7 @@ brew update
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # shell tools
-brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc coreutils fd ripgrep ynqa/tap/jnv
+brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat eza jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc coreutils fd ripgrep ynqa/tap/jnv
 # git
 brew install gh
 gh extension install dlvhdr/gh-dash

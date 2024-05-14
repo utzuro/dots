@@ -17,7 +17,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         "$DIR"/packages/archinstall.sh
     fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    "$DIR"/packages/mac.sh
+    read -rp "Install homebrew packages? (y/N) 👀  " yn
+    if [ "$yn" == "y" ]; then
+        "$DIR"/packages/mac.sh
+    fi
 elif [[ "$OSTYPE" == "linux-android"* ]]; then
     "$DIR"/packages/termux.sh
 elif [[ "$OSTYPE" == "cygwin"* ]]; then
@@ -65,13 +68,15 @@ mkdir -p "$HOME"/.vim/after/syntax
 ln -sfv "$DIR"/config/vim/.vim/after/syntax/asciidoc.vim "$HOME"/.vim/after/syntax/
 vim +PluginInstall +qall
 
-# Tmux
-ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
-
 # Shell
-# ln -sfv "$DIR"/config/zsh/.zshrc "$HOME"/
+# ignore dots that are defined with HomeManager on nix
+if [ ! -d "$HOME"/.nix-profile ]; then
+    ln -sfv "$DIR"/config/zsh/.zshrc "$HOME"/
+    ln -sfv "$DIR"/config/.bashrc "$HOME"/
+fi
+
+ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
 ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
-# ln -sfv "$DIR"/config/.bashrc "$HOME"/
 
 # SSH
 mkdir -p "$HOME"/.ssh
