@@ -93,5 +93,6 @@ in
     MANPAGER = "nvimpager";
     ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
     GOPATH = "$HOME/go";
+    
   };
 }

@@ -17,6 +17,7 @@ in {
     ./ingredients/home/git.nix
     ./ingredients/home/libs.nix
     ./ingredients/home/gamedev.nix
+    ./ingredients/home/gaming.nix
     ./ingredients/home/comms.nix
     ./ingredients/home/media.nix
     ./ingredients/home/dev.nix
@@ -28,8 +29,30 @@ in {
     kitty firefox chromium
   ]);
 
-  gtk.enable = true;
-  qt.enable = true;
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+    };
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3";
+    };
+    # iconTheme = {
+    #   package = gruvboxPlus;
+    #   name = "GruvboxPlus";
+    # };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style = { 
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
+  };
 
   # programs.rofi = {
   #   enable = true;
