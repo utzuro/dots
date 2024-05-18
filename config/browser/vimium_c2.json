@@ -1,0 +1,35 @@
+{
+	"name": "Vimium C",
+	"@time": "5/14/2024, 2:27:52 PM",
+	"time": 1715664472334,
+	"environment": {
+		"extension": "1.99.997",
+		"platform": "linux",
+		"firefox": 124
+	},
+	"grabBackFocus": true,
+	"keyLayout": 1,
+	"searchEngines": [
+		"j|ji|jisho: https://jisho.org/search/$s Jisho",
+		"",
+		"g.m|gm|g.map|gmap: https://www.google.com/maps?q=%s \\",
+		"  blank=https://www.google.com/maps Google Maps",
+		"y|yt: https://www.youtube.com/results?search_query=%s \\",
+		"  blank=https://www.youtube.com/ YouTube",
+		"w|wiki: https://www.wikipedia.org/w/index.php?search=%s Wikipedia",
+		"",
+		"az|amazon: https://www.amazon.co.jp/s?k=%s \\",
+		"  blank=https://www.amazon.co.jp/ Amazon",
+		"",
+		"\\:i: vimium://sed/s/^//,lower\\ $S re= Lower case",
+		"v.m|math: vimium://math\\ $S re= Calculate",
+		"v.p: vimium://parse\\ $S re= Redo Search",
+		"gh|github: https://github.com/search?q=$s \\",
+		"  blank=https://github.com/ GitHub Repo",
+		"js\\:|Js: javascript:\\ $S; JavaScript",
+		""
+	],
+	"searchUrl": "https://duckduckgo.com/?t=ffab&q=$s Duck",
+	"vimSync": true,
+	"ignoreKeyboardLayout": 2
+}
