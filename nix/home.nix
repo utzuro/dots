@@ -21,7 +21,7 @@ in {
     ./ingredients/home/comms.nix
     ./ingredients/home/media.nix
     ./ingredients/home/dev.nix
-    ./ingredients/browser.nix
+    ./ingredients/home/browser.nix
     ./ingredients/home/wm/input.nix
   ];
 
