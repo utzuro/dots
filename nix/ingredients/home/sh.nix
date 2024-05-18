@@ -75,7 +75,7 @@ in
     wget curl unzip zip 
     killall timer 
     disfetch lolcat
-    ack ripgrep fd bat rsync
+    ack ripgrep fzf fd bat rsync
     w3m asciidoctor pandoc pdftk foremost
     imagemagick aaxtomp3
     htop ddgr bottom hwinfo pciutils 

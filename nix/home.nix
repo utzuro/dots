@@ -21,12 +21,12 @@ in {
     ./ingredients/home/comms.nix
     ./ingredients/home/media.nix
     ./ingredients/home/dev.nix
-    ./ingredients/librewolf.nix
+    ./ingredients/browser.nix
     ./ingredients/home/wm/input.nix
   ];
 
   home.packages = (with pkgs; [
-    kitty firefox chromium
+    kitty
   ]);
 
   gtk = {
