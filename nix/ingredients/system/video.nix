@@ -31,5 +31,6 @@
     cudatoolkit
     ocl-icd
     rocm-opencl-runtime
+    vulkan-tools
   ];
 }

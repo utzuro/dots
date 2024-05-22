@@ -20,6 +20,9 @@
     libreoffice-fresh
     xournalpp openboard
     foliate texliveSmall
+
+    # web
+    tuir
   ];
 
   xdg.mimeApps.defaultApplications = {

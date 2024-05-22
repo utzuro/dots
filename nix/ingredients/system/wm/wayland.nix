@@ -7,6 +7,7 @@
     ];
 
     services.xserver = {
+      desktopManager.runXdgAutostartIfNone = true;
       displayManager.sddm = {
         enable = true;
         wayland.enable = true;

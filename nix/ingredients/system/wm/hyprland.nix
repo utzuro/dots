@@ -40,7 +40,7 @@
     # enable eww when ready to create DIY bar
     waybar # eww
     libnotify swww rofi-wayland wofi
-    grim slurp wl-clipboard
+    grim slurp wl-clipboard swappy
     dolphin
   ];
 }

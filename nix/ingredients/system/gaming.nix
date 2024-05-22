@@ -9,4 +9,5 @@
     dedicatedServer.openFirewall = true;
     gamescopeSession.enable = true;
   };
+  programs.gamemode.enable = true;
 }

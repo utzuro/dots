@@ -1,13 +1,13 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.librewolf ungoogled-chromium ];
+  home.packages = with pkgs; [ librewolf ungoogled-chromium ];
 
   home.sessionVariables = { DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";};
 
   home.file.".librewolf/librewolf.overrides.cfg".text = ''
     defaultPref("font.size.variable.x-western",20);
-    defaultPref("browser.toolbars.bookmarks.visibility","always");
+    defaultPref("browser.toolbars.bookmarks.visibility","never");
     defaultPref("privacy.resisttFingerprinting.letterboxing", true);
     defaultPref("network.http.referer.XOriginPolicy",2);
     defaultPref("privacy.clearOnShutdown.history",false);
@@ -18,7 +18,7 @@
 
 
     pref("font.size.variable.x-western",20);
-    pref("browser.toolbars.bookmarks.visibility","always");
+    pref("browser.toolbars.bookmarks.visibility","never");
     pref("privacy.resisttFingerprinting.letterboxing", true);
     pref("network.http.referer.XOriginPolicy",2);
     pref("privacy.clearOnShutdown.history",false);
