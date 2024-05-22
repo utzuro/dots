@@ -7,7 +7,7 @@
       fcitx5-mozc
       fcitx5-gtk
     ]; 
-    fcitx5.waylandFrontend = true;
+    #fcitx5.waylandFrontend = true;
   };
   home.file.".config/fcitx5/config".text = ''
 

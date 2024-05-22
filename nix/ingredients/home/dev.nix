@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # langs
     go rustup
-    php nodejs_21 
+    php
 
     (python3.withPackages (python-pkgs: [
       python-pkgs.pip

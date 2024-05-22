@@ -1,0 +1,3 @@
+## Steam launch options:
+
+VKD3D_CONFIG=no_upload_hvv eval $( echo gamemoderun "%command%" | sed "s/launcher-se\/Paradox Launcher.exe'.*/AOW4.exe'/")

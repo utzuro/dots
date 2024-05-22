@@ -16,11 +16,11 @@
     #     # put confgs here
     #   '';
     # };
-    libinput = {
+  };
+  services.libinput = {
       enable = true;
       touchpad.disableWhileTyping = true;
     };
-  };
 
   environment.systemPackages = with pkgs; [
     xclip
