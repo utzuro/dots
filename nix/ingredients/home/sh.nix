@@ -3,7 +3,6 @@ let
   aliases = {
     c = "clear";
     vim = "nvim";
-    less = "nvimpager";
     ls = "eza";
     tree = "eza --tree";
     cat = "bat";
@@ -70,7 +69,7 @@ in
   };
 
   home.packages = with pkgs; [
-    vim neovim nvimpager
+    vim neovim 
     tmux ranger peco progress jq eza
     wget curl unzip zip 
     killall timer 
@@ -89,8 +88,6 @@ in
     manuscripts = "$alchemy/manuscripts";
     STARDICT_DATA_DIR = "$manuscripts/ingredients/dicts/dic";
     LEDGER = "$alchemy/manuscripts/ledger/main.ledger";
-    PAGER = "nvimpager";
-    MANPAGER = "nvimpager";
     ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
     GOPATH = "$HOME/go";
 
