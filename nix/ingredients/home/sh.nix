@@ -21,6 +21,8 @@ let
     ino = "arduino-cli";
     real = "ledger -f $LEDGER bal Assets --real";
     budgets = "ledger -f $LEDGER bal Budget";
+
+    build-my-home = "home-manager switch --flake .#void --override-input home-manager ~/alchemy/summons/nixos/home-manager"
   };
 in
 {
