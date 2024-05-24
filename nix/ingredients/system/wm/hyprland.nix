@@ -37,10 +37,14 @@
   };
 
   environment.systemPackages = with pkgs; [
+    hyprland-workspaces
+    hyprland-autoname-workspaces
+    hyprland-monitor-attached
+
     # enable eww when ready to create DIY bar
     waybar # eww
     libnotify swww rofi-wayland wofi
-    grim slurp wl-clipboard swappy
+    grim grimblast slurp wl-clipboard swappy
     dolphin
   ];
 }

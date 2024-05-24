@@ -9,9 +9,8 @@
     mediainfo
 
     # gui
-    neovide
+    neovide obsidian
     vlc mpv
-    sxiv feh
     qbittorrent-qt5
     audio-recorder
     zathura calibre anki

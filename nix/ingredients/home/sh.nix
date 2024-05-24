@@ -6,6 +6,7 @@ let
     ls = "eza";
     tree = "eza --tree";
     cat = "bat";
+    toto = "vim ~/todo";
 
     # git
     upd = "git commit -am 'update'";
@@ -22,7 +23,7 @@ let
     real = "ledger -f $LEDGER bal Assets --real";
     budgets = "ledger -f $LEDGER bal Budget";
 
-    build-my-home = "home-manager switch --flake .#void --override-input home-manager ~/alchemy/summons/nixos/home-manager"
+    build-my-home = "home-manager switch --flake .#void --override-input home-manager ~/alchemy/summons/nixos/home-manager";
   };
 in
 {
@@ -83,10 +84,16 @@ in
     cava bc numbat
   ];
 
+  home.sessionPath = [ "$HOME/scripts" ];
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
     alchemy = "$HOME/alchemy";
+    a = "$HOME/alchemy";
+    m = "$HOME/magic";
+    magic = "$HOME/magic";
+    manu = "$alchemy/manuscripts";
     manuscripts = "$alchemy/manuscripts";
     STARDICT_DATA_DIR = "$manuscripts/ingredients/dicts/dic";
     LEDGER = "$alchemy/manuscripts/ledger/main.ledger";
