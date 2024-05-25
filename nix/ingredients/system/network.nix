@@ -1,17 +1,11 @@
 { config, pkgs, ...}:
 
 {
-  networking.hostName = "void-x240";
-  networking.wireless = {
-    enable = true; 
-    userControlled.enable = true; 
-    networks = {
-      "nihonbu-guest".psk = "nihonbuingakakkoii";
-    };
-  };
+  networking.hostName = "void";
+  networking.networkmanager.enable = true;
   services.timesyncd.enable = true;
 
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
