@@ -16,8 +16,10 @@
       ./ingredients/system/wm/hyprland.nix
       ./ingredients/system/video.nix
       ./ingredients/system/gaming.nix
-      ./ingredients/system/network.nix
       ./ingredients/system/security.nix
+      ( import ./ingredients/system/network.nix {
+
+      })
       ( import ./ingredients/system/virtualization.nix {
         storageDriver = "btrfs"; inherit pkgs user lib;
       })

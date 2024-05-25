@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, user, ...}:
 
 {
   networking.hostName = "void";
@@ -15,11 +15,13 @@
 
 
   environment.systemPackages = with pkgs; [
-    dig
-    tor
-    openvpn
-    protonvpn-cli
+    networkmanager-openvpn
+    networkmanagerapplet
+    dig tor
+    openvpn protonvpn-cli
   ];
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
+
+  users.users.${user.name}.extraGroups = [ "networkmanager" ];
 }
