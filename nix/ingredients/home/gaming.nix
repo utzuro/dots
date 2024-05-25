@@ -4,6 +4,8 @@
   # battlenet
   home.packages = with pkgs; [
 
+    steamcmd steam-run
+
     heroic lutris 
 
     vcmi
