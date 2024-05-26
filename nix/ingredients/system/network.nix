@@ -24,4 +24,7 @@
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
 
   users.users.${user.name}.extraGroups = [ "networkmanager" ];
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 }
