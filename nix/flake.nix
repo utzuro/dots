@@ -33,9 +33,18 @@
     };
   in {
     nixosConfigurations = {
-      system = lib.nixosSystem {
+      pc = lib.nixosSystem {
         system = system.arch;
-        modules = [ ./configuration.nix ];
+        modules = [ ./pc.nix ];
+        specialArgs = {
+          inherit system;
+          inherit user;
+          inherit inputs;
+        };
+      };
+      laptop = lib.nixosSystem {
+        system = system.arch;
+        modules = [ ./laptop.nix ];
         specialArgs = {
           inherit system;
           inherit user;
@@ -43,6 +52,7 @@
         };
       };
     };
+
     homeConfigurations = {
       void = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

@@ -18,7 +18,7 @@
 
       ./ingredients/system/security.nix
       ./ingredients/system/system.nix
-      # ./ingredients/system/system-laptop.nix
+      ./ingredients/system/power.nix
 
       ./ingredients/system/video.nix
       ./ingredients/system/nvidia.nix
