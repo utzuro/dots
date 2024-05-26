@@ -4,15 +4,14 @@
   services.xserver.videoDrivers = 
   [ 
     "nvidia"
-    "modesetting" #amd
+    "modesetting"
   ];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
     # use it with offload on hybrid laptop
     powerManagement.finegrained = false;
-# Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
+    open = false; # currently alpha-quality
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };

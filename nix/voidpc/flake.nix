@@ -16,6 +16,7 @@
   let
     system = {
       arch = "x86_64-linux";
+      host = "voidpc";
     };
     lib = nixpkgs.lib;
     # pkgs = nixpkgs.legacyPackages.${system.arch};
@@ -33,18 +34,9 @@
     };
   in {
     nixosConfigurations = {
-      pc = lib.nixosSystem {
+      system = lib.nixosSystem {
         system = system.arch;
-        modules = [ ./pc.nix ];
-        specialArgs = {
-          inherit system;
-          inherit user;
-          inherit inputs;
-        };
-      };
-      laptop = lib.nixosSystem {
-        system = system.arch;
-        modules = [ ./laptop.nix ];
+        modules = [ ../ingredients/pc.nix ];
         specialArgs = {
           inherit system;
           inherit user;
@@ -56,7 +48,7 @@
     homeConfigurations = {
       void = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ stylix.homeManagerModules.stylix ./home.nix ];
+        modules = [ stylix.homeManagerModules.stylix ../ingredients/home.nix ];
         extraSpecialArgs = {
           inherit user;
           inherit inputs;
