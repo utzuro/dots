@@ -24,6 +24,9 @@
         storageDriver = "btrfs"; inherit pkgs user lib;
       })
       ./ingredients/theme.nix
+
+      # import on demand 
+      ./ingredients/system/nvidia.nix
     ];
 
   nix.package = pkgs.nixFlakes;
