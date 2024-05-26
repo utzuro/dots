@@ -5,13 +5,14 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:danth/stylix";
     blocklist-repo = {
       url = "github:StevenBlack/hosts";
       flake = false;
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, ... }: 
   let
     system = {
       arch = "x86_64-linux";
@@ -45,7 +46,7 @@
     homeConfigurations = {
       void = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [ stylix.homeManagerModules.stylix ./home.nix ];
         extraSpecialArgs = {
           inherit user;
           inherit inputs;

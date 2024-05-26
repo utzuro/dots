@@ -24,45 +24,40 @@ in {
     ./ingredients/home/dev.nix
     ./ingredients/home/browser.nix
     ./ingredients/home/wm/input.nix
+    # ./ingredients/home/wm/i3.nix
   ];
 
   home.packages = (with pkgs; [
     kitty
   ]);
 
-  gtk = {
-    enable = true;
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-    };
-    theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3";
-    };
-    # iconTheme = {
-    #   package = gruvboxPlus;
-    #   name = "GruvboxPlus";
-    # };
-  };
+  stylix.image = ./background.jpg;
+  stylix.polarity = "dark";
 
-  qt = {
-    enable = true;
-    platformTheme = "gtk";
-    style = { 
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
-
-  # programs.rofi = {
+  # gtk = {
   #   enable = true;
-  #   package = pkgs.rofi;
-  #   theme = ./themes/void.rasi;
-  #   plugins = [ pkgs.rofi-calc ];
+  #   cursorTheme = {
+  #     package = pkgs.bibata-cursors;
+  #     name = "Bibata-Modern-Ice";
+  #   };
+  #   theme = {
+  #     package = pkgs.adw-gtk3;
+  #     name = "adw-gtk3";
+  #   };
+  #   # iconTheme = {
+  #   #   package = gruvboxPlus;
+  #   #   name = "GruvboxPlus";
+  #   # };
   # };
 
-  # home.file.".config/i3/config".source = ../i3/config;
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "gtk";
+  #   style = { 
+  #     name = "adwaita-dark";
+  #     package = pkgs.adwaita-qt;
+  #   };
+  # };
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.11";
