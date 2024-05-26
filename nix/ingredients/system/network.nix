@@ -1,7 +1,7 @@
-{ config, pkgs, user, ...}:
+{ config, pkgs, user, system, ...}:
 
 {
-  networking.hostName = "void";
+  networking.hostName = "${system.host}";
   networking.networkmanager.enable = true;
   services.timesyncd.enable = true;
 
