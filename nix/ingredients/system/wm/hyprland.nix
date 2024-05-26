@@ -46,8 +46,18 @@
 
     # enable eww when ready to create DIY bar
     waybar # eww
+    meson ninja
+    wayland-protocols wayland-utils wlroots
     libnotify swww rofi-wayland wofi
     grim grimblast slurp wl-clipboard swappy
     dolphin
+  ];
+
+  nixpkgs.overlays = [
+    (self: super: {
+      waybar = super.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+    })
   ];
 }
