@@ -1,0 +1,1 @@
+webcord --enable-features=UseOzonePlatform --enable-wayland-ime
