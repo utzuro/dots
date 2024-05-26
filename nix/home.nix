@@ -18,6 +18,7 @@ in {
     ./ingredients/home/libs.nix
     ./ingredients/home/gamedev.nix
     ./ingredients/home/gaming.nix
+    ./ingredients/home/wm/ui.nix
     ./ingredients/home/wm/hyplrand.nix
     ./ingredients/home/comms.nix
     ./ingredients/home/media.nix

@@ -14,7 +14,6 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
-# hardware
   sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -25,21 +24,17 @@
     jack.enable = true;
   };
 
-# battery
   powerManagement.enable = true;
   services.thermald.enable = true;
   services.tlp.enable = true;
 
-# bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-# TimeZone
   time.timeZone = "Asia/Tokyo";
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment.systemPackages = with pkgs; [
-    # some shell available for the root
     zsh vim tmux git wget ranger
     ack peco progress jq
     playerctl cmatrix
