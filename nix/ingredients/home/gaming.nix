@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
 
     steamcmd steam-run
+    mangohud gamemode
 
     heroic lutris 
 

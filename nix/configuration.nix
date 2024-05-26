@@ -18,7 +18,7 @@
       ./ingredients/system/gaming.nix
       ./ingredients/system/security.nix
       ( import ./ingredients/system/network.nix {
-
+        inherit config pkgs user ;
       })
       ( import ./ingredients/system/virtualization.nix {
         storageDriver = "btrfs"; inherit pkgs user lib;
@@ -71,6 +71,10 @@
     config.common.default = "*";
   };
   xdg.mime.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    xdg-desktop-portal-gtk
+  ];
 
   system.copySystemConfiguration = false;
   system.stateVersion = "23.11";

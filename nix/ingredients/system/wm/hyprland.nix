@@ -20,12 +20,16 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
+  # screensharing
+  services.dbus.enable = true;
+  xdg.portal.wlr.enable = true;
 
   programs = {
     hyprland = {
       enable = true;
       xwayland = {
         enable = true;
+        hidpi = true;
       };
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
