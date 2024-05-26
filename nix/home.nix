@@ -31,7 +31,7 @@ in {
     kitty
   ]);
 
-  stylix.image = ./background.jpg;
+  stylix.image = ./background.png;
   stylix.polarity = "dark";
 
   # gtk = {
