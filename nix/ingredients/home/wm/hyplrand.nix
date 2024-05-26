@@ -3,7 +3,7 @@
 {
   wayland.windowManager.hyprland.xwayland.enable = true;
 
-  home-manager.users.me.home.sessionVariables = {
+  home.sessionVariables = {
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
     CLUTTER_BACKEND = "wayland";
@@ -12,5 +12,4 @@
     XDG_SESSION_DESKTOP = "Hyprland";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
-}{
 }

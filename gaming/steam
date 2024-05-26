@@ -4,7 +4,7 @@
 MANGOHUD=1 gamemoderun %command%
 
 ## Gamescope
-gamescope -W 3840 -H 2160 -ef -- %command%
+gamescope -W 3840 -H 2160 -r 119 -f -e -- mangohud gamemoderun %command%
 
 ## Age of Wonders 4
 VKD3D_CONFIG=no_upload_hvv eval $( echo gamemoderun "%command%" | sed "s/launcher-se\/Paradox Launcher.exe'.*/AOW4.exe'/")
