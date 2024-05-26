@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
+# system
 swww init &
 swww img ~/magic/ingredients/i/background.jpg &
 waybar &
-dunst
+dunst &
+
+# apps
+librewolf &
+chrome &
+discord &
+sig
+
+
 
