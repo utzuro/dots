@@ -9,75 +9,32 @@
   imports =
     [ 
       /etc/nixos/hardware-configuration.nix
-      ./ingredients/system/system.nix
-      ./ingredients/system/wm/fonts.nix
-      ./ingredients/system/wm/ui.nix
-      ./ingredients/system/wm/i3.nix
-      ./ingredients/system/wm/hyprland.nix
-      ./ingredients/system/video.nix
-      ./ingredients/system/gaming.nix
-      ./ingredients/system/security.nix
+      ( import ./ingredients/system/basic.nix {
+        inherit config pkgs user;
+      })
       ( import ./ingredients/system/network.nix {
         inherit config pkgs user ;
       })
+
+      ./ingredients/system/security.nix
+      ./ingredients/system/system.nix
+      # ./ingredients/system/system-laptop.nix
+
+      ./ingredients/system/video.nix
+      ./ingredients/system/nvidia.nix
+
+      ./ingredients/system/wm/fonts.nix
+      ./ingredients/system/wm/i3.nix
+      ./ingredients/system/wm/hyprland.nix
+      # ./ingredients/system/wm/plasma.nix
+
+      ./ingredients/system/gaming.nix
+
       ( import ./ingredients/system/virtualization.nix {
         storageDriver = "btrfs"; inherit pkgs user lib;
       })
-      ./ingredients/theme.nix
 
-      # import on demand 
-      ./ingredients/system/nvidia.nix
     ];
-
-  nix.package = pkgs.nixFlakes;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.nixPath = [
-    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "nixos-config=$HOME/dots/nix/configuration.nix"
-    "/nix/var/nix/profiles/per-user/root/channels"
-  ];
-  nixpkgs.config.allowUnfree = true;
-
-  users.users.void = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "input" "dialout" ];
-    uid = 1000;
-    shell = pkgs.zsh;
-  };
-
-  # zsh env is defined with home-manager
-  # but I keep some configs here for the root too
-  environment.shells = with pkgs; [ zsh ];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    
-    shellAliases = {
-      c = "clear";
-      ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
-      conf = "sudo vim /etc/nixos/configuration.nix";
-    };
-  };
-
-  fonts.fontDir.enable = true;
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.common.default = "*";
-  };
-  xdg.mime.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-gtk
-  ];
 
   system.copySystemConfiguration = false;
   system.stateVersion = "23.11";

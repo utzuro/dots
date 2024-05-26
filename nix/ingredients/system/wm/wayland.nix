@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs;
     [
       wayland waydroid
+      wayland-protocols wayland-utils wlroots
     ];
 
     services.xserver = {

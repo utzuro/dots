@@ -20,7 +20,6 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
-  # screensharing
   services.dbus.enable = true;
   xdg.portal.wlr.enable = true;
 
@@ -34,11 +33,6 @@
     };
   };
 
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
-
   environment.systemPackages = with pkgs; [
     hyprland-workspaces
     hyprland-autoname-workspaces
@@ -47,7 +41,6 @@
     # enable eww when ready to create DIY bar
     waybar # eww
     meson ninja
-    wayland-protocols wayland-utils wlroots
     libnotify swww rofi-wayland wofi
     grim grimblast slurp wl-clipboard swappy
     dolphin
