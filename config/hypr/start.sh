@@ -8,7 +8,6 @@ dunst &
 
 # apps
 librewolf &
-chrome &
 discord &
 sig
 
