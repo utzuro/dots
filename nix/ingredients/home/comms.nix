@@ -5,7 +5,7 @@
     # chats
     signal-desktop 
     signald signaldctl signal-cli
-    webcord telegram-desktop
+    webcord discord telegram-desktop
     protonmail-desktop
   ];
 }

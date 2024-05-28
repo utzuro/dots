@@ -41,7 +41,7 @@
     # enable eww when ready to create DIY bar
     waybar # eww
     meson ninja
-    libnotify swww rofi-wayland wofi
+    libnotify swww
     grim grimblast slurp wl-clipboard swappy
     dolphin
   ];

@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ config, pkgs, ...}:
 
 {
   wayland.windowManager.hyprland.xwayland.enable = true;
@@ -13,4 +13,12 @@
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
   };
+
+  home.packages = with pkgs; [ 
+    walker tofi
+  ];
+  # programs.walker = {
+  #   enable = true;
+  #   runAsService = true;
+  # };
 }

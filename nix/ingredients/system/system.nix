@@ -23,6 +23,22 @@
     jack.enable = true;
   };
 
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/mnt/archive/nas/mysticism/mu";
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "MPD"
+      }
+    '';
+    user = "void";
+  };
+  systemd.services.mpd.environment = {
+    "XDG_RUNTIME_DIR" = "/run/user/1000";
+  };
+
+
   time.timeZone = "Asia/Tokyo";
   i18n.defaultLocale = "en_US.UTF-8";
 
