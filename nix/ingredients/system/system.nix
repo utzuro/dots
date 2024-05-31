@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, user, system ...}:
 
 {
   hardware.enableAllFirmware = true;
@@ -32,7 +32,7 @@
         name "MPD"
       }
     '';
-    user = "void";
+    user = ${user.name};
   };
   systemd.services.mpd.environment = {
     "XDG_RUNTIME_DIR" = "/run/user/1000";

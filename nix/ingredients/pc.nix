@@ -8,19 +8,22 @@
 {
   imports =
     [ 
-      # /etc/nixos/hardware-configuration.nix
       ../${system.host}/hardware-configuration.nix
+
       ( import ./system/basic.nix {
         inherit config pkgs user;
       })
+
       ( import ./system/network.nix {
         inherit config pkgs user system;
       })
 
-      ./system/security.nix
-      ./system/system.nix
-      ./system/power.nix
+      ( import ./system/system.nix {
+        inherit config pkgs user system;
+      })
 
+      ./system/security.nix
+      ./system/power.nix
       ./system/video.nix
       ./system/nvidia.nix
 
