@@ -18,7 +18,7 @@
     networkmanager-openvpn
     networkmanagerapplet
     dig tor
-    openvpn protonvpn-cli
+    openvpn protonvpn-cli wireguard-tools
   ];
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";

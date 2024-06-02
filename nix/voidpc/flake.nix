@@ -10,9 +10,10 @@
       url = "github:StevenBlack/hosts";
       flake = false;
     };
+    erosanix.url = "github:emmanuelrosa/erosanix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, erosanix, ... }: 
   let
     system = {
       arch = "x86_64-linux";
@@ -48,7 +49,11 @@
     homeConfigurations = {
       void = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ stylix.homeManagerModules.stylix ../ingredients/home.nix ];
+        modules = [ 
+          ../ingredients/home.nix 
+          stylix.homeManagerModules.stylix 
+          erosanix.nixosModules.protonvpn
+        ];
         extraSpecialArgs = {
           inherit user;
           inherit inputs;

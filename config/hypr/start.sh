@@ -8,9 +8,8 @@ dunst &
 
 # apps
 librewolf &
-chrome &
-discord &
-sig
-
+~/.config/hypr/apps/chrome &
+~/.config/hypr/apps/sig &
+~/.config/hypr/apps/discord
 
 

@@ -12,6 +12,8 @@
 
     vcmi
 
+    prismlauncher
+
     wineWowPackages.waylandFull
     # (wineWowPackages.full.override {
     #   wineRelease = "staging";
