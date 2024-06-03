@@ -32,14 +32,6 @@
         inputs.anyrun.packages.${pkgs.system}.symbols
         inputs.anyrun.packages.${pkgs.system}.translate
         inputs.anyrun.packages.${pkgs.system}.websearch
-        inputs.anyrun.packages.${pkgs.system}.websearch.config.engines: [
-          DuckDuckGo
-          Google
-          Custom(
-            name: "Kagi",
-            url: "https://kagi.com/search?q=%s",
-          )
-        ];
       ];
       x = { fraction = 0.5; };
       y = { fraction = 0.3; };

@@ -35,7 +35,7 @@ in {
 
   stylix.image = ./i/background.png;
   stylix.polarity = "dark";
-  stylix.base16Scheme = ./theme.yaml
+  stylix.base16Scheme = ./theme.yaml;
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.11";
