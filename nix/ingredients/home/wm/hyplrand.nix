@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, inputs, ...}:
 
 {
   wayland.windowManager.hyprland.xwayland.enable = true;
@@ -24,9 +24,23 @@
   programs.anyrun = {
     enable = true;
     config = {
-      # plugins = [
-      #   inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins
-      # ];
+      plugins = [
+        inputs.anyrun.packages.${pkgs.system}.applications
+        inputs.anyrun.packages.${pkgs.system}.dictionary
+        inputs.anyrun.packages.${pkgs.system}.rink
+        inputs.anyrun.packages.${pkgs.system}.shell
+        inputs.anyrun.packages.${pkgs.system}.symbols
+        inputs.anyrun.packages.${pkgs.system}.translate
+        inputs.anyrun.packages.${pkgs.system}.websearch
+        inputs.anyrun.packages.${pkgs.system}.websearch.config.engines: [
+          DuckDuckGo
+          Google
+          Custom(
+            name: "Kagi",
+            url: "https://kagi.com/search?q=%s",
+          )
+        ];
+      ];
       x = { fraction = 0.5; };
       y = { fraction = 0.3; };
       width = { fraction = 0.3; };
