@@ -5,6 +5,7 @@ swww init &
 swww img ~/magic/ingredients/i/background.jpg &
 waybar &
 dunst &
+blueman &
 
 # apps
 librewolf &
