@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [ ./fonts.nix ];
   fonts.fontDir.enable = true;
 
   xdg.portal = {
@@ -15,5 +16,6 @@
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
+    xdotool
   ];
 }

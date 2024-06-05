@@ -27,7 +27,7 @@
       ./system/video.nix
       ./system/nvidia.nix
 
-      ./system/wm/fonts.nix
+      ./system/wm/shared.nix
       ./system/wm/i3.nix
       ./system/wm/hyprland.nix
       # ./system/wm/plasma.nix

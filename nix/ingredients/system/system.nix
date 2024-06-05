@@ -1,4 +1,4 @@
-{ config, pkgs, user, system ...}:
+{ config, pkgs, user, system, ...}:
 
 {
   hardware.enableAllFirmware = true;
@@ -32,12 +32,11 @@
         name "MPD"
       }
     '';
-    user = ${user.name};
+    user = "${user.name}";
   };
   systemd.services.mpd.environment = {
     "XDG_RUNTIME_DIR" = "/run/user/1000";
   };
-
 
   time.timeZone = "Asia/Tokyo";
   i18n.defaultLocale = "en_US.UTF-8";

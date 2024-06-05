@@ -20,8 +20,8 @@
     stylix.url = "github:danth/stylix";
     anyrun.url = "github:Kirottu/anyrun";
     anyrun.inputs.nixpkgs.follows = "nixpkgs";
-    # erosanix.url = "github:emmanuelrosa/erosanix";
-    # erosanix.inputs.nixpkgs.follows = "nixpkgs";
+    erosanix.url = "github:emmanuelrosa/erosanix";
+    erosanix.inputs.nixpkgs.follows = "nixpkgs";
 
     blocklist-repo = {
       url = "github:StevenBlack/hosts";
@@ -29,7 +29,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, anyrun, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, anyrun, erosanix, ... }: 
   let
     system = { arch = "x86_64-linux"; host = "voidpc";
     };
