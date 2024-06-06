@@ -51,7 +51,10 @@
     nixosConfigurations = {
       system = lib.nixosSystem {
         system = system.arch;
-        modules = [ ../ingredients/pc.nix ];
+        modules = [ 
+          ../ingredients/pc.nix 
+          erosanix.nixosModules.protonvpn
+        ];
         specialArgs = {
           inherit system;
           inherit user;
@@ -66,7 +69,6 @@
         modules = [ 
           ../ingredients/home.nix 
           stylix.homeManagerModules.stylix 
-          # erosanix.nixosModules.protonvpn
           anyrun.homeManagerModules.default
         ];
         extraSpecialArgs = {
