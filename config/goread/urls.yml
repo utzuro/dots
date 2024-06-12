@@ -35,9 +35,6 @@ categories:
     - name: Fantasy
       desc: Sci-fi, Fantasy, etc...
       subscriptions:
-        - name: Tor.com
-          desc: ""
-          url: http://feeds.feedburner.com/Torcom/Frontpage_Partial
         - name: Lightspeed Magazine
           desc: ""
           url: http://www.lightspeedmagazine.com/feed/

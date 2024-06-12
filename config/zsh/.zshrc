@@ -91,14 +91,17 @@ alias ino=arduino-cli
 
 export LEDGER="$manuscripts/ledger/main.ledger"
 alias real="ledger -f $LEDGER bal Assets --real"
-alias budgets="ledger -f $LEDGER bal Budget"
+alias budgets="ledger -f $LEDGER bal Budget Invest"
 
 export PAGER=nvimpager
 export MANPAGER="nvimpager"
 alias vim="nvim"
 alias less="nvimpager"
+alias grep="rg"
 alias cat="bat"
 alias ls="eza"
 alias tree="eza --tree"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export ZATHURA_PLUGINS_PATH=/usr/lib/zathura
+
+[ -f "/Users/oleh.skotar/.ghcup/env" ] && . "/Users/oleh.skotar/.ghcup/env" # ghcup-env
