@@ -1,1 +1,1 @@
-webcord --enable-features=UseOzonePlatform --enable-wayland-ime
+discord --enable-features=UseOzonePlatform --enable-wayland-ime

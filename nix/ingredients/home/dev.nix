@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     # langs
+    ghc
     go rustup
     php nodejs
 

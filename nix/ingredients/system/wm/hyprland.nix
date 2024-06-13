@@ -37,13 +37,14 @@
     hyprland-workspaces
     hyprland-autoname-workspaces
     hyprland-monitor-attached
+    wev
 
     # enable eww when ready to create DIY bar
     waybar # eww
     meson ninja
     libnotify swww
     grim grimblast slurp wl-clipboard swappy
-    dolphin
+    gnome.nautilus
   ];
 
   nixpkgs.overlays = [

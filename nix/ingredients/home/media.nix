@@ -13,7 +13,7 @@
     vlc mpv
     qbittorrent-qt5
     audio-recorder
-    zathura calibre anki
+    zathura calibre anki pandoc
     gimp inkscape krita
     obs-cli obs-studio
     libreoffice-fresh
