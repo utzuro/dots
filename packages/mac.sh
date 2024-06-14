@@ -13,7 +13,7 @@ brew update
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # shell tools
-brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat eza jq peco ranger zplug fzf imagemagick ffmpeg tree vhs neofetch scdoc sdcv pandoc coreutils fd ripgrep ynqa/tap/jnv
+brew install curl wget zsh zsh-autosuggestions ack git tig tmux vim neovim nvimpager bat eza jq peco ranger zplug fzf imagemagick ffmpeg tree vhs scdoc sdcv pandoc coreutils fd ripgrep ynqa/tap/jnv
 # git
 brew install gh
 gh extension install dlvhdr/gh-dash
@@ -28,7 +28,7 @@ brew tap context-labs/mactop https://github.com/context-labs/mactop
 brew install mactop
 
 # tools
-brew install graphviz ledger kitty 
+brew install graphviz ledger kitty yt-dlp
 brew install --cask obsidian drawio anki visual-studio-code docker
 
 brew tap d12frosted/emacs-plus
@@ -40,10 +40,12 @@ brew install --cask amethyst
 brew install --cask clipy
 brew install --cask karabiner-elements
 
-
 # extra tools
 brew tap versent/homebrew-taps
 brew install tfenv saml2aws awscli
+
+# currently pynvim cant be installed via brew
+pip3 install 'pynvim @ git+https://github.com/neovim/pynvim' --break-system-packages
 
 # install aws ssm-plugin
 cd /tmp/

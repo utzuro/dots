@@ -1,68 +1,97 @@
-" GENERAL
-  set shellslash
-  set completeopt=noinsert,menuone,noselect
-  set mouse=a
-  set ttyfast
-  set t_Co=256
-  set tabstop=4
-  set expandtab
-  set shiftwidth=4
-  set nocompatible
-  set encoding=utf8
-  set autoread
-  set autowrite
-  set lazyredraw
-  set magic
-  set hidden
-  set wildmenu
-  set wildignore+=**/node_modules/**
-  set path+=**
-  set ignorecase
-  set smartcase
-  set infercase
-  set incsearch
-  set undofile
-  set undodir=~/.vim/undodir
-  set regexpengine=1
-  filetype on
-  filetype plugin on
-  filetype indent on
+" Some settings are provided with tpope/vim-sensible
+" ==========================================================
+" COMPATIBILITY SETTINGS
+" ==========================================================
+set shellslash          " Use forward slashes, even on Windows
+set mouse=a             " Enable mouse support in all modes
+set t_Co=256            " Use 256 colors
+set nocompatible        " Use Vim defaults instead of Vi defaults
+set encoding=utf8       " Use UTF-8 encoding
+set belloff=all         " Disable all bell sounds
+set fileformat=unix     " Use Unix file format for new files
 
-" IDE
-  set number
-  set relativenumber
-  set laststatus=1
-  set matchpairs& matchpairs+=<:>
-  set showmatch
-  set matchtime=3
-  set shiftround
-  set belloff=all
-  set complete+=kspell
-  set completeopt=menuone,longest
-  set shortmess+=c
-  set fileformat=unix
+" ==========================================================
+" FILETYPE AND PLUGIN SETTINGS
+" ==========================================================
+filetype plugin indent on " Enable filetype plugins and indentation
 
-" VISUAL
-  syntax enable
-  syntax on
-  set showcmd
-  set ruler
-  set scrolloff=4
-  set smartindent
-  set autoindent
-  set smarttab
-  set hlsearch
-  set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P 
+" ==========================================================
+" COMPLETION SETTINGS
+" ==========================================================
+set completeopt=noinsert,menuone,noselect " Configure completion behavior
+set complete+=kspell                     " Include spell checking in completion
+set shortmess+=c                         " Avoid showing completion messages
 
-" FOLDING
-  hi Folded ctermfg=5
-  hi Folded ctermbg=black
-  hi FoldColumn ctermfg=5
-  hi FoldColumn ctermbg=black
+" ==========================================================
+" AUTO WRITING AND PERFORMANCE
+" ==========================================================
+set autowrite           " Automatically save before certain commands
+set lazyredraw          " Redraw screen only when necessary
+set hidden              " Allow switching buffers without saving
 
+" ==========================================================
+" TAB AND INDENTATION SETTINGS
+" ==========================================================
+set smartindent         " Enable smart indentation
+set autoindent          " Copy indent from the current line when starting a new line
+set smarttab            " Use shiftwidth for <Tab> and <Backspace> operations
+" Other settings are provided with tpope/vim-sleuth
+
+" ==========================================================
+" SEARCH SETTINGS
+" ==========================================================
+set path+=**            " Search for files in the current directory and all subdirectories
+set ignorecase          " Ignore case in search patterns
+set smartcase           " Override ignorecase if pattern contains uppercase letters
+set hlsearch            " Highlight search results
+
+" ==========================================================
+" REGEX SETTINGS
+" ==========================================================
+set magic               " Enable 'magic' mode for regex
+set regexpengine=1      " Use the first regex engine
+
+" ==========================================================
+" BACKUP AND UNDO SETTINGS
+" ==========================================================
+set undofile            " Enable persistent undo
+set undodir=~/.vim/undodir " Directory to store undo files
+
+" ==========================================================
+" IDE-LIKE FEATURES
+" ==========================================================
+syntax enable           " Enable syntax highlighting
+set wildignore+=**/node_modules/**,**/.git/**,**/dist/**,**/build/** " Ignore common directories
+set number              " Show line numbers
+set relativenumber      " Show relative line numbers
+
+" ==========================================================
+" MATCHING SETTINGS
+" ==========================================================
+set matchpairs+=<:>     " Highlight matching pairs of characters, adding <:>
+set showmatch           " Briefly jump to matching bracket when inserting a bracket
+set matchtime=3         " Duration to show matching brackets (tenths of a second)
+
+" ==========================================================
+" VISUAL SETTINGS
+" ==========================================================
+set showcmd             " Show partial command in the last line of the screen
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P " Customize status line
+
+" ==========================================================
+" FOLDING SETTINGS
+" ==========================================================
+hi Folded ctermfg=5     " Set color for folded lines
+hi Folded ctermbg=black " Set background color for folded lines
+hi FoldColumn ctermfg=5 " Set color for fold column
+hi FoldColumn ctermbg=black " Set background color for fold column
+
+" ==========================================================
+" TRUE COLOR SETTINGS
 " Enable 24-bit true colors if your terminal supports it.
-  if (has("termguicolors"))
-      let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-      let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-      set termguicolors
-  endif
+" ==========================================================
+if (has("termguicolors"))
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
