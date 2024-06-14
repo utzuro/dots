@@ -27,6 +27,7 @@
     config = {
       plugins = [
         inputs.anyrun.packages.${pkgs.system}.applications
+        inputs.anyrun.packages.${pkgs.system}.stdin # dmenu
         inputs.anyrun.packages.${pkgs.system}.dictionary
         inputs.anyrun.packages.${pkgs.system}.rink
         inputs.anyrun.packages.${pkgs.system}.shell

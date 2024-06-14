@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -21,7 +21,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   services.dbus.enable = true;
-  xdg.portal.wlr.enable = true;
+  xdg.portal.wlr.enable = lib.mkForce true;
 
   programs = {
     hyprland = {
@@ -44,7 +44,9 @@
     meson ninja
     libnotify swww
     grim grimblast slurp wl-clipboard swappy
+    cliphist
     gnome.nautilus
+    hyprland-per-window-layout
   ];
 
   nixpkgs.overlays = [

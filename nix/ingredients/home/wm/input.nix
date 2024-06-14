@@ -30,6 +30,7 @@
   };
   home.file.".config/fcitx5/config".text = ''
     [Hotkey]
+    TriggerKeys=
     EnumerateWithTriggerKeys=True
     AltTriggerKeys=
     EnumerateForwardKeys=
@@ -37,16 +38,9 @@
     EnumerateSkipFirst=False
     EnumerateGroupForwardKeys=
     EnumerateGroupBackwardKeys=
+    ActivateKeys=
+    DeactivateKeys=
     TogglePreedit=
-
-    [Hotkey/TriggerKeys]
-    0=Super+comma
-
-    [Hotkey/ActivateKeys]
-    0=F2
-
-    [Hotkey/DeactivateKeys]
-    0=F1
 
     [Hotkey/PrevPage]
     0=Up
