@@ -40,10 +40,12 @@ brew install --cask amethyst
 brew install --cask clipy
 brew install --cask karabiner-elements
 
-
 # extra tools
 brew tap versent/homebrew-taps
 brew install tfenv saml2aws awscli
+
+# currently pynvim cant be installed via brew
+pip3 install 'pynvim @ git+https://github.com/neovim/pynvim' --break-system-packages
 
 # install aws ssm-plugin
 cd /tmp/

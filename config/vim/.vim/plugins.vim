@@ -7,7 +7,6 @@
 " SETTINGS
     Plugin 'tpope/vim-sensible'
     Plugin 'tpope/vim-characterize'
-    Plugin 'tpope/vim-sleuth'
     Plugin 'tpope/vim-repeat'
     Plugin 'tpope/vim-obsession'
     Plugin 'tpope/vim-vinegar'
@@ -15,16 +14,24 @@
     Plugin 'tpope/vim-haystack' " replaces completion algorithm
     Plugin 'hedrok/vim-plugin-ruscmd'
     Plugin 'michaeljsmith/vim-indent-object'
+    Plugin 'djoshea/vim-autoread'
+    Plugin 'machakann/vim-highlightedyank'
+    Plugin 'haya14busa/is.vim'
+    Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'vim-scripts/AutoComplPop'
 
 " TOOLS
+    Plugin 'KabbAmine/lazyList.vim'
     Plugin 'preservim/nerdtree' " :NERDTree
+    Plugin 'will133/vim-dirdiff'
     Plugin 'tpope/vim-fugitive' " :G
     Plugin 'glts/vim-radical' " gA on number
     Plugin 'glts/vim-magnum' " ↑ req by vim-radical
-    Plugin 'glts/vim-tbone' " :Tmux, :Tyank, :Tput
+    Plugin 'tpope/vim-tbone' " :Tmux, :Tyank, :Tput
     Plugin 'tpope/vim-speeddating' " <C-a> <C-x> on dates
     Plugin 'nvim-telescope/telescope.nvim'
     Plugin 'nvim-telescope/telescope-media-files.nvim'
+    Plugin 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 
 " EDITING
@@ -36,43 +43,36 @@
 " WRITING
     Plugin 'dbakker/vim-paragraph-motion'
     Plugin 'https://gitlab.com/hedrok/langtool-adoc-vim.git'
-    Plugin 'rhysd/vim-grammarous'
-    Plugin 'ron89/thesaurus_query.vim'
-    Plugin 'Konfekt/FastFold'
-    Plugin 'junegunn/limelight.vim'
     Plugin 'junegunn/vim-peekaboo'
-    Plugin 'junegunn/goyo.vim'
-    " Plugin 'inkarkat/vim-ingo-library' | Plugin 'inkarkat/vim-SpellCheck'
   
 " IDE
-    Plugin 'github/copilot.vim'  
     Plugin 'dense-analysis/ale'
     Plugin 'sheerun/vim-polyglot'
-    Plugin 'tpope/vim-endwise'
     Plugin 'tpope/vim-unimpaired'
     Plugin 'tpope/vim-commentary'
     Plugin 'tpope/vim-dadbod'
     Plugin 'tpope/vim-dotenv' " :Dotenv {file} to load .env
-    Plugin 'tpope/vim-jdadddy' " json mappings: aj, gqaj, gwaj
+    Plugin 'tpope/vim-jdaddy' " json mappings: aj, gqaj, gwaj
 
+" complition
+    Plugin 'github/copilot.vim'  
     Plugin 'honza/vim-snippets'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'tpope/vim-endwise'
+
+" folding
+    Plugin 'Konfekt/FastFold'
+
+" navigation
     Plugin 'justinmk/vim-sneak'
-    Plugin 'tobyS/vmustache'
-    Plugin 'djoshea/vim-autoread'
     Plugin 'easymotion/vim-easymotion'
-    Plugin 'will133/vim-dirdiff'
-    Plugin 'machakann/vim-highlightedyank'
-    Plugin 'haya14busa/is.vim'
-    Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'KabbAmine/lazyList.vim'
-    "Plugin 'mhinz/vim-signify'
-    "Plugin 'SirVer/ultisnips' | Plugin 'honza/vim-snippets'
-    Plugin 'vim-scripts/AutoComplPop'
+
+    Plugin 'mhinz/vim-signify'
 
     " Server
     Plugin 'fatih/vim-go'
-    Plugin 'vim-python/python-syntax'
     Plugin 'rust-lang/rust.vim'
+    Plugin 'vim-python/python-syntax'
     Plugin 'nvie/vim-flake8' " :PyFlake8
 
     " Frontend
@@ -84,18 +84,13 @@
 
     " Config scripts support
     Plugin 'elkowar/yuck.vim'
-    Plugin 'PotatoesMaster/i3-vim-syntax'
+    Plugin 'mboughaba/i3config.vim'
     Plugin 'chr4/nginx.vim'
     Plugin 'lifepillar/pgsql.vim'
     Plugin 'ekalinin/dockerfile.vim'
-    Plugin 'elixir-editors/vim-elixir'
-    Plugin 'Glench/Vim-Jinja2-Syntax'
-    Plugin 'godlygeek/tabular'
-    Plugin 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
     Plugin 'jvirtanen/vim-hcl'
     Plugin 'stephpy/vim-yaml'
     Plugin 'tmux-plugins/vim-tmux'
-    Plugin 'tpope/vim-liquid'
     Plugin 'wgwoods/vim-systemd-syntax'
     Plugin 'towolf/vim-helm'
 
@@ -112,6 +107,17 @@ call vundle#end()            " required
 
 
 " PLUGIN CONFIGS
+
+" snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+if has('macunix')
+    let g:python3_host_prog = '/opt/homebrew/bin/python3'
+endif
+
 
 " Lazy List configs
 nnoremap gli :LazyList
