@@ -73,7 +73,7 @@ in
 
   home.packages = with pkgs; [
     vim neovim 
-    tmux ranger peco progress jq eza
+    tmux zellij ranger peco progress jq eza
     wget curl unzip zip 
     killall timer 
     disfetch lolcat

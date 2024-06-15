@@ -44,6 +44,9 @@ set path+=**            " Search for files in the current directory and all subd
 set ignorecase          " Ignore case in search patterns
 set smartcase           " Override ignorecase if pattern contains uppercase letters
 set hlsearch            " Highlight search results
+" Enable hidden files in netrw
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=",,^\\..\\{1,2}$"
 
 " ==========================================================
 " REGEX SETTINGS

@@ -33,9 +33,12 @@ in {
     kitty
   ]);
 
-  stylix.image = ./i/background.png;
-  stylix.polarity = "dark";
-  stylix.base16Scheme = ./theme.yaml;
+  stylix = {
+    enable = true;
+    image = ./i/background.png;
+    polarity = "dark";
+    base16Scheme = ./theme.yaml;
+  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.11";

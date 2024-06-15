@@ -83,6 +83,7 @@
     Plugin 'cakebaker/scss-syntax.vim'
 
     " Config scripts support
+    Plugin 'LnL7/vim-nix'
     Plugin 'elkowar/yuck.vim'
     Plugin 'mboughaba/i3config.vim'
     Plugin 'chr4/nginx.vim'

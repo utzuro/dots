@@ -37,6 +37,7 @@
     hyprland-workspaces
     hyprland-autoname-workspaces
     hyprland-monitor-attached
+    hyprlock
     wev
 
     # enable eww when ready to create DIY bar

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ librewolf ungoogled-chromium ];
+  home.packages = with pkgs; [ librewolf chromium ]; #ungoogled-chromium ];
 
   home.sessionVariables = { DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";};
 
