@@ -22,7 +22,6 @@ in {
     ./home/wm/ui.nix
     ./home/wm/hyplrand.nix
     ./home/comms.nix
-    ./home/vpn.nix
     ./home/media.nix
     ./home/dev.nix
     ./home/browser.nix

@@ -3,34 +3,36 @@
 # on first install enable unstable channel
 # `nix-channel --add https://nixos.org/channels/nixos-unstable nixos`
 
-{ config, lib, pkgs, user, inputs, ... }:
+{ config, lib, pkgs, user, system, inputs, ... }:
 
 {
   imports =
     [ 
-      /etc/nixos/hardware-configuration.nix
-      ( import ./ingredients/system/basic.nix {
+      ../${system.host}/hardware-configuration.nix
+
+      ( import ./system/basic.nix {
         inherit config pkgs user;
       })
-      ( import ./ingredients/system/network.nix {
-        inherit config pkgs user ;
+
+      ( import ./system/network.nix {
+        inherit config pkgs user system;
       })
 
-      ./ingredients/system/security.nix
-      ./ingredients/system/system.nix
-      ./ingredients/system/power-laptop.nix
+      ( import ./system/system.nix {
+        inherit config pkgs user system;
+      })
 
-      ./ingredients/system/video.nix
-      # ./ingredients/system/nvidia.nix
+      ./system/security.nix
+      ./system/power-laptop.nix
+      ./system/video.nix
 
-      ./ingredients/system/wm/fonts.nix
-      ./ingredients/system/wm/i3.nix
-      ./ingredients/system/wm/hyprland.nix
-      # ./ingredients/system/wm/plasma.nix
+      ./system/wm/shared.nix
+      ./system/wm/i3.nix
+      ./system/wm/hyprland.nix
 
-      ./ingredients/system/gaming.nix
+      ./system/gaming.nix
 
-      ( import ./ingredients/system/virtualization.nix {
+      ( import ./system/virtualization.nix {
         storageDriver = "btrfs"; inherit pkgs user lib;
       })
 

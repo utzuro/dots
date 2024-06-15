@@ -6,7 +6,6 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    # use cpufreq_powersave to save power
     consoleLogLevel = 0;
     supportedFilesystems = [ "btrfs" ];
     loader.systemd-boot.enable = true;
