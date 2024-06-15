@@ -79,6 +79,7 @@ set matchtime=3         " Duration to show matching brackets (tenths of a second
 " VISUAL SETTINGS
 " ==========================================================
 set showcmd             " Show partial command in the last line of the screen
+set laststatus=0        " Hide status line (0: never, 1: only with multiple windows, 2: always)
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P " Customize status line
 
 " ==========================================================
