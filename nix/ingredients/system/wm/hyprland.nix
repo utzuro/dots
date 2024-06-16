@@ -34,7 +34,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    hyprland-workspaces
+    hyprland-workspaces hypridle
     hyprland-autoname-workspaces
     hyprland-monitor-attached
     hyprlock

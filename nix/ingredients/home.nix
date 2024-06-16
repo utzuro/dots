@@ -16,6 +16,7 @@ in {
     ./home/sh.nix 
     ./home/git.nix
     ./home/libs.nix
+    ./home/tools.nix
     ./home/gamedev.nix
     ./home/gaming.nix
     ./home/wm/ui.nix

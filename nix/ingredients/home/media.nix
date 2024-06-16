@@ -12,7 +12,7 @@
     neovide obsidian
     vlc mpv
     qbittorrent-qt5
-    audio-recorder
+    audio-recorder easyeffects
     zathura calibre anki pandoc
     gimp inkscape krita
     obs-cli obs-studio

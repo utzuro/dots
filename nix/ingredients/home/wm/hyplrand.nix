@@ -17,6 +17,7 @@
   home.packages = with pkgs; [ 
     walker tofi
     wlrctl
+    foot fuzzel
   ];
   # programs.walker = {
   #   enable = true;
@@ -41,7 +42,7 @@
       hideIcons = false;
       ignoreExclusiveZones = false;
       layer = "overlay";
-      hidePluginInfo = false;
+      hidePluginInfo = true;
       closeOnClick = true;
       showResultsImmediately = false;
       maxEntries = null;
