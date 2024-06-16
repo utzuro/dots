@@ -8,6 +8,6 @@
   };
   hardware.opengl.extraPackages = with pkgs; 
   [
-    rocmPackages.clr.icd #amd
+    # rocmPackages.clr.icd #amd
   ];
 }
