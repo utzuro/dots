@@ -20,7 +20,10 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, stylix, anyrun, erosanix, ... }: 
   let
-    system = { arch = "x86_64-linux"; host = "zenitsu";
+    system = { 
+      arch = "x86_64-linux"; 
+      host = "zenitsu";
+      musdir = "/home/void/magic/mysticism/mu";
     };
     lib = nixpkgs.lib;
     pkgs = (import inputs.nixpkgs { 
