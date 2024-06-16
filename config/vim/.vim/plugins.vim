@@ -119,6 +119,18 @@ if has('macunix')
     let g:python3_host_prog = '/opt/homebrew/bin/python3'
 endif
 
+" NERDTREE
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" LEADER
+let mapleader = ','
+map <Leader> <Plug>(easymotion-prefix)
+map <leader>f <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-f)
+map Q gq
+
+
 
 " Lazy List configs
 nnoremap gli :LazyList

@@ -14,19 +14,6 @@ vmap y ygv<Esc>
 " nnoremap <C-k> <C-w><C-k>
 " nnoremap <C-j> <C-w><C-j>
 
-" NERDTREE
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-" LEADER
-let mapleader = ','
-map <Leader> <Plug>(easymotion-prefix)
-map <leader>f <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-f)
-map Q gq
-
 " WRITING
 set display=lastline
 inoremap . .<C-g>u

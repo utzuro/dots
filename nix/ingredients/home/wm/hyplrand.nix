@@ -15,6 +15,7 @@
   };
 
   home.packages = with pkgs; [ 
+    hyprpicker
     walker tofi
     wlrctl
     foot fuzzel
