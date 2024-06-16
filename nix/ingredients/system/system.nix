@@ -25,7 +25,7 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/mnt/archive/nas/mysticism/mu";
+    musicDirectory = "${system.musdir}"; 
     extraConfig = ''
       audio_output {
         type "pipewire"

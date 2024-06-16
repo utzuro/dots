@@ -20,7 +20,10 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, stylix, anyrun, erosanix, ... }: 
   let
-    system = { arch = "x86_64-linux"; host = "voidpc";
+    system = { 
+      arch = "x86_64-linux"; 
+      host = "voidpc";
+      musdir = "/mnt/archive/nas/mysticism/mu";
     };
     lib = nixpkgs.lib;
     # pkgs = nixpkgs.legacyPackages.${system.arch};
