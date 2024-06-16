@@ -9,6 +9,7 @@ blueman &
 
 # apps
 librewolf &
+steam &
 ~/.config/hypr/apps/chrome &
 ~/.config/hypr/apps/sig &
 ~/.config/hypr/apps/discord
