@@ -16,9 +16,10 @@
 
   home.packages = with pkgs; [ 
     hyprpicker
-    walker tofi
+    walker tofi 
     wlrctl
     foot fuzzel
+    wf-recorder
   ];
   # programs.walker = {
   #   enable = true;

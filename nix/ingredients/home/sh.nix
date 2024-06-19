@@ -24,6 +24,15 @@ let
     budgets = "ledger -f $LEDGER bal Budget";
 
     build-my-home = "home-manager switch --flake .#void --override-input home-manager ~/alchemy/summons/nixos/home-manager";
+
+    XDG_DESKTOP_DIR = "$HOME/";
+    XDG_DOWNLOAD_DIR = "$HOME/channeling";
+    XDG_TEMPLATES_DIR = "$HOME/magic";
+    XDG_PUBLICSHARE_DIR = "$HOME/magic";
+    XDG_DOCUMENTS_DIR = "$HOME/magic";
+    XDG_MUSIC_DIR = "$HOME/magic";
+    XDG_PICTURES_DIR = "$HOME/magic";
+    XDG_VIDEOS_DIR = "$HOME/magic";
   };
 in
 {
@@ -40,6 +49,8 @@ in
         "colored-man-pages" 
         "command-not-found" 
         "history" 
+        "pip" 
+        "docker" 
         "zsh-interactive-cd" 
         "web-search" 
         "z" 

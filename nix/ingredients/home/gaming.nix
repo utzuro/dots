@@ -4,7 +4,7 @@
   # battlenet
   home.packages = with pkgs; [
 
-    steamcmd steam-run
+    steamcmd steam-run protontricks
     mangohud gamemode
 
     heroic lutris 

@@ -14,6 +14,7 @@ in {
 
   imports = [
     ./home/sh.nix 
+    ./home/mimelist.nix
     ./home/git.nix
     ./home/libs.nix
     ./home/tools.nix
