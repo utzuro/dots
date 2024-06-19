@@ -3,7 +3,7 @@ let
   editor = "nvim.desktop";
   file-manager = "org.gnome.Nautilus.desktop";
   image-viewer = "feh.desktop";
-  image-editor = "gimp.desktop";
+  image-editor = "feh.desktop";
   torrent = "qbittorrent.desktop";
 in {
   xdg.mimeApps = rec {

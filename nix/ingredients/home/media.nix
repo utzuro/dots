@@ -14,7 +14,7 @@
     qbittorrent-qt5
     audio-recorder easyeffects
     zathura calibre anki pandoc
-    gimp inkscape krita
+    gimp inkscape krita mypaint pinta
     obs-cli obs-studio
     libreoffice-fresh
     xournalpp openboard

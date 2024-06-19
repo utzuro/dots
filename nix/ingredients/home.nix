@@ -15,6 +15,7 @@ in {
   imports = [
     ./home/sh.nix 
     ./home/mimelist.nix
+    ./home/theme.nix
     ./home/git.nix
     ./home/libs.nix
     ./home/tools.nix
@@ -33,13 +34,6 @@ in {
   home.packages = (with pkgs; [
     kitty
   ]);
-
-  stylix = {
-    enable = true;
-    image = ./i/background.png;
-    polarity = "dark";
-    base16Scheme = ./theme.yaml;
-  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.11";

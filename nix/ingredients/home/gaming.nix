@@ -1,9 +1,10 @@
-{ pkgs, ...}:
+{ pkgs, inputs, ...}:
 
 {
   # battlenet
   home.packages = with pkgs; [
 
+    # launchers
     steamcmd steam-run protontricks
     mangohud gamemode
 
@@ -14,6 +15,8 @@
 
     prismlauncher
 
+    # wine
+    inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     wineWowPackages.waylandFull
     # (wineWowPackages.full.override {
     #   wineRelease = "staging";
@@ -21,14 +24,6 @@
     # })
     winetricks
 
-    dosbox-staging
-    (retroarch.override {
-      cores = with libretro; [
-        genesis-plus-gx
-        snes9x
-        beetle-psx-hw
-      ];
-    })
     (lutris.override {
       extraLibraries = pkgs: [
         # If any games are unable to run 
@@ -41,6 +36,17 @@
         # pkgs can be installed here.
       ];
     })
+
+    # emulators
+    dosbox-staging
+    (retroarch.override {
+      cores = with libretro; [
+        genesis-plus-gx
+        snes9x
+        beetle-psx-hw
+      ];
+    })
+
   ];
 }
 
