@@ -20,6 +20,7 @@
     wlrctl
     foot fuzzel
     wf-recorder
+    wlsunset
   ];
   # programs.walker = {
   #   enable = true;

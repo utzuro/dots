@@ -78,6 +78,10 @@ fi
 ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
 ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
 
+# Tools
+mkdir -p "$HOME"/.config/ranger
+ln -sfv "$DIR"/config/ranger/rc.conf "$HOME"/.config/ranger/rc.conf
+
 # SSH
 mkdir -p "$HOME"/.ssh
 cp -n "$DIR"/config/ssh/config "$HOME"/.ssh/

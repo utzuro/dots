@@ -23,6 +23,7 @@
 " TOOLS
     Plugin 'KabbAmine/lazyList.vim'
     Plugin 'preservim/nerdtree' " :NERDTree
+    Plugin 'kevinhwang91/rnvimr' " ranger
     Plugin 'will133/vim-dirdiff'
     Plugin 'tpope/vim-fugitive' " :G
     Plugin 'glts/vim-radical' " gA on number
@@ -122,6 +123,7 @@ endif
 " NERDTREE
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <A-n> :RnvimrToggle<CR>
 
 " LEADER
 let mapleader = ','

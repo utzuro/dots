@@ -6,6 +6,7 @@ swww img ~/magic/ingredients/i/background.jpg &
 waybar &
 dunst &
 blueman &
+wlsunset -l 39.9 -L 116.3 &
 
 # apps
 librewolf &

@@ -83,8 +83,7 @@ in
   };
 
   home.packages = with pkgs; [
-    vim neovim 
-    tmux zellij ranger peco progress jq eza
+    vim neovim tmux zellij ranger lf yazi vifm-full peco progress jq eza
     wget curl unzip zip 
     killall timer 
     disfetch lolcat

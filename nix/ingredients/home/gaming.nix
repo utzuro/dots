@@ -17,7 +17,7 @@
 
     # wine
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
-    wineWowPackages.waylandFull
+    # wineWowPackages.waylandFull
     # (wineWowPackages.full.override {
     #   wineRelease = "staging";
     #   mingwSupport = true;

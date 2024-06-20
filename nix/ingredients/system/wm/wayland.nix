@@ -5,6 +5,7 @@
     [
       wayland waydroid
       wayland-protocols wayland-utils wlroots
+      ueberzugpp
       wofi
     ];
 
