@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # cli
-    mpv mpd mpc-cli ncmpcpp 
+    mpv mpd mpc-cli ncmpcpp kew
     yt-dlp pipe-viewer
     rtorrent
     mediainfo

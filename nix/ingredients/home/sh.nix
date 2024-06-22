@@ -92,6 +92,7 @@ in
     imagemagick aaxtomp3
     htop ddgr bottom hwinfo pciutils 
     cava bc numbat
+    unar ffmpegthumbnailer 
   ];
 
   home.sessionPath = [ "$HOME/scripts" ];
