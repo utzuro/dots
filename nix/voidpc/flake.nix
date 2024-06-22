@@ -27,7 +27,6 @@
       musdir = "/mnt/archive/nas/mysticism/mu";
     };
     lib = nixpkgs.lib;
-    # pkgs = nixpkgs.legacyPackages.${system.arch};
     pkgs = (import inputs.nixpkgs { 
       system = system.arch; 
       config = {

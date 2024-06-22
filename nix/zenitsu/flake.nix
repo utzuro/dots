@@ -11,6 +11,7 @@
     anyrun.inputs.nixpkgs.follows = "nixpkgs";
     erosanix.url = "github:emmanuelrosa/erosanix";
     erosanix.inputs.nixpkgs.follows = "nixpkgs";
+    nix-gaming.url = "github:fufexan/nix-gaming";
 
     blocklist-repo = {
       url = "github:StevenBlack/hosts";
@@ -18,7 +19,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, anyrun, erosanix, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, anyrun, erosanix, nix-gaming, ... }: 
   let
     system = { 
       arch = "x86_64-linux"; 
