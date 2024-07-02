@@ -12,7 +12,7 @@
 
   users.users.${user.name} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" "dialout" ];
+    extraGroups = [ "wheel" "input" "dialout" "adbusers" ];
     uid = 1000;
     shell = pkgs.zsh;
   };
@@ -31,4 +31,5 @@
       conf = "sudo vim /etc/nixos/configuration.nix";
     };
   };
+  programs.adb.enable = true;
 }

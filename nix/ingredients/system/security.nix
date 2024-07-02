@@ -8,8 +8,10 @@ in
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
 
+  services.dbus.packages = [ pkgs.gcr ];
   security.doas.enable = true;
   security.sudo.enable = false;
   security.doas.extraRules = [{

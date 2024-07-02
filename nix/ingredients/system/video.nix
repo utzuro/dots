@@ -1,12 +1,11 @@
 { config, pkgs, ...}:
 
 {
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
-  hardware.opengl.extraPackages = with pkgs; 
+  hardware.graphics.extraPackages = with pkgs; 
   [
     # rocmPackages.clr.icd #amd
   ];

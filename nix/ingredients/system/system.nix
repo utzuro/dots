@@ -43,7 +43,7 @@
   environment.systemPackages = with pkgs; [
     zsh vim tmux git wget ranger
     ack peco progress jq
-    playerctl cmatrix
-    pavucontrol
+    playerctl pavucontrol
+    ntfs3g
   ];
 }

@@ -45,15 +45,15 @@
       options = [ "subvol=log" "compress=zstd" "noatime" ];
     };
 
+  fileSystems."/mnt/seance" =
+    { device = "/dev/disk/by-uuid/360f587c-63c3-4161-894b-3ee9b5021fca";
+      fsType = "btrfs";
+      options = [ "compress=zstd" "noatime" "nofail"];
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/A8DA-E9CE";
       fsType = "vfat";
-    };
-
-  fileSystems."/mnt/seance" =
-    { device = "/dev/disk/by-uuid/B60C3C480C3C05C1";
-      fsType = "ntfs3";
-      options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
   fileSystems."/mnt/db" =
