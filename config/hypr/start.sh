@@ -12,6 +12,7 @@ wlsunset -l 39.9 -L 116.3 &
 librewolf &
 steam &
 ~/.config/hypr/apps/chrome &
+~/.config/hypr/apps/obsidian &
 ~/.config/hypr/apps/sig &
 ~/.config/hypr/apps/discord
 
