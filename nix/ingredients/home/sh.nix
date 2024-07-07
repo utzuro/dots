@@ -6,7 +6,8 @@ let
     ls = "eza";
     tree = "eza --tree";
     cat = "bat";
-    toto = "vim ~/todo";
+    todo = "vim ~/todo";
+    mpv = "mpv --alang=jpn";
 
     # git
     upd = "git commit -am 'update'";
@@ -93,6 +94,8 @@ in
     htop ddgr bottom hwinfo pciutils 
     cava bc numbat
     unar ffmpegthumbnailer 
+    ledger
+    taskwarrior3
   ];
 
   home.sessionPath = [ "$HOME/scripts" ];
@@ -107,7 +110,7 @@ in
     manu = "$alchemy/manuscripts";
     manuscripts = "$alchemy/manuscripts";
     STARDICT_DATA_DIR = "$manuscripts/ingredients/dicts/dic";
-    LEDGER = "$alchemy/manuscripts/ledger/main.ledger";
+    LEDGER = "$HOME/alchemy/manuscripts/ledger/main.ledger";
     ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
     GOPATH = "$HOME/go";
 
