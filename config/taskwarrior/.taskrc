@@ -39,3 +39,4 @@ data.location=/home/void/.task
 #include solarized-light-256.theme
 #include no-color.theme
 
+regex=on
