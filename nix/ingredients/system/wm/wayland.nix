@@ -6,6 +6,7 @@
       wayland waydroid
       wayland-protocols wayland-utils wlroots
       wofi
+      sddm-sugar-dark
       (where-is-my-sddm-theme.override {
         themeConfig.General = { 
           background = "${./login-background.jpg}"; 
@@ -22,7 +23,7 @@
         enable = true;
         wayland.enable = true;
         enableHidpi = true;
-        theme = "where-is-my-sddm-theme";
+        theme = "sugar-dark";
         package = pkgs.sddm;
       };
 }

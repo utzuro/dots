@@ -46,7 +46,6 @@
     libnotify swww
     grim grimblast slurp wl-clipboard swappy
     cliphist
-    gnome.nautilus
     hyprland-per-window-layout
   ];
 
