@@ -6,6 +6,13 @@
       wayland waydroid
       wayland-protocols wayland-utils wlroots
       wofi
+      (where-is-my-sddm-theme.override {
+        themeConfig.General = { 
+          background = "${./login-background.jpg}"; 
+          backgroundMode = "fill"; 
+        }; 
+        variants = ["qt5"]; 
+      })
     ];
 
     services.xserver = {
@@ -15,7 +22,7 @@
         enable = true;
         wayland.enable = true;
         enableHidpi = true;
-        theme = "chili";
+        theme = "where-is-my-sddm-theme";
         package = pkgs.sddm;
       };
 }

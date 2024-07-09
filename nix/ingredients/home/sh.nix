@@ -95,7 +95,7 @@ in
     cava bc numbat
     unar ffmpegthumbnailer 
     ledger
-    taskwarrior3
+    taskwarrior3 tasksh
   ];
 
   home.sessionPath = [ "$HOME/scripts" ];
