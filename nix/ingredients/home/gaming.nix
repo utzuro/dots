@@ -9,7 +9,9 @@
     mangohud gamemode
 
     heroic lutris 
-    gnome3.adwaita-icon-theme # required for lutris
+    adwaita-icon-theme # required for lutris
+
+    openxray
 
     vcmi
 

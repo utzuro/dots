@@ -12,7 +12,7 @@
         rofi
         xorg.xhost
         brightnessctl xorg.xbacklight
-        bumblebee-status
+        #bumblebee-status
         i3status i3lock i3blocks
         lxappearance
         picom

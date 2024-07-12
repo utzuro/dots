@@ -19,7 +19,7 @@
   environment.systemPackages = with pkgs; [
     cudatoolkit
     ocl-icd
-    rocm-opencl-runtime
+    #rocm-opencl-runtime
     vulkan-tools
   ];
 }

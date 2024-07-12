@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # chats
-    threema-desktop
+    # threema-desktop
     signal-desktop 
     signald signaldctl signal-cli
     webcord discord telegram-desktop
