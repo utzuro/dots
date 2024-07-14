@@ -20,6 +20,7 @@ in {
     ./home/libs.nix
     ./home/tools.nix
     ./home/gamedev.nix
+    ./home/emulation.nix
     ./home/gaming.nix
     ./home/wm/ui.nix
     ./home/wm/hyplrand.nix

@@ -10,10 +10,11 @@
 
     # gui
     neovide obsidian
+    zathura xournalpp
     vlc mpv
     qbittorrent-qt5
     audio-recorder easyeffects
-    zathura calibre anki pandoc
+    calibre anki pandoc
     gimp inkscape krita mypaint pinta
     obs-cli obs-studio
     libreoffice-fresh
