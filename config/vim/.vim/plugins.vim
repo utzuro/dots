@@ -1,118 +1,124 @@
  filetype plugin indent on
 
- set rtp+=~/.vim/bundle/Vundle.vim
- call vundle#begin()
-    Plugin 'VundleVim/Vundle.vim'
+" Instal vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+ call plug#begin()
 
 " SETTINGS
-    Plugin 'tpope/vim-sensible'
-    Plugin 'tpope/vim-characterize'
-    Plugin 'tpope/vim-repeat'
-    Plugin 'tpope/vim-obsession'
-    Plugin 'tpope/vim-vinegar'
-    Plugin 'tpope/vim-apathy'
-    Plugin 'tpope/vim-haystack' " replaces completion algorithm
-    Plugin 'hedrok/vim-plugin-ruscmd'
-    Plugin 'michaeljsmith/vim-indent-object'
-    Plugin 'djoshea/vim-autoread'
-    Plugin 'machakann/vim-highlightedyank'
-    Plugin 'haya14busa/is.vim'
-    Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'vim-scripts/AutoComplPop'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-apathy'
+Plug 'tpope/vim-haystack' " replaces completion algorithm
+Plug 'hedrok/vim-plugin-ruscmd'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'djoshea/vim-autoread'
+Plug 'machakann/vim-highlightedyank'
+Plug 'haya14busa/is.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-scripts/AutoComplPop'
 
 " TOOLS
-    Plugin 'KabbAmine/lazyList.vim'
-    Plugin 'preservim/nerdtree' " :NERDTree
-    Plugin 'kevinhwang91/rnvimr' " ranger
-    Plugin 'will133/vim-dirdiff'
-    Plugin 'tpope/vim-fugitive' " :G
-    Plugin 'glts/vim-radical' " gA on number
-    Plugin 'glts/vim-magnum' " ↑ req by vim-radical
-    Plugin 'tpope/vim-tbone' " :Tmux, :Tyank, :Tput
-    Plugin 'tpope/vim-speeddating' " <C-a> <C-x> on dates
-    Plugin 'nvim-telescope/telescope.nvim'
-    Plugin 'nvim-telescope/telescope-media-files.nvim'
-    Plugin 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'KabbAmine/lazyList.vim'
+Plug 'preservim/nerdtree' " :NERDTree
+Plug 'kevinhwang91/rnvimr' " ranger
+Plug 'will133/vim-dirdiff'
+Plug 'tpope/vim-fugitive' " :G
+Plug 'glts/vim-radical' " gA on number
+Plug 'glts/vim-magnum' " ↑ req by vim-radical
+Plug 'tpope/vim-tbone' " :Tmux, :Tyank, :Tput
+Plug 'tpope/vim-speeddating' " <C-a> <C-x> on dates
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-media-files.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 
 " EDITING
-    Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-abolish'
-    Plugin 'vim-scripts/ReplaceWithRegister'  " grr
-    Plugin 'tommcdo/vim-exchange'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
+Plug 'vim-scripts/ReplaceWithRegister'  " grr
+Plug 'tommcdo/vim-exchange'
 
 " WRITING
-    Plugin 'dbakker/vim-paragraph-motion'
-    Plugin 'https://gitlab.com/hedrok/langtool-adoc-vim.git'
-    Plugin 'junegunn/vim-peekaboo'
+Plug 'dbakker/vim-paragraph-motion'
+Plug 'https://gitlab.com/hedrok/langtool-adoc-vim.git'
+Plug 'junegunn/vim-peekaboo'
   
 " IDE
-    Plugin 'dense-analysis/ale'
-    Plugin 'sheerun/vim-polyglot'
-    Plugin 'tpope/vim-unimpaired'
-    Plugin 'tpope/vim-commentary'
-    Plugin 'tpope/vim-dadbod'
-    Plugin 'tpope/vim-dotenv' " :Dotenv {file} to load .env
-    Plugin 'tpope/vim-jdaddy' " json mappings: aj, gqaj, gwaj
+Plug 'dense-analysis/ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dotenv' " :Dotenv {file} to load .env
+Plug 'tpope/vim-jdaddy' " json mappings: aj, gqaj, gwaj
 
 " gamedev
-    Plugin 'habamax/vim-godot'
+Plug 'habamax/vim-godot'
 
 " complition
-    Plugin 'neovim/nvim-lspconfig'
-    Plugin 'hrsh7th/cmp-nvim-lsp'
-    Plugin 'hrsh7th/cmp-buffer'
-    Plugin 'hrsh7th/nvim-cmp'
-    Plugin 'github/copilot.vim'  
-    Plugin 'honza/vim-snippets'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'tpope/vim-endwise'
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'npm ci'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'github/copilot.vim'  
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-endwise'
 
 " folding
-    Plugin 'Konfekt/FastFold'
+Plug 'Konfekt/FastFold'
 
 " navigation
-    Plugin 'justinmk/vim-sneak'
-    Plugin 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
+Plug 'easymotion/vim-easymotion'
 
-    Plugin 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
 
     " Server
-    Plugin 'fatih/vim-go'
-    Plugin 'rust-lang/rust.vim'
-    Plugin 'vim-python/python-syntax'
-    Plugin 'nvie/vim-flake8' " :PyFlake8
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'vim-python/python-syntax'
+Plug 'nvie/vim-flake8' " :PyFlake8
 
     " Frontend
-    Plugin 'mattn/emmet-vim'
-    Plugin 'pangloss/vim-javascript'
-    Plugin 'othree/html5.vim'
-    Plugin 'chrisbra/csv.vim'
-    Plugin 'cakebaker/scss-syntax.vim'
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
+Plug 'chrisbra/csv.vim'
+Plug 'cakebaker/scss-syntax.vim'
 
     " Config scripts support
-    Plugin 'LnL7/vim-nix'
-    Plugin 'elkowar/yuck.vim'
-    Plugin 'mboughaba/i3config.vim'
-    Plugin 'chr4/nginx.vim'
-    Plugin 'lifepillar/pgsql.vim'
-    Plugin 'ekalinin/dockerfile.vim'
-    Plugin 'jvirtanen/vim-hcl'
-    Plugin 'stephpy/vim-yaml'
-    Plugin 'tmux-plugins/vim-tmux'
-    Plugin 'wgwoods/vim-systemd-syntax'
-    Plugin 'towolf/vim-helm'
+Plug 'LnL7/vim-nix'
+Plug 'elkowar/yuck.vim'
+Plug 'mboughaba/i3config.vim'
+Plug 'chr4/nginx.vim'
+Plug 'lifepillar/pgsql.vim'
+Plug 'ekalinin/dockerfile.vim'
+Plug 'jvirtanen/vim-hcl'
+Plug 'stephpy/vim-yaml'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'wgwoods/vim-systemd-syntax'
+Plug 'towolf/vim-helm'
 
 "Visual
-    Plugin 'dracula/vim'
-    Plugin 'ryanoasis/vim-devicons'
+Plug 'dracula/vim'
+Plug 'ryanoasis/vim-devicons'
     
 
 " required for nvim
-    Plugin 'nvim-lua/popup.nvim'
-    Plugin 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
 
-call vundle#end()            " required
+call plug#end()            " required
 
 
 " PLUGIN CONFIGS
@@ -138,8 +144,6 @@ map <Leader> <Plug>(easymotion-prefix)
 map <leader>f <Plug>(easymotion-s)
 map <leader>e <Plug>(easymotion-f)
 map Q gq
-
-
 
 " Lazy List configs
 nnoremap gli :LazyList
