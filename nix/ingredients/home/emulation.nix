@@ -1,7 +1,5 @@
 { pkgs, lib, user, ...}:
 
 {
-  environment.systemPackages = with pkgs; [
-    waydroid
-  ];
+  home.packages = with pkgs; [ ];
 }

@@ -1,7 +1,15 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs; [ librewolf chromium ]; #ungoogled-chromium ];
+
+  home.packages = with pkgs; [ 
+    librewolf 
+    # ungoogled-chromium # doesn't work for some reason
+    (chromium.override {
+      commandLineArgs = 
+      "--ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --disable-gpu-compositing";
+    })
+  ];
 
   home.sessionVariables = { DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";};
 

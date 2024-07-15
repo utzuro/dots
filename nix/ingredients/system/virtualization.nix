@@ -12,6 +12,7 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
 ];
 
 {
+  virtualisation.waydroid.enable = true;
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;

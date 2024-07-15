@@ -9,7 +9,11 @@
     mediainfo
 
     # gui
-    neovide obsidian
+    (obsidian.override {
+      commandLineArgs = 
+      "--ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --disable-gpu-compositing";
+    })
+    neovide
     zathura xournalpp
     vlc mpv
     qbittorrent-qt5
