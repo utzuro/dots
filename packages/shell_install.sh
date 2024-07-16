@@ -20,10 +20,11 @@ touch "${HOME:?}"/.secrets
 #else printf "📝 Zplug seems to be already installed! Remove ~/.zplug to reinstall. 🚀\n"
 #fi
 
-if ! [ -d "$HOME/.vim/bundle/Vundle.vim" ]; then
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-else printf "📝 Vundle seems to be already installed! Remove ~/.vim/bundle/Vundle.vim to reinstall. 🚀\n"
-fi
+printf "📝 Installing vim plugins... 🚀\n"
+# vim
+vim -es -u vimrc -i NONE -c "PlugInstall" -c "qa"
+# neovim
+#nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
 
 if ! [ -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
