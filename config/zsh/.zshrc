@@ -32,8 +32,8 @@ bindkey '[B' history-substring-search-down
 
 # Shell options
 set -o vi
-export VISUAL=vim
-export EDITOR=vim
+export VISUAL=nvim
+export EDITOR=nvim
 export fpath=(~/.zsh/completion $fpath)
 autoload -U compinit && compinit
 

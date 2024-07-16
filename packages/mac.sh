@@ -13,7 +13,7 @@ brew update
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # shell tools
-brew install curl wget zsh zsh-autosuggestions ack git tig tmux zellij vim neovim nvimpager bat eza jq peco ranger zplug fzf imagemagick ffmpeg tree vhs scdoc sdcv pandoc coreutils fd ripgrep ynqa/tap/jnv
+brew install curl wget zsh zsh-autosuggestions ack git tig tmux zellij vim neovim nvimpager bat eza jq peco ranger yazi zplug fzf imagemagick ffmpeg tree vhs scdoc sdcv pandoc coreutils fd ripgrep ynqa/tap/jnv
 # git
 brew install gh
 gh extension install dlvhdr/gh-dash
@@ -22,6 +22,8 @@ gh extension install dlvhdr/gh-dash
 brew tap tinygo-org/tools
 brew install go tinygo python docker node deno yarn postgresql sqlc
 deno completions zsh > ~/.zsh/_deno 
+
+go install golang.org/x/tools/cmd/godoc@latest
 
 # sys
 brew tap context-labs/mactop https://github.com/context-labs/mactop
