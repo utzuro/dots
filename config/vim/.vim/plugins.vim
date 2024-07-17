@@ -50,6 +50,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'dbakker/vim-paragraph-motion'
 Plug 'https://gitlab.com/hedrok/langtool-adoc-vim.git'
 Plug 'junegunn/vim-peekaboo'
+Plug 'vimwiki/vimwiki'
   
 " IDE
 Plug 'dense-analysis/ale'
@@ -162,6 +163,16 @@ let g:lazylist_maps = [
 " Latex
 let g:livepreview_previewer = 'zathura'
 
+" Vimwiki
+let g:vimwiki_list = [
+      \ {'path': '~/alchemy/manuscripts/wiki'},
+      \ {'path': '~/alchemy/cyberspace/docs/wiki'},
+      \ ]
+
+" Key mappings for switching between wikis
+nnoremap <Leader>ww :VimwikiIndex<CR>
+nnoremap <Leader>ws :VimwikiUISelect<CR>
+
 " Godot
 func! GodotSettings() abort
     setlocal foldmethod=expr
@@ -174,3 +185,5 @@ endfunc
 augroup godot | au!
     au FileType gdscript call GodotSettings()
 augroup end"
+
+" so ~/.vim/coc.vim
