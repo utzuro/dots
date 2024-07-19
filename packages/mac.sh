@@ -31,7 +31,7 @@ brew install mactop
 
 # tools
 brew install graphviz ledger kitty yt-dlp
-brew install --cask obsidian drawio anki visual-studio-code docker
+brew install --cask obsidian drawio anki visual-studio-code
 
 brew tap d12frosted/emacs-plus
 brew install emacs-plus
