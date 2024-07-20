@@ -14,5 +14,6 @@
     # tools
     zed-editor
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
+    android-studio-dev
   ];
 }

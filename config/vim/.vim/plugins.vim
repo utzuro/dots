@@ -24,6 +24,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'haya14busa/is.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/AutoComplPop'
+Plug 'powerman/vim-plugin-AnsiEsc'
 
 " TOOLS
 Plug 'KabbAmine/lazyList.vim'
@@ -60,6 +61,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dotenv' " :Dotenv {file} to load .env
 Plug 'tpope/vim-jdaddy' " json mappings: aj, gqaj, gwaj
+Plug 'preservim/tagbar'
 
 " gamedev
 Plug 'habamax/vim-godot'
