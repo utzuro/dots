@@ -22,6 +22,7 @@
         inherit config pkgs user system;
       })
 
+      ./system/dev.nix
       ./system/vpn.nix
       ./system/security.nix
       ./system/power.nix
