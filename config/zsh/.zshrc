@@ -73,7 +73,9 @@ fi
 # Aliases
 alias c="clear"
 alias upd='git commit -am "update"'
+alias amend='git commit --amend'
 alias push='git push'
+alias force='git push --force'
 alias pull='git pull --ff-only'
 alias pip='pip3'
 alias python='python3'
