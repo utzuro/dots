@@ -6,6 +6,7 @@
     ghc
     go rustup
     php nodejs
+    cmake clang clang-tools ctags llvm boost ccache
 
     (python3.withPackages (python-pkgs: [
       python-pkgs.pip
@@ -15,5 +16,6 @@
     zed-editor
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
     androidStudioPackages.dev
+    flutter
   ];
 }

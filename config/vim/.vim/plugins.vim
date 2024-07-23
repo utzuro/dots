@@ -166,6 +166,7 @@ let g:lazylist_maps = [
 let g:livepreview_previewer = 'zathura'
 
 " Vimwiki
+let g:vimwiki_key_mappings = { 'table_mappings': 0 }
 let g:vimwiki_list = [
       \ {'path': '~/alchemy/manuscripts/wiki'},
       \ {'path': '~/alchemy/cyberspace/docs/wiki'},
@@ -188,4 +189,4 @@ augroup godot | au!
     au FileType gdscript call GodotSettings()
 augroup end"
 
-" so ~/.vim/coc.vim
+so ~/.vim/coc.vim
