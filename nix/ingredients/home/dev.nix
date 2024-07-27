@@ -8,6 +8,8 @@
     php nodejs
     cmake clang clang-tools ctags llvm boost ccache
 
+    nixpkgs-fmt nil
+
     (python3.withPackages (python-pkgs: [
       python-pkgs.pip
     ]))
