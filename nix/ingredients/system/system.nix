@@ -40,6 +40,8 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment.systemPackages = with pkgs; [
+    acpi
+    alsa-utils
     zsh vim tmux git wget ranger
     ack peco progress jq
     playerctl pavucontrol
