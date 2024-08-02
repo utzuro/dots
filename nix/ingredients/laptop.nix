@@ -22,6 +22,7 @@
         inherit config pkgs user system;
       })
 
+      # TODO: vpn
       ./system/security.nix
       ./system/power-laptop.nix
       ./system/video.nix
