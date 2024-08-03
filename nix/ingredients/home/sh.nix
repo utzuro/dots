@@ -84,11 +84,16 @@ in
   };
 
   home.packages = with pkgs; [
-    vim neovim tmux zellij ranger lf yazi vifm-full peco progress jq eza
+    vim neovim 
+    tmux zellij 
+    ranger lf yazi vifm-full 
+    ack ripgrep fzf fd 
+    peco progress jq
+    bat eza rsync
     wget curl unzip zip 
+    elvish xonsh
     killall timer 
     disfetch lolcat
-    ack ripgrep fzf fd bat rsync
     w3m asciidoctor pandoc pdftk foremost
     imagemagick aaxtomp3
     htop ddgr bottom hwinfo pciutils 

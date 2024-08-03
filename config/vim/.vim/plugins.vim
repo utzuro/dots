@@ -24,6 +24,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'haya14busa/is.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/AutoComplPop'
+Plug 'powerman/vim-plugin-AnsiEsc'
 
 " TOOLS
 Plug 'KabbAmine/lazyList.vim'
@@ -50,6 +51,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'dbakker/vim-paragraph-motion'
 Plug 'https://gitlab.com/hedrok/langtool-adoc-vim.git'
 Plug 'junegunn/vim-peekaboo'
+Plug 'vimwiki/vimwiki'
   
 " IDE
 Plug 'dense-analysis/ale'
@@ -59,6 +61,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dotenv' " :Dotenv {file} to load .env
 Plug 'tpope/vim-jdaddy' " json mappings: aj, gqaj, gwaj
+Plug 'preservim/tagbar'
 
 " gamedev
 Plug 'habamax/vim-godot'
@@ -162,6 +165,17 @@ let g:lazylist_maps = [
 " Latex
 let g:livepreview_previewer = 'zathura'
 
+" Vimwiki
+let g:vimwiki_key_mappings = { 'table_mappings': 0 }
+let g:vimwiki_list = [
+      \ {'path': '~/alchemy/manuscripts/wiki'},
+      \ {'path': '~/alchemy/cyberspace/docs/wiki'},
+      \ ]
+
+" Key mappings for switching between wikis
+nnoremap <Leader>ww :VimwikiIndex<CR>
+nnoremap <Leader>ws :VimwikiUISelect<CR>
+
 " Godot
 func! GodotSettings() abort
     setlocal foldmethod=expr
@@ -174,3 +188,5 @@ endfunc
 augroup godot | au!
     au FileType gdscript call GodotSettings()
 augroup end"
+
+so ~/.vim/coc.vim

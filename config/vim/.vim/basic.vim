@@ -85,6 +85,9 @@ set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P " 
 " ==========================================================
 " FOLDING SETTINGS
 " ==========================================================
+set foldenable
+set foldmethod=syntax
+set foldlevelstart=1
 hi Folded ctermfg=5     " Set color for folded lines
 hi Folded ctermbg=black " Set background color for folded lines
 hi FoldColumn ctermfg=5 " Set color for fold column
