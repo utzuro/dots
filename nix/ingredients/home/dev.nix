@@ -6,7 +6,7 @@
     ghc
     go rustup
     php nodejs
-    cmake clang clang-tools ctags llvm boost ccache
+    cmake clang clang-tools ctags ccls llvm boost ccache
 
     nixpkgs-fmt nil
 
