@@ -21,6 +21,12 @@
     jack.enable = true;
   };
 
+ nix.gc = {
+    automatic = true;
+    randomizedDelaySec = "14m";
+    options = "--delete-older-than 10d";
+  };
+
   services.mpd = {
     enable = true;
     musicDirectory = "${system.musdir}"; 
