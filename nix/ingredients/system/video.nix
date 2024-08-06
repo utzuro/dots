@@ -12,5 +12,16 @@
 
   environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_zen.v4l2loopback
+    # amd
+    amdvlk
+    driversi686Linux.amdvlk
+    radeontop
+    rocm-opencl-icd
+    rocm-opencl-runtime
+    xorg.xf86videoamdgpu
   ];
+
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 }

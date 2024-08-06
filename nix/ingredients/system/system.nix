@@ -19,9 +19,11 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-  };
+  }; 
 
- nix.gc = {
+  programs.nix-ld.package = pkgs.nix-ld-rs; 
+
+  nix.gc = {
     automatic = true;
     randomizedDelaySec = "14m";
     options = "--delete-older-than 10d";

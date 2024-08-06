@@ -11,7 +11,7 @@
     heroic lutris 
     adwaita-icon-theme # required for lutris
 
-    openxray
+    # openxray
 
     vcmi
 

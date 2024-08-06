@@ -26,6 +26,7 @@
       ./system/security.nix
       ./system/power-laptop.nix
       ./system/video.nix
+      ./system/autorandr.nix
 
       ./system/wm/shared.nix
       ./system/wm/i3.nix

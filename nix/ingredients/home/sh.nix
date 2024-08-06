@@ -118,6 +118,7 @@ in
     LEDGER = "$HOME/alchemy/manuscripts/ledger/main.ledger";
     ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
     GOPATH = "$HOME/go";
+    CHROME_EXECUTABLE="chrome"
 
     # ja input
     # QT_IM_MODULE = "fcitx";
