@@ -18,5 +18,6 @@
     xdg-desktop-portal-gtk
     xdotool
     socat
+    kdePackages.konsole
   ];
 }

@@ -27,14 +27,11 @@ in {
     ./home/comms.nix
     ./home/media.nix
     ./home/dev.nix
+    ./home/term.nix
     ./home/browser.nix
     ./home/wm/input.nix
     # ./home/wm/i3.nix
   ];
-
-  home.packages = (with pkgs; [
-    kitty
-  ]);
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.11";
