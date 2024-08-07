@@ -26,6 +26,7 @@ in {
     ./home/wm/hyplrand.nix
     ./home/comms.nix
     ./home/media.nix
+    ./home/creative.nix
     ./home/dev.nix
     ./home/term.nix
     ./home/browser.nix

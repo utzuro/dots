@@ -90,15 +90,16 @@ in
     ack ripgrep fzf fd 
     peco progress jq
     bat eza rsync
-    wget curl unzip zip 
+    wget curl 
+    # archives
+    unzip zip gzip xz atool zstd lz4 lzip lzo lzop p7zip rar rzip unar 
     elvish xonsh
     killall timer 
     disfetch lolcat
     w3m asciidoctor pandoc pdftk foremost
-    imagemagick aaxtomp3
+    imagemagick ffmpeg aaxtomp3 
     htop ddgr bottom hwinfo pciutils 
     cava bc numbat
-    unar ffmpegthumbnailer 
     ledger
     taskwarrior3 tasksh geek-life
   ];

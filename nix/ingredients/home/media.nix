@@ -7,26 +7,24 @@
     yt-dlp pipe-viewer
     rtorrent
     mediainfo
+    obs-cli
+    tuir
 
     # gui
-    (obsidian.override {
-      commandLineArgs = 
-      "--ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --disable-gpu-compositing";
-    })
     neovide
     zathura xournalpp
-    vlc mpv
+    vlc
     qbittorrent-qt5
-    audio-recorder easyeffects
     calibre anki pandoc
-    gimp inkscape krita mypaint pinta
-    obs-cli obs-studio
     libreoffice-fresh
     xournalpp openboard
     foliate texliveSmall
 
-    # web
-    tuir
+    (obsidian.override {
+      commandLineArgs = 
+      "--ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --disable-gpu-compositing";
+    })
+
   ];
 
   home.file.".config/ncmpcpp/config".text = ''

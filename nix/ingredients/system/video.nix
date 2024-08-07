@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, lib, ...}:
 
 {
   hardware.graphics = {
@@ -24,4 +24,20 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
-}
+  
+  hardware = {
+    opengl = {
+      enable = true;
+
+      extraPackages = with pkgs; [
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+        cudaPackages.cuda_cccl
+        vaapiIntel
+        vaapiVdpau
+        vulkan-validation-layers
+      ];
+    };
+  };
+} 

@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs;
     [
-      wayland waydroid
+      wayland
       wayland-protocols wayland-utils wlroots
       wofi
       (where-is-my-sddm-theme.override {

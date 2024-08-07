@@ -10,6 +10,10 @@
     supportedFilesystems = [ "btrfs" ];
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    initrd.systemd.enable = true;
+    initrd.verbose = false;
+    plymouth.enable = true;
+    plymouth.theme = "breeze";
   };
 
   security.rtkit.enable = true;
