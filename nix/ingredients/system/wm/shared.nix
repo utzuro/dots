@@ -21,4 +21,15 @@
     kdePackages.konsole foot kitty
     glances
   ];
+
+  services.xserver = {
+    desktopManager.runXdgAutostartIfNone = true;
+  };
+  services.displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+      enableHidpi = true;
+      theme = "where_is_my_sddm_theme_qt5";
+      package = pkgs.sddm;
+    };
 }

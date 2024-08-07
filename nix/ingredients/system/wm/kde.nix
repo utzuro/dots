@@ -14,22 +14,6 @@ with lib;
       plasma5.enable = true;
     };
 
-    displayManager = {
-      sddm = {
-        enable = true;
-        autoNumlock = true;
-
-        settings = {
-          Theme = {
-            CursorTheme = "layan-border_cursors";
-
-          };
-        };
-        theme = "breeze";
-      };
-      # defaultSession = "plasmawayland";
-    };
-
     videoDrivers = [
       "fbdev" # The fbdev (Framebuffer Device) driver is a generic framebuffer driver that provides access to the frame buffer of the display hardware.
       # "modesetting"     # The modesetting driver is a generic driver for modern video hardware that relies on kernel modesetting (KMS) to set the display modes and manage resolution and refresh rate.
