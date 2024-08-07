@@ -20,6 +20,14 @@
     socat
     kdePackages.konsole foot kitty
     glances
+
+    (where-is-my-sddm-theme.override {
+      themeConfig.General = { 
+        background = "${./login-background.jpg}"; 
+        backgroundMode = "fill"; 
+      }; 
+      variants = ["qt5"]; 
+    })
   ];
 
   services.xserver = {

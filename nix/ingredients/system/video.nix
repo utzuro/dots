@@ -7,7 +7,14 @@
   };
   hardware.graphics.extraPackages = with pkgs; 
   [
-    # rocmPackages.clr.icd #amd
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      libvdpau-va-gl
+      nvidia-vaapi-driver
+      cudaPackages.cuda_cccl
+      vaapiIntel
+      vaapiVdpau
+      vulkan-validation-layers
+      rocmPackages.clr.icd #amd
   ];
 
   environment.systemPackages = with pkgs; [
@@ -24,20 +31,4 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
-  
-  hardware = {
-    opengl = {
-      enable = true;
-
-      extraPackages = with pkgs; [
-        intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        libvdpau-va-gl
-        nvidia-vaapi-driver
-        cudaPackages.cuda_cccl
-        vaapiIntel
-        vaapiVdpau
-        vulkan-validation-layers
-      ];
-    };
-  };
 } 

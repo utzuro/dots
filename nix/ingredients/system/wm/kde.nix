@@ -8,8 +8,6 @@ with lib;
     enable = true;
     exportConfiguration = true;
 
-    libinput.enable = true;
-
     desktopManager = {
       plasma5.enable = true;
     };
