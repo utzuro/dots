@@ -13,25 +13,32 @@ in {
   home.homeDirectory = homeDir;
 
   imports = [
+
     ./home/sh.nix 
-    ./home/mimelist.nix
-    ./home/theme.nix
     ./home/git.nix
     ./home/libs.nix
     ./home/tools.nix
+    ./home/mimelist.nix
+
+    ./home/theme.nix
+    ./home/term.nix
+
+    ./home/browser.nix
+    ./home/comms.nix
+    ./home/media.nix
+
+    ./home/creative.nix
+    ./home/dev.nix
     ./home/gamedev.nix
     ./home/emulation.nix
     ./home/gaming.nix
+
+    ./home/wm/input.nix
     ./home/wm/ui.nix
     ./home/wm/hyplrand.nix
-    ./home/comms.nix
-    ./home/media.nix
-    ./home/creative.nix
-    ./home/dev.nix
-    ./home/term.nix
-    ./home/browser.nix
-    ./home/wm/input.nix
+    ./home/wm/kde.nix
     # ./home/wm/i3.nix
+
   ];
 
   programs.home-manager.enable = true;

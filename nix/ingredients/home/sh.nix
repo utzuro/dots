@@ -87,21 +87,29 @@ in
     vim neovim 
     tmux zellij 
     ranger lf yazi vifm-full 
-    ack ripgrep fzf fd 
+    ack ripgrep ripgrep-all fzf fd duf
     peco progress jq
     bat eza rsync
     wget curl 
+
     # archives
     unzip zip gzip xz atool zstd lz4 lzip lzo lzop p7zip rar rzip unar 
+
+    # shells
     elvish xonsh
+
+    # tools
     killall timer 
-    disfetch lolcat
+    lfs lsd lsdvd ncdu
+    disfetch lolcat neofetch pfetch
     w3m asciidoctor pandoc pdftk foremost
     imagemagick ffmpeg aaxtomp3 
-    htop ddgr bottom hwinfo pciutils 
+    htop ddgr bottom hwinfo pciutils psmisc
     cava bc numbat
-    ledger
-    taskwarrior3 tasksh geek-life
+    ledger bc
+    inotify-tools
+
+    #taskwarrior3 tasksh geek-life
   ];
 
   home.sessionPath = [ "$HOME/scripts" ];

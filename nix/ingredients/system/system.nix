@@ -57,6 +57,6 @@
     zsh vim tmux git wget ranger
     ack peco progress jq
     playerctl pavucontrol
-    ntfs3g
+    gparted hw-probe ntfs3g
   ];
 }

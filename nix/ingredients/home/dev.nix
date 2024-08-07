@@ -2,11 +2,12 @@
 
 {
   home.packages = with pkgs; [
-    # langs
-    ghc
+    # langs ghc
     go rustup
     php nodejs
     cmake clang clang-tools ctags ccls llvm boost ccache
+    rPackages.pkgconfig
+
 
     nixpkgs-fmt nil
 
@@ -20,5 +21,8 @@
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
     androidStudioPackages.dev
     flutter
+
+    # DB
+    dbeaver pgmodeler sqlitebrowser
   ];
 }

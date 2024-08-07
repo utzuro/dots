@@ -4,13 +4,17 @@
   home.packages = with pkgs; [
     # cli
     mpv mpd mpc-cli ncmpcpp kew
-    yt-dlp pipe-viewer
+    nsxiv feh
+    yt-dlp pipe-viewer clipgrab wget
     rtorrent
-    mediainfo
     obs-cli
     tuir
+    libdvdcss libdvdread # dvd
+    libopus libvorbis mpg123 # libs
+    mediainfo 
 
-    # gui
+    # gui 
+    mediainfo-gui
     neovide
     zathura xournalpp
     vlc

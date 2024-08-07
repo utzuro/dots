@@ -16,8 +16,9 @@
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
-    xdotool
+    xdotool xdg-launch xdg-utils
     socat
-    kdePackages.konsole
+    kdePackages.konsole foot kitty
+    glances
   ];
 }
