@@ -1,6 +1,10 @@
 { pkgs, ...}:
 
 {
+  imports = [
+    ./plasma.nix
+  ];
+
   home.packages = with pkgs; [
     kgpg ark 
     krusader filelight 

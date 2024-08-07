@@ -1,7 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   hardware.graphics.enable32Bit = true;
+  hardware.steam-hardware.enable = true;
+
+  services.jack.alsa.support32Bit = true;
+  services.pipewire.alsa.support32Bit = true;
 
   programs.steam = {
     enable = true;
@@ -12,7 +16,7 @@
   };
   programs.gamemode.enable = true;
 
-  environment.systemPackages = with pkgs; [ gamescope ];
+  environment.systemPackages = with pkgs; [ steam gamescope vulkan-headers ntfs3g ];
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
       extraPkgs = pkgs: with pkgs; [
