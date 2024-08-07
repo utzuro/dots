@@ -23,6 +23,6 @@
     flutter
 
     # DB
-    dbeaver pgmodeler sqlitebrowser
+    dbeaver-bin pgmodeler sqlitebrowser
   ];
 }
