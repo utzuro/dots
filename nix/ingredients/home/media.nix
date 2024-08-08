@@ -1,6 +1,15 @@
 { pkgs, ... }:
 
 {
+
+  nixpkgs.overlays = [
+    (self: super: {
+      mpv = super.mpv.override {
+        scripts = [ self.mpvScripts.mpris ];
+      };
+    })
+  ];
+
   home.packages = with pkgs; [
     # cli
     mpv mpd mpc-cli ncmpcpp kew

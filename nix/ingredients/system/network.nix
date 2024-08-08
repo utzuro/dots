@@ -15,10 +15,12 @@
 
 
   environment.systemPackages = with pkgs; [
+    dhcpcd dialog nmcli wpa_supplicant 
+    iproute2 iw ethtool 
+    ipcalc nmap tcpdump host dig
     networkmanager-openvpn
     networkmanagerapplet
-    dig tor
-    openvpn protonvpn-cli wireguard-tools
+    tor openvpn protonvpn-cli wireguard-tools
   ];
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";

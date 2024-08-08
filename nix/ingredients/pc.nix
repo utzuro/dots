@@ -23,7 +23,7 @@
       })
 
       ./system/comms.nix
-      ./system/vpn.nix
+      # ./system/vpn.nix
       ./system/security.nix
       ./system/power.nix
       ./system/video.nix
@@ -32,7 +32,7 @@
       ./system/wm/shared.nix
       ./system/wm/i3.nix
       ./system/wm/hyprland.nix
-      ./system/wm/kde.nix
+      # ./system/wm/kde.nix
 
       ./system/gaming.nix
 

@@ -12,8 +12,6 @@
     loader.efi.canTouchEfiVariables = true;
     initrd.systemd.enable = true;
     initrd.verbose = false;
-    plymouth.enable = true;
-    plymouth.theme = "breeze";
   };
 
   security.rtkit.enable = true;
@@ -54,8 +52,8 @@
   environment.systemPackages = with pkgs; [
     acpi
     alsa-utils
-    zsh vim tmux git wget ranger
-    ack peco progress jq
+    zsh vim tmux git curl wget ranger
+    ack ripgrep peco progress jq
     playerctl pavucontrol
     gparted hw-probe ntfs3g
   ];
