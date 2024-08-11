@@ -8,8 +8,8 @@
     kdiff3 krename 
 
     libarchive libbtbb libnotify notify-desktop 
-    libsForQt5.kweather libsForQt5.kweathercore 
-    libsForQt5.qt5.qttools libsForQt5.quazip 
+    kdePackages.kweather kdePackages.kweathercore 
+    kdePackages.qttools kdePackages.quazip 
 
     plasma-browser-integration 
   ];

@@ -27,7 +27,7 @@
     neovide
     zathura xournalpp
     vlc
-    qbittorrent-qt5
+    qbittorrent
     calibre anki pandoc
     libreoffice-fresh
     xournalpp openboard

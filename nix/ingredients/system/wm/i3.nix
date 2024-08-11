@@ -24,7 +24,7 @@
         picom
         arandr
         dunst
-        libsForQt5.qt5ct
+        kdePackages.qt6ct
         redshift
         feh
         uim

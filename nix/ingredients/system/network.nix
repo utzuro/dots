@@ -15,7 +15,7 @@
 
 
   environment.systemPackages = with pkgs; [
-    dhcpcd dialog nmcli wpa_supplicant 
+    dhcpcd dialog wpa_supplicant 
     iproute2 iw ethtool 
     ipcalc nmap tcpdump host dig
     networkmanager-openvpn

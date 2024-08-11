@@ -1,12 +1,12 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;
-    theme = ./themes/void.rasi;
+    # theme = ~/dots/config/rofi/void.rasi;
     plugins = [ pkgs.rofi-calc ];
   };
 
-  home.file.".config/i3/config".source = ../i3/config;
+  home.file.".config/i3/config".source = ~/dots/config/i3/config;
 }

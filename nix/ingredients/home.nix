@@ -37,7 +37,7 @@ in {
     ./home/wm/ui.nix
     ./home/wm/hyplrand.nix
     ./home/wm/kde.nix
-    # ./home/wm/i3.nix
+    ./home/wm/i3.nix
 
   ];
 

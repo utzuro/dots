@@ -32,7 +32,7 @@
       ./system/wm/shared.nix
       ./system/wm/i3.nix
       ./system/wm/hyprland.nix
-      # ./system/wm/kde.nix
+      ./system/wm/kde.nix
 
       ./system/gaming.nix
 

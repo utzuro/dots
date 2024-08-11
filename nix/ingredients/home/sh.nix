@@ -109,7 +109,7 @@ in
     ledger bc
     inotify-tools
 
-    #taskwarrior3 tasksh geek-life
+    taskwarrior3 tasksh geek-life
   ];
 
   home.sessionPath = [ "$HOME/scripts" ];

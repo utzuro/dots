@@ -10,12 +10,6 @@
     desktopManager = {
       xterm.enable = false;
     };
-    # displayManager = {
-    #   lightdm.enable = true;
-    #   sessionCommands = ''
-    #     # put confgs here
-    #   '';
-    # };
   };
   services.libinput = {
       enable = true;
@@ -33,13 +27,11 @@
     };
     dbus = {
       enable = true;
-      packages = [ pkgs.dconf ];
     };
   };
 
   programs = {
     light.enable = true;
-    dconf.enable = true;
   };
     
 }
