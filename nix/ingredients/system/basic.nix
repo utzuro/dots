@@ -12,6 +12,7 @@
 
   users.users.${user.name} = {
     isNormalUser = true;
+    hashedPasswordFile = "./env"
     extraGroups = [ "dialout" "adbusers" "audio" "corectrl" "disk" "input" "lp" "mongodb" "mysql" "network" "networkmanager" "postgres" "power" "scanner" "sound" "systemd-journal" "users" "video" "wheel"];
     uid = 1000;
     shell = pkgs.zsh;
