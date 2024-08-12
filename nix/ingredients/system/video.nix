@@ -4,19 +4,19 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-  extraPackages = with pkgs; 
-  [
+  extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      libva libva-utils
       libvdpau-va-gl
+      libva libva-utils
       nvidia-vaapi-driver
       cudaPackages.cuda_cccl
       vaapiIntel
       vaapiVdpau
       vulkan-validation-layers
-      rocmPackages.clr.icd #amd
-  ];
-  };
+      rocmPackages.clr.icd #amd 
+    ]; 
+    extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
+  }; 
 
   environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_zen.v4l2loopback

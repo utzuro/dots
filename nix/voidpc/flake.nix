@@ -38,7 +38,7 @@
     user = rec {
       name = "void";
       email = "utzuro@pm.me";
-      wm = "i3";
+      wm = "hyprland";
     };
   in {
     nixosConfigurations = {
