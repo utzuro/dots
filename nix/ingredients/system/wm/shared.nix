@@ -14,11 +14,11 @@
   };
   xdg.mime.enable = true;
 
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "gnome";
+  #   style = "adwaita-dark";
+  # };
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
