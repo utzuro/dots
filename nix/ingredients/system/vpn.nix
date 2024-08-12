@@ -10,7 +10,8 @@
       # privateKeyFile = "/root/secrets/pmvpn-swss.key";
       # privateKeyFile = "/root/secrets/pmvpn-qk.key";
       # privateKeyFile = "/root/secrets/pmvpn-qk-alt.key";
-      privateKeyFile = "/root/secrets/pmvpn-qk-alt2.key";
+      # privateKeyFile = "/root/secrets/pmvpn-qk-alt2.key";
+      privateKeyFile = "/root/secrets/pmvpn-qk-alt3.key";
       # privateKeyFile = "/root/secrets/pmvpn-nenka.key"
       # privateKeyFile = "/root/secrets/pmvpn-tor.key"
       dns = {
@@ -29,11 +30,15 @@
       # publicKey = "d38wbEHG3sJG+0s34lCGtYU2AwZ9E/WrP3qM9gL7Xi8="; 
       # ip = "37.19.205.155";
 
-      #qk-alt
+      #qk-alt #233
       # publicKey = "7FslkahrdLwGbv4QSX5Cft5CtQLmBUlpWC382SSF7Hw="; 
       # ip = "103.125.235.19";
 
       #qk-alt2
+      # publicKey = "dMSVWPppIq7F2mVK99Le8G83r+b18Jx07spFvwmrPwg="; 
+      # ip = "45.87.213.210";
+
+      #qk-alt3 #59
       publicKey = "IekoLP3CpczVNhssbBTXJ1SVwLbBtofVeGhqjBHRrlM="; 
       ip = "37.19.205.223";
 
