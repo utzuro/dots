@@ -4,14 +4,45 @@
   wayland.windowManager.hyprland.xwayland.enable = true;
 
   home.sessionVariables = {
+
+    # Basic
     GDK_BACKEND = "wayland,x11";
-    QT_QPA_PLATFORM = "wayland;xcb";
     CLUTTER_BACKEND = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
-    WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+
+    # Cursor
+    WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_DRM_NO_ATOMIC = "1";
+    XCURSOR_SIZE = "32";
+    HYPRCURSOR_THEME = "hyprcursor_Dracula";
+
+    # HiDPI Scaling
+    GDK_SCALE = "2";
+    GDK_DPI_SCALE = "2";
+    QT_SCALE_FACTOR = "2";
+    PLASMA_USE_QT_SCALING = "1";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "2";
+    QT_ENABLE_HIGHDPI_SCALING = "1";
+
+    # Nvidia
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GL_GSYNC_ALLOWED = "1";
+    NVD_BACKEND = "direct";
+    MOZ_DISABLE_RDD_SANDBOX = "1";
+    # Memo: firefox vaapi support (config:about)
+    # media.ffmpeg.vaapi.enabled = true
+    # media.rdd-ffmpeg.enabled = true
+    # media.av1.enabled = false
+    # gfx.x11-egl.force-enabled = true
+    # widget.dmabuf.force-enabled = true
+
   };
 
   home.packages = with pkgs; [ 
