@@ -9,6 +9,7 @@ with lib;
     kdePackages.kaccounts-integration
     kdePackages.kaccounts-providers
     kdePackages.packagekit-qt
+    kdePackages.wayland-protocols
     libportal
   ];
 

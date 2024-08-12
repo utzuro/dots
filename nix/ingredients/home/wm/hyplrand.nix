@@ -1,8 +1,6 @@
 { config, pkgs, inputs, ...}:
 
 {
-  wayland.windowManager.hyprland.xwayland.enable = true;
-
   home.sessionVariables = {
 
     # Basic
@@ -11,9 +9,13 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
-    NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland;xcb";
     QT_QPA_PLATFORMTHEME = "qt6ct";
+
+    # Fix electron apps
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    ELECTRON_FLAGS="--enable-features=UseOzonePlatform --ozone-platform=wayland --ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --disable-gpu-compositing";
 
     # Cursor
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -53,10 +55,6 @@
     wf-recorder
     wlsunset
   ];
-  # programs.walker = {
-  #   enable = true;
-  #   runAsService = true;
-  # };
   programs.anyrun = {
     enable = true;
     config = {
