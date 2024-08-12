@@ -29,6 +29,12 @@
     xorg.xf86videoamdgpu
   ];
 
+  # nvidia
+  hardware.nvidia.powerManagement.enable = true;
+  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+  hardware.nvidia.open = false;
+
+  # amd
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
