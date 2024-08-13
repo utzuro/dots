@@ -35,7 +35,7 @@
         allowUnfreePredicate = (_: true);
       };
     });
-    user = rec {
+    user = {
       name = "void";
       email = "utzuro@pm.me";
       wm = "hyprland";

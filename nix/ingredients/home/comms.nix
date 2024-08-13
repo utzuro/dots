@@ -8,5 +8,6 @@
     signald signaldctl signal-cli
     webcord discord telegram-desktop
     protonmail-desktop
+    zoom-us
   ];
 }

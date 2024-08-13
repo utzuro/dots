@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # system
-swww init &
-swww img ~/magic/ingredients/i/background.jpg &
+# swww init &
+# swww img /mnt/seance/mysticism/i/wallpapers/109480.jpg &
 waybar &
 dunst &
 blueman &

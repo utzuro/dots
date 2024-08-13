@@ -23,7 +23,7 @@
       })
 
       ./system/comms.nix
-      ./system/vpn.nix
+      # ./system/vpn.nix
       ./system/security.nix
       ./system/power.nix
       ./system/video.nix

@@ -35,7 +35,7 @@ in
     };
     steam-run = {
       executable = "${pkgs.steam}/bin/steam-run";
-      profile = "${pkgs.firejail}/etc/firejail/stea.profile";
+      profile = "${pkgs.firejail}/etc/firejail/steam.profile";
     };
     # when I decide to try minecraft
     # prismlauncher = {
