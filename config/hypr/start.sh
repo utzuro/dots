@@ -9,7 +9,7 @@ blueman &
 wlsunset -l 39.9 -L 116.3 &
 
 # apps
-librewolf &
+GDK_SCALE=1 GDK_DPI_SCALE=1 librewolf &
 steam &
 ~/.config/hypr/apps/chrome &
 ~/.config/hypr/apps/obsidian &
