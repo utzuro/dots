@@ -12,8 +12,15 @@ brew update
 (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/oleh.skotar/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# shells
+brew install elvish xonsh zsh zsh-autosuggestions
+
 # shell tools
-brew install curl wget zsh zsh-autosuggestions ack git tig tmux zellij vim neovim nvimpager bat eza jq peco ranger yazi zplug fzf imagemagick ffmpeg tree vhs scdoc sdcv pandoc coreutils fd ripgrep ynqa/tap/jnv
+brew install curl wget  ack git tig tmux zellij vim neovim nvimpager bat eza jq peco ranger yazi zplug fzf imagemagick ffmpeg tree vhs scdoc sdcv pandoc coreutils fd ripgrep ynqa/tap/jnv starship taskwarrior-tui
+
+# games
+brew install sl cmatrix
+
 # git
 brew install gh
 gh extension install dlvhdr/gh-dash
@@ -30,8 +37,11 @@ brew tap context-labs/mactop https://github.com/context-labs/mactop
 brew install mactop
 
 # tools
-brew install graphviz ledger kitty yt-dlp
+brew install graphviz ledger kitty yt-dlp 
 brew install --cask obsidian drawio anki visual-studio-code
+
+# graphical tools
+brew install --cask libreoffice vlc
 
 brew tap d12frosted/emacs-plus
 brew install emacs-plus
