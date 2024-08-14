@@ -1,0 +1,16 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = '$all'
+
+[character]
+success_symbol = '[ᛊ](bold green)'
+error_symbol = '[ᚺ](bold red)'
+
+[aws]
+format = 'on [$symbol$profile($region )]($style) '
+symbol = '☁️'
+region_aliases = { ap-northeast-1 = "🏯" }
+profile_aliases = { development = "dev", production = "prd" }
+
