@@ -100,7 +100,7 @@ in
 
     # tools
     killall timer 
-    lfs lsd lsdvd ncdu
+    lfs lsd lsdvd ncdu file
     disfetch lolcat neofetch pfetch
     w3m asciidoctor pandoc pdftk foremost
     imagemagick ffmpeg aaxtomp3 
