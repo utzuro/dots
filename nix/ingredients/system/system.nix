@@ -50,7 +50,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment.systemPackages = with pkgs; [
-    acpi
+    acpi lm_sensors
     alsa-utils
     zsh vim tmux git curl wget ranger
     ack ripgrep peco progress jq
