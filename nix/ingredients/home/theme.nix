@@ -2,18 +2,29 @@
 
 {
   stylix = {
+
     enable = true;
-    image = ./i/background.png;
+
     polarity = "dark";
     base16Scheme = ./theme.yaml;
+    image = ./i/background.png;
+
+    cursor = {
+      package= pkgs.afterglow-cursors-recolored;
+      name = "Afterglow-Recolored-Dracula-Purple";
+    };
+
     fonts = {
       monospace = {
         package = pkgs.monaspace;
         name = "Monaspace Krypton";
+        # name = "Monaspace Argon";
+        # name = "Monaspace Argon";
       };
       serif = config.stylix.fonts.monospace;
       sansSerif = config.stylix.fonts.monospace;
       emoji = config.stylix.fonts.monospace;
+
     };
   };
 }
