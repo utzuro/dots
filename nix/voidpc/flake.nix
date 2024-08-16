@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, anyrun, erosanix, nix-gaming, ... }: 
+  outputs = { nixpkgs, ...}@inputs : 
   let
     system = { 
       arch = "x86_64-linux"; 
@@ -46,7 +46,7 @@
         system = system.arch;
         modules = [ 
           ../ingredients/pc.nix 
-          erosanix.nixosModules.protonvpn
+          inputs.erosanix.nixosModules.protonvpn
         ];
         specialArgs = {
           inherit system;
@@ -57,12 +57,12 @@
     };
 
     homeConfigurations = {
-      void = home-manager.lib.homeManagerConfiguration {
+      void = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
           ../ingredients/home.nix 
-          stylix.homeManagerModules.stylix 
-          anyrun.homeManagerModules.default
+          inputs.stylix.homeManagerModules.stylix 
+          inputs.anyrun.homeManagerModules.default
         ];
         extraSpecialArgs = {
           inherit user;
