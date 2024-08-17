@@ -4,20 +4,10 @@
   # battlenet
   home.packages = with pkgs; [
 
-    # launchers
     steamcmd steam-run protontricks
-    mangohud gamemode
-
-    heroic lutris 
+    heroic lutris bottles
     adwaita-icon-theme # required for lutris
 
-    # openxray
-
-    vcmi
-
-    prismlauncher
-
-    # wine
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     # wineWowPackages.waylandFull
     # (wineWowPackages.full.override {
@@ -39,7 +29,9 @@
       ];
     })
 
-    # emulators
+    # openxray
+    vcmi prismlauncher
+
     dosbox-staging
     (retroarch.override {
       cores = with libretro; [

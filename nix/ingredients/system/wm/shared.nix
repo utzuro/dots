@@ -30,7 +30,7 @@
 
     (where-is-my-sddm-theme.override {
       themeConfig.General = { 
-        passwordCharacter= "💀";
+        passwordCharacter= "•";
         background = "${./login-background.jpg}"; 
         backgroundMode = "fill"; 
         showSessionsByDefault = true;

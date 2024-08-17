@@ -16,7 +16,12 @@
   };
   programs.gamemode.enable = true;
 
-  environment.systemPackages = with pkgs; [ steam gamescope vulkan-headers ntfs3g ];
+  environment.systemPackages = with pkgs; [ steam vulkan-headers ntfs3g protonup ]; 
+  environment.sessionVariables = { 
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+      "\${HOME}/.steam/root/compatibilitytools.d";
+  };
+
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
       extraPkgs = pkgs: with pkgs; [
