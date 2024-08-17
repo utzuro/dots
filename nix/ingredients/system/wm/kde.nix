@@ -10,6 +10,7 @@ with lib;
     kdePackages.kaccounts-providers
     kdePackages.packagekit-qt
     kdePackages.wayland-protocols
+    kdePackages.plasma-workspace
     libportal
   ];
 

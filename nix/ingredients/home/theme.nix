@@ -15,6 +15,12 @@
     };
 
     fonts = {
+      sizes = {
+        applications = 20;
+        terminal = 20;
+        desktop = 20;
+        popups = 20;
+      };
       monospace = {
         package = pkgs.monaspace;
         name = "Monaspace Krypton";

@@ -28,6 +28,7 @@
       ./system/power.nix
       ./system/video.nix
       ./system/nvidia.nix
+      # ./system/amd.nix
 
       ./system/wm/shared.nix
       ./system/wm/i3.nix

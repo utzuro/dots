@@ -24,12 +24,12 @@
     HYPRCURSOR_THEME = "hyprcursor_Dracula";
 
     # HiDPI Scaling
-    GDK_SCALE = "1";
-    GDK_DPI_SCALE = "1";
-    QT_SCALE_FACTOR = "2";
-    PLASMA_USE_QT_SCALING = "1";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "2";
-    QT_ENABLE_HIGHDPI_SCALING = "1";
+    # GDK_SCALE = "1";
+    # GDK_DPI_SCALE = "1";
+    # QT_SCALE_FACTOR = "1";
+    # PLASMA_USE_QT_SCALING = "1";
+    # QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    # QT_ENABLE_HIGHDPI_SCALING = "1";
 
     # Nvidia
     GBM_BACKEND = "nvidia-drm";
