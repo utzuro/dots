@@ -22,15 +22,17 @@
         inherit config pkgs user system;
       })
 
-      # TODO: vpn
+      ./system/comms.nix
+      # ./system/vpn.nix
       ./system/security.nix
       ./system/power-laptop.nix
       ./system/video.nix
-      ./system/autorandr.nix
+      # ./system/autorandr.nix
 
       ./system/wm/shared.nix
       ./system/wm/i3.nix
       ./system/wm/hyprland.nix
+      # ./system/wm/kde.nix
 
       ./system/gaming.nix
 
