@@ -1,10 +1,12 @@
 {
-  description = "root config file";
+  description = "loads config for the laptop Asus Zenbook";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
+
+    inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     
     stylix.url = "github:danth/stylix";
     anyrun.url = "github:Kirottu/anyrun";
@@ -19,7 +21,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, anyrun, erosanix, nix-gaming, ... }: 
+  outputs = { nixpkgs, ...}@inputs : 
   let
     system = { 
       arch = "x86_64-linux"; 
@@ -37,7 +39,6 @@
     user = rec {
       name = "void";
       email = "utzuro@pm.me";
-      wm = "i3";
     };
   in {
     nixosConfigurations = {
@@ -45,28 +46,22 @@
         system = system.arch;
         modules = [ 
           ../ingredients/laptop.nix
-          # erosanix.nixosModules.protonvpn
+          inputs.erosanix.nixosModules.protonvpn
+          inputs.nixos-hardware.nixosModules.asus-zenbook-ux371
         ];
-        specialArgs = {
-          inherit system;
-          inherit user;
-          inherit inputs;
-        };
+        specialArgs = { inherit system user inputs; };
       };
     };
 
     homeConfigurations = {
-      void = home-manager.lib.homeManagerConfiguration {
+      void = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
           ../ingredients/home.nix 
-          stylix.homeManagerModules.stylix 
-          anyrun.homeManagerModules.default
+          inputs.stylix.homeManagerModules.stylix 
+          inputs.anyrun.homeManagerModules.default
         ];
-        extraSpecialArgs = {
-          inherit user;
-          inherit inputs;
-        };
+        extraSpecialArgs = { inherit user inputs; };
       };
     };
   };
