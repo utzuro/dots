@@ -2,8 +2,6 @@
 
 {
   hardware.graphics = {
-    driSupport = true;
-    driSupport32Bit = true;
     enable = true;
     enable32Bit = true; 
     extraPackages = with pkgs; [

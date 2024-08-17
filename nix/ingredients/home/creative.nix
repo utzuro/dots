@@ -7,7 +7,7 @@
 
     # images
     darktable digikam  # photo
-    gimp-with-plugins krita mypaint pinta # images
+    gimp-with-plugins krita pinta #mypaint # images
     inkscape scribus # docs
 
     # animation
@@ -18,7 +18,7 @@
 
     # video
     kdenlive handbrake
-    obs-studio simplescreenrecorder audio-recorder easyeffects
+    obs-studio simplescreenrecorder audio-recorder #easyeffects
     video-trimmer
   ];
 

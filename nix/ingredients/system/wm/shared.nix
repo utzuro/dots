@@ -24,7 +24,7 @@
     xdg-desktop-portal-gtk
     xdotool xdg-launch xdg-utils
     socat
-    kdePackages.konsole foot kitty wezterm
+    kdePackages.konsole foot kitty #wezterm
     glances
     xsettingsd
 

@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:utzuro/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
@@ -38,7 +37,6 @@
     user = {
       name = "void";
       email = "utzuro@pm.me";
-      wm = "hyprland";
     };
   in {
     nixosConfigurations = {
@@ -48,11 +46,7 @@
           ../ingredients/pc.nix 
           inputs.erosanix.nixosModules.protonvpn
         ];
-        specialArgs = {
-          inherit system;
-          inherit user;
-          inherit inputs;
-        };
+        specialArgs = { inherit system user inputs; };
       };
     };
 
@@ -64,10 +58,7 @@
           inputs.stylix.homeManagerModules.stylix 
           inputs.anyrun.homeManagerModules.default
         ];
-        extraSpecialArgs = {
-          inherit user;
-          inherit inputs;
-        };
+        extraSpecialArgs = { inherit user inputs; };
       };
     };
   };
