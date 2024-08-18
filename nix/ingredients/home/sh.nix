@@ -129,7 +129,8 @@ in
     GOPATH = "$HOME/go";
     CHROME_EXECUTABLE="chrome";
 
-    NIXPKGS_ALLOW_INSECURE="1";
+    NIXPKGS_ALLOW_INSECURE = "1";
+    NIXPKGS_ALLOW_UNFREE = "1";
 
     # ja input
     # QT_IM_MODULE = "fcitx";
