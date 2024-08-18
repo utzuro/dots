@@ -3,18 +3,25 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/master";
+    # nur.url = github:nix-community/NUR;
+    home-manager.url = github:nix-community/home-manager/master;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
-    stylix.url = "github:danth/stylix";
-    anyrun.url = "github:Kirottu/anyrun";
+    stylix.url = github:danth/stylix;
+    anyrun.url = github:Kirottu/anyrun;
     anyrun.inputs.nixpkgs.follows = "nixpkgs";
-    erosanix.url = "github:emmanuelrosa/erosanix";
+    erosanix.url = github:emmanuelrosa/erosanix;
     erosanix.inputs.nixpkgs.follows = "nixpkgs";
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.url = github:fufexan/nix-gaming;
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
     blocklist-repo = {
-      url = "github:StevenBlack/hosts";
+      url = github:StevenBlack/hosts;
       flake = false;
     };
   };
