@@ -1,4 +1,4 @@
-{ pkgs, lib, user, storageDriver ? null, ...}:
+{ pkgs, lib, storageDriver ? null, ...}:
 
 assert lib.asserts.assertOneOf "storageDriver" storageDriver
 [
@@ -19,7 +19,6 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
     storageDriver = storageDriver;
     autoPrune.enable = true;
   };
-  users.users.${user.name}.extraGroups = [ "docker" ];
   environment.systemPackages = with pkgs; [
     docker
     docker-compose

@@ -1,4 +1,4 @@
-{ config, pkgs, user, system, ...}:
+{ config, pkgs, system, ...}:
 
 {
   networking.hostName = "${system.host}";
@@ -24,8 +24,6 @@
   ];
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
-
-  users.users.${user.name}.extraGroups = [ "networkmanager" ];
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;

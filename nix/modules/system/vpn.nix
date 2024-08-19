@@ -1,6 +1,7 @@
 { inputs, ... }:
 
 {
+  imports = [ inputs.erosanix.nixosModules.protonvpn ];
 
   services.protonvpn = {
 

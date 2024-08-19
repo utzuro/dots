@@ -1,4 +1,4 @@
-{ config, pkgs, user, system, ...}:
+{ config, pkgs, system, ...}:
 
 {
   hardware.enableAllFirmware = true;
@@ -29,21 +29,6 @@
     automatic = true;
     randomizedDelaySec = "14m";
     options = "--delete-older-than 10d";
-  };
-
-  services.mpd = {
-    enable = true;
-    musicDirectory = "${system.mudir}"; 
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "MPD"
-      }
-    '';
-    user = "${user.name}";
-  };
-  systemd.services.mpd.environment = {
-    "XDG_RUNTIME_DIR" = "/run/user/1000";
   };
 
   time.timeZone = "Asia/Tokyo";

@@ -38,10 +38,6 @@
         allowUnfreePredicate = (_: true);
       };
     });
-    user = {
-      name = "void";
-      email = "utzuro@pm.me";
-    };
 
   in {
 
@@ -50,28 +46,37 @@
 
       voidpc = let 
         system = {
-          inherit arch; 
-          host = "voidpc"; 
-          mudir = "/mnt/archive/nas/mysticism/mu";
+          inherit arch; host = "voidpc"; 
         }; in lib.nixosSystem {
         modules = [ 
           ./modules/general.nix 
           ./modules/pc.nix 
         ];
-        specialArgs = { inherit user system inputs; };
+        specialArgs = { inherit system inputs; }; 
+
+        # TODO: create options
+        # video.nvidia.enable = true;
+        # gaming.extra = true; # TODO: move gaming from the HM
+
+        # wm.hyprland.enable = true;
+        # wm.kde.enable = true;
+        # wm.i3.enable = true;
       };
 
     };
 
     # Settings different across users
-    homeConfigurations = {
-      
-      # TODO: define usere info here
-
-      void = inputs.home-manager.lib.homeManagerConfiguration {
+    homeConfigurations = { 
+      void = let user = { 
+        name = "void"; 
+        email = "utzuro@pm.me"; 
+      };
+        in inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
+          # in home, check if hyprland and other options are enabled before configuring them
           ./modules/home.nix 
+          # Try to import it from the inside
           inputs.stylix.homeManagerModules.stylix 
           inputs.anyrun.homeManagerModules.default
         ];

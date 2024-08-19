@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -10,12 +10,17 @@
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
-  users.users.${user.name} = {
+  users.users.void = {
     isNormalUser = true;
     hashedPasswordFile = "../ingredients/system/env";
-    extraGroups = [ "dialout" "adbusers" "audio" "corectrl" "disk" "input" "lp" "mongodb" "mysql" "network" "networkmanager" "postgres" "power" "scanner" "sound" "systemd-journal" "users" "video" "wheel"];
     uid = 1000;
     shell = pkgs.zsh;
+    extraGroups = [ 
+      "dialout" "adbusers" "audio" "corectrl" "disk" 
+      "input" "lp" "mongodb" "mysql" "network" "networkmanager" 
+      "postgres" "power" "scanner" "sound" "systemd-journal" 
+      "users" "video" "wheel" "docker"
+    ];
   };
 
   environment.shells = with pkgs; [ zsh ];

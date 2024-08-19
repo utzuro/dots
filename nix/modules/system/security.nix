@@ -1,4 +1,4 @@
-{ inputs, pkgs, user, ... }:
+{ inputs, pkgs, ... }:
 
 let 
   blocklist = builtins.readFile "${inputs.blocklist-repo}/alternates/fakenews-gambling-porn/hosts";
@@ -15,7 +15,7 @@ in
   security.doas.enable = true;
   security.sudo.enable = false;
   security.doas.extraRules = [{
-    users = [ "${user.name}" ];
+    users = [ "void" ];
     keepEnv = true;
     persist = true;
   }];

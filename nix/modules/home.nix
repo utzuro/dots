@@ -9,8 +9,21 @@
 let 
   homeDir = "/home/"+user.name;
 in {
+
   home.username = user.name;
   home.homeDirectory = homeDir;
+
+  services.mpd = {
+    enable = true;
+    # link real music directory to this place"
+    musicDirectory = "~/mysticism/mu"; 
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "MPD"
+      }
+    '';
+  };
 
   imports = [
 
