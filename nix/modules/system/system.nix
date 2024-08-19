@@ -33,7 +33,7 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = "${system.musdir}"; 
+    musicDirectory = "${system.mudir}"; 
     extraConfig = ''
       audio_output {
         type "pipewire"

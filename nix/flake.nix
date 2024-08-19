@@ -29,12 +29,10 @@
   outputs = { nixpkgs, ...}@inputs : 
 
   let
-    system = { 
-      arch = "x86_64-linux"; 
-    };
+    arch = "x86_64-linux"; 
     lib = nixpkgs.lib;
     pkgs = (import inputs.nixpkgs { 
-      system = system.arch; 
+      system = arch; 
       config = {
         allowUnfree = true;
         allowUnfreePredicate = (_: true);
@@ -51,34 +49,19 @@
     nixosConfigurations = {
 
       voidpc = let 
-        host = "voidpc";
-        musdir = "/mnt/archive/nas/mysticism/mu";
-      in
-      lib.nixosSystem {
-        system = system.arch;
-
+        system = {
+          inherit arch; 
+          host = "voidpc"; 
+          mudir = "/mnt/archive/nas/mysticism/mu";
+        }; in lib.nixosSystem {
         modules = [ 
+          ./modules/general.nix 
           ./modules/pc.nix 
           inputs.erosanix.nixosModules.protonvpn
         ];
-        specialArgs = { inherit host musdir user inputs; };
+        specialArgs = { inherit user system inputs; };
       };
 
-      zeni = lib.nixosSystem {
-        system = system.arch;
-        modules = [ 
-          ./modules/laptop.nix
-        ];
-        specialArgs = { inherit system user inputs; };
-      };
-
-      x240 = lib.nixosSystem {
-        system = system.arch;
-        modules = [ 
-          ./modules/laptop.nix
-        ];
-        specialArgs = { inherit system user inputs; };
-      };
     };
 
     # Settings different across users
