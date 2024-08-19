@@ -144,6 +144,8 @@ in
       "g" = "cd";
       "gh" = "cd ~";
       "g/" = "cd /";
+
+      "x" = "cut";
     };
 
     settings = {
