@@ -63,6 +63,17 @@
         # wm.i3.enable = true;
       };
 
+      zeni = let 
+        system = {
+          inherit arch; host = "zeni"; 
+        }; in lib.nixosSystem {
+        modules = [ 
+          ./modules/general.nix
+          ./modules/laptop.nix 
+        ];
+        specialArgs = { inherit system inputs; }; 
+      };
+
     };
 
     # Settings different across users
