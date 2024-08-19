@@ -27,11 +27,10 @@
   };
 
   outputs = { nixpkgs, ...}@inputs : 
+
   let
     system = { 
       arch = "x86_64-linux"; 
-      host = "voidpc";
-      musdir = "/mnt/archive/nas/mysticism/mu";
     };
     lib = nixpkgs.lib;
     pkgs = (import inputs.nixpkgs { 
@@ -45,28 +44,58 @@
       name = "void";
       email = "utzuro@pm.me";
     };
+
   in {
+
+    # Settings different across machines
     nixosConfigurations = {
-      system = lib.nixosSystem {
+
+      voidpc = let 
+        host = "voidpc";
+        musdir = "/mnt/archive/nas/mysticism/mu";
+      in
+      lib.nixosSystem {
+        system = system.arch;
+
+        modules = [ 
+          ./modules/pc.nix 
+          inputs.erosanix.nixosModules.protonvpn
+        ];
+        specialArgs = { inherit host musdir user inputs; };
+      };
+
+      zeni = lib.nixosSystem {
         system = system.arch;
         modules = [ 
-          ../ingredients/pc.nix 
-          inputs.erosanix.nixosModules.protonvpn
+          ./modules/laptop.nix
+        ];
+        specialArgs = { inherit system user inputs; };
+      };
+
+      x240 = lib.nixosSystem {
+        system = system.arch;
+        modules = [ 
+          ./modules/laptop.nix
         ];
         specialArgs = { inherit system user inputs; };
       };
     };
 
+    # Settings different across users
     homeConfigurations = {
+      
+      # TODO: define usere info here
+
       void = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
-          ../ingredients/home.nix 
+          ./modules/home.nix 
           inputs.stylix.homeManagerModules.stylix 
           inputs.anyrun.homeManagerModules.default
         ];
         extraSpecialArgs = { inherit user inputs; };
       };
+
     };
   };
 }

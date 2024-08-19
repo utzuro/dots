@@ -21,5 +21,7 @@
     # transfer
     filezilla libfilezilla
     rsync zsync
+
+    rustdesk
   ];
 }
