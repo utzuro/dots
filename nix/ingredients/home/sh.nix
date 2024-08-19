@@ -10,9 +10,12 @@ let
     mpv = "mpv --alang=jpn";
 
     # git
-    upd = "git commit -am 'update'";
+    upd = "git commit -am 'update && git push'";
     push = "git push";
     pull = "git pull --ff-only";
+    rebase = "git pull --rebase";
+    force = "git push --force";
+    amend = "git commit --amend";
 
     # apps
     pv = "pipe-viewer";

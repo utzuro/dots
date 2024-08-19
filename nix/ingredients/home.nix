@@ -35,7 +35,7 @@ in {
 
     ./home/wm/input.nix
     ./home/wm/ui.nix
-    ./home/wm/hyplrand.nix
+    ./home/wm/hyprland.nix
     ./home/wm/kde.nix
     ./home/wm/i3.nix
 

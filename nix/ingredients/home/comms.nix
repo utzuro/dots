@@ -6,7 +6,8 @@
     # threema-desktop
     signal-desktop 
     signald signaldctl signal-cli
-    webcord discord telegram-desktop
+    webcord discord vesktop
+    telegram-desktop
     protonmail-desktop
     zoom-us
   ];
