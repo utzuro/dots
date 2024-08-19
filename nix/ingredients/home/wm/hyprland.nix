@@ -2,8 +2,6 @@
 
 {
 
-  import = "./ags.nix";
-
   home.sessionVariables = {
 
     # Basic
@@ -57,6 +55,7 @@
     foot fuzzel
     wf-recorder
     wlsunset
+    ags bun
   ];
   programs.anyrun = {
     enable = true;

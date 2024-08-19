@@ -89,7 +89,7 @@ in
   home.packages = with pkgs; [
     vim neovim 
     tmux zellij 
-    ranger lf yazi vifm-full 
+    ranger yazi vifm-full 
     ack ripgrep ripgrep-all fzf fd duf
     peco progress jq
     bat eza rsync
@@ -102,8 +102,8 @@ in
     elvish xonsh
 
     # tools
-    killall timer 
-    lfs lsd lsdvd ncdu
+    killall timer xdragon
+    lfs lsd lsdvd ncdu file
     disfetch lolcat neofetch pfetch
     w3m asciidoctor pandoc pdftk foremost
     imagemagick ffmpeg aaxtomp3 
@@ -114,6 +114,10 @@ in
 
     taskwarrior3 tasksh geek-life
   ];
+
+  programs.lf = {
+    enable = true;
+  };
 
   home.sessionPath = [ "$HOME/scripts" ];
 
