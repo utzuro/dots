@@ -1,9 +1,12 @@
-{ ... }:
+{ inputs, ... }:
 
 {
+
   services.protonvpn = {
+
     enable = true;
     autostart = true;
+
     interface = {
       ip = "10.2.0.2";
       port = 51820;
@@ -14,12 +17,16 @@
       privateKeyFile = "/root/secrets/pmvpn-qk-alt3.key";
       # privateKeyFile = "/root/secrets/pmvpn-nenka.key"
       # privateKeyFile = "/root/secrets/pmvpn-tor.key"
+
       dns = {
         enable = true;
         ip = "10.2.0.1";
       };
+
     };
+
     endpoint = {
+
       port = 51820;
 
       #swss

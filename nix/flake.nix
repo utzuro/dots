@@ -57,7 +57,6 @@
         modules = [ 
           ./modules/general.nix 
           ./modules/pc.nix 
-          inputs.erosanix.nixosModules.protonvpn
         ];
         specialArgs = { inherit user system inputs; };
       };
