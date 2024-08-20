@@ -19,25 +19,51 @@
   ]; 
   
   home.packages = with pkgs; [
-    tridactyl-native
+    tridactyl-native librewolf
   ];
 
   # LIBREWOLF
-  programs.librewolf = {
-    # TODO: update librewolf declaration to include firefox options
-    enable = true;
-    settings = {
-      "font.size.variable.x-western" = "20";
-      "browser.toolbars.bookmarks.visibility" = "never";
-      "privacy.resisttFingerprinting.letterboxing" =  true;
-      "network.http.referer.XOriginPolicy" = "2";
-      "privacy.clearOnShutdown.history" = false;
-      "privacy.clearOnShutdown.downloads" = true;
-      "privacy.clearOnShutdown.cookies" = true;
-      "gfx.webrender.software.opengl" = false;
-      "webgl.disabled" = true;
-    };
-  };
+
+
+  # After changing to this librwwolf started crashing
+  # programs.librewolf = {
+  #   # TODO: update librewolf declaration to include firefox options
+  #   enable = true;
+  #   settings = {
+  #     "font.size.variable.x-western" = "20";
+  #     "browser.toolbars.bookmarks.visibility" = "never";
+  #     "privacy.resisttFingerprinting.letterboxing" =  true;
+  #     "network.http.referer.XOriginPolicy" = "2";
+  #     "privacy.clearOnShutdown.history" = false;
+  #     "privacy.clearOnShutdown.downloads" = true;
+  #     "privacy.clearOnShutdown.cookies" = true;
+  #     "gfx.webrender.software.opengl" = false;
+  #     "webgl.disabled" = true;
+  #   };
+  # };
+
+  home.file.".librewolf/librewolf.overrides.cfg".text = ''
+    defaultPref("font.size.variable.x-western",20);
+    defaultPref("browser.toolbars.bookmarks.visibility","never");
+    defaultPref("privacy.resisttFingerprinting.letterboxing", true);
+    defaultPref("network.http.referer.XOriginPolicy",2);
+    defaultPref("privacy.clearOnShutdown.history",false);
+    defaultPref("privacy.clearOnShutdown.downloads",true);
+    defaultPref("privacy.clearOnShutdown.cookies",true);
+    defaultPref("gfx.webrender.software.opengl",false);
+    defaultPref("webgl.disabled",true);
+
+
+    pref("font.size.variable.x-western",20);
+    pref("browser.toolbars.bookmarks.visibility","never");
+    pref("privacy.resisttFingerprinting.letterboxing", true);
+    pref("network.http.referer.XOriginPolicy",2);
+    pref("privacy.clearOnShutdown.history",false);
+    pref("privacy.clearOnShutdown.downloads",true);
+    pref("privacy.clearOnShutdown.cookies",true);
+    pref("gfx.webrender.software.opengl",false);
+    pref("webgl.disabled",true);
+    '';
 
   home.sessionVariables = { DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";};
 
