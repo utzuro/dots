@@ -3,7 +3,7 @@
 {
   imports =
     [ 
-      ./system/power-laptop.nix.nix
+      ./system/power-laptop.nix
       ./system/gaming.nix
     ];
 }
