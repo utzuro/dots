@@ -78,6 +78,7 @@
 
     # Settings different across users
     homeConfigurations = { 
+      backupFileExtension = "backup";
       void = let user = { 
         name = "void"; 
         email = "utzuro@pm.me"; 
