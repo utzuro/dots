@@ -18,9 +18,6 @@
       ./system/video.nix
 
       ./system/wm/shared.nix
-      ./system/wm/hyprland.nix
-      ./system/wm/i3.nix
-      ./system/wm/kde.nix
 
       ./system/comms.nix
 
