@@ -49,8 +49,8 @@
           inherit arch; host = "voidpc"; 
         }; in lib.nixosSystem {
         modules = [ 
-          ./modules/general.nix 
-          ./modules/pc.nix 
+          ./ingr/general.nix 
+          ./ingr/pc.nix 
         ];
         specialArgs = { inherit system inputs; }; 
 
@@ -68,8 +68,8 @@
           inherit arch; host = "zeni"; 
         }; in lib.nixosSystem {
         modules = [ 
-          ./modules/general.nix
-          ./modules/laptop.nix 
+          ./ingr/general.nix
+          ./ingr/laptop.nix 
         ];
         specialArgs = { inherit system inputs; }; 
       };
@@ -87,7 +87,7 @@
         inherit pkgs;
         modules = [ 
           # in home, check if hyprland and other options are enabled before configuring them
-          ./modules/home.nix 
+          ./ingr/home.nix 
           # Try to import it from the inside
           inputs.stylix.homeManagerModules.stylix 
           inputs.anyrun.homeManagerModules.default

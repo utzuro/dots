@@ -16,16 +16,15 @@
 
     fonts = {
       sizes = {
-        applications = 12;
-        terminal = 12;
+        applications = 14;
+        terminal = 20;
         desktop = 20;
-        popups = 12;
+        popups = 20;
       };
       monospace = {
         package = pkgs.monaspace;
-        name = "Monaspace Krypton";
-        # name = "Monaspace Argon";
-        # name = "Monaspace Argon";
+        # name = "Monaspace Krypton";
+        name = "Monaspace Argon";
       };
       serif = config.stylix.fonts.monospace;
       sansSerif = config.stylix.fonts.monospace;
