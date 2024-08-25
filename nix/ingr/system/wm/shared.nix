@@ -14,19 +14,12 @@
   };
   xdg.mime.enable = true;
 
-  # qt = {
-  #   enable = true;
-  #   platformTheme = "gnome";
-  #   style = "adwaita-dark";
-  # };
-
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
-    xdotool xdg-launch xdg-utils
-    socat
-    kdePackages.konsole foot kitty #wezterm
-    glances
-    xsettingsd
+    xdotool xdg-launch xdg-utils xsettingsd
+    socat glances
+    kdePackages.konsole foot kitty wezterm
+    gnome.adwaita-icon-theme
 
     (where-is-my-sddm-theme.override {
       themeConfig.General = { 

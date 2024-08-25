@@ -5,13 +5,7 @@
     ./x11.nix
   ];
 
-  programs.dconf.enable = true;
-
-  environment.pathsToLink = [ "/libexec" ];
-
   services.xserver = {
-    enable = true;
-
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [

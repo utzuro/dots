@@ -1,7 +1,10 @@
 { config, pkgs, system, ...}:
 
 {
-  hardware.enableAllFirmware = true;
+  hardware = {
+    enableAllFirmware = true;
+    sensor.iio.enable = true;
+  };
   environment.pathsToLink = [ "/libexec" ];
 
   boot = {
@@ -15,13 +18,19 @@
   };
 
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  }; 
+  services = { 
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true; 
+    }; 
+    dbus = { enable = true; };
+    udev = { enable = true; };
+    polkit = { enable = true; };
+    sysprof = { enable = true; };
+  };
 
   programs.nix-ld.package = pkgs.nix-ld-rs; 
 
@@ -35,11 +44,12 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment.systemPackages = with pkgs; [
-    acpi lm_sensors
+    acpi lm_sensors sysprof
     alsa-utils
     zsh vim tmux git curl wget ranger
     ack ripgrep peco progress jq
     playerctl pavucontrol
     gparted hw-probe ntfs3g
   ];
+
 }

@@ -45,6 +45,10 @@ if ! [ -d "$alchemy"/scripts ]; then
   cd "$DIR" || exit
 fi
 
+printf "\n⌛... Linking files... 🖇\n"
+ln -sfv "$DIR"/ing/i/.face "$HOME"/
+ln -sfv "$DIR"/ing/i/background.png "$HOME"/
+
 printf "\n⌛... Coping system depended files to be edited by user... 🖇\n"
 cp -n "$DIR"/system-depended/.profile "$HOME"/
 source "$HOME"/.profile

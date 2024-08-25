@@ -16,10 +16,10 @@
 
     fonts = {
       sizes = {
-        applications = 14;
-        terminal = 20;
-        desktop = 20;
-        popups = 20;
+        applications = 12;
+        terminal = 12;
+        desktop = 12;
+        popups = 12;
       };
       monospace = {
         package = pkgs.monaspace;
