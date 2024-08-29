@@ -16,7 +16,7 @@
   };
   programs.gamemode.enable = true;
 
-  environment.systemPackages = with pkgs; [ steam vulkan-headers ntfs3g protonup ]; 
+  environment.systemPackages = with pkgs; [ steam vulkan-headers ntfs3g protonup vcmi ]; 
   environment.sessionVariables = { 
     STEAM_EXTRA_COMPAT_TOOLS_PATHS =
       "\${HOME}/.steam/root/compatibilitytools.d";

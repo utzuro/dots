@@ -28,7 +28,6 @@
     }; 
     dbus = { enable = true; };
     udev = { enable = true; };
-    polkit = { enable = true; };
     sysprof = { enable = true; };
   };
 

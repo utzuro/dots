@@ -19,7 +19,7 @@
     xdotool xdg-launch xdg-utils xsettingsd
     socat glances
     kdePackages.konsole foot kitty wezterm
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
 
     (where-is-my-sddm-theme.override {
       themeConfig.General = { 

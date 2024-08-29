@@ -30,7 +30,7 @@
     })
 
     # openxray
-    vcmi prismlauncher
+    prismlauncher
 
     dosbox-staging
     (retroarch.override {
