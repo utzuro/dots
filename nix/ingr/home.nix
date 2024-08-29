@@ -28,6 +28,7 @@ in {
   imports = [
 
     ./home/sh.nix 
+    ./home/env.nix 
     ./home/git.nix
     ./home/libs.nix
     ./home/tools.nix
