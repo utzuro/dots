@@ -40,8 +40,36 @@ let
     XDG_PICTURES_DIR = "$HOME/magic";
     XDG_VIDEOS_DIR = "$HOME/magic";
   };
-in
-{
+in {
+  home.packages = with pkgs; [
+    vim neovim 
+    tmux zellij 
+    ranger yazi vifm-full 
+    ack ripgrep ripgrep-all fzf fd duf
+    peco progress jq
+    bat eza rsync
+    wget curl 
+
+    # archives
+    unzip zip gzip xz atool zstd lz4 lzip lzo lzop p7zip rar rzip unar 
+
+    # shells
+    elvish xonsh
+
+    # tools
+    killall timer xdragon
+    lfs lsd lsdvd ncdu file
+    disfetch lolcat neofetch pfetch
+    w3m asciidoctor pandoc pdftk foremost
+    imagemagick ffmpeg aaxtomp3 
+    htop ddgr bottom hwinfo pciutils psmisc
+    cava bc numbat
+    ledger bc
+    inotify-tools pistol
+
+    taskwarrior3 tasksh geek-life
+  ];
+
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -87,35 +115,6 @@ in
     export fpath=(~/.zsh/completion $fpath)
    '';
   };
-
-  home.packages = with pkgs; [
-    vim neovim 
-    tmux zellij 
-    ranger yazi vifm-full 
-    ack ripgrep ripgrep-all fzf fd duf
-    peco progress jq
-    bat eza rsync
-    wget curl 
-
-    # archives
-    unzip zip gzip xz atool zstd lz4 lzip lzo lzop p7zip rar rzip unar 
-
-    # shells
-    elvish xonsh
-
-    # tools
-    killall timer xdragon
-    lfs lsd lsdvd ncdu file
-    disfetch lolcat neofetch pfetch
-    w3m asciidoctor pandoc pdftk foremost
-    imagemagick ffmpeg aaxtomp3 
-    htop ddgr bottom hwinfo pciutils psmisc
-    cava bc numbat
-    ledger bc
-    inotify-tools pistol
-
-    taskwarrior3 tasksh geek-life
-  ];
 
   xdg.configFile."lf/icons".source = ./i/icons;
   programs.lf = {
@@ -184,33 +183,4 @@ in
       set previewer ${previewer}/bin/pv.sh
     '';
   };
-
-  home.sessionPath = [ "$HOME/scripts" ];
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    alchemy = "$HOME/alchemy";
-    a = "$HOME/alchemy";
-    m = "$HOME/magic";
-    magic = "$HOME/magic";
-    manu = "$alchemy/manuscripts";
-    manuscripts = "$alchemy/manuscripts";
-    STARDICT_DATA_DIR = "$manuscripts/ingredients/dicts/dic";
-    LEDGER = "$HOME/alchemy/manuscripts/ledger/main.ledger";
-    ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
-    GOPATH = "$HOME/go";
-    CHROME_EXECUTABLE="chrome";
-
-    NIXPKGS_ALLOW_INSECURE = "1";
-    NIXPKGS_ALLOW_UNFREE = "1";
-
-    # ja input
-    # QT_IM_MODULE = "fcitx";
-    # XMODIFIERS = "@im=fcitx";
-  };
-
-  home.file.".profile".text = ''
-  export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
-    '';
 }

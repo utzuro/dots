@@ -38,4 +38,5 @@
     };
   };
   programs.adb.enable = true;
+  services.flatpak.enable = true;
 }
