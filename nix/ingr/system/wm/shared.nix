@@ -14,6 +14,10 @@
   };
   xdg.mime.enable = true;
 
+  programs = {
+    light.enable = true;
+  };
+    
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
     xdotool xdg-launch xdg-utils xsettingsd

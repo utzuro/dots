@@ -30,10 +30,6 @@
     };
   };
 
-  programs = {
-    light.enable = true;
-  };
-    
 }
 
 
