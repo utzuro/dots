@@ -11,9 +11,9 @@
 
     opacity = {
       applications = 0.8;
-      desktop = 0.7;
-      popups = 0.7;
-      terminal = 0.7;
+      desktop = 0.8;
+      popups = 0.8;
+      terminal = 0.8;
     };
 
     cursor = {

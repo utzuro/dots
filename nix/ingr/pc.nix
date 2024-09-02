@@ -9,7 +9,8 @@
       ./system/gaming.nix
 
       ./system/wm/hyprland.nix
-      ./system/wm/i3.nix
+      ./system/wm/sway.nix
+      ./system/wm/i3.nix # also enables xmonad and xfce
       ./system/wm/kde.nix
     ];
 }

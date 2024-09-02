@@ -5,7 +5,8 @@ base01: "1C1C2C"  # Dark violet
 base02: "2A2A3C"  # Darker violet
 base03: "3E3E5A"  # Deep violet
 base04: "6C4C80"  # Muted violet
-base05: "C070D0"  # Soft magenta
+# base05: "C070D0"  # Soft magenta
+base05: "E6E1CF"  # Use 06 because foot is using this as text color
 base06: "E6E1CF"  # Light cream (to maintain readability)
 base07: "F3F4F5"  # Light grey (to maintain readability)
 base08: "FF00FF"  # Magenta

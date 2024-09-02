@@ -19,7 +19,7 @@
       wayland
       wayland-protocols wayland-utils wlroots
       wofi wev swww
-      grim grimblast slurp wl-clipboard swappy
+      grim grimblast slurp mako wl-clipboard swappy
       cliphist
     ];
 }
