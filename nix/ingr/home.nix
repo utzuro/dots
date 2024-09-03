@@ -52,6 +52,7 @@ in {
     ./home/wm/hyprland.nix
     ./home/wm/kde.nix
     ./home/wm/i3.nix
+    ./home/wm/xmonad.nix
 
   ];
 

@@ -13,7 +13,7 @@
 
   # monitor hot swapping
   # exec sleep 5; systemctl --user start kanshi.service 
-  systemd.void.services.kanshi = {
+  systemd.user.services.kanshi = {
     description = "kanshi daemon";
     serviceConfig = {
       Type = "simple";
