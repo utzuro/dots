@@ -7,12 +7,25 @@
     home-manager.url = github:nix-community/home-manager/master;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
-    stylix.url = github:danth/stylix;
-    anyrun.url = github:Kirottu/anyrun;
-    anyrun.inputs.nixpkgs.follows = "nixpkgs";
-    erosanix.url = github:emmanuelrosa/erosanix;
-    erosanix.inputs.nixpkgs.follows = "nixpkgs";
-    nix-gaming.url = github:fufexan/nix-gaming;
+    stylix = {
+      url = github:danth/stylix; 
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    anyrun = { 
+      url = github:Kirottu/anyrun; 
+      inputs.nixpkgs.follows = "nixpkgs"; 
+    };
+    
+    erosanix = {
+      url = github:emmanuelrosa/erosanix; 
+      inputs.nixpkgs.follows = "nixpkgs"; 
+    };
+    
+    nix-gaming = {
+      url = github:fufexan/nix-gaming;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -26,11 +39,11 @@
     };
   };
 
-  outputs = { nixpkgs, ...}@inputs : 
+  outputs = {...}@inputs : 
 
   let
     arch = "x86_64-linux"; 
-    lib = nixpkgs.lib;
+    lib = inputs.nixpkgs.lib;
     pkgs = (import inputs.nixpkgs { 
       system = arch; 
       config = {
