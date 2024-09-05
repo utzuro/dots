@@ -2,7 +2,7 @@
 https://duckduckgo.com/?t=ffab&q=$s Duck
 
 # Trydactyl
-set searchurls.ji https://jisho.org/search/$s
+set searchurls.ji https://jisho.org/search/%s
 set searchurls.gm https://www.google.com/maps?q=%s
 set searchurls.yt https://www.youtube.com/results?search_query=%s
 set searchurls.wiki https://www.wikipedia.org/w/index.php?search=%s
