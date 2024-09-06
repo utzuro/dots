@@ -109,3 +109,12 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export ZATHURA_PLUGINS_PATH=/usr/lib/zathura
 
 [ -f "/Users/oleh.skotar/.ghcup/env" ] && . "/Users/oleh.skotar/.ghcup/env" # ghcup-env
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

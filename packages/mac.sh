@@ -52,6 +52,8 @@ brew install --cask amethyst
 brew install --cask clipy
 brew install --cask karabiner-elements
 
+brew install yazi ffmpegthumbnailer sevenzip jq poppler fd ripgrep fzf zoxide imagemagick font-symbols-only-nerd-font
+
 # extra tools
 brew tap versent/homebrew-taps
 brew install tfenv saml2aws awscli
