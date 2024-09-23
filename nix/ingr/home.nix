@@ -2,6 +2,7 @@
 # install home-manager with
 # `nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager`
 # `nix-shell '<home-manager> -A install`
+
 # update configs with `home-manager switch --flake .#void`
 
 { config, pkgs, user, inputs, ... }:
@@ -28,6 +29,7 @@ in {
   imports = [
 
     ./home/sh.nix 
+    ./home/sh-games.nix
     ./home/env.nix 
     ./home/git.nix
     ./home/libs.nix

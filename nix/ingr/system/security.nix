@@ -47,10 +47,9 @@ in
       executable = "${pkgs.steam}/bin/steam-run";
       profile = "${pkgs.firejail}/etc/firejail/steam.profile";
     };
-    # when I decide to try minecraft
-    # prismlauncher = {
-    #   executable = "${pkgs.prismlauncher}/bin/prismlauncher";
-    #   profile = ./firejail-profiles/prismlauncher.profile;
-    # };
+    prismlauncher = {
+      executable = "${pkgs.prismlauncher}/bin/prismlauncher";
+      profile = ./firejail-profiles/prismlauncher.profile;
+    };
   };
 }

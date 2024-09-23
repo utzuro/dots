@@ -30,6 +30,7 @@
     qbittorrent
     calibre anki pandoc
     libreoffice-fresh
+    drawio
     xournalpp openboard
     foliate texliveSmall
 

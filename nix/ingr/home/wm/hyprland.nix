@@ -56,6 +56,7 @@
     wf-recorder
     wlsunset
     ags bun
+    mpvpaper wpaperd
   ];
   programs.anyrun = {
     enable = true;

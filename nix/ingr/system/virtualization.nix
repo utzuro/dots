@@ -12,17 +12,25 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
 ];
 
 {
-  virtualisation.waydroid.enable = true;
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = true;
-    storageDriver = storageDriver;
-    autoPrune.enable = true;
+
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
   };
+
+  # virtualisation.waydroid.enable = true;
+  # virtualisation.docker = {
+  #   enable = true;
+  #   enableOnBoot = true;
+  #   storageDriver = storageDriver;
+  #   autoPrune.enable = true;
+  # };
   environment.systemPackages = with pkgs; [
-    docker
-    docker-compose
-    lazydocker
+    # docker docker-compose compose2nix lazydocker
+    podman-compose
     virtualbox
   ];
 }

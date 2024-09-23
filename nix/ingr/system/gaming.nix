@@ -3,7 +3,7 @@
 {
   imports = [
     ./steam.nix
-    ./minecraft.nix
+    # ./minecraft.nix
   ];
 
   hardware.graphics.enable32Bit = true;

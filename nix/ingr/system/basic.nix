@@ -19,7 +19,7 @@
       "dialout" "adbusers" "audio" "corectrl" "disk" 
       "input" "lp" "mongodb" "mysql" "network" "networkmanager" 
       "postgres" "power" "scanner" "sound" "systemd-journal" 
-      "users" "video" "wheel" "docker"
+      "users" "video" "wheel" "podman"
     ];
   };
 
