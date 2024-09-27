@@ -7,6 +7,8 @@
     php nodejs
 
     # tools
+    gopls
+    minio-client
     zed-editor patchelf
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
