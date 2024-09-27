@@ -88,7 +88,7 @@
         proton-pass
         yomitan
         languagetool
-        dictionaries
+        # dictionaries
 
         tridactyl
 
