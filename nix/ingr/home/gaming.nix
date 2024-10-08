@@ -30,6 +30,8 @@
 
     # openxray
     prismlauncher
+    openttd
+    freeciv
 
     dosbox-staging
     (retroarch.override {
