@@ -7,7 +7,7 @@
     php nodejs
 
     # tools
-    gopls sqlc
+    gopls sqlc ccls
     minio-client
     zed-editor patchelf
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])

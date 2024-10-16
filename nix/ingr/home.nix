@@ -34,6 +34,7 @@ in {
     ./home/git.nix
     ./home/libs.nix
     ./home/tools.nix
+    ./home/learn.nix
     ./home/mimelist.nix
 
     ./home/theme.nix

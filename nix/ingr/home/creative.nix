@@ -15,6 +15,7 @@
 
     # audio
     audacity
+    lmms renoise
 
     # video
     kdenlive handbrake
