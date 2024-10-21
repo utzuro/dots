@@ -4,6 +4,7 @@ let
   file-manager = "org.gnome.Nautilus.desktop";
   image-viewer = "feh.desktop";
   image-editor = "feh.desktop";
+  book-viewer = "zathura.desktop";
   torrent = "qbittorrent.desktop";
 in {
   xdg.mimeApps = rec {
@@ -18,7 +19,7 @@ in {
       "text/html" = browser;
 
       "x-scheme-handler/magnet" = torrent;
-      "application/pdf" = browser;
+      "application/pdf" = book-viewer;
       "application/x-shellscript" = editor;
 
       "image/jpeg" = image-editor;
