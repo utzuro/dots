@@ -62,6 +62,7 @@ ln -sfv "$DIR"/config/vim/.vimrc "$HOME"/
 mkdir "$HOME"/.config/nvim
 ln -sfv "$DIR"/config/vim/nvim/init.vim "$HOME"/.config/nvim/init.vim
 ln -sfv "$DIR"/config/kitty/kitty.conf "$HOME"/.config/kitty/kitty.conf
+# TODO: Move configs to lua
 # mkdir -p "$HOME"/.config/nvim/lua/utils
 # ln -sfv "$DIR"/config/vim/nvim/init.lua "$HOME"/.config/nvim/
 # ln -sfv "$DIR"/config/vim/nvim/lua/*.lua "$HOME"/.config/nvim/lua/
@@ -73,7 +74,7 @@ ln -sfv "$DIR"/config/vim/.vim/after/syntax/asciidoc.vim "$HOME"/.vim/after/synt
 vim +PluginInstall +qall
 
 # Shell
-# ignore dots that are defined with HomeManager on nix
+# ignore dots that are already defined with HomeManager on nix
 if [ ! -d "$HOME"/.nix-profile ]; then
     ln -sfv "$DIR"/config/zsh/.zshrc "$HOME"/
     ln -sfv "$DIR"/config/.bashrc "$HOME"/
@@ -92,6 +93,7 @@ cp -n "$DIR"/config/ssh/config "$HOME"/.ssh/
 
 # Window manager
 # TODO: Add support for wayland
+# TODO: Define all of this with home-manager on nix
 if xhost >& /dev/null ; then 
     printf "🧿 Detected Xorg, configuring...\n"
     ln -sfv "$DIR"/config/xorg/.xinitrc "$HOME"/
@@ -114,5 +116,10 @@ fi
 if [ -d "$HOME/.config/i3" ]; then
     printf "🧿 Detected i3, configuring...\n"
     ln -sfv "$DIR"/config/i3/config "$HOME"/.config/i3/
+fi
+
+if [ -d "$HOME/.config/hypr" ]; then
+    printf "🧿 Detected hyprland, configuring...\n"
+    ln -sfv "$DIR"/config/hypr "$HOME"/.config/
 fi
 

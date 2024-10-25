@@ -32,5 +32,6 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
     # docker docker-compose compose2nix lazydocker
     podman-compose
     virtualbox
+    kubernetes minikube kubectl kubernetes-helm kompose
   ];
 }
