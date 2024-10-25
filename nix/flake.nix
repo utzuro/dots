@@ -87,6 +87,17 @@
         specialArgs = { inherit system inputs; }; 
       };
 
+      x240 = let 
+        system = {
+          inherit arch; host = "x240"; 
+        }; in lib.nixosSystem {
+        modules = [ 
+          ./ingr/general.nix
+          ./ingr/laptop.nix 
+        ];
+        specialArgs = { inherit system inputs; }; 
+      };
+
     };
 
     # Settings different across users
