@@ -71,7 +71,7 @@ ln -sfv "$DIR"/config/vim/.ideavimrc "$HOME"/
 ln -sfv "$DIR"/config/vim/.vim/*.vim "$HOME"/.vim/
 mkdir -p "$HOME"/.vim/after/syntax
 ln -sfv "$DIR"/config/vim/.vim/after/syntax/asciidoc.vim "$HOME"/.vim/after/syntax/
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 
 # Shell
 # ignore dots that are already defined with HomeManager on nix
