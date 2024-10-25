@@ -119,6 +119,7 @@ if [ -d "$HOME/.config/i3" ]; then
 fi
 
 if [ -d "$HOME/.config/hypr" ]; then
+    rm -rf "$HOME"/.config/hypr
     printf "🧿 Detected hyprland, configuring...\n"
     ln -sfv "$DIR"/config/hypr "$HOME"/.config/
 fi
