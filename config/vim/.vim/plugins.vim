@@ -62,6 +62,11 @@ Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dotenv' " :Dotenv {file} to load .env
 Plug 'tpope/vim-jdaddy' " json mappings: aj, gqaj, gwaj
 Plug 'preservim/tagbar'
+Plug 'bfrg/vim-c-cpp-modern'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+
+" Run :PlugInstall to install the plugin.
 
 " gamedev
 Plug 'habamax/vim-godot'
