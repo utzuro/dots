@@ -3,9 +3,9 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    # nur.url = github:nix-community/NUR;
     home-manager.url = github:nix-community/home-manager/master;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # nur.url = github:nix-community/NUR;
     
     stylix = {
       url = github:danth/stylix; 
@@ -97,7 +97,6 @@
         ];
         specialArgs = { inherit system inputs; }; 
       };
-
     };
 
     # Settings different across users

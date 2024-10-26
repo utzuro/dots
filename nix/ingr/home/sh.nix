@@ -11,7 +11,7 @@ let
     mpv = "mpv --alang=jpn";
 
     # git
-    upd = "git commit -am 'update && git push'";
+    upd = "git commit -am 'update' && git push";
     push = "git push";
     pull = "git pull --ff-only";
     rebase = "git pull --rebase";
@@ -52,8 +52,7 @@ let
   };
 in {
   home.packages = with pkgs; [
-    vim neovim 
-    tmux zellij 
+    vim neovim tmux 
     ranger yazi vifm-full 
     ack ripgrep ripgrep-all fzf fd duf
     peco progress jq
@@ -63,9 +62,6 @@ in {
     # archives
     unzip zip gzip xz atool zstd lz4 lzip lzo lzop p7zip rar rzip unar 
 
-    # shells
-    elvish xonsh
-
     # tools
     killall timer xdragon
     lfs lsd lsdvd ncdu file
@@ -74,10 +70,10 @@ in {
     imagemagick ffmpeg aaxtomp3 
     htop ddgr bottom hwinfo pciutils psmisc
     cava bc numbat
-    ledger bc
+    ledger bc libqalculate
     inotify-tools pistol
 
-    taskwarrior3 tasksh geek-life
+    taskwarrior3
   ];
 
   programs.zsh = {

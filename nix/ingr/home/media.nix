@@ -10,9 +10,16 @@
     })
   ];
 
+  programs.mpv = {
+    enable = true;
+    bindings = {
+      "ctrl+r" = "vf toggle lutyuv=y=negval";
+    };
+  };
+
   home.packages = with pkgs; [
     # cli
-    mpv mpd mpc-cli ncmpcpp kew
+    mpd mpc-cli ncmpcpp kew
     nsxiv feh
     yt-dlp pipe-viewer clipgrab wget
     rtorrent

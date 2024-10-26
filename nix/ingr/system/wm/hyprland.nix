@@ -14,14 +14,11 @@
   };
 
   environment.systemPackages = with pkgs; [
+    hyprlock waybar eww
     hyprland-protocols
     hyprland-workspaces hypridle
     hyprland-autoname-workspaces
     hyprland-monitor-attached
-    hyprlock
-
-    # enable eww when ready to create DIY bar
-    waybar # eww
     hyprland-per-window-layout
   ];
 
