@@ -20,7 +20,7 @@
   home.packages = with pkgs; [
     # cli
     mpd mpc-cli ncmpcpp kew
-    audiobookshelfo
+    audiobookshelf cozy
     nsxiv feh
     yt-dlp pipe-viewer clipgrab wget
     rtorrent
