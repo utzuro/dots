@@ -77,10 +77,18 @@ alias c="clear"
 alias upd='git commit -am "update"'
 alias amend='git commit --amend'
 alias push='git push'
-alias force='git push --force'
+alias force='git push --force-with-lease'
 alias pull='git pull --ff-only'
+alias blame='git blame -w -C -C -C'
+alias graph="git log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"
+
+alias gh-w="gh run watch -i1  && terminal-notifier -title "🍏" -message 'run is done!' -sound Crystal"
+
+alias gp-w="git push && sleep 5 && gh-w"
+
 alias pip='pip3'
 alias python='python3'
+
 
 alias m="myougiden"
 alias t="tango"
