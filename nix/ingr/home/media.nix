@@ -35,7 +35,7 @@
     neovide
     zathura xournalpp
     vlc
-    qbittorrent
+    qbittorrent-enhanced
     calibre anki pandoc
     libreoffice-fresh
     drawio

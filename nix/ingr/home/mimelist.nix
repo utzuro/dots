@@ -1,6 +1,7 @@
 let
   browser = "librewolf.desktop";
   editor = "nvim.desktop";
+  audioplayer = "mpv.desktop";
   file-manager = "org.gnome.Nautilus.desktop";
   image-viewer = "feh.desktop";
   image-editor = "feh.desktop";
@@ -21,6 +22,20 @@ in {
       "x-scheme-handler/magnet" = torrent;
       "application/pdf" = book-viewer;
       "application/x-shellscript" = editor;
+
+      "audio/aac" = audioplayer;
+      "audio/ac3" = audioplayer;
+      "audio/basic" = audioplayer;
+      "audio/flac" = audioplayer;
+      "audio/midi" = audioplayer;
+      "audio/mp4" = audioplayer;
+      "audio/mp3" = audioplayer;
+      "audio/mpeg" = audioplayer;
+      "audio/ogg" = audioplayer;
+      "audio/x-aiff" = audioplayer;
+      "audio/x-flac" = audioplayer;
+      "audio/x-m4a" = audioplayer;
+      "audio/x-matroska" = audioplayer;
 
       "image/jpeg" = image-editor;
       "image/bmp" = image-viewer;
