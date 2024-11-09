@@ -2,7 +2,7 @@
 
 # system
 swww init &
-swww img /mnt/seance/mysticism/i/wallpapers/109480.jpg &
+swww img ~/wallpaper.png
 waybar &
 dunst &
 blueman &
