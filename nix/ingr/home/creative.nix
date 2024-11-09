@@ -11,7 +11,7 @@
     inkscape scribus # docs
 
     # animation
-    synfigstudio blender
+    synfigstudio #blender
 
     # audio
     audacity

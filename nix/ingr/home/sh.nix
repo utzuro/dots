@@ -52,7 +52,7 @@ let
   };
 in {
   home.packages = with pkgs; [
-    vim neovim tmux 
+    vim neovim
     ranger yazi vifm-full 
     ack ripgrep ripgrep-all fzf fd duf
     peco progress jq
@@ -120,6 +120,71 @@ in {
     set -o vi
     export fpath=(~/.zsh/completion $fpath)
    '';
+  };
+
+  programs.tmux = {
+    enable = true;
+    prefix = "M-a";
+    keyMode = "vi";
+    clock24 = true;
+    newSession = true;
+    mouse = true;
+    secureSocket = true;
+    sensibleOnTop = true;
+    escapeTime = 0;
+    extraConfig = ''
+set-option -g update-environment "DISPLAY WAYLAND_DISPLAY SWAYSOCK SSH_AUTH_SOCK"
+set -gq allow-passthrough on
+set -g visual-activity off
+
+set-option -g status-style bg=colour0,fg=white
+set-option -g status-left '#(shell-command)#[attributes]'
+set-option -g status-right '#[fg=colour140]#{session_name}'
+set-option -g window-status-current-format '#[bold]#(echo"<<")#{window_index}#(echo ":")#{window_name}'
+setw -g window-status-current-style fg=white,bg=colour140,bright
+set-option -g window-status-format '#[fg=colour140]#{window_index}#(echo ":")#{window_name}'
+    '';
+    plugins = with pkgs; [
+      tmuxPlugins.cpu
+      tmuxPlugins.open
+      tmuxPlugins.fpp
+      tmuxPlugins.yank
+      tmuxPlugins.jump
+      tmuxPlugins.ctrlw
+      tmuxPlugins.copycat
+      tmuxPlugins.dracula
+      tmuxPlugins.logging
+      tmuxPlugins.sysstat
+      tmuxPlugins.urlview
+      tmuxPlugins.sysstat
+      tmuxPlugins.tmux-thumbs
+      tmuxPlugins.battery
+      tmuxPlugins.tmux-fzf
+      tmuxPlugins.extrakto
+      tmuxPlugins.fuzzback
+      tmuxPlugins.net-speed
+      tmuxPlugins.sessionist
+      tmuxPlugins.prefix-highlight
+      tmuxPlugins.maildir-counter
+      tmuxPlugins.better-mouse-mode
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.vim-tmux-focus-events
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = ''
+          set -g @resurrect-strategy-nvim 'session'
+          extraConfig = "set -g @resurrect-strategy-vim 'session'
+        '';
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-boot 'on'
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '60' # minutes
+        '';
+      }
+    ];
   };
 
   xdg.configFile."lf/icons".source = ./i/icons;
