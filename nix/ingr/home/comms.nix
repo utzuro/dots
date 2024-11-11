@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     # chats
+    element-desktop fractal
     # threema-desktop
     signal-desktop 
     signald signaldctl signal-cli

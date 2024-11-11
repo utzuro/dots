@@ -9,6 +9,7 @@ let
     cat = "bat";
     todo = "vim ~/todo";
     mpv = "mpv --alang=jpn";
+    yt = "yt-dlp";
 
     # git
     upd = "git commit -am 'update' && git push";
@@ -132,18 +133,14 @@ in {
     secureSocket = true;
     sensibleOnTop = true;
     escapeTime = 0;
-    extraConfig = ''
-set-option -g update-environment "DISPLAY WAYLAND_DISPLAY SWAYSOCK SSH_AUTH_SOCK"
-set -gq allow-passthrough on
-set -g visual-activity off
-
-set-option -g status-style bg=colour0,fg=white
-set-option -g status-left '#(shell-command)#[attributes]'
-set-option -g status-right '#[fg=colour140]#{session_name}'
-set-option -g window-status-current-format '#[bold]#(echo"<<")#{window_index}#(echo ":")#{window_name}'
-setw -g window-status-current-style fg=white,bg=colour140,bright
-set-option -g window-status-format '#[fg=colour140]#{window_index}#(echo ":")#{window_name}'
-    '';
+    # extraConfig = ''
+    # set-option -g status-style bg=colour0,fg=white
+    # set-option -g status-left '#(shell-command)#[attributes]'
+    # set-option -g status-right '#[fg=colour140]#{session_name}'
+    # set-option -g window-status-current-format '#[bold]#(echo"<<")#{window_index}#(echo ":")#{window_name}'
+    # setw -g window-status-current-style fg=white,bg=colour140,bright
+    # set-option -g window-status-format '#[fg=colour140]#{window_index}#(echo ":")#{window_name}'
+    # '';
     plugins = with pkgs; [
       tmuxPlugins.cpu
       tmuxPlugins.open

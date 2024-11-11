@@ -7,7 +7,8 @@
     thelounge weechat
   ];
 
-  services.bitlbee = {
+  services = [
+    bitlbee = {
     enable = true;
     plugins = with pkgs; [
       bitlbee-discord
@@ -20,4 +21,5 @@
       purple-matrix
     ];
   };
+]
 }
