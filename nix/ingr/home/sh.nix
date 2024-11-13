@@ -133,14 +133,14 @@ in {
     secureSocket = true;
     sensibleOnTop = true;
     escapeTime = 0;
-    # extraConfig = ''
-    # set-option -g status-style bg=colour0,fg=white
-    # set-option -g status-left '#(shell-command)#[attributes]'
-    # set-option -g status-right '#[fg=colour140]#{session_name}'
-    # set-option -g window-status-current-format '#[bold]#(echo"<<")#{window_index}#(echo ":")#{window_name}'
-    # setw -g window-status-current-style fg=white,bg=colour140,bright
-    # set-option -g window-status-format '#[fg=colour140]#{window_index}#(echo ":")#{window_name}'
-    # '';
+    extraConfig = ''
+    set-option -g status-style bg=colour0,fg=white
+    set-option -g status-left '#(shell-command)#[attributes]'
+    set-option -g status-right '#[fg=colour140]#{session_name}'
+    set-option -g window-status-current-format '#[bold]#(echo"<<")#{window_index}#(echo ":")#{window_name}'
+    setw -g window-status-current-style fg=white,bg=colour140,bright
+    set-option -g window-status-format '#[fg=colour140]#{window_index}#(echo ":")#{window_name}'
+    '';
     plugins = with pkgs; [
       tmuxPlugins.cpu
       tmuxPlugins.open
@@ -170,7 +170,6 @@ in {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
           set -g @resurrect-strategy-nvim 'session'
-          extraConfig = "set -g @resurrect-strategy-vim 'session'
         '';
       }
       {
