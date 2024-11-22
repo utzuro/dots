@@ -31,6 +31,7 @@ let
 
     # run apps from terminal
     ## dev
+    k8s = "kubectl";
     clion = "nohup clion >/dev/null 2>&1 &";
     goland = "nohup goland >/dev/null 2>&1 &";
     pycharm = "nohup pycharm-community >/dev/null 2>&1 &";

@@ -23,6 +23,8 @@
     # vpn
     tor openvpn protonvpn-cli wireguard-tools
     networkmanager-openvpn networkmanagerapplet
+    # tools
+    wireshark tshark
   ];
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";

@@ -1,6 +1,7 @@
 { config, pkgs, ...}:
 
 {
+  nix.settings.substituters = [ "https://cuda-maintainers.cachix.org" ];
   services.xserver.videoDrivers = 
   [ 
     "nvidia"
@@ -19,6 +20,7 @@
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
     cudaPackages.cuda_cccl
+    cudaPackages.cudnn
     cudatoolkit
     ocl-icd
     #rocm-opencl-runtime

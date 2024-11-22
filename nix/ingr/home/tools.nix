@@ -21,5 +21,8 @@
     # transfer
     filezilla libfilezilla
     rsync zsync
+
+    # monitoring
+    zenith-nvidia
   ];
 }

@@ -6,6 +6,9 @@
     go rustup
     php nodejs
 
+    # devops
+    tenv opentofu
+
     # tools
     gopls sqlc ccls
     minio-client
