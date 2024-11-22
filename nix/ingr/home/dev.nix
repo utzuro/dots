@@ -7,7 +7,7 @@
     php nodejs
 
     # devops
-    tenv opentofu
+    tenv
 
     # tools
     gopls sqlc ccls
