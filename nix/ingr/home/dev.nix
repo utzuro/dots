@@ -6,6 +6,11 @@
     go rustup
     php nodejs
 
+    (pkgs.python3.withPackages (
+      python-pkgs: with python-pkgs; [
+        # ... python packages
+      ]))
+
     # devops
     tenv
 
