@@ -8,8 +8,9 @@
 
     (pkgs.python3.withPackages (
       python-pkgs: with python-pkgs; [
+        mypy pylint
+        jedi jedi-language-server
       ]))
-    pylint
 
     ocaml dune_3
 

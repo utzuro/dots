@@ -3,7 +3,6 @@
 let
   aliases = {
     c = "clear";
-    с = "clear";
     vim = "nvim";
     ls = "eza";
     tree = "eza --tree";
