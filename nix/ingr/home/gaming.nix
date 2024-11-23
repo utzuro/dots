@@ -32,6 +32,7 @@
     prismlauncher
     openttd
     freeciv
+    opendune
 
     dosbox-staging
     (retroarch.override {
