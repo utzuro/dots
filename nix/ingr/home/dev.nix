@@ -31,5 +31,8 @@
 
     # DB
     dbeaver-bin pgmodeler sqlitebrowser
+
+    # System API
+    portaudio
   ];
 }

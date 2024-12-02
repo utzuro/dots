@@ -62,7 +62,7 @@ in {
     wget curl 
 
     # archives
-    unzip zip gzip xz atool zstd lz4 lzip lzo lzop rar rzip unar #p7zip 
+    unzip zip gzip xz atool zstd lz4 lzip lzo lzop rar rzip unar p7zip 
 
     # tools
     killall timer xdragon
