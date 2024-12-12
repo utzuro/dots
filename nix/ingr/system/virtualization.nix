@@ -21,7 +21,6 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
       autoPrune.enable = true;
     };
   };
-  hardware.nvidia-container-toolkit.enable = true;
 
   virtualisation.waydroid.enable = true;
   # No need to use docker, podman is better

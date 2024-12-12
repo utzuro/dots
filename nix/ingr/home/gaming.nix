@@ -34,15 +34,11 @@
     freeciv
     opendune
 
-    dosbox-staging
-    (retroarch.override {
-      cores = with libretro; [
-        genesis-plus-gx
-        snes9x
-        beetle-psx-hw
-      ];
-    })
+    # https://theforceengine.github.io/
+    # https://github.com/JACoders/OpenJK
 
+
+    dosbox-staging
   ];
 }
 

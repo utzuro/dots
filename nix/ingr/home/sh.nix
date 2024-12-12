@@ -71,8 +71,8 @@ in {
     w3m asciidoctor pandoc pdftk foremost
     imagemagick ffmpeg aaxtomp3 
     htop ddgr bottom hwinfo pciutils psmisc
-    cava bc numbat
-    ledger bc libqalculate
+    bc numbat #cava 
+    ledger bc libqalculate 
     inotify-tools pistol
 
     taskwarrior3

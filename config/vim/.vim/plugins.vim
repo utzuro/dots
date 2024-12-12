@@ -126,6 +126,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
 call plug#end()            " required
 
 
