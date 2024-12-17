@@ -78,8 +78,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'github/copilot.vim'  
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-endwise'
 
 " folding
@@ -129,19 +127,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
 call plug#end()            " required
-
-
-" PLUGIN CONFIGS
-
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-
-if has('macunix')
-    let g:python3_host_prog = '/opt/homebrew/bin/python3'
-endif
 
 " NERDTREE
 nnoremap <C-n> :NERDTreeToggle<CR>

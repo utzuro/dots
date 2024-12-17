@@ -48,9 +48,15 @@ brew install emacs-plus
 osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus/Emacs.app" at POSIX file "/Applications"'
 brew services start d12frosted/emacs-plus/emacs-plus@29
 
+# Make macOS more like Linux
 brew install --cask amethyst
 brew install --cask clipy
 brew install --cask karabiner-elements
+
+# autofocus on hover
+brew tap dimentium/autoraise
+brew install autoraise
+brew services start autoraise
 
 brew install yazi ffmpegthumbnailer sevenzip jq poppler fd ripgrep fzf zoxide imagemagick font-symbols-only-nerd-font
 

@@ -82,6 +82,7 @@ fi
 
 ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
 ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
+ln -sfv "$DIR"/config/skhd/.skhdrc "$HOME"/
 
 # Tools
 mkdir -p "$HOME"/.config/ranger
