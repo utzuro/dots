@@ -75,7 +75,7 @@ in {
     ledger bc libqalculate 
     inotify-tools pistol
 
-    taskwarrior3
+    taskwarrior3 timewarrior
   ];
 
   programs.zsh = {
