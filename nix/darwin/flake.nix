@@ -13,9 +13,6 @@
       nixpkgs.config.allowUnfree = true;
       environment.systemPackages = with pkgs;
       [
-        # gui
-        firefox foot vlc
-
         # cli
         neovim yazi 
         ack ripgrep ripgrep-all fzf fd duf
@@ -29,7 +26,6 @@
         # tools
         asciidoctor pandoc pdftk 
         imagemagick ffmpeg
-        bc numbat
         ledger taskwarrior3
       ];
 
@@ -40,11 +36,11 @@
       nixpkgs.hostPlatform = "aarch64-darwin";
 
       fonts.packages = with pkgs; [
-        monaspace nerdfonts font-awesome
+        monaspace nerd-fonts._0xproto font-awesome
       ];
 
       system.defaults = {
-        dock.autoHide = true;
+        dock.autohide = true;
         NSGlobalDomain.AppleICUForce24HourTime = true;
         NSGlobalDomain.AppleShowAllExtensions = true;
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
@@ -53,7 +49,7 @@
   in
   {
     # $ nix flake update
-    # $ darwin-rebuild build --flake .#shigoto
+    # $ nix run nix-darwin -- switch --flake .#shigoto
     darwinConfigurations."shigoto" = nix-darwin.lib.darwinSystem {
       modules = [ 
         configuration 
