@@ -87,9 +87,9 @@
 
         darkreader
         proton-pass
-        yomitan
+        # yomitan
         languagetool
-        # dictionaries
+        dictionaries
 
         tridactyl
 
