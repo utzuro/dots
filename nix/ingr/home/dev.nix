@@ -18,7 +18,7 @@
     tenv
 
     # tools
-    gopls sqlc ccls ctags gnumake go-task
+    gopls sqlc ccls ctags gnumake #go-task (conflict with taskwarrior)
     minio-client
     zed-editor patchelf
     vscode
