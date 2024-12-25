@@ -1,0 +1,20 @@
+{
+  "languageserver": {
+      "ccls": {
+          "command": "ccls",
+          "filetypes": ["c", "cc", "cpp", "c++", "objc", "ino", "objcpp"],
+          "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"]
+      }
+  },
+  "pyright.enable": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoSearchPaths": true,
+
+  "go.goplsOptions": {
+    "completeUnimported": true
+  },
+  "go.goplsEnv": {
+    "GOOS": "js",
+    "GOARCH": "wasm"
+  }
+}

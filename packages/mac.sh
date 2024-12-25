@@ -38,7 +38,7 @@ brew install mactop
 
 # tools
 brew install graphviz ledger kitty yt-dlp 
-brew install --cask obsidian drawio anki visual-studio-code
+brew install --cask obsidian drawio anki visual-studio-code proton-pass figma
 
 # graphical tools
 brew install --cask libreoffice vlc
