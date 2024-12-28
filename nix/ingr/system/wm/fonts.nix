@@ -3,7 +3,7 @@
 {
   fonts.packages = with pkgs; [
     monaspace
-    nerdfonts font-awesome
+    font-awesome
     #powerline 
     noto-fonts noto-fonts-cjk-sans
     noto-fonts-emoji

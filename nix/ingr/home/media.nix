@@ -72,12 +72,32 @@
       scroll_down_album
     '';
 
-  xdg.mimeApps.defaultApplications = {
-    "text/plain" = [ "neovide.desktop" ];
-    "application/pdf" = [ "zathura.desktop" ];
-    "image/*" = [ "sxiv.desktop" ];
-    "video/png" = [ "mpv.desktop" ];
-    "video/jpg" = [ "mpv.desktop" ];
-    "video/*" = [ "mpv.desktop" ];
-  };
+
+    xdg.mimeApps = {
+      enable = true;
+
+      associations = {
+        added = {
+          "text/plain" = [ "neovide.desktop" ];
+          "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+          "image/*" = [ "sxiv.desktop" ];
+          "video/png" = [ "mpv.desktop" ];
+          "video/jpg" = [ "mpv.desktop" ];
+          "video/*" = [ "mpv.desktop" ];
+        };
+        removed = { 
+          "application/pdf" = "calibre-ebook-viewer.desktop";
+        };
+      };
+
+      defaultApplications = {
+        "text/plain" = [ "neovide.desktop" ];
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "image/*" = [ "sxiv.desktop" ];
+        "video/png" = [ "mpv.desktop" ];
+        "video/jpg" = [ "mpv.desktop" ];
+        "video/*" = [ "mpv.desktop" ];
+      };
+
+    };
 }

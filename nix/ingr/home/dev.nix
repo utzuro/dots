@@ -34,5 +34,8 @@
 
     # System API
     portaudio
+
+    # Robotics
+    # mblock-mlink
   ];
 }
