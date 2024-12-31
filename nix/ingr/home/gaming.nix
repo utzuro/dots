@@ -6,6 +6,7 @@
     steamcmd steam-run protontricks
     heroic lutris bottles
     adwaita-icon-theme # required for lutris
+    oversteer
 
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     # wineWowPackages.waylandFull

@@ -27,7 +27,10 @@
       jack.enable = true; 
     }; 
     dbus = { enable = true; };
-    udev = { enable = true; };
+    udev = { 
+      enable = true; 
+      packages = with pkgs; [ platformio-core openocd ];
+    };
     sysprof = { enable = true; };
   };
 
