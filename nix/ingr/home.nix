@@ -38,6 +38,7 @@ in {
     ./home/mimelist.nix
 
     ./home/theme.nix
+    ./home/visuals.nix
     ./home/term.nix
 
     ./home/browser.nix

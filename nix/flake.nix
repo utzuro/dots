@@ -11,6 +11,10 @@
       url = github:danth/stylix; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprlux = {
+      url = "github:amadejkastelic/Hyprlux";
+    };
     
     anyrun = { 
       url = github:Kirottu/anyrun; 
@@ -109,7 +113,8 @@
         in inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
-          # in home, check if hyprland and other options are enabled before configuring them
+          # in home, check if hyprland and other options are enabled 
+          # before configuring them
           ./ingr/home.nix 
           # Try to import it from the inside
           inputs.stylix.homeManagerModules.stylix 
