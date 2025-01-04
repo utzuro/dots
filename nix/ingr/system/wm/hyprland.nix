@@ -15,7 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     hyprlock waybar eww
-    hyprland-protocols
+    hyprland-protocols hyprprop
     hyprland-workspaces hypridle
     hyprland-autoname-workspaces
     hyprland-monitor-attached

@@ -48,6 +48,7 @@
   environment.systemPackages = with pkgs; [
     acpi lm_sensors sysprof
     alsa-utils coppwr helvum pwvucontrol
+    easyeffects
     zsh vim tmux git curl wget ranger
     ack ripgrep peco progress jq
     playerctl pavucontrol

@@ -56,7 +56,9 @@
     wf-recorder
     wlsunset
     ags bun
+    woomer wvkbd
     mpvpaper wpaperd
+    hyprland-per-window-layout
   ];
   programs.anyrun = {
     enable = true;

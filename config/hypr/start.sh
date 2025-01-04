@@ -6,7 +6,7 @@ swww img ~/wallpaper.png
 waybar &
 dunst &
 blueman &
-wlsunset -l 39.9 -L 116.3 &
+# wlsunset -l 39.9 -L 116.3 & # replaced with hyprlux
 
 # apps
 GDK_SCALE=1 GDK_DPI_SCALE=1 librewolf &
