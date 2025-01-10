@@ -7,10 +7,7 @@
     php nodejs
 
     (pkgs.python3.withPackages (
-      python-pkgs: with python-pkgs; [
-        mypy pylint
-        jedi jedi-language-server
-      ]))
+      python-pkgs: with python-pkgs; [ ]))
 
     ocaml dune_3
 
@@ -21,10 +18,10 @@
     gopls sqlc ccls ctags gnumake #go-task (conflict with taskwarrior)
     minio-client
     zed-editor patchelf
-    vscode
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["github-copilot"])
+    # vscode
+    # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
+    # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
+    # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["github-copilot"])
 
     # AI
     ollama

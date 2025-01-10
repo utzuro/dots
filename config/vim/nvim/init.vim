@@ -6,3 +6,9 @@ so ~/.vim/custom.vim
 
 colorscheme dracula
 
+lua << EOF
+
+
+EOF
+
+

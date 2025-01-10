@@ -62,7 +62,7 @@ in {
     wget curl 
 
     # archives
-    unzip zip gzip xz atool zstd lz4 lzip lzo lzop rar rzip unar p7zip 
+    unzip zip gzip xz atool zstd lz4 lzip lzo lzop rar unar p7zip 
 
     # tools
     killall timer xdragon
@@ -170,7 +170,10 @@ in {
       {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
-          set -g @resurrect-strategy-nvim 'session'
+        resurrect_dir=“$HOME/.tmux/resurrect”
+        set -g @resurrect-dir $resurrect_dir
+        set -g @resurrect-hook-post-save-all ‘target=$(readlink -f $resurrect_dir/last); sed “s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/$USER/bin/||g” $target | sponge $target’
+        set -g @resurrect-strategy-nvim 'session'
         '';
       }
       {

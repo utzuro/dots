@@ -54,8 +54,8 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'vimwiki/vimwiki'
   
 " IDE
-Plug 'dense-analysis/ale'
-Plug 'sheerun/vim-polyglot'
+" Plug 'dense-analysis/ale'
+" Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
@@ -73,8 +73,10 @@ Plug 'habamax/vim-godot'
 
 " complition
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'npm ci'}
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
+" conflicts with coc
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'jglasovic/venv-lsp.nvim'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'github/copilot.vim'  
@@ -92,8 +94,8 @@ Plug 'mhinz/vim-signify'
     " Server
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
-Plug 'vim-python/python-syntax'
-Plug 'nvie/vim-flake8' " :PyFlake8
+" Plug 'vim-python/python-syntax'
+" Plug 'nvie/vim-flake8' " :PyFlake8
 
     " Frontend
 Plug 'mattn/emmet-vim'

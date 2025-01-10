@@ -9,7 +9,6 @@
   "pyright.enable": true,
   "python.analysis.autoImportCompletions": true,
   "python.analysis.autoSearchPaths": true,
-  "python.pythonPath": "~/.venv/bin/python",
 
   "go.goplsOptions": {
     "completeUnimported": true

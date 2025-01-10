@@ -7,7 +7,8 @@
 
     # images
     darktable digikam  # photo
-    gimp-with-plugins krita pinta #mypaint # images
+    # gimp-with-plugins 
+    krita pinta #mypaint # images
     inkscape scribus # docs
 
     # animation
