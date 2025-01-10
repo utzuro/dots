@@ -1,6 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 
-{
+let
+  resurrectDir = "/home/void/.tmux/resurrect";
+  usr="void";
+in {
   programs.tmux = {
     enable = true;
     prefix = "M-a";
@@ -44,10 +47,6 @@
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.vim-tmux-focus-events
-      let
-        resurrectDir = "/home/void/.tmux/resurrect";
-        usr="void";
-      in
       {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
@@ -57,7 +56,7 @@
         set -g @resurrect-capture-pane-contents 'on'
 
         set -g @resurrect-dir ${resurrectDir}
-        set -g @resurrect-hook-post-save-all 'sed "s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/${usr}/bin/||g; s|/home/${usr}/.nix-profile/bin/||g" ${resurrectDirPath}/last | sponge ${resurrectDirPath}/last'
+        set -g @resurrect-hook-post-save-all 'sed "s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/${usr}/bin/||g; s|/home/${usr}/.nix-profile/bin/||g" ${resurrectDir}/last | sponge ${resurrectDir}/last'
         '';
       } 
       {
@@ -65,9 +64,9 @@
         extraConfig = ''
           set -g @continuum-boot 'on'
           set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '60' # minutes
+          set -g @continuum-save-interval '15' # minutes
         '';
       }
     ];
   };
-
+}

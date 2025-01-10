@@ -6,6 +6,8 @@
     go rustup
     php nodejs
 
+    nixpkgs-fmt nil
+
     (pkgs.python3.withPackages (
       python-pkgs: with python-pkgs; [ ]))
 

@@ -74,7 +74,7 @@ Plug 'habamax/vim-godot'
 " complition
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'npm ci'}
 " conflicts with coc
-" Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig'
 " Plug 'hrsh7th/cmp-nvim-lsp'
 " Plug 'jglasovic/venv-lsp.nvim'
 Plug 'hrsh7th/cmp-buffer'

@@ -16,5 +16,9 @@
   "go.goplsEnv": {
     "GOOS": "js",
     "GOARCH": "wasm"
-  }
+  },
+
+  "nix.enableLanguageServer": true, 
+  "nix.formatterPath": "nixpkgs-fmt" ,
+  "nix.serverPath": "nil"
 }
