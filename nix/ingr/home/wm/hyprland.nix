@@ -50,6 +50,7 @@
 
   wayland.windowManager.hyprland.plugins = [
     inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
+    inputs.hyprland-easymotion.packages.${pkgs.system}.hyprland-easymotion
     pkgs.hyprlandPlugins.hyprgrass
     pkgs.hyprlandPlugins.hyprtrails
     pkgs.hyprlandPlugins.hypr-dynamic-cursors

@@ -21,21 +21,25 @@
       url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprland-easymotion = {
+      url = "github:zakk4223/hyprland-easymotion";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     
     # tools
     anyrun = { 
-      url = github:Kirottu/anyrun; 
+      url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs"; 
     };
     
     erosanix = {
-      url = github:emmanuelrosa/erosanix; 
+      url = "github:emmanuelrosa/erosanix";
       inputs.nixpkgs.follows = "nixpkgs"; 
     };
     
     nix-gaming = {
-      url = github:fufexan/nix-gaming;
+      url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -46,7 +50,7 @@
 
 
     blocklist-repo = {
-      url = github:StevenBlack/hosts;
+      url = "github:StevenBlack/hosts";
       flake = false;
     };
   };
