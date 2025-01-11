@@ -17,9 +17,6 @@
     hyprlock waybar eww
     hyprland-protocols hyprprop
     hyprland-workspaces hypridle
-    hyprland-autoname-workspaces
-    hyprland-monitor-attached
-    hyprland-per-window-layout
   ];
 
   nixpkgs.overlays = [

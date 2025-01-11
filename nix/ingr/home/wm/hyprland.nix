@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ...}:
+{ pkgs, inputs, ...}:
 
 {
 
@@ -48,6 +48,13 @@
 
   };
 
+  wayland.windowManager.hyprland.plugins = [
+    inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
+    pkgs.hyprlandPlugins.hyprgrass
+    pkgs.hyprlandPlugins.hyprtrails
+    pkgs.hyprlandPlugins.hypr-dynamic-cursors
+  ];
+
   home.packages = with pkgs; [ 
     hyprpicker
     walker tofi 
@@ -58,8 +65,12 @@
     ags bun
     woomer wvkbd
     mpvpaper wpaperd
+
+    hyprland-autoname-workspaces
+    hyprland-monitor-attached
     hyprland-per-window-layout
   ];
+
   programs.anyrun = {
     enable = true;
     config = {
@@ -85,5 +96,4 @@
       maxEntries = null;
     };
   };
-
 }

@@ -12,7 +12,7 @@
     vim neovim
     ranger yazi vifm-full 
     ack ripgrep ripgrep-all fzf fd duf
-    peco progress jq
+    peco progress jq moreutils
     bat eza rsync
     wget curl 
 

@@ -11,6 +11,7 @@ endif
 
 " SETTINGS
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-obsession'
@@ -73,10 +74,8 @@ Plug 'habamax/vim-godot'
 
 " complition
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'npm ci'}
-" conflicts with coc
 Plug 'neovim/nvim-lspconfig'
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'jglasovic/venv-lsp.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'github/copilot.vim'  

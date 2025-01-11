@@ -22,51 +22,33 @@ in {
     setw -g window-status-current-style fg=white,bg=colour140,bright
     set-option -g window-status-format '#[fg=colour140]#{window_index}#(echo ":")#{window_name}'
     '';
-    plugins = with pkgs; [
-      tmuxPlugins.cpu
-      tmuxPlugins.open
-      tmuxPlugins.fpp
-      tmuxPlugins.yank
-      tmuxPlugins.jump
-      tmuxPlugins.ctrlw
-      tmuxPlugins.copycat
-      tmuxPlugins.dracula
-      tmuxPlugins.logging
-      tmuxPlugins.sysstat
-      tmuxPlugins.urlview
-      tmuxPlugins.sysstat
-      tmuxPlugins.tmux-thumbs
-      tmuxPlugins.battery
-      tmuxPlugins.tmux-fzf
-      tmuxPlugins.extrakto
-      tmuxPlugins.fuzzback
-      tmuxPlugins.net-speed
-      tmuxPlugins.sessionist
-      tmuxPlugins.prefix-highlight
-      tmuxPlugins.maildir-counter
-      tmuxPlugins.better-mouse-mode
-      tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.vim-tmux-focus-events
+    plugins = with pkgs.tmuxPlugins; [
+      cpu open fpp yank jump ctrlw copycat
+      dracula logging sysstat urlview sysstat
+      tmux-thumbs battery tmux-fzf extrakto fuzzback
+      net-speed sessionist prefix-highlight maildir-counter
+      better-mouse-mode vim-tmux-navigator vim-tmux-focus-events
+
       {
-        plugin = tmuxPlugins.resurrect;
+        plugin = resurrect;
         extraConfig = ''
         set -g @resurrect-strategy-vim 'session'
         set -g @resurrect-strategy-nvim 'session'
-
+        set -g @resurrect-processes '"~nvim"'
         set -g @resurrect-capture-pane-contents 'on'
-
         set -g @resurrect-dir ${resurrectDir}
-        set -g @resurrect-hook-post-save-all 'sed "s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/${usr}/bin/||g; s|/home/${usr}/.nix-profile/bin/||g" ${resurrectDir}/last | sponge ${resurrectDir}/last'
         '';
       } 
+
       {
-        plugin = tmuxPlugins.continuum;
+        plugin = continuum;
         extraConfig = ''
           set -g @continuum-boot 'on'
           set -g @continuum-restore 'on'
           set -g @continuum-save-interval '15' # minutes
         '';
       }
+
     ];
   };
 }

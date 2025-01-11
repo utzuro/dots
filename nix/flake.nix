@@ -14,13 +14,14 @@
 
     # hyprland
     hyprland.url = "github:hyprwm/Hyprland";
-    hypr-dynamic-cursors = {
-        url = "github:VirtCode/hypr-dynamic-cursors";
-        inputs.hyprland.follows = "hyprland";
-    };
     hyprlux = {
       url = "github:amadejkastelic/Hyprlux";
     };
+    hypr-darkwindow = {
+      url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     
     # tools
     anyrun = { 
