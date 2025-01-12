@@ -2,13 +2,8 @@
 
 assert lib.asserts.assertOneOf "storageDriver" storageDriver
 [
-  null
-  "aufs"
-  "btrfs"
-  "devicemapper"
-  "overlay"
-  "overlay2"
-  "zfs"
+  null "aufs" "btrfs" "devicemapper"
+  "overlay" "overlay2" "zfs"
 ];
 
 {
@@ -23,6 +18,17 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
   };
 
   virtualisation.waydroid.enable = true;
+  environment.systemPackages = with pkgs; [
+    podman-compose virtualbox
+    kubernetes minikube kubectl 
+    kubernetes-helm kompose
+  ];
+
+}
+
+
+
+## Depricated
   # No need to use docker, podman is better
   # virtualisation.docker = {
   #   enable = true;
@@ -30,11 +36,7 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
   #   storageDriver = storageDriver;
   #   autoPrune.enable = true;
   # };
-  environment.systemPackages = with pkgs; [
+
+  # environment.systemPackages = with pkgs; [
     # docker docker-compose compose2nix lazydocker
-    podman-compose
-    podman-desktop podman-tui
-    virtualbox
-    kubernetes minikube kubectl kubernetes-helm kompose
-  ];
-}
+  # ];
