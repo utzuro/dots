@@ -1,14 +1,19 @@
 {
   description = "root config file";
 
+  # example usage:
+  # - nix flake update
+  # - nixos-rebuild switch --flake .#<output-name> --impure --use-remote-sudo
+  # - home-manager switch --flake .#<output-name> --override-input home-manager ~/<path-to-local-home-manager-repo> --impure
+
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    home-manager.url = github:nix-community/home-manager/master;
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # nur.url = github:nix-community/NUR;
     
     stylix = {
-      url = github:danth/stylix; 
+      url = "github:danth/stylix"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
