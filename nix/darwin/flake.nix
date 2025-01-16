@@ -27,6 +27,9 @@
         asciidoctor pandoc pdftk 
         imagemagick ffmpeg
         ledger taskwarrior3
+
+        # dev
+        nil
       ];
 
       nix.settings.experimental-features = "nix-command flakes";
