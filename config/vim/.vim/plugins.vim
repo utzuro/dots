@@ -45,7 +45,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 " EDITING
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
-Plug 'vim-scripts/ReplaceWithRegister'  " grr
 Plug 'tommcdo/vim-exchange'
 
 " WRITING

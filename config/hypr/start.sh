@@ -10,10 +10,10 @@ blueman &
 
 # apps
 GDK_SCALE=1 GDK_DPI_SCALE=1 librewolf &
-steam &
-~/.config/hypr/apps/chrome &
-~/.config/hypr/apps/obsidian &
 ~/.config/hypr/apps/sig &
 ~/.config/hypr/apps/discord
+
+# ~/.config/hypr/apps/chrome &
+# ~/.config/hypr/apps/obsidian &
 
 
