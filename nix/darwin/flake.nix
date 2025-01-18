@@ -1,4 +1,10 @@
 {
+  # Memo:
+  # to update the flake run:
+  # nix flake update
+
+  # to switch to the new configuration run:
+  # nix run nix-darwin -- switch --flake .#shigoto
   description = "nix-darwin system flake";
 
   inputs = {

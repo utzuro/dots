@@ -50,6 +50,7 @@ export npm_config_prefix=~/.node_modules
 export LD_LIBRARY_PATH=/usr/local/lib/
 export MANGOHUD=0 #1 for fps in steam games
 export STARDICT_DATA_DIR=$manuscripts/ingredients/dicts/dic
+export NIXPKGS_ALLOW_INSECURE=1
 
 # PATH
 export PATH="$PATH:$(du "$alchemy/scripts" | cut -f2 | sed '/.git/d' | tr '\n' ':' | sed 's/%*$//')"
@@ -113,7 +114,7 @@ alias grep="rg"
 alias cat="bat"
 alias ls="eza"
 alias tree="eza --tree"
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export PATH="$PATH:/opt/homebrew/opt/postgresql@15/bin"
 export ZATHURA_PLUGINS_PATH=/usr/lib/zathura
 
 [ -f "/Users/oleh.skotar/.ghcup/env" ] && . "/Users/oleh.skotar/.ghcup/env" # ghcup-env
