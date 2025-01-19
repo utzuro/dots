@@ -5,60 +5,45 @@
     gnome-font-viewer
   ];
 
-  imports = [
-    { 
-      fonts.packages = with pkgs; [
-        # programming
-        dina-font proggyfonts
+  fonts.packages = with pkgs; with nerd-fonts; [
+    # main
+    monaspace anonymice
+    hack noto agave mplus 
+    lilex lekton profont
+    iosevka-term-slab zed-mono
 
-        # kanji
-        noto-fonts noto-fonts-cjk-sans
+    # programming
+    go-mono blex-mono fira-mono 
+    dina-font proggyfonts
+    fira-code code-new-roman
+    proggy-clean-tt shure-tech-mono
+    geist-mono commit-mono
+    _3270 _0xproto d2coding departure-mono
 
-        # symbols
-        font-awesome
-        powerline-fonts
-        noto-fonts-emoji
+    # bitmap
+    gohufont 
 
-        # compability
-        wineWow64Packages.fonts
-      ];
-    }
+    # writing
+    im-writing inconsolata-lgc
+    space-mono roboto-mono intone-mono
 
-    {
-      fonts.packages = with pkgs.nerd-fonts; [
-        # main
-        monaspace anonymice
-        hack noto agave mplus 
-        lilex lekton profont
-        iosevka-term-slab zed-mono
+    # compability
+    wineWow64Packages.fonts
+    liberation tinos arimo cousine 
+    overpass mononoki 
 
-        # programming
-        go-mono blex-mono fira-mono 
-        fira-code code-new-roman
-        proggy-clean-tt shure-tech-mono
-        geist-mono commit-mono
-        _3270 _0xproto d2coding departure-mono
+    # symbols
+    font-awesome powerline-fonts noto-fonts-emoji
+    monoid hurmit hasklug symbols-only
 
-        # bitmap
-        gohufont 
+    # special
+    monofur terminess-ttf
+    martian-mono open-dyslexic
+    caskaydia-cove comic-shanns-mono
+    fantasque-sans-mono
 
-        # writing
-        im-writing inconsolata-lgc
-        space-mono roboto-mono intone-mono
-
-        # compability
-        liberation tinos arimo cousine 
-        overpass mononoki 
-
-        # symbols
-        monoid hurmit hasklug symbols-only
-
-        # special
-        monofur terminess-ttf
-        martian-mono open-dyslexic
-        caskaydia-cove comic-shanns-mono
-        fantasque-sans-mono
-      ];
-    }
+    # kanji
+    noto-fonts noto-fonts-cjk-sans
   ];
+
 }

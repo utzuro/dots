@@ -1,4 +1,4 @@
-{ pkgs, inputs, ...}:
+{ pkgs, lib, inputs, ...}:
 
 {
 
@@ -57,44 +57,74 @@
   ];
 
   home.packages = with pkgs; [ 
-    hyprpicker
-    walker tofi 
-    wlrctl
-    foot fuzzel
-    wf-recorder
-    wlsunset
+    walker tofi foot
+    wlrctl wf-recorder
     ags bun
-    woomer wvkbd
-    mpvpaper wpaperd
+    woomer wvkbd hyprpicker
+    mpvpaper wpaperd wlsunset
 
     hyprland-autoname-workspaces
     hyprland-monitor-attached
     hyprland-per-window-layout
   ];
 
-  programs.anyrun = {
-    enable = true;
-    config = {
-      plugins = [
-        inputs.anyrun.packages.${pkgs.system}.applications
-        inputs.anyrun.packages.${pkgs.system}.stdin # dmenu
-        inputs.anyrun.packages.${pkgs.system}.dictionary
-        inputs.anyrun.packages.${pkgs.system}.rink
-        inputs.anyrun.packages.${pkgs.system}.shell
-        inputs.anyrun.packages.${pkgs.system}.symbols
-        inputs.anyrun.packages.${pkgs.system}.translate
-        inputs.anyrun.packages.${pkgs.system}.websearch
-      ];
-      x = { fraction = 0.5; };
-      y = { fraction = 0.3; };
-      width = { fraction = 0.3; };
-      hideIcons = false;
-      ignoreExclusiveZones = false;
-      layer = "overlay";
-      hidePluginInfo = true;
-      closeOnClick = true;
-      showResultsImmediately = false;
-      maxEntries = null;
+  programs = {
+    anyrun = {
+      enable = true;
+      config = {
+        plugins = [
+          inputs.anyrun.packages.${pkgs.system}.applications
+          inputs.anyrun.packages.${pkgs.system}.stdin # dmenu
+          inputs.anyrun.packages.${pkgs.system}.dictionary
+          inputs.anyrun.packages.${pkgs.system}.rink
+          inputs.anyrun.packages.${pkgs.system}.shell
+          inputs.anyrun.packages.${pkgs.system}.symbols
+          inputs.anyrun.packages.${pkgs.system}.translate
+          inputs.anyrun.packages.${pkgs.system}.websearch
+        ];
+        x = { fraction = 0.5; };
+        y = { fraction = 0.3; };
+        width = { fraction = 0.3; };
+        hideIcons = false;
+        ignoreExclusiveZones = false;
+        layer = "overlay";
+        hidePluginInfo = true;
+        closeOnClick = true;
+        showResultsImmediately = false;
+        maxEntries = null;
+      };
+    };
+    fuzzel = {
+      enable = true;
+      settings = lib.mkForce {
+        main = {
+          terminal = "${pkgs.foot}/bin/foot";
+          layer = "overlay";
+          dpi-aware = true;
+          icon-theme = "Papirus-Dark";
+          width = 40;
+          font = "Hack:weight=bold:size=24";
+          line-height = 40;
+          # fields = "name,generic,comment,categories,filename,keywords";
+          # prompt = "❯   ";
+          show-actions = false;
+          # exit-on-keyboard-focus-loss = true;
+        };
+        colors = {
+          text = "FFFFFFfa";
+          prompt = "FFFFFFfa";
+          placeholder = "FFFFFFfa";
+          selection-text= "FFFFFFfa";
+          input = "FFFFFFfa";
+          match = "FF00FFfa";
+          selection-match = "FF00FFfa";
+          counter = "FF00FFfa";
+          background = "000000fa";
+          selection= "8A2BE2fa";
+          border = "FF00FFfa";
+        };
+        # dmenu.exit-immediately-if-empty = true;
+      };
     };
   };
 }

@@ -5,16 +5,19 @@
   # - nix flake update
   # - nixos-rebuild switch --flake .#<output-name> --impure --use-remote-sudo
   # - home-manager switch --flake .#<output-name> --override-input home-manager ~/<path-to-local-home-manager-repo> --impure
+  # nix run nix-darwin -- switch --flake .#shigoto
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.nixpkgs.follows = "nixpkgs";
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.nixpkgs.follows = "nixpkgs";
     # nur.url = github:nix-community/NUR;
     
     stylix = {
       url = "github:danth/stylix"; 
-      inputs.nixpkgs.follows = "nixpkgs";
+      nixpkgs.follows = "nixpkgs";
     };
 
     # hyprland
@@ -35,22 +38,22 @@
     # tools
     anyrun = { 
       url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs"; 
+      nixpkgs.follows = "nixpkgs"; 
     };
     
     erosanix = {
       url = "github:emmanuelrosa/erosanix";
-      inputs.nixpkgs.follows = "nixpkgs"; 
+      nixpkgs.follows = "nixpkgs"; 
     };
     
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
+      nixpkgs.follows = "nixpkgs";
     };
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
+      nixpkgs.follows = "nixpkgs";
     };
 
 
@@ -60,12 +63,12 @@
     };
   };
 
-  outputs = {...}@inputs : 
+  outputs = {nix-darwin, nixpkgs, home-manager, ...}@inputs : 
 
   let
     arch = "x86_64-linux"; 
-    lib = inputs.nixpkgs.lib;
-    pkgs = (import inputs.nixpkgs { 
+    lib = nixpkgs.lib;
+    pkgs = (import nixpkgs { 
       system = arch; 
       config = {
         allowUnfree = true;
@@ -120,6 +123,13 @@
       };
     };
 
+
+    darwinConfigurations."shigoto" = nix-darwin.lib.darwinSystem {
+      modules = [ 
+        inputs.configuration 
+      ];
+    };
+
     # Settings different across users
     homeConfigurations = { 
       backupFileExtension = "backup";
@@ -127,7 +137,7 @@
         name = "void"; 
         email = "utzuro@pm.me"; 
       };
-        in inputs.home-manager.lib.homeManagerConfiguration {
+        in home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
           # in home, check if hyprland and other options are enabled 
