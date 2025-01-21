@@ -5,7 +5,7 @@
 
   services.protonvpn = {
 
-    enable = false;
+    enable = true;
     autostart = true;
 
     interface = {

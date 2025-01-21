@@ -9,15 +9,19 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.nixpkgs.follows = "nixpkgs";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.nixpkgs.follows = "nixpkgs";
-    # nur.url = github:nix-community/NUR;
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     stylix = {
       url = "github:danth/stylix"; 
-      nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # hyprland
@@ -38,22 +42,22 @@
     # tools
     anyrun = { 
       url = "github:Kirottu/anyrun";
-      nixpkgs.follows = "nixpkgs"; 
+      inputs.nixpkgs.follows = "nixpkgs"; 
     };
     
     erosanix = {
       url = "github:emmanuelrosa/erosanix";
-      nixpkgs.follows = "nixpkgs"; 
+      inputs.nixpkgs.follows = "nixpkgs"; 
     };
     
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
-      nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
 
