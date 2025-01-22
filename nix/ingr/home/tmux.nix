@@ -13,6 +13,9 @@ in {
     mouse = true;
     secureSocket = true;
     sensibleOnTop = true;
+    # shell = "zsh";
+    # enableFzf = true;
+    terminal = "screen-256color";
     escapeTime = 0;
     extraConfig = ''
     set-option -g status-style bg=colour0,fg=white
