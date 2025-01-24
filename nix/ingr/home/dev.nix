@@ -8,8 +8,8 @@
 
     nixpkgs-fmt nil
 
-    (pkgs.python3.withPackages (
-      python-pkgs: with python-pkgs; [ ]))
+    # (pkgs.python3.withPackages (
+    #   python-pkgs: with python-pkgs; [ ]))
 
     ocaml dune_3
 

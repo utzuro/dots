@@ -80,6 +80,7 @@
         added = {
           "text/plain" = [ "neovide.desktop" ];
           "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+          "application/epub+zip" = [ "org.pwmt.zathura.desktop" ];
           "image/*" = [ "sxiv.desktop" ];
           "video/png" = [ "mpv.desktop" ];
           "video/jpg" = [ "mpv.desktop" ];
