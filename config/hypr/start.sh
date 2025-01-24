@@ -2,7 +2,7 @@
 
 # system
 swww init &
-swww img ~/wallpaper.png
+swww img ~/i.gif
 waybar &
 dunst &
 blueman &

@@ -752,6 +752,26 @@
         "type": "github"
       }
     },
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737423230,
+        "narHash": "sha256-WEOiNmkcmlaeXy2HGW1PYxYmCPiHdsI7a7SpjhBYxRg=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "46d0fa4ded0a7532f19870f9bbedaf62269fe3f7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "nix-filter": {
       "locked": {
         "lastModified": 1705332318,
@@ -898,6 +918,7 @@
         "hyprland": "hyprland",
         "hyprland-easymotion": "hyprland-easymotion",
         "hyprlux": "hyprlux",
+        "nix-darwin": "nix-darwin",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_4",
         "stylix": "stylix"
