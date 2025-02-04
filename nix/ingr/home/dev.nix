@@ -31,6 +31,10 @@
     # DB
     dbeaver-bin pgmodeler sqlitebrowser
 
+    # API
+    httpie altair
+    nodePackages_latest.graphql-cli
+
     # System API
     portaudio
 

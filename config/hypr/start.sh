@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # system
-swww init &
-swww img ~/i.gif
-waybar &
+# swww init &
+# swww img ~/i.gif
+# waybar &
 dunst &
 blueman &
 # wlsunset -l 39.9 -L 116.3 & # replaced with hyprlux

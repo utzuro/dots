@@ -41,7 +41,7 @@ let
     firefox = "nohup firefox >/dev/null 2>&1 &";
 
     MY_HOMEMANAGER = "~/alchemy/summons/nixos/home-manager";
-    build-my-home = "./ingr/cleanup && home-manager switch --flake .#void --override-input home-manager ~/alchemy/summons/nixos/home-manager --impure";
+    build-my-home = "./ingr/cleanup && home-manager switch --flake .#void --impure";  #--override-input home-manager ~/alchemy/summons/nixos/home-manager --impure";
 
     XDG_DESKTOP_DIR = "$HOME/";
     XDG_DOWNLOAD_DIR = "$HOME/channeling";
