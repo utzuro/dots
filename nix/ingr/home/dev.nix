@@ -8,6 +8,7 @@
 
     nixpkgs-fmt nil
 
+    python3 uv 
     # (pkgs.python3.withPackages (
     #   python-pkgs: with python-pkgs; [ ]))
 
@@ -34,6 +35,7 @@
     # API
     httpie altair
     nodePackages_latest.graphql-cli
+    awscli2
 
     # System API
     portaudio

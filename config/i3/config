@@ -14,9 +14,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id setcursor
 
-bar { status_command bumblebee-status -m sensors memory progress battery pipewire datetime -t iceberg-contrast
-        font pango:DejaVu Sans Mono, Awesome 10
-}
+# bar { status_command bumblebee-status -m sensors memory progress battery pipewire datetime -t iceberg-contrast
+#         font pango:DejaVu Sans Mono, Awesome 10
+# }
 # taskwarrior ping dunst nvidiagpu
 
 
