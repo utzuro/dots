@@ -5,7 +5,6 @@
     # langs ghc
     go rustup
     php nodejs
-    clang gcc
 
     nixpkgs-fmt nil
 
