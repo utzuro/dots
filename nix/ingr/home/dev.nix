@@ -5,6 +5,7 @@
     # langs ghc
     go rustup
     php nodejs
+    clang gcc
 
     nixpkgs-fmt nil
 
@@ -20,7 +21,6 @@
     # tools
     gopls sqlc ccls ctags gnumake #go-task (conflict with taskwarrior)
     minio-client
-    zed-editor patchelf
     gh
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])

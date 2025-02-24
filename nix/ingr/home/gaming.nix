@@ -29,12 +29,6 @@
       ];
     })
 
-    # openxray
-    prismlauncher
-    openttd
-    freeciv
-    opendune
-
     # https://theforceengine.github.io/
     # https://github.com/JACoders/OpenJK
 

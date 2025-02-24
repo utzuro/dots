@@ -29,7 +29,6 @@
           picom
           arandr
           dunst
-          kdePackages.qt6ct
           redshift
           feh
           uim
