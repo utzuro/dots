@@ -16,7 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     # connection
-    dhcpcd dialog wpa_supplicant 
+    dhcpcd dialog wpa_supplicant wirelesstools
     # analysis
     iproute2 iw ethtool libnatpmp busybox 
     ipcalc nmap tcpdump host dig 

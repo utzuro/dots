@@ -35,6 +35,8 @@ set hidden              " Allow switching buffers without saving
 set smartindent         " Enable smart indentation
 set autoindent          " Copy indent from the current line when starting a new line
 set smarttab            " Use shiftwidth for <Tab> and <Backspace> operations
+set shiftwidth=4
+set expandtab
 " Other settings are provided with tpope/vim-sleuth
 
 " ==========================================================

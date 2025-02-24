@@ -61,7 +61,7 @@
     wlrctl wf-recorder
     ags bun
     woomer wvkbd hyprpicker
-    mpvpaper wpaperd wlsunset
+    mpvpaper wlsunset
 
     hyprland-autoname-workspaces
     hyprland-monitor-attached

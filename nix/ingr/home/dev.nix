@@ -21,7 +21,7 @@
     gopls sqlc ccls ctags gnumake #go-task (conflict with taskwarrior)
     minio-client
     zed-editor patchelf
-    # vscode
+    gh
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["github-copilot"])
@@ -34,7 +34,6 @@
 
     # API
     httpie altair
-    nodePackages_latest.graphql-cli
     awscli2
 
     # System API

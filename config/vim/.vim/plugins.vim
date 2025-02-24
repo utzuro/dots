@@ -78,7 +78,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'github/copilot.vim'  
+" Plug 'github/copilot.vim'  
 Plug 'tpope/vim-endwise'
 
 " folding

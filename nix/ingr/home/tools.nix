@@ -8,6 +8,7 @@
     # android
     android-file-transfer android-tools scrcpy
     droidcam obs-studio-plugins.droidcam-obs
+    jmtpfs
 
     usbutils
 
@@ -24,5 +25,8 @@
 
     # monitoring
     zenith-nvidia
+
+    # music
+    musescore
   ];
 }

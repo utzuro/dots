@@ -42,6 +42,7 @@ let
 
     MY_HOMEMANAGER = "~/alchemy/summons/nixos/home-manager";
     build-my-home = "./ingr/cleanup && home-manager switch --flake .#void --impure";  #--override-input home-manager ~/alchemy/summons/nixos/home-manager --impure";
+    open-port = "while true ; do date ; natpmpc -a 1 0 udp 60 -g 10.2.0.1 && natpmpc -a 1 0 tcp 60 -g 10.2.0.1 || { echo -e 'ERROR' ; break ; } ; sleep 45 ; done";
 
     XDG_DESKTOP_DIR = "$HOME/";
     XDG_DOWNLOAD_DIR = "$HOME/channeling";
