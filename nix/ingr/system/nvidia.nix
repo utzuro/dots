@@ -16,7 +16,7 @@
     powerManagement.enable = true;
     # use it with offload on hybrid laptop
     powerManagement.finegrained = false;
-    open = false; # currently alpha-quality
+    open = true; # currently alpha-quality
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };

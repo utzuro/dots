@@ -20,10 +20,6 @@
 
     NIXPKGS_ALLOW_INSECURE = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
-
-    # ja input (not needed with patch)
-    # QT_IM_MODULE = "fcitx";
-    # XMODIFIERS = "@im=fcitx";
   };
 
   home.file.".profile".text = ''
