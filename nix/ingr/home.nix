@@ -51,7 +51,6 @@ in {
     ./home/emulation.nix
     ./home/gaming.nix
 
-    ./home/wm/input.nix
     ./home/wm/ui.nix
     ./home/wm/hyprland.nix
     ./home/wm/kde.nix

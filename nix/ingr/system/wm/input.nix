@@ -1,33 +1,39 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-    ]; 
-    fcitx5.fcitx5-with-addons = pkgs.libsForQt5.fcitx5-with-addons;
-    fcitx5.waylandFrontend = true;
-    # fcitx5.ignoreUserConfig = true;
-    # fcitx5.settings.inputMethod = { 
-    #   "Groups/0" = {
-    #     "Name" = "Default";
-    #     "Default Layout" = "us";
-    #     "DefaultIM" = "mozc";
-    #   };
-    #   "Groups/0/Items/0" = {
-    #     "Name" = "keyboard-us";
-    #     "Layout" = null;
-    #   };
-    #   "Groups/0/Items/1" = {
-    #     "Name" = "mozc";
-    #     "Layout" = null;
-    #   };
-    #   "GroupOrder" = {
-    #     "0" = "Default";
-    #   };
-    # };
+    fcitx5 = {
+      addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
+      ]; 
+      waylandFrontend = true;
+      # plasma6Support = true; // default if plasma6.enable
+      ignoreUserConfig = true;
+      settings.inputMethod = { 
+        "Groups/0" = {
+          "Name" = "Default";
+          "Default Layout" = "us";
+          "DefaultIM" = "mozc";
+        };
+        "Groups/0/Items/0" = {
+          "Name" = "keyboard-us";
+          "Layout" = null;
+        };
+        "Groups/0/Items/1" = {
+          "Name" = "mozc";
+          "Layout" = null;
+        };
+        "GroupOrder" = {
+          "0" = "Default";
+        };
+      };
+      quickPhrase = { 
+        smile = "（・∀・）"; 
+        angry = "(￣ー￣)";
+      };
+    };
   };
   # home.file.".config/fcitx5/config".text = ''
   #   [Hotkey]

@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./fonts.nix ];
+  imports = [ 
+    ./fonts.nix 
+    ./input.nix
+  ];
+
   fonts.fontDir.enable = true;
 
   xdg.portal = {
