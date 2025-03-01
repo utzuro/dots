@@ -15,12 +15,12 @@
     ocaml dune_3
 
     # devops
-    tenv
+    tenv ghidra
 
     # tools
-    gopls sqlc ccls ctags gnumake #go-task (conflict with taskwarrior)
+    gopls sqlc ccls ctags gotags gnumake #go-task (conflict with taskwarrior)
     minio-client
-    gh
+    gh gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["github-copilot"])
