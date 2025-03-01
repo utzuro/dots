@@ -121,7 +121,7 @@
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/general.nix
-          ./ingr/laptop.nix 
+          ./ingr/low-laptop.nix 
         ];
         specialArgs = { inherit system inputs; }; 
       };
@@ -147,6 +147,23 @@
           # in home, check if hyprland and other options are enabled 
           # before configuring them
           ./ingr/home.nix 
+          # Try to import it from the inside
+          inputs.stylix.homeManagerModules.stylix 
+          inputs.anyrun.homeManagerModules.default
+        ];
+        extraSpecialArgs = { inherit user inputs; };
+      };
+
+      v = let user = { 
+        name = "void"; 
+        email = "utzuro@pm.me"; 
+      };
+        in home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ 
+          # in home, check if hyprland and other options are enabled 
+          # before configuring them
+          ./ingr/home-minimal.nix 
           # Try to import it from the inside
           inputs.stylix.homeManagerModules.stylix 
           inputs.anyrun.homeManagerModules.default

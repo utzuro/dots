@@ -5,11 +5,11 @@
     # chats
     element-desktop fractal
     # threema-desktop
+    slack slack-cli slack-term
     signal-desktop 
     signald signaldctl signal-cli
-    webcord discord vesktop
+    discord vesktop
     telegram-desktop
-    protonmail-desktop
     zoom-us
   ];
 }

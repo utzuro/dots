@@ -24,29 +24,14 @@
     nsxiv feh
     yt-dlp pipe-viewer clipgrab wget
     rtorrent
-    obs-cli
     tuir
     libdvdcss libdvdread # dvd
     libopus libvorbis mpg123 # libs
     mediainfo 
 
     # gui 
-    mediainfo-gui
-    neovide
-    zathura xournalpp
-    vlc
-    qbittorrent-enhanced
-    calibre anki pandoc
-    libreoffice-fresh
-    drawio
-    xournalpp openboard
-    foliate texliveSmall
-
-    (obsidian.override {
-      commandLineArgs = 
-      "--ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --disable-gpu-compositing";
-    })
-
+    zathura 
+    anki
   ];
 
   home.file.".config/ncmpcpp/config".text = ''

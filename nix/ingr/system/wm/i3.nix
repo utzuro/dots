@@ -31,7 +31,6 @@
           dunst
           redshift
           feh
-          uim
         ];
       }; 
 
