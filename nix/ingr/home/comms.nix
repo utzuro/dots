@@ -5,7 +5,7 @@
     # chats
     element-desktop fractal
     # threema-desktop
-    slack slack-cli slack-term
+    slack slack-term
     signal-desktop 
     signald signaldctl signal-cli
     discord vesktop
