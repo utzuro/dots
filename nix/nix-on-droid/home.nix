@@ -9,6 +9,10 @@
       home.stateVersion = "24.05";
       imports = [ 
         ../ingr/home/sh.nix
+        ../ingr/home/env.nix
+        ../ingr/home/git.nix
+        ../ingr/home/dev.nix
       ];
     };
+    programs.home-manager.enable = true;
 }
