@@ -18,7 +18,6 @@
 
   let
     arch = "aarch64-linux"; 
-    lib = nixpkgs.lib;
     pkgs = (import nixpkgs { 
       system = arch; 
       config = {
@@ -30,7 +29,7 @@
   in {
     nixOnDroidConfigurations.default = 
     nix-on-droid.lib.nixOnDroidConfiguration {
-      inherit pkgs lib;
+      inherit pkgs;
       modules = [ 
 	./system.nix
       ];
