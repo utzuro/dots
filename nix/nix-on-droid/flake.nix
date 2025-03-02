@@ -35,19 +35,5 @@
 	./home.nix 
       ];
     };
-
-    homeConfigurations = {
-      v = let user = { 
-	name = "void"; 
-	email = "utzuro@pm.me"; 
-      };
-      in home-manager.lib.homeManagerConfiguration {
-      modules = [ 
-	./home.nix 
-      ];
-      extraSpecialArgs = { inherit user; };
-      };
-    };
-
   };
 }
