@@ -49,7 +49,7 @@ in {
     ./home/dev.nix
     # ./home/gamedev.nix
     ./home/emulation.nix
-    ./home/gaming.nix
+    # ./home/gaming.nix
 
     ./home/wm/ui.nix
     # ./home/wm/hyprland.nix
