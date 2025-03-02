@@ -14,5 +14,4 @@
         ../ingr/home/dev.nix
       ];
     };
-    programs.home-manager.enable = true;
 }
