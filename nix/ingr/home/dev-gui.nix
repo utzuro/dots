@@ -16,4 +16,5 @@
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["github-copilot"])
-
+  ];
+}
