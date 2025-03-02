@@ -53,7 +53,7 @@
 
     # DB
     sqlite postgresql dragonflydb
-    pg-cll pgvector 
+    pg-cli pgvector 
     dbeaver-bin pgmodeler 
     sqlitebrowser 
 
