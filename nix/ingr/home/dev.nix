@@ -53,8 +53,7 @@
 
     # DB
     sqlite postgresql dragonflydb
-    pg-cli pgvector 
-    dbeaver-bin pgmodeler 
+    pgcli dbeaver-bin pgmodeler 
     sqlitebrowser 
 
     # API
