@@ -10,6 +10,5 @@
       modules = [ 
         ../ingr/home/sh.nix
       ];
-      extraSpecialArgs = { inherit pkgs; };
     };
 }
