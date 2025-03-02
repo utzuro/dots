@@ -31,9 +31,6 @@
         ledger bc libqalculate 
         inotify-tools pistol
 
-        # media
-        goread
-
         taskwarrior3 timewarrior
       ];
       # ];
