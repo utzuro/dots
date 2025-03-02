@@ -19,7 +19,7 @@
     lmms renoise
 
     # video
-    kdenlive handbrake
+    handbrake
     obs-studio simplescreenrecorder audio-recorder #easyeffects
     video-trimmer
     neovide vlc

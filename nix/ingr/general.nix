@@ -16,6 +16,7 @@
       ./system/network.nix
       ./system/video.nix
       ./system/wm/shared.nix
+      ./system/wm/i3.nix
       ./system/comms.nix
 
       ( import ./system/virtualization.nix {
