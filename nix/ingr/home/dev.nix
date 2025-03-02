@@ -2,25 +2,41 @@
 
 {
   home.packages = with pkgs; [
-    # langs ghc
-    go rustup
-    php nodejs
+    # dev
 
-    nixpkgs-fmt nil
+    ## go
+    go gopls gotags
+    sqlc 
 
+    ## rust
+    rustup
+
+    ## python
     python3 uv 
     # (pkgs.python3.withPackages (
     #   python-pkgs: with python-pkgs; [ ]))
 
+    # c/c++
+    cmake clang clang-tools llvm 
+    ninja gnumake
+    ccls ctags
+
+    ## functional
+    nixpkgs-fmt nil
     ocaml dune_3
+
+    ## other
+    php nodejs lua luajit dart
 
     # devops
     tenv ghidra
 
     # tools
-    gopls sqlc ccls ctags gotags gnumake #go-task (conflict with taskwarrior)
     minio-client
-    gh gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot
+    gh gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
+    
+
+    # IDE
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
     # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["github-copilot"])
@@ -29,7 +45,10 @@
     ollama
 
     # DB
-    dbeaver-bin pgmodeler sqlitebrowser
+    sqlite postgresql
+    pg-cll
+    dbeaver-bin pgmodeler 
+    sqlitebrowser 
 
     # API
     httpie altair
