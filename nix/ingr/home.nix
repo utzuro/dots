@@ -47,6 +47,7 @@ in {
 
     ./home/creative.nix
     ./home/dev.nix
+    ./home/dev-gui.nix
     ./home/gamedev.nix
     ./home/emulation.nix
     ./home/gaming.nix

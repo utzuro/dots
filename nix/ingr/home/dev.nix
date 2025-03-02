@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+
     # dev
 
     ## go
@@ -20,7 +21,7 @@
       ]))
     uv nox
 
-    # c/c++
+    ## c/c++
     cmake clang clang-tools llvm 
     ninja gnumake gdb
     ccls ctags
@@ -34,38 +35,18 @@
     php nodejs lua dart
 
     # devops
-    tenv
-    ghidra
-    age
+    tenv age
 
     # tools
-    minio-client
+    minio-client awscli2
     gh gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
     
-
-    # IDE
-    # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
-    # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
-    # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["github-copilot"])
-
     # AI
     ollama
 
     # DB
     sqlite postgresql redis
-    pgcli dbeaver-bin pgmodeler 
-    sqlitebrowser 
-
-    # API
-    httpie altair
-    awscli2
-
-    # System API
-    portaudio
-
-    # Robotics
-    # mblock-mlink
-    # ros2
+    pgcli 
   ];
 
 }
