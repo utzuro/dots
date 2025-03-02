@@ -10,7 +10,7 @@
     sqlc delve
 
     ## rust
-    rustup cargo 
+    rustup
     cargo-edit cargo-watch
 
     ## python
@@ -21,7 +21,7 @@
     uv nox
 
     # c/c++
-    cmake clang gcc clang-tools llvm 
+    cmake clang clang-tools llvm 
     ninja gnumake gdb
     ccls ctags
 
@@ -31,10 +31,10 @@
     ocaml dune_3
 
     ## other
-    php nodejs lua luajit dart
+    php nodejs lua dart
 
     # devops
-    tenv opentofu
+    tenv
     ghidra
     age
 
@@ -52,7 +52,7 @@
     ollama
 
     # DB
-    sqlite postgresql dragonflydb
+    sqlite postgresql redis
     pgcli dbeaver-bin pgmodeler 
     sqlitebrowser 
 
