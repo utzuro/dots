@@ -15,6 +15,7 @@
     loader.efi.canTouchEfiVariables = true;
     initrd.systemd.enable = true;
     initrd.verbose = false;
+    tmp.cleanOnBoot = true;
   };
 
   security.rtkit.enable = true;
