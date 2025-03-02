@@ -5,31 +5,38 @@
     # dev
 
     ## go
-    go gopls gotags
-    sqlc 
+    go gopls gotags 
+    gofumpt golangci-lint
+    sqlc delve
 
     ## rust
-    rustup
+    rustup cargo 
+    cargo-edit cargo-watch
 
     ## python
-    python3 uv 
-    # (pkgs.python3.withPackages (
-    #   python-pkgs: with python-pkgs; [ ]))
+    (pkgs.python3.withPackages (
+      python-pkgs: with python-pkgs; [
+        pip setuptools wheel
+      ]))
+    uv nox
 
     # c/c++
-    cmake clang clang-tools llvm 
-    ninja gnumake
+    cmake clang gcc clang-tools llvm 
+    ninja gnumake gdb
     ccls ctags
 
     ## functional
     nixpkgs-fmt nil
+    ghc cabal-install stack
     ocaml dune_3
 
     ## other
     php nodejs lua luajit dart
 
     # devops
-    tenv ghidra
+    tenv opentofu
+    ghidra
+    age
 
     # tools
     minio-client
@@ -45,8 +52,8 @@
     ollama
 
     # DB
-    sqlite postgresql
-    pg-cll
+    sqlite postgresql dragonflydb
+    pg-cll pgvector 
     dbeaver-bin pgmodeler 
     sqlitebrowser 
 
@@ -59,5 +66,7 @@
 
     # Robotics
     # mblock-mlink
+    # ros2
   ];
+
 }

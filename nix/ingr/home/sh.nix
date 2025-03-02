@@ -9,7 +9,7 @@
   ];
 
   home.packages = with pkgs; [
-    vim neovim
+    vim neovim emacs
     ranger yazi vifm-full 
     ack ripgrep ripgrep-all fzf fd duf
     peco progress jq moreutils
