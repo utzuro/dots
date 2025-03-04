@@ -36,6 +36,7 @@ touch "${HOME:?}"/.profile
 touch "${HOME:?}"/.zprofile
 touch "${HOME:?}"/.secrets
 touch "${HOME:?}"/.awsrc
+mkdir ~/{channeling,mnt}
 mkdir -p "${alchemy:?}"/{ingredients,summons} ${magic:?}/ingredients "$HOME"/aws
 if ! [ -d "$alchemy"/scripts ]; then
   git clone https://gitlab.com/utzuro/scripts.git "$alchemy"/scripts
@@ -78,15 +79,13 @@ vim +PlugInstall +qall
 if [ ! -d "$HOME"/.nix-profile ]; then
     ln -sfv "$DIR"/config/zsh/.zshrc "$HOME"/
     ln -sfv "$DIR"/config/.bashrc "$HOME"/
+    ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
 fi
-
-ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
-ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
-ln -sfv "$DIR"/config/skhd/.skhdrc "$HOME"/
 
 # Tools
 mkdir -p "$HOME"/.config/ranger
 ln -sfv "$DIR"/config/ranger/rc.conf "$HOME"/.config/ranger/rc.conf
+ln -sfv "$DIR"/config/zsh/.p10k.zsh "$HOME"/
 
 # SSH
 mkdir -p "$HOME"/.ssh

@@ -104,6 +104,18 @@
         # wm.i3.enable = true;
       };
 
+      msi = let 
+        system = {
+          inherit arch; host = "msi"; 
+        }; in lib.nixosSystem {
+        modules = [ 
+          ./ingr/general.nix 
+          ./ingr/pc.nix 
+        ];
+        specialArgs = { inherit system inputs; }; 
+      };
+
+
       zeni = let 
         system = {
           inherit arch; host = "zeni"; 
