@@ -80,6 +80,7 @@ if [ ! -d "$HOME"/.nix-profile ]; then
     ln -sfv "$DIR"/config/zsh/.zshrc "$HOME"/
     ln -sfv "$DIR"/config/.bashrc "$HOME"/
     ln -sfv "$DIR"/config/tmux/.tmux.conf "$HOME"/
+    ln -sfv "$DIR"/config/ncmpcpp/* "$HOME"/.config/ncmpcpp/
 fi
 
 # Tools
@@ -103,7 +104,6 @@ if xhost >& /dev/null ; then
     # ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
     ln -sfv "$DIR"/config/ranger/* "$HOME"/.config/ranger/
     ln -sfv "$DIR"/config/mpd/* "$HOME"/.config/mpd/
-    ln -sfv "$DIR"/config/ncmpcpp/* "$HOME"/.config/ncmpcpp/
     ln -sfv "$DIR"/config/waybar/* "$HOME"/.config/waybar/
     cp -n "$DIR"/config/xorg/.Xresources "$HOME"/
     # Remove 4K configs if no 4K monitor is found
