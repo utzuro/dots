@@ -21,6 +21,7 @@
   home.packages = with pkgs; [
     tridactyl-native librewolf
     qutebrowser
+    google-chrome
     chromium
   ];
 
@@ -98,7 +99,7 @@
         indie-wiki-buddy
 
         h264ify
-        plasma-integration
+        # plasma-integration
       ];
 
       settings = { 

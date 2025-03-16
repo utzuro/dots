@@ -21,21 +21,46 @@
       name = "Afterglow-Recolored-Dracula-Purple";
     };
 
+
     fonts = {
-      sizes = {
-        applications = 14;
-        terminal = 20;
-        desktop = 20;
-        popups = 20;
+
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
       };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
       monospace = {
-        package = pkgs.monaspace;
-        # name = "Monaspace Krypton";
-        name = "Monaspace Argon";
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans Mono";
       };
-      serif = config.stylix.fonts.monospace;
-      sansSerif = config.stylix.fonts.monospace;
-      emoji = config.stylix.fonts.monospace;
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+
+      sizes = {
+        applications = 12;
+        terminal = 24;
+        desktop = 12;
+        popups = 12;
+      };
+
+      # monospace = {
+      #   package = pkgs.monaspace;
+      #   # name = "Monaspace Krypton";
+      #   # name = "Monaspace Argon";
+      #   name = "Noto Sans";
+      # };
+      # serif = config.stylix.fonts.monospace;
+      # sansSerif = config.stylix.fonts.monospace;
+      # emoji = config.stylix.fonts.monospace;
+
     };
   };
 }

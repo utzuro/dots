@@ -16,6 +16,7 @@
     LEDGER = "$HOME/alchemy/manuscripts/ledger/main.ledger";
     ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
     GOPATH = "$HOME/go";
+    GOPRIVATE="github.com/*";
     CHROME_EXECUTABLE="chrome";
 
     NIXPKGS_ALLOW_INSECURE = "1";

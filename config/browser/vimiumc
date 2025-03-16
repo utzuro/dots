@@ -1,22 +1,6 @@
 # Default search engine
 https://duckduckgo.com/?t=ffab&q=$s Duck
 
-# Trydactyl
-set searchurls.ji https://jisho.org/search/%s
-set searchurls.gm https://www.google.com/maps?q=%s
-set searchurls.yt https://www.youtube.com/results?search_query=%s
-set searchurls.wiki https://www.wikipedia.org/w/index.php?search=%s
-set searchurls.az https://www.amazon.co.jp/s?k=%s
-
-## I don't know why it's not default
-bind / fillcmdline find
-bind ? fillcmdline find --reverse
-bind n findnext --search-from-view
-bind N findnext --search-from-view --reverse
-bind gn findselect
-bind gN composite findnext --search-from-view --reverse; findselect
-bind ,<Space> nohlsearch
-
 # Custom search engines
 ```
 j|ji|jisho: https://jisho.org/search/$s Jisho

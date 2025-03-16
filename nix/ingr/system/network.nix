@@ -11,12 +11,12 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = true;
-  allowedTCPPorts = [ 80 443 ];
-  allowedUDPPortRanges = [
-    { from = 4000; to = 4007; }
-    { from = 8000; to = 8010; }
-  ];
+  networking.firewall.enable = false;
+  # allowedTCPPorts = [ 80 443 ];
+  # allowedUDPPortRanges = [
+  #   { from = 4000; to = 4007; }
+  #   { from = 8000; to = 8010; }
+  # ];
 
   environment.systemPackages = with pkgs; [
     # connection

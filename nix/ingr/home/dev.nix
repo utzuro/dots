@@ -8,7 +8,7 @@
     ## go
     go gopls gotags 
     gofumpt golangci-lint
-    sqlc delve
+    sqlc delve buf
 
     ## rust
     rustup
@@ -47,6 +47,9 @@
     # DB
     sqlite postgresql redis
     pgcli 
+
+    # hardware
+    avrdude
   ];
 
 }

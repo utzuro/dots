@@ -25,7 +25,7 @@
     disfetch lolcat neofetch pfetch
     w3m asciidoctor pandoc pdftk foremost
     imagemagick ffmpeg aaxtomp3 
-    htop ddgr bottom hwinfo pciutils psmisc
+    htop iotop ddgr bottom hwinfo pciutils psmisc
     bc numbat #cava 
     ledger bc libqalculate 
     inotify-tools pistol

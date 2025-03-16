@@ -15,6 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     hyprlock waybar eww
+    xdg-desktop-portal-hyprland
     hyprland-protocols hyprprop
     hyprland-workspaces hypridle
   ];

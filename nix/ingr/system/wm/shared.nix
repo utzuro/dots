@@ -8,14 +8,14 @@
 
   fonts.fontDir.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.common.default = "*";
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = [
+  #     # pkgs.xdg-desktop-portal
+  #     # pkgs.xdg-desktop-portal-gtk
+  #   ];
+  #   config.common.default = "*";
+  # };
   xdg.mime.enable = true;
 
   programs = {
@@ -23,7 +23,7 @@
   };
     
   environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-gtk
+    # xdg-desktop-portal-gtk
     xdotool xdg-launch xdg-utils xsettingsd
     socat glances
     kdePackages.konsole foot kitty wezterm
@@ -43,7 +43,12 @@
   programs.dconf.enable = true;
 
   services.xserver = {
-    dpi = 204;
+    displayManager.sessionCommands = ''  
+      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF  
+      Xft.dpi: 100  
+    EOF  
+    '';
+    dpi = 96;#204;
     enable = true;
     exportConfiguration = true;
 
