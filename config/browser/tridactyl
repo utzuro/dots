@@ -1,0 +1,16 @@
+# shortcuts for the search engines
+set searchurls.ji https://jisho.org/search/%s
+set searchurls.gm https://www.google.com/maps?q=%s
+set searchurls.yt https://www.youtube.com/results?search_query=%s
+set searchurls.wiki https://www.wikipedia.org/w/index.php?search=%s
+set searchurls.az https://www.amazon.co.jp/s?k=%s
+set searchurls.nix https://search.nixos.org/packages?query=%s
+
+# When searching for the pattern, highlight all words and move to next/prev witn n/N
+bind / fillcmdline find
+bind ? fillcmdline find --reverse
+bind n findnext --search-from-view
+bind N findnext --search-from-view --reverse
+bind gn findselect
+bind gN composite findnext --search-from-view --reverse; findselect
+bind ,<Space> nohlsearch

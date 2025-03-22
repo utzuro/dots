@@ -1,0 +1,1 @@
+/home/void/dots/scripts/clone.sh
