@@ -41,6 +41,7 @@ repos=(
   "https://github.com/etcd-io/etcd.git"
   "https://github.com/hashicorp/consul.git"
   "https://github.com/cockroachdb/cockroach.git"
+  "https://github.com/bitcoin/bitcoin.git"
 
   # compilers and build tools
   "https://github.com/ghc/ghc.git"

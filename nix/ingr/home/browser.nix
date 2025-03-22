@@ -9,13 +9,6 @@
         enableWideVine = true; 
       }; 
     }) 
-
-    # CHROME 
-    (final: prev: { 
-      chromium = prev.chromium.override { 
-        commandLineArgs = "--ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --disable-gpu-compositing"; 
-      }; 
-    })
   ]; 
   
   home.packages = with pkgs; [

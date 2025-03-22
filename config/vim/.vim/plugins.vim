@@ -39,6 +39,7 @@ Plug 'tpope/vim-tbone' " :Tmux, :Tyank, :Tput
 Plug 'tpope/vim-speeddating' " <C-a> <C-x> on dates
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 
@@ -78,11 +79,12 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
-" Plug 'github/copilot.vim'  
+Plug 'github/copilot.vim'  
 Plug 'tpope/vim-endwise'
 
 " folding
 Plug 'Konfekt/FastFold'
+Plug 'tmhedberg/SimpylFold'
 
 " navigation
 Plug 'justinmk/vim-sneak'
@@ -183,3 +185,4 @@ augroup godot | au!
 augroup end"
 
 so ~/.vim/coc.vim
+so ~/.vim/telescope.vim

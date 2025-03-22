@@ -5,10 +5,19 @@
     # output
     sl cmatrix cowsay
     
-    # games
-    vitetris ltris bastet 
+    # arcade
+    ltris bastet #tetris
     ninvaders njam nsnake nudoku
     gltron moon-buggy 
-    tcl2048 nethack
+
+    # rpg
+    nethack
+    angband crawl narsil 
+    sil # tolkien
+    brogue-ce boohu
+    cataclysm-dda
+    rpg-cli
+    dwarf-fortress
+
   ];
 }

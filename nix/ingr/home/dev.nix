@@ -38,11 +38,13 @@
     tenv age
 
     # tools
-    minio-client awscli2
+    minio-client awscli2 awsebcli
+    natscli
     gh gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
     
     # AI
     ollama
+    claude-code
 
     # DB
     sqlite postgresql redis

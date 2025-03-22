@@ -31,9 +31,51 @@
 
     # https://theforceengine.github.io/
     # https://github.com/JACoders/OpenJK
+    # Wait for The Dark Mode to come to pkgs
 
 
     dosbox-staging
+    dolphin-emu
+
+    # rpg
+    freedink veloren
+    devilutionx
+
+    # action
+    quake3e starsector
+    yquake2-all-games
+    anarch
+    dxx-rebirth
+    
+    openarena ioq3-scion openspades
+    unvanquished xonotic 
+    assaultcube
+    cataclysm-dda
+
+    crawl  experienced-pixel-dungeon
+
+    superTuxKart
+
+    # space
+    endless-sky pioneer flightgear
+    naev freeorion
+
+    # strategy
+    colobot zeroad warzone2100
+    wesnoth unciv
+    mindustry-wayland mindustry
+    opendune widelands
+
+    # sim
+    rigsofrods-bin
+
+    # engine recreations
+    vcmi fheroes2
+    openrct2 openra
+    openttd openxcom
+    openmw exult
+    fallout-ce fallout2-ce
+    openjk theforceengine
   ];
 }
 

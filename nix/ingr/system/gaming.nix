@@ -12,6 +12,16 @@
     new-lg4ff.enable = true;
   };
 
-  services.jack.alsa.support32Bit = true;
-  services.pipewire.alsa.support32Bit = true;
+  services = {
+    jack.alsa.support32Bit = true;
+    pipewire.alsa.support32Bit = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+  (retroarch.withCores (cores: with cores; [
+    genesis-plus-gx
+    snes9x
+    beetle-psx-hw
+  ]))
+];
 }
