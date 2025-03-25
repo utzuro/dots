@@ -40,7 +40,7 @@
     # tools
     minio-client awscli2 awsebcli
     natscli
-    gh gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
+    # gh gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
     
     # AI
     ollama
@@ -53,5 +53,20 @@
     # hardware
     avrdude
   ];
+
+  programs.gh = {
+    enable = true;
+    settings = {
+      git_protocol = "ssh";
+      prompt = "enabled";
+      aliases = {
+        co = "pr checkout";
+        pv = "pr view";
+      };
+    };
+    extensions = with pkgs; [
+      gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
+    ];
+  };
 
 }

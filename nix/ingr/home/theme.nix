@@ -3,6 +3,10 @@
 {
   stylix = {
 
+    targets = {
+      firefox.profileNames = [ "void" ];
+    };
+
     enable = true;
 
     polarity = "dark";
@@ -19,6 +23,7 @@
     cursor = {
       package= pkgs.afterglow-cursors-recolored;
       name = "Afterglow-Recolored-Dracula-Purple";
+      size = 24;
     };
 
 

@@ -13,7 +13,7 @@
     doxygen glm texinfo
     boost zlib minizip xz
     gtk3 glib glibc json-glib 
-    libffi libmediainfo libffi
+    libffi libmediainfo libtiff
     libseccomp libnotify 
     SDL2 SDL2_ttf SDL2_net SDL2_image SDL2_sound SDL2_mixer SDL2_gfx
   ];

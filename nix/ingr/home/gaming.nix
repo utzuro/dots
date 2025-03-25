@@ -38,8 +38,10 @@
     dolphin-emu
 
     # rpg
-    freedink veloren
-    devilutionx
+    freedink 
+    ##doesn't build
+    #devilutionx 
+    #veloren
 
     # action
     quake3e starsector
@@ -58,13 +60,17 @@
 
     # space
     endless-sky pioneer flightgear
-    naev freeorion
+    naev 
+    ## doesn't build
+    #freeorion
 
     # strategy
-    colobot zeroad warzone2100
+    zeroad warzone2100
     wesnoth unciv
-    mindustry-wayland mindustry
+    mindustry-wayland #mindustry
     opendune widelands
+    ## not building
+    # colobot 
 
     # sim
     rigsofrods-bin

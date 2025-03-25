@@ -109,7 +109,7 @@
       };
 
       search = {
-        default = "DuckDuckGo";
+        default = "ddg";
 
         engines = {
 
@@ -151,10 +151,10 @@
             definedAliases = [ "@a" ];
           };
 
-          "Bing".metaData.hidden = true;
+          "bing".metaData.hidden = true;
           # builtin engines only support specifying one additional alias
-          "Google".metaData.alias = "@g"; 
-          "DuckDuckGo".metaData.alias = "@d";
+          "google".metaData.alias = "@g"; 
+          "ddg".metaData.alias = "@d";
         };
 
         force = true;
@@ -181,10 +181,6 @@
         blocked = { color = "red"; icon = "fence"; id = 5; };
         gig = { color = "green"; icon = "dollar"; id = 6; };
       };
-
-      bookmarks = [ 
-        { name = "NixOS"; url = "https://nixos.org"; }
-      ];
     };
   };
 }

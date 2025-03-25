@@ -20,6 +20,7 @@ repos=(
   "https://github.com/snesrev/zelda3"
   "https://github.com/naev/naev"
   "https://github.com/freeorion/freeorion"
+  "https://github.com/diasurgical/devilutionX"
   ## action
   "https://github.com/FrictionalGames/AmnesiaTheDarkDescent"
   "https://gitlab.com/drummyfish/anarch"
