@@ -44,7 +44,7 @@
     #veloren
 
     # online
-    runelite
+    runelite runescape
 
     # action
     quake3e starsector
