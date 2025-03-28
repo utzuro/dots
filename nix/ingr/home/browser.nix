@@ -177,9 +177,10 @@
         anon = { color = "purple"; icon = "fingerprint"; id = 1; };
         utzuro = { color = "pink"; icon = "briefcase"; id = 2; };
         adept = { color = "orange"; icon = "pet"; id = 3; };
-        shopping = { color = "green"; icon = "cart"; id = 4; };
-        blocked = { color = "red"; icon = "fence"; id = 5; };
-        gig = { color = "green"; icon = "dollar"; id = 6; };
+        ai = { color = "turquoise"; icon = "tree"; id = 4; };
+        shopping = { color = "green"; icon = "cart"; id = 5; };
+        blocked = { color = "red"; icon = "fence"; id = 6; };
+        gig = { color = "green"; icon = "dollar"; id = 7; };
       };
     };
   };

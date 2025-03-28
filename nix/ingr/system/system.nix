@@ -49,12 +49,13 @@
   environment.systemPackages = with pkgs; [
     acpi lm_sensors sysprof
     alsa-utils coppwr helvum pwvucontrol
-    wireplumber
-    easyeffects
+    wireplumber easyeffects
     zsh vim tmux git curl wget ranger
-    ack ripgrep peco progress jq
+    ack ripgrep eza bat peco progress jq
+    htop zenith
     playerctl pavucontrol
     gparted hw-probe ntfs3g
+    home-manager
   ];
 
 }
