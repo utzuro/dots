@@ -110,7 +110,7 @@
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/general.nix 
-          ./ingr/pc.nix 
+          ./ingr/workstation.nix
         ];
         specialArgs = { inherit system inputs; }; 
       };
@@ -173,10 +173,7 @@
         in home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
-          # in home, check if hyprland and other options are enabled 
-          # before configuring them
           ./ingr/home-minimal.nix 
-          # Try to import it from the inside
           inputs.stylix.homeManagerModules.stylix 
           inputs.anyrun.homeManagerModules.default
         ];

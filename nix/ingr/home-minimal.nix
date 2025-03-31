@@ -45,15 +45,15 @@ in {
     ./home/comms.nix
     ./home/media.nix
 
-    # ./home/creative.nix
     ./home/dev.nix
-    # ./home/gamedev.nix
+    ./home/dev-gui.nix
     ./home/emulation.nix
+    ./home/creative.nix
+    # ./home/gamedev.nix
     # ./home/gaming.nix
 
     ./home/wm/ui.nix
-    # ./home/wm/hyprland.nix
-    # ./home/wm/kde.nix
+    ./home/wm/hyprland.nix
     ./home/wm/i3.nix
     ./home/wm/xmonad.nix
 

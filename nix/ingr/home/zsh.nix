@@ -69,7 +69,6 @@ in {
         "command-not-found" 
         "history" 
         "pip" 
-        "docker" 
         "zsh-interactive-cd" 
         "web-search" 
         "z" 
