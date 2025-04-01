@@ -4,6 +4,12 @@
           "command": "ccls",
           "filetypes": ["c", "cc", "cpp", "c++", "objc", "ino", "objcpp"],
           "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"]
+      },
+      "go": {
+        "command": "gopls",
+        "rootPatterns": ["go.mod"],
+        "trace.server": "verbose",
+        "filetypes": ["go"]
       }
   },
   "pyright.enable": true,

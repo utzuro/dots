@@ -68,7 +68,7 @@
     #freeorion
 
     # strategy
-    zeroad warzone2100
+    #zeroad warzone2100
     wesnoth unciv
     mindustry-wayland #mindustry
     opendune widelands
