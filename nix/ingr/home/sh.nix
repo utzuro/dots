@@ -15,6 +15,7 @@
     peco progress jq moreutils
     bat eza rsync
     wget curl 
+    glow
 
     # archives
     unzip zip gzip xz atool zstd lz4 lzip lzo lzop rar unar p7zip 

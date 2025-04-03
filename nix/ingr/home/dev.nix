@@ -26,6 +26,9 @@
     ninja gnumake gdb
     ccls ctags
 
+    ## lower
+    patchelf
+
     ## functional
     nixpkgs-fmt nil
     ghc cabal-install stack
@@ -46,6 +49,7 @@
     # AI
     ollama
     claude-code
+    openvino
 
     # DB
     sqlite postgresql redis
