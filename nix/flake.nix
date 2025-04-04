@@ -90,6 +90,7 @@
           inherit arch; host = "voidpc"; 
         }; in lib.nixosSystem {
         modules = [ 
+          ./ingr/system/boot.nix
           ./ingr/general.nix 
           ./ingr/pc.nix 
         ];
@@ -109,6 +110,7 @@
           inherit arch; host = "msi"; 
         }; in lib.nixosSystem {
         modules = [ 
+          ./ingr/system/boot-grub.nix
           ./ingr/general.nix 
           ./ingr/workstation.nix
         ];
