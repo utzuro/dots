@@ -38,7 +38,7 @@
     php nodejs lua dart
 
     # devops
-    tenv age
+    tenv age kind
 
     # tools
     graphviz

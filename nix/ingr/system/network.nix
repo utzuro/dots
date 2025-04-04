@@ -1,6 +1,9 @@
 { config, pkgs, system, ...}:
 
 {
+  imports = [
+    ./samba.nix
+  ];
   networking.hostName = "${system.host}";
   networking.networkmanager.enable = true;
   services.timesyncd.enable = true;
@@ -14,7 +17,7 @@
   networking.firewall = { 
     enable = false;
     allowedUDPPorts = [ 27960 27961 27962 27963 ];
-    allowedTCPPorts = [ 80 443 ];
+    allowedTCPPorts = [ 80 443 8443];
     allowedUDPPortRanges = [
       { from = 4000; to = 4007; }
       { from = 8000; to = 8010; }
