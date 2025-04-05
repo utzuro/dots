@@ -10,8 +10,8 @@
     [ 
       ../machines/${system.host}/hardware-configuration.nix
 
-      ./system/basic.nix
       ./system/system.nix
+      ./system/basic.nix
       ./system/security.nix
       ./system/network.nix
       ./system/video.nix
