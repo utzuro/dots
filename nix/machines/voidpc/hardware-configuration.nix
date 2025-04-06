@@ -86,6 +86,12 @@
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
+  fileSystems."/mnt/darkarts" =
+    { device = "/dev/disk/by-uuid/E006CE2306CDFB14";
+      fsType = "ntfs3";
+      options = [ "rw" "uid=1000" "nofail" "noatime" ];
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/356d8adc-29d3-4f3d-8966-7780968aab3c"; 
         options = [ "noatime" ];
