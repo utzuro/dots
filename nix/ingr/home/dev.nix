@@ -38,7 +38,8 @@
     php nodejs lua dart
 
     # devops
-    tenv age kind
+    tenv age 
+    kind kubectx kubectl
 
     # tools
     graphviz
