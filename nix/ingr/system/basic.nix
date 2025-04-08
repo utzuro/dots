@@ -2,7 +2,7 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  nix.package = pkgs.nixVersions.git;
+  nix.package = pkgs.nixVersions.latest;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
