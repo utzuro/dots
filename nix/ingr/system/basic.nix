@@ -19,7 +19,8 @@
       "dialout" "adbusers" "audio" "corectrl" "disk" 
       "input" "lp" "mongodb" "mysql" "network" "networkmanager" 
       "postgres" "power" "scanner" "sound" "systemd-journal" 
-      "users" "video" "wheel" "podman" "kvm"
+      "users" "video" "wheel" 
+      "podman" "docker" "kvm" "libvirtd" "vboxusers"
     ];
   };
 

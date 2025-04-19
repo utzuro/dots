@@ -9,16 +9,36 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
 {
 
   virtualisation = {
+
     containers.enable = true;
+
+    xen.enable = true;
+
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+
+    libvirtd = {
+      enable = true;
+      qemu = {
+        enable = true;
+        swtpm.enable = true;
+        ovmf.packages = with pkgs; [ OVMFFull.fd ];
+    };
+    spiceUSBRedirection.enable = true;
+
     podman = {
       enable = true;
       dockerCompat = true;
       autoPrune.enable = true;
     };
+
   };
 
   virtualisation.waydroid.enable = true;
   environment.systemPackages = with pkgs; [
+    qemu
     podman-compose virtualbox
     kubernetes minikube kubectl 
     kubernetes-helm kompose

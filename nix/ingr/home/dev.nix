@@ -3,61 +3,60 @@
 {
   home.packages = with pkgs; [
 
-    # dev
-
-    ## go
+    # go
     go gopls gotags 
     gofumpt golangci-lint
     sqlc delve buf
 
-    ## rust
+    # rust
     rustup
     cargo-edit cargo-watch
 
-    ## python
+    # python
     (pkgs.python3.withPackages (
       python-pkgs: with python-pkgs; [
         pip setuptools wheel
       ]))
     uv nox
 
-    ## c/c++
+    # c/c++
     cmake clang clang-tools llvm 
     ninja gnumake gdb
     ccls ctags
 
-    ## lower
-    patchelf
-
-    ## functional
+    # functional
     nixpkgs-fmt nil
     ghc cabal-install stack
     ocaml dune_3
 
-    ## other
+    # other
     php nodejs lua dart
+
+    # network
+    gource
 
     # devops
     tenv age 
     kind kubectx kubectl
-
-    # tools
     graphviz
     minio-client awscli2 awsebcli
     natscli
-    # gh gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
     
     # AI
-    ollama
-    claude-code
-    openvino
+    ollama claude-code openvino
 
     # DB
-    sqlite postgresql redis
-    pgcli 
+    sqlite postgresql redis pgcli 
 
     # hardware
     avrdude
+
+    # system
+    diffutils findutils
+    patchelf
+
+    # embedded
+    screen minicom picocom tio bmaptool
   ];
 
   programs.gh = {
