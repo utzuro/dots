@@ -62,10 +62,10 @@
     superTuxKart
 
     # space
-    endless-sky pioneer flightgear
+    endless-sky pioneer 
     naev 
     ## doesn't build
-    #freeorion
+    #freeorion flightgear
 
     # strategy
     #zeroad warzone2100
