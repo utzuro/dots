@@ -12,7 +12,7 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
 
     containers.enable = true;
 
-    xen.enable = true;
+    # xen.enable = true;
 
     virtualbox.host = {
       enable = true;
@@ -22,9 +22,9 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
     libvirtd = {
       enable = true;
       qemu = {
-        enable = true;
         swtpm.enable = true;
         ovmf.packages = with pkgs; [ OVMFFull.fd ];
+      };
     };
     spiceUSBRedirection.enable = true;
 

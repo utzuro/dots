@@ -40,10 +40,10 @@
 
     
     # tools
-    anyrun = { 
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs"; 
-    };
+    # anyrun = { 
+    #   url = "github:Kirottu/anyrun";
+    #   inputs.nixpkgs.follows = "nixpkgs"; 
+    # };
     
     erosanix = {
       url = "github:emmanuelrosa/erosanix";
@@ -163,7 +163,7 @@
           ./ingr/home.nix 
           # Try to import it from the inside
           inputs.stylix.homeManagerModules.stylix 
-          inputs.anyrun.homeManagerModules.default
+          # inputs.anyrun.homeManagerModules.default
         ];
         extraSpecialArgs = { inherit user inputs; };
       };
@@ -177,7 +177,7 @@
         modules = [ 
           ./ingr/home-minimal.nix 
           inputs.stylix.homeManagerModules.stylix 
-          inputs.anyrun.homeManagerModules.default
+          # inputs.anyrun.homeManagerModules.default
         ];
         extraSpecialArgs = { inherit user inputs; };
       };

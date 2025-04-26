@@ -6,7 +6,7 @@
     ffmpegthumbnailer 
 
     # images
-    darktable digikam  # photo
+    darktable #digikam  # photo
     # gimp-with-plugins 
     krita pinta #mypaint # images
     inkscape scribus # docs

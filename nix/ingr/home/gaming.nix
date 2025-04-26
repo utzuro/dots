@@ -53,8 +53,9 @@
     dxx-rebirth
     
     openarena ioq3-scion openspades
-    unvanquished xonotic 
-    assaultcube
+    # unvanquished 
+    xonotic 
+    #assaultcube
     cataclysm-dda
 
     crawl  experienced-pixel-dungeon

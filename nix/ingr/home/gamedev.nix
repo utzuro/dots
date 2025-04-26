@@ -3,6 +3,6 @@
 {
   home.packages = with pkgs; [
     # unreal
-    godot_4
+    # godot_4
   ];
 }
