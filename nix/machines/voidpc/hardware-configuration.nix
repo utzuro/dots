@@ -51,6 +51,12 @@
       options = [ "compress=zstd" "noatime" "nofail"];
     };
 
+  fileSystems."/mnt/summons" =
+    { device = "/dev/disk/by-uuid/829465d4-6783-4eb6-9f36-9abd3bcdfeb1";
+      fsType = "btrfs";
+      options = [ "compress=zstd" "noatime" "nofail"];
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/A8DA-E9CE";
       fsType = "vfat";

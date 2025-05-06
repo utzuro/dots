@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # output
-    sl cmatrix cowsay
+    sl cmatrix cowsay ponysay
     
     # arcade
     ltris bastet #tetris

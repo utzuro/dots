@@ -5,6 +5,8 @@ set -e
 repos=(
   # linux
   "https://github.com/torvalds/linux"
+  "git://git.buildroot.net/buildroot"
+  "git://git.yoctoproject.org/poky"
   "https://github.com/systemd/systemd"
   "https://github.com/i3/i3"
   "https://github.com/swaywm/sway"

@@ -48,7 +48,7 @@
       Xft.dpi: 100  
     EOF  
     '';
-    dpi = 96;#204;
+    dpi = 204;#96;
     enable = true;
     exportConfiguration = true;
 

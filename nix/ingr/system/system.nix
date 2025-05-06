@@ -68,13 +68,15 @@
     ack ripgrep eza bat zenith
 
     # media
-    playerctl pavucontrol
+    playerctl pavucontrol mpv
 
     # filesystem
-    gparted hw-probe ntfs3g
+    gparted hw-probe ntfs3g gptfdisk e2fsprogs
 
     # tools
     gzip bzip2 xz unzip
+
+    # user env
     home-manager
   ];
 

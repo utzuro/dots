@@ -21,6 +21,8 @@
 
     NIXPKGS_ALLOW_INSECURE = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
+
+    QT_FONT_DPI = "204";
   };
 
   home.file.".profile".text = ''

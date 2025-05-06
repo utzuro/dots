@@ -29,13 +29,18 @@
     ghc cabal-install stack
     ocaml dune_3
 
+    # web
+    nodejs yarn php
+    typescript typescript-language-server eslint
+
     # other
-    php nodejs lua dart
+    lua dart
 
     # network
     gource
 
     # devops
+    devbox
     tenv age 
     kind kubectx kubectl
     graphviz

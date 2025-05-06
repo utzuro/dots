@@ -6,21 +6,21 @@
 
 scoop bucket add extras 
 # tools
-scoop install ffmpeg vim 7zip curl wget openssh coreutils yt-dlp
+scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 # utils
 scoop install autohotkey powertoys ueli wiztree openssh-connect
 # apps
 scoop install firefox libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
 # dev
 scoop install python go nodejs rustup 
-scoop install neovim jetbrains-toolbox vscode docker docker-compose 
+
 # games
-scoop bucket add versions
-scoop install steam
+# scoop bucket add versions
+# scoop install steam
 
 # run with admin rights (buckets can be installed as normal user)
-scoop bucket add games
-scoop bucket add nonportable 
+# scoop bucket add games
+# scoop bucket add nonportable 
 # scoop install protonvpn-np 
 # scoop install epic-games-launcher
 # scoop install voicemeeter-np 

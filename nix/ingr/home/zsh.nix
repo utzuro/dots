@@ -4,6 +4,7 @@ let
   aliases = {
     c = "clear";
     vim = "nvim";
+    v = "nvim";
     ls = "eza";
     tree = "eza --tree";
     cat = "bat";
@@ -15,8 +16,10 @@ let
     upd = "git commit -am 'update' && git push";
     push = "git push";
     pull = "git pull --ff-only";
+    pul = "git pull --ff-only";
     rebase = "git pull --rebase";
     force = "git push --force";
+    forc = "git push --force";
     amend = "git commit --amend";
 
     # apps
