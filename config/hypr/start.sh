@@ -12,8 +12,8 @@ blueman &
 GDK_SCALE=1 GDK_DPI_SCALE=1 librewolf &
 ~/.config/hypr/apps/sig &
 ~/.config/hypr/apps/discord &
+~/.config/hypr/apps/slack &
 vesktop & 
-slack
 
 
 # ~/.config/hypr/apps/chrome &

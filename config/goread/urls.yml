@@ -20,6 +20,10 @@ categories:
         - name: The Morning Paper
           desc: ""
           url: https://blog.acolyer.org/feed/
+        - name: Yocto Project
+          desc: ""
+          url: https://lists.yoctoproject.org/g/yocto/rss
+
     - name: Academia
       desc: Research, Articles
       subscriptions:
