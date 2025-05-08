@@ -110,7 +110,7 @@
           inherit arch; host = "msi"; 
         }; in lib.nixosSystem {
         modules = [ 
-          ./ingr/system/boot-grub.nix
+          ./ingr/system/boot.nix
           ./ingr/general.nix 
           ./ingr/workstation.nix
         ];
