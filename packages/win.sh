@@ -7,8 +7,8 @@
 scoop bucket add extras 
 # tools
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
-# utils
-scoop install autohotkey powertoys ueli wiztree openssh-connect
+# win-utils
+scoop install ahkpm powertoys ueli wiztree openssh-connect
 # apps
 scoop install firefox libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
 # dev
