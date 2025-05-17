@@ -12,7 +12,7 @@ scoop install autohotkey powertoys ueli wiztree openssh-connect
 # apps
 scoop install firefox libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
 # dev
-scoop install python go nodejs rustup 
+scoop install python go nodejs rustup cmake
 
 # games
 # scoop bucket add versions

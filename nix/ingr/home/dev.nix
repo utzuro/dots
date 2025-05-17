@@ -46,6 +46,7 @@
     graphviz
     minio-client awscli2 awsebcli
     natscli
+    lnav
     
     # AI
     ollama claude-code openvino
