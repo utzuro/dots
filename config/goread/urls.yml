@@ -23,7 +23,6 @@ categories:
         - name: Yocto Project
           desc: ""
           url: https://lists.yoctoproject.org/g/yocto/rss
-
     - name: Academia
       desc: Research, Articles
       subscriptions:

@@ -6,5 +6,13 @@ set -euo pipefail
 export ALLOW_UNFREE=1
 export ALLOW_UNSAFE=1
 
+# Get first argument as a pc name
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <pc-name>"
+    exit 1
+fi
+
+PC=${1}
+
 # Buld the new system-wide configuration
-ixos-rebuild switch --flake .#voidpc --impure --use-remote-sudo
+nixos-rebuild switch --flake .#$PC --impure --use-remote-sudo

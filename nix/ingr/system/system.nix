@@ -3,6 +3,7 @@
 {
   hardware = {
     enableAllFirmware = true;
+    enableRedistributableFirmware = true;
     sensor.iio.enable = true;
   };
   environment.pathsToLink = [ "/libexec" ];
