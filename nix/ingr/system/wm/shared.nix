@@ -26,7 +26,7 @@
     # xdg-desktop-portal-gtk
     xdotool xdg-launch xdg-utils xsettingsd
     socat glances
-    kdePackages.konsole foot kitty wezterm
+    kdePackages.konsole foot kitty wezterm st
     adwaita-icon-theme
 
     (where-is-my-sddm-theme.override {

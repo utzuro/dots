@@ -9,7 +9,7 @@
   ];
 
   home.packages = with pkgs; [
-    vim neovim emacs
+    vim neovim emacs-pgtk
     ranger yazi vifm-full 
     ack ripgrep ripgrep-all fzf fd duf
     peco progress jq moreutils
@@ -25,7 +25,7 @@
     lfs lsd lsdvd ncdu file
     disfetch lolcat neofetch pfetch
     w3m asciidoctor pandoc pdftk foremost
-    imagemagick ffmpeg aaxtomp3 
+    imagemagick ffmpeg aaxtomp3 mkvtoolnix
     htop iotop ddgr bottom hwinfo pciutils psmisc
     bc numbat #cava 
     ledger bc libqalculate 

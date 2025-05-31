@@ -11,11 +11,12 @@
     interface = {
       ip = "10.2.0.2";
       port = 51820;
+      privateKeyFile = "/root/secrets/pmvpn-main.key";
       # privateKeyFile = "/root/secrets/pmvpn-swss.key";
       # privateKeyFile = "/root/secrets/pmvpn-qk.key";
       # privateKeyFile = "/root/secrets/pmvpn-qk-alt.key";
       # privateKeyFile = "/root/secrets/pmvpn-qk-alt2.key";
-      privateKeyFile = "/root/secrets/pmvpn-qk-alt3.key";
+      # privateKeyFile = "/root/secrets/pmvpn-qk-alt3.key";
       # privateKeyFile = "/root/secrets/pmvpn-nenka.key"
       # privateKeyFile = "/root/secrets/pmvpn-tor.key"
 
@@ -29,6 +30,10 @@
     endpoint = {
 
       port = 51820;
+
+      # main
+      publicKey = "IekoLP3CpczVNhssbBTXJ1SVwLbBtofVeGhqjBHRrlM=";
+      ip = "37.19.205.223";
 
       #swss
       # publicKey = "U6izVBdvmWafPuKXctnvArOx6W33X8wBkMvjoOdrBhs=";
@@ -47,8 +52,8 @@
       # ip = "45.87.213.210";
 
       #qk-alt3 #59
-      publicKey = "IekoLP3CpczVNhssbBTXJ1SVwLbBtofVeGhqjBHRrlM="; 
-      ip = "37.19.205.223";
+      # publicKey = "IekoLP3CpczVNhssbBTXJ1SVwLbBtofVeGhqjBHRrlM="; 
+      # ip = "37.19.205.223";
 
       #nenka
       # publicKey = "eqjhoqO6K1nLiej026+RkpSTHloVrOHLlMQaB0Tl5GM="; 

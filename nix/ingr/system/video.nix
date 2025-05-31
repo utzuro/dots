@@ -1,11 +1,13 @@
 { config, pkgs, lib, ...}:
 
 {
-  hardware.graphics = {
+  hardware = {
+
+    graphics = {
     enable = true;
     enable32Bit = true; 
     extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vpl-gpu-rt
       libvdpau-va-gl
       libva libva-utils
       vaapiIntel
@@ -13,7 +15,13 @@
       vulkan-validation-layers
     ]; 
     extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
+
+    cpu.intel.updateMicrocode = true;
   }; 
+
+  # hardware.intelgpu = {
+  #   driver = "xe";
+  # };
 
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback

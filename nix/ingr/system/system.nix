@@ -5,6 +5,11 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
     sensor.iio.enable = true;
+    ipu6.enable = true;
+    # ipu6 for Tiger Lake
+    # ipu6ep for Alder Lake / Raptor Lake
+    # ipu6epmtl for Meteor Lake.
+    ipu6.platform = "ipu6ep";
   };
   environment.pathsToLink = [ "/libexec" ];
 

@@ -120,7 +120,9 @@ Plug 'towolf/vim-helm'
 
 "Visual
 Plug 'dracula/vim'
+Plug 'habamax/vim-polar'
 Plug 'ryanoasis/vim-devicons'
+Plug 'YorickPeterse/vim-paper'
     
 
 " required for nvim

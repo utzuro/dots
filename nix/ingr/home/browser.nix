@@ -10,6 +10,35 @@
       }; 
     }) 
   ]; 
+
+  programs.qutebrowser = {
+    enable = true;
+    settings = {
+      tabs.tabs_are_windows = false;
+    };
+    keyMappings = {};
+    extraConfig = ''
+      # Disable the default keybinding for opening the devtools
+      config.bind('d', 'devtools.toggle')
+      # Disable the default keybinding for opening the devtools
+      config.bind('D', 'devtools.toggle')
+      # Disable the default keybinding for opening the devtools
+      config.bind('Ctrl+Shift+I', 'devtools.toggle')
+      '';
+    searchEngines = {
+      "Kagi" = "https://kagi.com/search?q={}";
+      "nix" = "https://search.nixos.org/packages?type=packages&query={}";
+      "nixwiki" = "https://wiki.nixos.org/index.php?search={}";
+      "j" = "https://jisho.org/search/{}";
+      "az" = "https://www.amazon.co.jp/s?k={}";
+      # builtin engines only support specifying one additional alias
+      "g" = "@g https://www.google.com/search?q={}";
+      "ddg" = "@d https://duckduckgo.com/?q={}";
+      w = "https://en.wikipedia.org/wiki/Special:Search?search={}&amp;go=Go&amp;ns0=1";
+      aw = "https://wiki.archlinux.org/?search={}";
+      nw = "https://wiki.nixos.org/index.php?search={}";
+      g = "https://www.google.com/search?hl=en&amp;q={}";
+    };
   
   home.packages = with pkgs; [
     tridactyl-native librewolf

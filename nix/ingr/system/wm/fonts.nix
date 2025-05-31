@@ -8,7 +8,7 @@
   fonts.packages = with pkgs; with nerd-fonts; [
     # main
     monaspace anonymice
-    hack noto agave mplus 
+    hack noto agave
     lilex lekton profont
     iosevka-term-slab zed-mono
 
