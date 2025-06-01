@@ -17,7 +17,7 @@
     brogue-ce boohu
     cataclysm-dda
     rpg-cli
-    dwarf-fortress
+    # dwarf-fortress
 
   ];
 }

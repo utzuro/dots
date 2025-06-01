@@ -70,7 +70,7 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
     docker = {
       enable = true;
       enableOnBoot = true;
-      storageDriver = storageDriver;
+      # storageDriver = storageDriver;
       # autoPrune.enable = true;
     };
 

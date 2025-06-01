@@ -2,7 +2,8 @@
 
 {
   boot = {
-    kernelModules = [ "xe" "i2c-dev" "i2c-piix4" "intel_idle.max_cstate=1" "i915.enable_dc=0" "ahci.mobile_lpm_policy=1" ];
+    kernelModules = [ "xe", "i2c-dev" "i2c-piix4","intel_idle.max_cstate=1" "i915.enable_dc=0" "ahci.mobile_lpm_policy=1" ];
+    kernelParams = [ "i915.force_probe=7d55" ];
   };
 
   boot.initrd.kernelModules = ["xe"];
