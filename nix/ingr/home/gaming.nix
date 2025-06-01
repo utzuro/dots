@@ -84,7 +84,7 @@
     openrct2 openra
     openttd openxcom
     openmw exult
-    fallout-ce fallout2-ce
+    fallout-ce #fallout2-ce
     openjk theforceengine
   ];
 }

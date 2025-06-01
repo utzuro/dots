@@ -162,8 +162,8 @@
           # before configuring them
           ./ingr/home.nix 
           # Try to import it from the inside
-          inputs.stylix.homeManagerModules.stylix 
-          # inputs.anyrun.homeManagerModules.default
+          inputs.stylix.homeModules.stylix 
+          # inputs.anyrun.homeModules.default
         ];
         extraSpecialArgs = { inherit user inputs; };
       };
@@ -176,8 +176,8 @@
         inherit pkgs;
         modules = [ 
           ./ingr/home-minimal.nix 
-          inputs.stylix.homeManagerModules.stylix 
-          # inputs.anyrun.homeManagerModules.default
+          inputs.stylix.homeModules.stylix 
+          # inputs.anyrun.homeModules.default
         ];
         extraSpecialArgs = { inherit user inputs; };
       };

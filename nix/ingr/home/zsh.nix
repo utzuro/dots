@@ -85,7 +85,7 @@ in {
       ];
    };
 
-   initExtra = ''
+   initContent = ''
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
     HYPHEN_INSENSITIVE="true"

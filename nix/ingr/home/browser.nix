@@ -1,7 +1,7 @@
-{ config, pkgs, lib, user, inputs, ... }:
+{ pkgs, user, inputs, ... }:
 
 {
-  nixpkgs.overlays = [ 
+  nixpkgs.overlays = [
     # QUTEBROWSER 
 
     (final: prev: { 
@@ -26,19 +26,16 @@
       config.bind('Ctrl+Shift+I', 'devtools.toggle')
       '';
     searchEngines = {
-      "Kagi" = "https://kagi.com/search?q={}";
-      "nix" = "https://search.nixos.org/packages?type=packages&query={}";
-      "nixwiki" = "https://wiki.nixos.org/index.php?search={}";
-      "j" = "https://jisho.org/search/{}";
-      "az" = "https://www.amazon.co.jp/s?k={}";
-      # builtin engines only support specifying one additional alias
-      "g" = "@g https://www.google.com/search?q={}";
-      "ddg" = "@d https://duckduckgo.com/?q={}";
       w = "https://en.wikipedia.org/wiki/Special:Search?search={}&amp;go=Go&amp;ns0=1";
       aw = "https://wiki.archlinux.org/?search={}";
       nw = "https://wiki.nixos.org/index.php?search={}";
-      g = "https://www.google.com/search?hl=en&amp;q={}";
+      nix = "https://search.nixos.org/packages?type=packages&query={}";
+      k = "https://kagi.com/search?q={}";
+      j = "https://jisho.org/search/{}";
+      az = "https://www.amazon.co.jp/s?k={}";
+      ddg = "https://duckduckgo.com/?q={}";
     };
+  };
   
   home.packages = with pkgs; [
     tridactyl-native librewolf
@@ -163,7 +160,7 @@
 
           "NixOS Wiki" = {
             urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; }];
-            iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+            icon = "https://wiki.nixos.org/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = [ "@nw" ];
           };
