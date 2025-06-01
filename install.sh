@@ -124,3 +124,4 @@ if [ -d "$HOME/.config/hypr" ]; then
     ln -sfv "$DIR"/config/hypr "$HOME"/.config/
 fi
 
+ssh-keygen -f ~/.ssh/utzuro -N ''

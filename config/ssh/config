@@ -1,8 +1,20 @@
+Host gitlab.com
+	HostName gitlab.com
+	User git
+	AddKeysToAgent yes
+	IdentityFile ~/.ssh/utzuro
+
 Host gitlab.com-custom
 	HostName gitlab.com
 	User git
 	AddKeysToAgent yes
-	IdentityFile ~/.ssh/id_custom
+	IdentityFile ~/.ssh/custom
+
+Host github.com
+	HostName github.com
+	User git
+	AddKeysToAgent yes
+	IdentityFile ~/.ssh/utzuro
 
 Host ssh.custom
 	HostName 124.0.0.0
