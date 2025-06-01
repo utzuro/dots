@@ -4,19 +4,19 @@
   hardware = {
 
     graphics = {
-    enable = true;
-    enable32Bit = true; 
-    extraPackages = with pkgs; [
-      vpl-gpu-rt
-      libvdpau-va-gl
-      libva libva-utils
-      vaapiIntel
-      vaapiVdpau
-      vulkan-validation-layers
-    ]; 
-    extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
-
-    cpu.intel.updateMicrocode = true;
+      enable = true;
+      enable32Bit = true; 
+      extraPackages = with pkgs; [
+        vpl-gpu-rt
+        libvdpau-va-gl
+        libva libva-utils
+        vaapiIntel
+        vaapiVdpau
+        vulkan-validation-layers
+      ]; 
+      extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
+    };
+  cpu.intel.updateMicrocode = true;
   }; 
 
   # hardware.intelgpu = {
