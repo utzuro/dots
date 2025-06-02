@@ -5,7 +5,7 @@
     [ 
       ./system/vpn.nix
       ./system/power-laptop.nix
-      # ./system/nvidia-hybrid.nix
+      ./system/nvidia-hybrid.nix
       ./system/gaming.nix
 
       ./system/wm/hyprland.nix

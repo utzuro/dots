@@ -6,7 +6,7 @@
     kernelParams = [ "i915.force_probe=7d55" ];
   };
 
-  boot.initrd.kernelModules = ["xe"];
+  boot.initrd.kernelModules = ["xe" "nvidia"]; #? i915
 
   # This is a workaround for the i915 driver but causes battery drain
   # intel_idle.max_cstate=1 i915.enable_dc=0 ahci.mobile_lpm_policy=1
