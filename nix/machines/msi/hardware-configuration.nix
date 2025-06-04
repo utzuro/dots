@@ -8,10 +8,29 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+    boot = {
+      initrd = {
+        availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+        kernelModules = [ "xe" "nvidia" "i915" "nvidia_drm" "nvidia_modeset" "nvidia_uvm" ];
+      };
+      kernelModules = [ "kvm-intel" ];
+      blacklistedKernelModules = [ "serial8250" "tpm_crb" "tpm_tis" ];
+
+      # https://wiki.archlinux.org/title/Intel_graphics#Crash/freeze_on_low_power_Intel_CPUs
+      kernelParams = [ 
+        "intel_idle.max_cstate=1" 
+        "i915.enable_dc=0" 
+        "i915.enable_psr=0"
+        "ahci.mobile_lpm_policy=1" 
+        "nvme_core.default_ps_max_latency_us=0"
+        "nvme.noacpi=1"
+        "pcie_aspm=off"
+        "vmd.allow_msix=0"
+        "8250.nr_uarts=0"
+        "iommu.strict=1"
+      ];
+      extraModulePackages = [ ];
+    };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/55e3191b-34ac-45f9-a0fd-a3b246bb5baa";

@@ -12,7 +12,7 @@
 
   users.users.void = {
     isNormalUser = true;
-    hashedPasswordFile = "../ingredients/system/env";
+    # hashedPasswordFile = "../ingredients/system/env";
     uid = 1000;
     shell = pkgs.zsh;
     extraGroups = [ 

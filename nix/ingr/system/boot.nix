@@ -11,6 +11,9 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     initrd.systemd.enable = true;
+    initrd.systemd.extraConfig = ''
+      DefaultTimeoutStartSec=10s
+    '';
     initrd.verbose = false;
     tmp.cleanOnBoot = true;
   };

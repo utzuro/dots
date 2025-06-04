@@ -23,9 +23,9 @@
   nixpkgs.config.cudaSupport = true;
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
-    cudaPackages.cuda_cccl
-    cudaPackages.cudnn
-    cudatoolkit
+    # cudaPackages.cuda_cccl
+    # cudaPackages.cudnn
+    # cudatoolkit
     ocl-icd
     #rocm-opencl-runtime
     vulkan-tools
