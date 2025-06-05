@@ -9,7 +9,7 @@
     android-file-transfer android-tools scrcpy
     jmtpfs
 
-    usbutils
+    usbutils woeusb
 
     flatpak
 

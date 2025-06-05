@@ -11,7 +11,7 @@
     boot = {
       initrd = {
         availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-        kernelModules = [ "xe" "nvidia" "i915" "nvidia_drm" "nvidia_modeset" "nvidia_uvm" ];
+        kernelModules = [ "xe" "nvidia" "nvidia_drm" "nvidia_modeset" "nvidia_uvm" ]; # use "i915" instead of xe if issues
       };
       kernelModules = [ "kvm-intel" ];
       blacklistedKernelModules = [ "serial8250" "tpm_crb" "tpm_tis" ];
@@ -28,6 +28,8 @@
         "vmd.allow_msix=0"
         "8250.nr_uarts=0"
         "iommu.strict=1"
+        "xe.force_probe=7d45" 
+        "mitigations=off"
       ];
       extraModulePackages = [ ];
     };
@@ -43,6 +45,12 @@
     { device = "/dev/disk/by-uuid/A08D-1AA6";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  fileSystems."/mnt/zalot" =
+    { device = "/dev/disk/by-uuid/B43C9C923C9C516A";
+      fsType = "ntfs3";
+      options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
   swapDevices = [ ];
