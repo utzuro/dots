@@ -10,8 +10,11 @@
     pam.services.login.enableGnomeKeyring = true;
   };
 
-  services.gnome.gnome-keyring.enable = true;
-  services.dbus.enable = true;
+  services = {
+    gnome.gnome-keyring.enable = true;
+    dbus.enable = true;
+    swww.enable = true;
+  };
   xdg.portal.wlr.enable = lib.mkForce true;
 
   environment.systemPackages = with pkgs;
