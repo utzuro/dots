@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#swww-daemon &> /dev/null
+swww-daemon &> /dev/null
 
 EXTERNAL_DISK="/mnt/seance"
 IMAGE_DIR="mysticism/img/walls"

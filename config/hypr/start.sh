@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # system
-swww img ~/background.png
-swww img ~/i.gif
+~/.config/hypr/wall.sh &
 waybar &
 dunst &
 blueman &
