@@ -1,6 +1,10 @@
 { pkgs, lib, inputs, ...}:
 
 {
+  
+  services = {
+    swww.enable = true;
+  };
 
   home.sessionVariables = {
 

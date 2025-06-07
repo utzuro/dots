@@ -13,7 +13,6 @@
   services = {
     gnome.gnome-keyring.enable = true;
     dbus.enable = true;
-    swww.enable = true;
   };
   xdg.portal.wlr.enable = lib.mkForce true;
 

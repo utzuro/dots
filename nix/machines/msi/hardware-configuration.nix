@@ -70,11 +70,11 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  # fileSystems."/mnt/zalot" =
-  #   { device = "/dev/disk/by-uuid/B43C9C923C9C516A";
-  #     fsType = "ntfs3";
-  #     options = [ "rw" "uid=1000" "nofail" "noatime" ];
-  #   };
+  fileSystems."/mnt/zalot" =
+    { device = "/dev/disk/by-uuid/B43C9C923C9C516A";
+      fsType = "ntfs3";
+      options = [ "rw" "uid=1000" "nofail" "noatime" ];
+    };
 
   swapDevices = [ ];
 

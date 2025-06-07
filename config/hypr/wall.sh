@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 
-swww-daemon &> /dev/null
+swww-daemon &> /dev/null &!
 
 EXTERNAL_DISK="/mnt/seance"
-IMAGE_DIR="mysticism/img/walls"
+EXTERNAL_ALT="/mnt/zalot"
+IMAGE_DIR="mysticism/i/walls"
 
 if [ -d "$EXTERNAL_DISK" ]; then
     WALLS_DIR="$EXTERNAL_DISK/$IMAGE_DIR"
-else
+elif [ -d "$EXTERNAL_ALT" ]; then
+    WALLS_DIR="$EXTERNAL_ALT/$IMAGE_DIR"
+elif [ -d "$HOME/$IMAGE_DIR" ]; then
     WALLS_DIR="$HOME/$IMAGE_DIR"
+else
+    echo "No valid image directory found. Please check your external disks or home directory."
+    exit 1
 fi
 
 if [ ! -d "$WALLS_DIR" ]; then
@@ -18,6 +24,6 @@ fi
 
 while true; do
     WALL=$(find "$WALLS_DIR" -type f | shuf -n 1)
-    swww img "$WALL" --transition-type random --transition-duration 2s --transition-fps 60
-    sleep 10m
+    swww img "$WALL" --transition-step 180 --transition-fps 60 --transition-type center
+    sleep 10s
 done
