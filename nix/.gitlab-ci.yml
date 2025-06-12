@@ -1,0 +1,11 @@
+stages:
+  - mirror
+
+mirror_repo:
+  stage: mirror
+  script:
+    - git remote add github git@github.com:utzuro/dots.git
+    - git push --mirror github
+  only:
+    - main
+
