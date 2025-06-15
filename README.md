@@ -1,5 +1,4 @@
 # Utzuro's configs
 
-Here I keep my configs, that I use mostly on linux systems, but some of it on macos, windows and android (termux) when neccecery.
-
-Currently I'm moving from acrhlinux to nixos.
+Here are my configs, mainly for NixOS and tools like vim, but also for other things.
+Some of the configs are aplicable to windows or macos, but mostly Arch Linux and NixOS.

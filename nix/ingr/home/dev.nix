@@ -1,10 +1,11 @@
 { pkgs, ...}:
 
 {
+
   home.packages = with pkgs; [
 
     # go
-    go gopls gotags 
+    go gopls gotags #gomod2nix
     gofumpt golangci-lint
     sqlc delve buf
     vips
@@ -64,21 +65,30 @@
 
     # embedded
     screen minicom picocom tio bmaptool
+
   ];
 
-  programs.gh = {
-    enable = true;
-    settings = {
-      git_protocol = "ssh";
-      prompt = "enabled";
-      aliases = {
-        co = "pr checkout";
-        pv = "pr view";
-      };
+  programs = {
+    
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
     };
-    extensions = with pkgs; [
-      gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
-    ];
-  };
+
+    gh = {
+      enable = true;
+      settings = {
+        git_protocol = "ssh";
+        prompt = "enabled";
+        aliases = {
+          co = "pr checkout";
+          pv = "pr view";
+        };
+      };
+      extensions = with pkgs; [
+        gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
+      ];
+    }; # gh
+  }; # programs
 
 }
