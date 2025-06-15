@@ -7,6 +7,7 @@
     go gopls gotags 
     gofumpt golangci-lint
     sqlc delve buf
+    vips
 
     # rust
     rustup
