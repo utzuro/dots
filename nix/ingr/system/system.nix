@@ -31,7 +31,11 @@
     sysprof = { enable = true; };
   };
 
-  programs.nix-ld.package = pkgs.nix-ld-rs; 
+  # Allows nix-ld to be used as the default linker.
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs; 
+  };
 
   nix.gc = {
     automatic = true;
@@ -85,6 +89,13 @@
 
     # user env
     home-manager
+
+    # compatibility
+    # $ nix-alien myapp            # Run the binary inside a FHS shell with all needed shared dependencies to execute the binary
+    # $ nix-alien-ld myapp         # Spawns you inside a shell with NIX_LD_LIBRARY_PATH set to the needed dependencies, to be used with nix-ld
+    # $ nix-alien-find-libs myapp  # Lists all libs needed for the binary
+    nix-alien
+
   ];
 
 }

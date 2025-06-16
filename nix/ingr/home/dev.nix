@@ -4,6 +4,9 @@
 
   home.packages = with pkgs; [
 
+    # tools
+    xc
+
     # go
     go gopls gotags #gomod2nix
     gofumpt golangci-lint
@@ -41,7 +44,6 @@
     gource
 
     # devops
-    devbox
     tenv age 
     kind kubectx kubectl
     graphviz
