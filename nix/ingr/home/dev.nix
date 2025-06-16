@@ -11,6 +11,7 @@
     go gopls gotags #gomod2nix
     gofumpt golangci-lint
     sqlc delve buf
+    vips
 
     # rust
     rustup
