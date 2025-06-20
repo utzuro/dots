@@ -111,6 +111,9 @@ repos=(
   "https://github.com/WireGuard/wireguard-linux"
   "https://github.com/WireGuard/wireguard-go"
 
+  # AI
+  "https://github.com/k2-fsa/sherpa-onnx"
+
   # games
   "https://github.com/vcmi/vcmi"
   "https://github.com/godotengine/godot"

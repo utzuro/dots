@@ -13,6 +13,9 @@
     sqlc delve buf
     vips
 
+    # ruby
+    ruby
+
     # rust
     rustup
     cargo-edit cargo-watch
@@ -51,6 +54,7 @@
     minio-client awscli2 awsebcli
     natscli
     lnav
+    postman
     
     # AI
     ollama claude-code openvino

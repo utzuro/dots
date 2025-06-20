@@ -11,7 +11,13 @@ in
     pinentryPackage = pkgs.pinentry-gnome3;
   };
 
-  services.dbus.packages = [ pkgs.gcr ];
+  services = {
+    dbus.packages = [ pkgs.gcr ];
+    clamav.daemon.enable = true;
+    clamav.updater.enable = true;
+    opensnitch.enable = true;
+  };
+
   security = {
     polkit.enable = true;
 
@@ -31,7 +37,8 @@ in
 
   environment.systemPackages = with pkgs; [
     (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
-    firejail
+    firejail clamav
+    opensnitch-ui
   ];
 
   networking.extraHosts = ''

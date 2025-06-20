@@ -4,6 +4,7 @@
   hardware = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
+    flipperzero.enable = true;
     sensor.iio.enable = true;
     ipu6.enable = true;
     # ipu6 for Tiger Lake
@@ -38,7 +39,7 @@
     ## If needed, you can add missing libraries here. nix-index-database is your friend to
     ## find the name of the package from the error message:
     ## https://github.com/nix-community/nix-index-database
-    libraries = options.programs.ni
+    # libraries = options.programs.ni
   };
 
   nix.gc = {
@@ -93,12 +94,6 @@
 
     # user env
     home-manager
-
-    # compatibility
-    # $ nix-alien myapp            # Run the binary inside a FHS shell with all needed shared dependencies to execute the binary
-    # $ nix-alien-ld myapp         # Spawns you inside a shell with NIX_LD_LIBRARY_PATH set to the needed dependencies, to be used with nix-ld
-    # $ nix-alien-find-libs myapp  # Lists all libs needed for the binary
-    nix-alien
 
   ];
 
