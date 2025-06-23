@@ -21,7 +21,7 @@ in {
     # jetbrains-jdk-jcef
     gateway
     dataspell aqua writerside
-    clion
+    clion datagrip
     (plugins.addPlugins goland jet-plugins)
     (plugins.addPlugins pycharm-professional jet-plugins)
     # (plugins.addPlugins clion jet-plugins)
@@ -32,7 +32,7 @@ in {
     (plugins.addPlugins idea-ultimate jet-plugins)
     (plugins.addPlugins mps jet-plugins)
     # extra
-    (plugins.addPlugins datagrip jet-plugins)
+    # (plugins.addPlugins datagrip jet-plugins)
   ];
 
 }
