@@ -88,6 +88,8 @@ repos=(
   "https://github.com/tensorflow/tensorflow"
   "https://github.com/huggingface/transformers"
   "https://github.com/ollama/ollama"
+  "https://github.com/smol-ai/developer"
+  "https://github.com/tmc/smol-dev-go"
 
   # CS
   "https://github.com/TheAlgorithms/Python"
