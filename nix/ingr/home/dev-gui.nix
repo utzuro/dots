@@ -1,7 +1,10 @@
 { pkgs, ...}:
 
-{
-  home.packages = with pkgs; [
+let jet-plugins = [
+  "github-copilot"
+];
+in {
+  home.packages = with pkgs; with pkgs.jetbrains; [
     sqlitebrowser 
     dbeaver-bin pgmodeler 
     ghidra
@@ -13,8 +16,22 @@
     # ros2
 
     # IDE
-    # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland ["github-copilot"])
-    # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-community ["github-copilot"])
-    # (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["github-copilot"])
+    vscode android-studio
+
+    # jetbrains-jdk-jcef
+    gateway
+    dataspell aqua writerside
+    (plugins.addPlugins goland jet-plugins)
+    (plugins.addPlugins pycharm-professional jet-plugins)
+    (plugins.addPlugins clion jet-plugins)
+    (plugins.addPlugins rust-rover jet-plugins)
+    (plugins.addPlugins rider jet-plugins)
+    (plugins.addPlugins ruby-mine jet-plugins)
+    (plugins.addPlugins webstorm jet-plugins)
+    (plugins.addPlugins idea-ultimate jet-plugins)
+    (plugins.addPlugins mps jet-plugins)
+    # extra
+    (plugins.addPlugins datagrip jet-plugins)
   ];
+
 }
