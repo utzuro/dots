@@ -2,13 +2,25 @@
 
 {
   home.packages = with pkgs; [
-    # chats
-    element-desktop fractal
-    # threema-desktop
-    slack slack-term
+
     signal-desktop 
     discord vesktop
     telegram-desktop
+
+    element-desktop fractal
+    # threema-desktop
+
+    slack slack-term
+    matterbridge matterircd
+    # matterhorn # broken
+    mattermostLatest mattermost-desktop
+
     zoom-us
+
   ];
+
+  programs.newsboat = {
+    enable = true;
+    autoReload = true;
+  };
 }
