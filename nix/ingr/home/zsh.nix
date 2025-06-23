@@ -10,7 +10,7 @@ let
     cat = "bat";
     todo = "vim ~/todo";
     mpv = "mpv --alang=jpn";
-    yt = "yt-dlp";
+    yt = "yt-dlp --no-playlist";
 
     # git
     upd = "git commit -am 'update' && git push";
