@@ -21,9 +21,10 @@ in {
     # jetbrains-jdk-jcef
     gateway
     dataspell aqua writerside
+    clion
     (plugins.addPlugins goland jet-plugins)
     (plugins.addPlugins pycharm-professional jet-plugins)
-    (plugins.addPlugins clion jet-plugins)
+    # (plugins.addPlugins clion jet-plugins)
     (plugins.addPlugins rust-rover jet-plugins)
     (plugins.addPlugins rider jet-plugins)
     (plugins.addPlugins ruby-mine jet-plugins)
