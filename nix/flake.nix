@@ -38,7 +38,6 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    
     # tools
     # anyrun = { 
     #   url = "github:Kirottu/anyrun";
@@ -49,6 +48,8 @@
       url = "github:emmanuelrosa/erosanix";
       inputs.nixpkgs.follows = "nixpkgs"; 
     };
+
+    nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
     
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
@@ -59,7 +60,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
 
     blocklist-repo = {
       url = "github:StevenBlack/hosts";

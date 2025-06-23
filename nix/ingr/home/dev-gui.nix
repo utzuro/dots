@@ -19,10 +19,10 @@ in {
     vscode android-studio
 
     # jetbrains-jdk-jcef
-    gateway
-    dataspell aqua writerside
-    clion datagrip goland pycharm-professional
-    rust-rover rider ruby-mine webstorm idea-ultimate mps
+    # gateway
+    # dataspell aqua writerside
+    # clion datagrip goland pycharm-professional
+    # rust-rover rider ruby-mine webstorm idea-ultimate mps
     # (plugins.addPlugins goland jet-plugins)
     # (plugins.addPlugins pycharm-professional jet-plugins)
     # (plugins.addPlugins clion jet-plugins)
