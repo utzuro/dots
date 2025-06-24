@@ -113,6 +113,7 @@
           ./ingr/system/boot.nix
           ./ingr/general.nix 
           ./ingr/workstation.nix
+          ./ingr/corporate.nix
         ];
         specialArgs = { inherit system inputs; }; 
       };
