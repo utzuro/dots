@@ -36,7 +36,13 @@
 
     dosbox-staging
     dolphin-emu
+    retroarch-full
+    yabause # sega saturn
+    flycast # sega dreamcast
+    atari800
 
+
+    # OPEN GAMES
     # rpg
     freedink 
     ##doesn't build
