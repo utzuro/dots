@@ -62,34 +62,31 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
     };
     spiceUSBRedirection.enable = true;
 
-    podman = {
+    # podman = {
+    #   enable = true;
+    #   dockerCompat = true;
+    #   autoPrune.enable = true;
+    # };
+
+    docker = {
       enable = true;
-      dockerCompat = true;
+      enableOnBoot = true;
+      storageDriver = storageDriver;
       autoPrune.enable = true;
     };
 
+    waydroid.enable = true;
+
   };
 
-  virtualisation.waydroid.enable = true;
   environment.systemPackages = with pkgs; [
     qemu
-    podman-compose 
     virtualbox
     kubernetes minikube kubectl 
     kubernetes-helm kompose
+    # podman-compose 
+    docker docker-compose compose2nix lazydocker
   ];
 
 }
 
-## Depricated
-  # No need to use docker, podman is better
-  # virtualisation.docker = {
-  #   enable = true;
-  #   enableOnBoot = true;
-  #   storageDriver = storageDriver;
-  #   autoPrune.enable = true;
-  # };
-
-  # environment.systemPackages = with pkgs; [
-    # docker docker-compose compose2nix lazydocker
-  # ];

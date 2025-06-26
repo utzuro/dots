@@ -1,19 +1,34 @@
 { pkgs, system, plugins, ... }:
 let
   pluginList = [
-    plugins."${system.arch}".idea-ultimate."2025.3"."com.intellij.plugins.watcher"
+    "com.intellij.plugins.watcher"
+    "com.github.copilot"
+    "dev.turingcomplete.intellijdevelopertoolsplugins"
+    "com.intellij.ml.llm"
+    # "org.jetbrains.junie"
+    "IdeaVIM"
+    "mobi.hsz.idea.gitignore"
+
+    "Dart"
+    "io.flutter"
   ];
 in {
-  environment.systemPackages = [
-    # See "How to setup" for definition of `pluginList`.
-    # pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate pluginList
+  environment.systemPackages = with pkgs; with plugins.lib."${system.arch}"; [
+    jetbrains.gateway jetbrains.jdk
+    (buildIdeWithPlugins jetbrains "idea-ultimate" pluginList)
+    (buildIdeWithPlugins jetbrains "goland" pluginList)
+    (buildIdeWithPlugins jetbrains "pycharm-professional" pluginList)
+    (buildIdeWithPlugins jetbrains "clion" pluginList)
+    (buildIdeWithPlugins jetbrains "rust-rover" pluginList)
+    (buildIdeWithPlugins jetbrains "rider" pluginList)
+    (buildIdeWithPlugins jetbrains "ruby-mine" pluginList)
+    (buildIdeWithPlugins jetbrains "webstorm" pluginList)
+    (buildIdeWithPlugins jetbrains "mps" pluginList)
+    (buildIdeWithPlugins jetbrains "datagrip" pluginList)
+    (buildIdeWithPlugins jetbrains "dataspell" pluginList)
+    (buildIdeWithPlugins jetbrains "aqua" pluginList)
+    # (buildIdeWithPlugins "android-studio" pluginList)
+
+    #vscode #android-studio #writerside
   ];
 }
-  # environment.systemPackages = with pkgs; with plugins.lib."${system.arch}"; [
-  # environment.systemPackages = with pkgs; [
-  #   jetbrains.plugins.addPlugins jetbrains.idea-ultimate pluginList
-    # buildIdeWithPlugins jetbrains "idea-ultimate" pluginList
-    # buildIdeWithPlugins pkgs.jetbrains "idea-ultimate" ["com.intellij.plugins.watcher"]
-  # ];
-# }
-

@@ -104,6 +104,12 @@
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
+  fileSystems."/mnt/awaw" =
+    { device = "/dev/disk/by-uuid/3E46DA2646D9DF29";
+      fsType = "ntfs3";
+      options = [ "rw" "uid=1000" "nofail" "noatime" ];
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/356d8adc-29d3-4f3d-8966-7780968aab3c"; 
         options = [ "noatime" ];

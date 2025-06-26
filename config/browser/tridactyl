@@ -7,6 +7,7 @@ set searchurls.az https://www.amazon.co.jp/s?k=%s
 set searchurls.nix https://search.nixos.org/packages?query=%s
 set searchurls.dj https://docs.djangoproject.com/en/5.1/search/?q=%s
 set searchurls.py https://docs.python.org/3/search.html?q=%s
+set searchurls.mal https://myanimelist.net/search/all?q=%s&cat=all
 
 # When searching for the pattern, highlight all words and move to next/prev witn n/N
 bind / fillcmdline find
