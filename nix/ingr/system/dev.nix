@@ -1,7 +1,6 @@
 { pkgs, system, plugins, ... }:
 let
   pluginList = [
-    "com.intellij.plugins.watcher"
     "com.github.copilot"
     "dev.turingcomplete.intellijdevelopertoolsplugins"
     "com.intellij.ml.llm"

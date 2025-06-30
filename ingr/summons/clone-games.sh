@@ -84,6 +84,9 @@ repos=(
   # emulators
   "https://github.com/hrydgard/ppsspp"
   "https://github.com/RPCS3/rpcs3"
+
+  # tools
+  "https://github.com/LibreVR/Revive"
 )
 
 for repo in "${repos[@]}"; do

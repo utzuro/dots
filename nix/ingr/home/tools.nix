@@ -18,6 +18,9 @@
     # files
     xfce.thunar
 
+    # maps
+    qgis-ltr marble viking
+
     # transfer
     filezilla libfilezilla
     rsync zsync
