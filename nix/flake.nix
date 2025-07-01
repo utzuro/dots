@@ -111,9 +111,9 @@
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/system/boot.nix
+          ./ingr/system/corporate.nix
           ./ingr/general.nix 
           ./ingr/workstation.nix
-          ./ingr/corporate.nix
         ];
         specialArgs = { inherit system inputs; }; 
       };

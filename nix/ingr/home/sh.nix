@@ -24,7 +24,9 @@
     killall timer xdragon
     lfs lsd lsdvd ncdu file
     disfetch lolcat neofetch pfetch
-    w3m asciidoctor pandoc pdftk foremost
+    w3m asciidoctor pandoc 
+    pdftk qpdf poppler-utils
+    foremost
     imagemagick ffmpeg aaxtomp3 mkvtoolnix
     htop iotop ddgr bottom hwinfo pciutils psmisc
     bc numbat #cava 

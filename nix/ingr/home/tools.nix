@@ -19,7 +19,7 @@
     xfce.thunar
 
     # maps
-    qgis-ltr marble viking
+    qgis-ltr viking #marble 
 
     # transfer
     filezilla libfilezilla
