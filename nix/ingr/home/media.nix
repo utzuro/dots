@@ -26,7 +26,6 @@
     rtorrent
     tuir
     libdvdcss libdvdread # dvd
-    libopus libvorbis mpg123 # libs
     mediainfo 
 
     # gui 
