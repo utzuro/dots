@@ -38,6 +38,11 @@
         }; in lib.nixosSystem {
 
         modules = [
+          { nix.registry.nixpkgs.flake = nixpkgs; }
+
+          ./hardware-configuration.nix
+          ./apps.nix
+
           # Setup WSL
           nixos-wsl.nixosModules.default
           {
@@ -60,9 +65,6 @@
             };
           }
 
-          # Custom modules
-          ./hardware-configuration.nix
-          ./apps.nix
         ];
         specialArgs = { inherit system pkgs inputs; };
       };
