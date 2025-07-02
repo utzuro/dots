@@ -1,11 +1,10 @@
 {
-  description = "root config file";
+  description = "root config file for linux";
 
   # example usage:
   # - nix flake update
   # - nixos-rebuild switch --flake .#<output-name> --impure --use-remote-sudo
   # - home-manager switch --flake .#<output-name> --override-input home-manager ~/<path-to-local-home-manager-repo> --impure
-  # nix run nix-darwin -- switch --flake .#shigoto
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -14,11 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
     stylix = {
       url = "github:danth/stylix"; 
       inputs.nixpkgs.follows = "nixpkgs";
@@ -67,7 +61,7 @@
     };
   };
 
-  outputs = {nix-darwin, nixpkgs, home-manager, ...}@inputs : 
+  outputs = {nixpkgs, home-manager, ...}@inputs : 
 
   let
     arch = "x86_64-linux"; 
@@ -82,7 +76,7 @@
 
   in {
 
-    # Settings different across machines
+    # Settings are different across the machines
     nixosConfigurations = {
 
       voidpc = let 

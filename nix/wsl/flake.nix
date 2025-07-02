@@ -1,15 +1,39 @@
 {
+  description = "root config file for wsl";
+
+  # example usage:
+  # - nix flake update
+  # - nixos-rebuild switch --flake .#corp
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, ... }: {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
+  outputs = { nixpkgs, nixos-wsl, ... }@inputs: 
 
+  let 
+    arch = "x86_64-linux"; 
+    lib = nixpkgs.lib;
+    pkgs = (import nixpkgs { 
+      system = arch; 
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = (_: true);
+      };
+    });
+
+  in {
+
+    # Settings are different across the machines
+    nixosConfigurations = {
+
+      corp = let
+        system = {
+          inherit arch; host = "corp"; 
+        }; in lib.nixosSystem {
+
+        modules = [
           # Setup WSL
           nixos-wsl.nixosModules.default
           {
@@ -34,8 +58,8 @@
 
           # Custom modules
           ./apps.nix
-
         ];
+        specialArgs = { inherit system pkgs inputs; };
       };
     };
   };
