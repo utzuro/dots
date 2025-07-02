@@ -17,6 +17,7 @@
     lib = nixpkgs.lib;
     pkgs = (import nixpkgs { 
       system = arch; 
+      hostPlatform = arch;
       config = {
         allowUnfree = true;
         allowUnfreePredicate = (_: true);
