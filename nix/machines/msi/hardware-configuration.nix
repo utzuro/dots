@@ -76,6 +76,19 @@
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
+  fileSystems."/mnt/awaw" =
+    { device = "/dev/disk/by-uuid/3E46DA2646D9DF29";
+      fsType = "ntfs3";
+      options = [ "rw" "uid=1000" "nofail" "noatime" ];
+    };
+
+  fileSystems."/mnt/archive" =
+    { device = "/dev/disk/by-uuid/C0CA129FCA1291B0";
+      fsType = "ntfs3";
+      options = [ "rw" "uid=1000" "nofail" "noatime" ];
+    };
+
+
   swapDevices = [ ];
 
   networking.useDHCP = lib.mkDefault true;

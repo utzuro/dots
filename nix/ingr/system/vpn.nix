@@ -32,8 +32,8 @@
       port = 51820;
 
       # main
-      publicKey = "IekoLP3CpczVNhssbBTXJ1SVwLbBtofVeGhqjBHRrlM=";
-      ip = "37.19.205.223";
+      publicKey = "7FslkahrdLwGbv4QSX5Cft5CtQLmBUlpWC382SSF7Hw";
+      ip = "103.125.235.19";
 
       #swss
       # publicKey = "U6izVBdvmWafPuKXctnvArOx6W33X8wBkMvjoOdrBhs=";
