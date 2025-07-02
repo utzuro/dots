@@ -10,6 +10,17 @@
     })
   ];
 
+  services.mpd = {
+    enable = true;
+    musicDirectory = "~/mysticism/mu"; 
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "MPD"
+      }
+    '';
+  };
+
   programs.mpv = {
     enable = true;
     bindings = {
@@ -18,19 +29,7 @@
   };
 
   home.packages = with pkgs; [
-    # cli
-    mpd mpc-cli ncmpcpp kew
-    cozy
-    nsxiv feh
-    yt-dlp pipe-viewer clipgrab wget
-    rtorrent
-    tuir
-    libdvdcss libdvdread # dvd
-    mediainfo 
-
-    # gui 
-    zathura 
-    anki
+    mpd mpc-cli ncmpcpp
   ];
 
   home.file.".config/ncmpcpp/config".text = ''

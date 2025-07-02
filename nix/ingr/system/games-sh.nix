@@ -1,9 +1,11 @@
 { pkgs, ...}:
 
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
+
     # output
     sl cmatrix cowsay ponysay
+    disfetch lolcat neofetch pfetch
     
     # arcade
     ltris bastet #tetris

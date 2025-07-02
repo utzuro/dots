@@ -11,6 +11,11 @@
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
+    blocklist-repo = {
+      url = "github:StevenBlack/hosts";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, nixos-wsl, ... }@inputs: 
@@ -42,6 +47,7 @@
 
           ./hardware-configuration.nix
           ./apps.nix
+          ../ingr/pkgs.nix
 
           # Setup WSL
           nixos-wsl.nixosModules.default

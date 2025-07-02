@@ -1,7 +1,8 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
+
 {
-  home.packages = with pkgs; [
-    pkg-config gettext 
+  environment.systemPackages = with pkgs; [
+    pkg-config gettext
     autoconf automake libtool sphinx
 
     # network
@@ -12,10 +13,10 @@
     shared-mime-info 
     doxygen glm texinfo
     boost zlib minizip xz
-    gtk3 glib.dev glibc json-glib glade
+    gtk3 glib glibc json-glib glade
     gcc
     libffi libmediainfo libtiff
-    libseccomp libnotify 
+    libseccomp libnotify
     SDL2 SDL2_ttf SDL2_net SDL2_image SDL2_sound SDL2_mixer SDL2_gfx
     openssl
 
@@ -31,4 +32,5 @@
     whisper-cpp
 
   ];
+
 }

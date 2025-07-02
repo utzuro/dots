@@ -3,6 +3,10 @@
 {
   home.sessionPath = [ "$HOME/scripts" ];
 
+  imports = [
+    ./mimelist.nix
+  ];
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";

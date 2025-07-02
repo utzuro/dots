@@ -1,38 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, ...}:
 
 {
-  home.packages = with pkgs; [
-    tesseract
-    syncthing syncthingtray
-
-    # android
-    android-file-transfer android-tools scrcpy
-    jmtpfs
-
-    usbutils woeusb
-
-    flatpak
-
-    fortune appimage-run
-
-    # files
-    xfce.thunar
-
-    # maps
-    qgis-ltr viking #marble 
-
-    # transfer
-    filezilla libfilezilla
-    rsync zsync
-
-    # monitoring
-    zenith-nvidia
-
-    # music
-    musescore
-
-    # Create an FHS environment using the command `fhs`, 
-    # enabling the execution of non-NixOS packages in NixOS!
+  environment.systemPackages = with pkgs; [
+  # Create an FHS environment using the command `fhs`, 
+  # enabling the execution of non-NixOS packages in NixOS!
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
       name = "fhs";

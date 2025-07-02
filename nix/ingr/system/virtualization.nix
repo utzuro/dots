@@ -8,6 +8,32 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
 
 {
 
+  virtualisation = {
+
+    # xen.enable = true;
+
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.packages = with pkgs; [ OVMFFull.fd ];
+      };
+    };
+    spiceUSBRedirection.enable = true;
+
+    waydroid.enable = true;
+
+  };
+
+  environment.systemPackages = with pkgs; [
+    qemu virtualbox
+  ];
+
   boot.binfmt.emulatedSystems = [
     "aarch64-linux" 
     "riscv64-linux"
@@ -39,53 +65,6 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
     # "sparc64-linux"
     # "wasm32-wasi"
     # "x86_64-linux"
-  ];
-
-
-  virtualisation = {
-
-    containers.enable = true;
-
-    # xen.enable = true;
-
-    virtualbox.host = {
-      enable = true;
-      enableExtensionPack = true;
-    };
-
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm.enable = true;
-        ovmf.packages = with pkgs; [ OVMFFull.fd ];
-      };
-    };
-    spiceUSBRedirection.enable = true;
-
-    # podman = {
-    #   enable = true;
-    #   dockerCompat = true;
-    #   autoPrune.enable = true;
-    # };
-
-    docker = {
-      enable = true;
-      enableOnBoot = true;
-      storageDriver = storageDriver;
-      autoPrune.enable = true;
-    };
-
-    waydroid.enable = true;
-
-  };
-
-  environment.systemPackages = with pkgs; [
-    qemu
-    virtualbox
-    kubernetes minikube kubectl 
-    kubernetes-helm kompose
-    # podman-compose 
-    docker docker-compose compose2nix lazydocker
   ];
 
 }

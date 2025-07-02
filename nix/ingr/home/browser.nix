@@ -39,9 +39,6 @@
   
   home.packages = with pkgs; [
     tridactyl-native librewolf
-    qutebrowser
-    google-chrome
-    chromium
   ];
 
   # LIBREWOLF

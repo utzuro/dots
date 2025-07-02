@@ -31,13 +31,8 @@
       url = "github:zakk4223/hyprland-easymotion";
       inputs.hyprland.follows = "hyprland";
     };
+    #--------------------------------------------------------
 
-    # tools
-    # anyrun = { 
-    #   url = "github:Kirottu/anyrun";
-    #   inputs.nixpkgs.follows = "nixpkgs"; 
-    # };
-    
     erosanix = {
       url = "github:emmanuelrosa/erosanix";
       inputs.nixpkgs.follows = "nixpkgs"; 
@@ -85,7 +80,10 @@
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/system/boot.nix
-          ./ingr/general.nix 
+          ./ingr/linux.nix 
+          ./ingr/pkgs.nix
+          ./ingr/extra.nix 
+          ./ingr/wm.nix
           ./ingr/pc.nix 
         ];
         specialArgs = { inherit system inputs; }; 
@@ -106,7 +104,10 @@
         modules = [ 
           ./ingr/system/boot.nix
           ./ingr/system/corporate.nix
-          ./ingr/general.nix 
+          ./ingr/linux.nix 
+          ./ingr/pkgs.nix
+          ./ingr/extra.nix 
+          ./ingr/wm.nix
           ./ingr/workstation.nix
         ];
         specialArgs = { inherit system inputs; }; 
@@ -136,12 +137,6 @@
     };
 
 
-    darwinConfigurations."shigoto" = nix-darwin.lib.darwinSystem {
-      modules = [ 
-        inputs.configuration 
-      ];
-    };
-
     # Settings different across users
     homeConfigurations = { 
       backupFileExtension = "backup";
@@ -149,20 +144,16 @@
         name = "void"; 
         email = "utzuro@pm.me"; 
       };
-        in home-manager.lib.homeManagerConfiguration {
+      in home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
-          # in home, check if hyprland and other options are enabled 
-          # before configuring them
           ./ingr/home.nix 
-          # Try to import it from the inside
           inputs.stylix.homeModules.stylix 
-          # inputs.anyrun.homeModules.default
         ];
         extraSpecialArgs = { inherit user inputs; };
       };
 
-      v = let user = { 
+      v = let user = {
         name = "void"; 
         email = "utzuro@pm.me"; 
       };
@@ -171,7 +162,6 @@
         modules = [ 
           ./ingr/home-minimal.nix 
           inputs.stylix.homeModules.stylix 
-          # inputs.anyrun.homeModules.default
         ];
         extraSpecialArgs = { inherit user inputs; };
       };

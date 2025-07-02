@@ -3,25 +3,19 @@
 # on first install enable unstable channel
 # `nix-channel --add https://nixos.org/channels/nixos-unstable nixos`
 
-{ lib, pkgs, system,  inputs, ... }:
+{ lib, pkgs, system, inputs, ... }:
 
 {
   imports =
     [ 
       ../machines/${system.host}/hardware-configuration.nix
 
+      # config
       ./system/system.nix
-      ./system/basic.nix
+      ./system/user.nix
       ./system/security.nix
       ./system/network.nix
       ./system/video.nix
-      ./system/wm/shared.nix
-      ./system/wm/i3.nix
-      ./system/comms.nix
-      ( import ./system/dev.nix {
-        inherit pkgs lib system;
-        plugins = inputs.nix-jetbrains-plugins;
-      })
 
       ( import ./system/virtualization.nix {
         storageDriver = "btrfs"; inherit pkgs lib;

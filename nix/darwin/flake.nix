@@ -1,66 +1,64 @@
 {
-  # Memo:
-  # to update the flake run:
-  # nix flake update
+  description = "root config file for macOS using nix-darwin";
 
-  # to switch to the new configuration run:
+  # example usage:
+  # - nix flake update
   # nix run nix-darwin -- switch --flake .#shigoto
-  description = "nix-darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
+    blocklist-repo = {
+      url = "github:StevenBlack/hosts";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
-  let
-    configuration = { pkgs, ... }: {
-      nixpkgs.config.allowUnfree = true;
-      environment.systemPackages = with pkgs;
-      [
-        # cli
-        neovim yazi 
-        ack ripgrep ripgrep-all fzf fd duf
-        peco progress jq
-        bat eza rsync
-        wget curl 
+  outputs = { nixpkgs, nix-darwin }@inputs:
 
-        # archives
-        unzip zip gzip xz unar
-
-        # tools
-        asciidoctor pandoc pdftk 
-        imagemagick ffmpeg
-        ledger taskwarrior3
-      ];
-
-      nix.settings.experimental-features = "nix-command flakes";
-      programs.zsh.enable = true;
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-      system.stateVersion = 5;
-      nixpkgs.hostPlatform = "aarch64-darwin";
-
-      fonts.packages = with pkgs; [
-        monaspace nerd-fonts._0xproto font-awesome
-      ];
-
-      system.defaults = {
-        dock.autohide = true;
-        NSGlobalDomain.AppleICUForce24HourTime = true;
-        NSGlobalDomain.AppleShowAllExtensions = true;
-        NSGlobalDomain.AppleInterfaceStyle = "Dark";
+  let 
+    arch = "x86_64-linux"; 
+    lib = nix-darwin.lib;
+    pkgs = (import nixpkgs { 
+      system = arch; 
+      hostPlatform = arch;
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = (_: true);
       };
-    };
-  in
-  {
-    # $ nix flake update
-    # $ nix run nix-darwin -- switch --flake .#shigoto
-    darwinConfigurations."shigoto" = nix-darwin.lib.darwinSystem {
-      modules = [ 
-        configuration 
-        ./dev.nix
-      ];
-    };
+    });
+
+  in {
+
+    # Settings are different across the machines
+    nixosConfigurations = {
+      
+      darwinConfigurations."corp" = let
+        system = {
+          inherit arch; host = "corp"; 
+        }; in lib.darwinSystem {
+        modules = [ 
+          ./dev.nix
+
+          # Config MacOS
+          ({
+            nix.settings.experimental-features = "nix-command flakes";
+            system.stateVersion = 5;
+            nixpkgs.hostPlatform = "aarch64-darwin";
+
+            system.defaults = {
+              dock.autohide = true;
+              NSGlobalDomain.AppleICUForce24HourTime = true;
+              NSGlobalDomain.AppleShowAllExtensions = true;
+              NSGlobalDomain.AppleInterfaceStyle = "Dark";
+            };
+          })
+
+        ];
+        specialArgs = { inherit system pkgs inputs; };
+      };
+
   };
 }

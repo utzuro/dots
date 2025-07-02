@@ -2,7 +2,6 @@
 
 {
   imports = [ 
-    ./fonts.nix 
     ./input.nix
   ];
 
@@ -18,16 +17,17 @@
   # };
   xdg.mime.enable = true;
 
-  programs = {
-    light.enable = true;
-  };
-    
   environment.systemPackages = with pkgs; [
-    # xdg-desktop-portal-gtk
+
     xdotool xdg-launch xdg-utils xsettingsd
     socat glances
     kdePackages.konsole foot kitty wezterm st
     adwaita-icon-theme
+
+    nautilus kdePackages.dolphin xfce.thunar
+
+
+    qt6.full
 
     (where-is-my-sddm-theme.override {
       themeConfig.General = { 
@@ -38,9 +38,24 @@
         sessionFontSize= 24;
       }; 
     })
+
+    librewolf firefox 
+    chromium qutebrowser
+
   ];
 
-  programs.dconf.enable = true;
+  programs = {
+
+    light.enable = true;
+
+    dconf.enable = true;
+
+    foot = {
+      enable = true;
+    };
+
+  };
+
 
   services.xserver = {
     displayManager.sessionCommands = ''  

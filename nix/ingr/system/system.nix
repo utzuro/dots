@@ -66,7 +66,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # Only basic packages here, system is expected to run with home-manager
+    # Only basic packages here, as this file is the first to be loaded.
     # basic shell
     zsh vim tmux git ranger
     peco progress jq htop 

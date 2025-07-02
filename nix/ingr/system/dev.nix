@@ -1,63 +1,77 @@
-{ pkgs, system, plugins, ... }:
-let
-  pluginList = [
+{ pkgs, ...}:
 
-    # ai
-    "com.github.copilot"
-    "dev.turingcomplete.intellijdevelopertoolsplugins"
-    "com.intellij.ml.llm"
-    # "org.jetbrains.junie"
+{
+
+  environment.systemPackages = with pkgs; [
 
     # tools
-    "IdeaVIM"
-    "Docker"
-    "org.intellij.plugins.hcl"
-    "com.intellij.kubernetes"
-    "com.intellij.ideolog"
-    "idea.plugin.protoeditor"
-    "com.intellij.lang.jsgraphql"
+    xc
+
+    # go
+    go gopls gotags #gomod2nix
+    gofumpt golangci-lint
+    sqlc delve buf
+    vips protobuf
+
+    # ruby
+    ruby
+
+    # rust
+    rustup
+    cargo-edit cargo-watch
+
+    # python
+    (pkgs.python3.withPackages (
+      python-pkgs: with python-pkgs; [
+        pip setuptools wheel
+      ]))
+    uv nox
+
+    # c/c++
+    cmake llvm #clang clang-tools
+    ninja gnumake gdb
+    ccls ctags
+
+    # functional
+    nixpkgs-fmt nil
+    ghc cabal-install stack
+    ocaml dune_3
+
+    # web
+    nodejs yarn php
+    typescript typescript-language-server eslint
+
+    # other
+    lua dart ghostscript
+
+    # network
+    gource
+
+    # devops
+    tenv age 
+    kind kubectx kubectl
+    graphviz
+    minio-client awscli2 awsebcli
+    natscli
+    lnav
+    postman
     
-    # cloud intergrations
-    "org.jetbrains.plugins.github"
-    "org.jetbrains.plugins.gitlab"
+    # AI
+    ollama claude-code #openvino
 
-    # extra langs
-    "com.perl5"
-    "org.toml.lang"
-    "org.jetbrains.erlang"
-    "mobi.hsz.idea.gitignore"
-    "name.kropp.intellij.makefile"
-    # "org.intellij.plugins.markdown"
-    "com.jetbrains.plugins.ini4idea"
-    "net.seesharpsoft.intellij.plugins.csv"
-    "org.asciidoctor.intellij.asciidoc"
-    "dev.meanmail.plugin.nginx-intellij-plugin"
+    # DB
+    sqlite postgresql redis pgcli 
 
-    # frontend
-    "NodeJS"
-    "org.intellij.plugins.postcss"
-    "org.jetbrains.plugins.vue"
+    # hardware
+    avrdude
 
-    # andoird support
-    # "Dart"
-    # "io.flutter"
+    # system
+    diffutils findutils
+    patchelf
+
+    # embedded
+    screen minicom picocom tio bmaptool
+
   ];
-in {
-  environment.systemPackages = with pkgs; with plugins.lib."${system.arch}"; [
-    jetbrains.gateway jetbrains.jdk
-    (buildIdeWithPlugins jetbrains "idea-ultimate" pluginList)
-    (buildIdeWithPlugins jetbrains "goland" pluginList)
-    (buildIdeWithPlugins jetbrains "pycharm-professional" pluginList)
-    (buildIdeWithPlugins jetbrains "clion" pluginList)
-    (buildIdeWithPlugins jetbrains "rust-rover" pluginList)
-    (buildIdeWithPlugins jetbrains "rider" pluginList)
-    (buildIdeWithPlugins jetbrains "ruby-mine" pluginList)
-    (buildIdeWithPlugins jetbrains "webstorm" pluginList)
-    (buildIdeWithPlugins jetbrains "mps" pluginList)
-    (buildIdeWithPlugins jetbrains "datagrip" pluginList)
-    (buildIdeWithPlugins jetbrains "dataspell" pluginList)
-    (buildIdeWithPlugins jetbrains "aqua" pluginList)
 
-    vscode android-studio writerside
-  ];
 }

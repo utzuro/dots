@@ -14,48 +14,18 @@ in {
   home.username = user.name;
   home.homeDirectory = homeDir;
 
-  services.mpd = {
-    enable = true;
-    # link real music directory to this place"
-    musicDirectory = "~/mysticism/mu"; 
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "MPD"
-      }
-    '';
-  };
-
   imports = [
 
     ./home/sh.nix 
-    ./home/sh-games.nix
-    ./home/env.nix 
-    ./home/git.nix
-    ./home/libs.nix
-    ./home/tools.nix
-    ./home/learn.nix
-    ./home/mimelist.nix
-
-    ./home/theme.nix
-    ./home/visuals.nix
-    ./home/term.nix
+    ./home/dev.nix
 
     ./home/browser.nix
-    ./home/comms.nix
     ./home/media.nix
 
-    ./home/creative.nix
-    ./home/dev.nix
-    ./home/dev-gui.nix
-    ./home/gamedev.nix
-    ./home/emulation.nix
-    ./home/gaming.nix
+    ./home/theme.nix
 
-    ./home/wm/ui.nix
     ./home/wm/hyprland.nix
     ./home/wm/i3.nix
-    ./home/wm/xmonad.nix
 
   ];
 
