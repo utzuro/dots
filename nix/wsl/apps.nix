@@ -7,7 +7,7 @@
     # CLI
 
     ## shell
-    vim neovim emacs-pgtk
+    git vim neovim emacs-pgtk
     ranger yazi vifm-full 
     ack ripgrep ripgrep-all fzf fd duf
     peco progress jq moreutils
