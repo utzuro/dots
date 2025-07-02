@@ -11,7 +11,7 @@
     go gopls gotags #gomod2nix
     gofumpt golangci-lint
     sqlc delve buf
-    vips
+    vips protobuf
 
     # ruby
     ruby
@@ -42,7 +42,7 @@
     typescript typescript-language-server eslint
 
     # other
-    lua dart
+    lua dart ghostscript
 
     # network
     gource

@@ -10,7 +10,7 @@ scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 # win-utils
 scoop install ahkpm powertoys ueli wiztree openssh-connect
 # apps
-scoop install firefox libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
+scoop install libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
 # dev
 scoop install python go nodejs rustup cmake
 

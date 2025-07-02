@@ -25,7 +25,7 @@
     lfs lsd lsdvd ncdu file
     disfetch lolcat neofetch pfetch
     w3m asciidoctor pandoc 
-    pdftk qpdf poppler-utils
+    pdftk qpdf poppler-utils ocrmypdf
     foremost
     imagemagick ffmpeg aaxtomp3 mkvtoolnix
     htop iotop ddgr bottom hwinfo pciutils psmisc
