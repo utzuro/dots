@@ -116,7 +116,7 @@
     obs-studio
     vlc mpv kew
     libreoffice-fresh
-    obsidia    # cli
+    obsidian    # cli
     feh
     yt-dlp pipe-viewer
     tuir mediainfo 
