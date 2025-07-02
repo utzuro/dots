@@ -6,10 +6,7 @@
   # - nixos-rebuild switch --flake .#corp
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-      hostPlatform = "x86_64-linux";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +20,7 @@
     lib = nixpkgs.lib;
     pkgs = (import nixpkgs { 
       system = arch; 
+      hostPlatform = arch;
       config = {
         allowUnfree = true;
         allowUnfreePredicate = (_: true);
@@ -63,6 +61,7 @@
           }
 
           # Custom modules
+          ./hardware-configuration.nix
           ./apps.nix
         ];
         specialArgs = { inherit system pkgs inputs; };
