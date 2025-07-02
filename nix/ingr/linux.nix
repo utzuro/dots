@@ -16,11 +16,7 @@
       ./system/security.nix
       ./system/network.nix
       ./system/video.nix
-
-      ( import ./system/virtualization.nix {
-        storageDriver = "btrfs"; inherit pkgs lib;
-      })
-
+      ./system/virtualization.nix
     ];
 
   system.copySystemConfiguration = false;

@@ -15,7 +15,10 @@
       ./system/comms.nix
       ./system/media.nix
       ./system/dev.nix
-      ./system/containers.nix
+      ( import ./system/containers.nix {
+        inherit pkgs lib system;
+      })
+
     ];
 
     environment.systemPackages = with pkgs; [

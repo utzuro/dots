@@ -39,7 +39,7 @@
 
       corp = let
         system = {
-          inherit arch; host = "corp"; 
+          inherit arch; host = "corp"; storageDriver = "overlay2";
         }; in lib.nixosSystem {
 
         modules = [

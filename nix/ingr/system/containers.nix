@@ -1,6 +1,6 @@
-{ pkgs, lib, storageDriver ? null, ...}:
+{ pkgs, lib, system ? null, ...}:
 
-assert lib.asserts.assertOneOf "storageDriver" storageDriver
+assert lib.asserts.assertOneOf "storageDriver" system.storageDriver
 [
   null "aufs" "btrfs" "devicemapper"
   "overlay" "overlay2" "zfs"
@@ -21,7 +21,7 @@ assert lib.asserts.assertOneOf "storageDriver" storageDriver
     docker = {
       enable = true;
       enableOnBoot = true;
-      storageDriver = storageDriver;
+      storageDriver = system.storageDriver;
       autoPrune.enable = true;
     };
 

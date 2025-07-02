@@ -76,7 +76,7 @@
 
       voidpc = let 
         system = {
-          inherit arch; host = "voidpc"; 
+          inherit arch; host = "voidpc"; storageDriver = "btrfs";
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/system/boot.nix
@@ -99,7 +99,7 @@
 
       msi = let 
         system = {
-          inherit arch; host = "msi"; 
+          inherit arch; host = "msi"; storageDriver = "overlay2";
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/system/boot.nix
@@ -115,7 +115,7 @@
 
       zeni = let 
         system = {
-          inherit arch; host = "zeni"; 
+          inherit arch; host = "zeni"; storageDriver = "btrfs";
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/general.nix
@@ -126,7 +126,7 @@
 
       x240 = let 
         system = {
-          inherit arch; host = "x240"; 
+          inherit arch; host = "x240"; storageDriver = "btrfs";
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/general.nix
