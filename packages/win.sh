@@ -7,9 +7,23 @@
 scoop bucket add extras 
 
 # tools (normally installed with nix)
+scoop install neovim
+scoop install python go protobuf nodejs rustup cmake
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 scoop install libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
-scoop install python go nodejs rustup cmake
+scoop install kitty wezterm alacritty
+
+# wezterm config:
+# return {
+#   default_prog = { "wsl.exe", "-d", "NixOS" },
+# }
+
+# alacritty config:
+# shell:
+#   program: "wsl"
+#   args: ["-d", "NixOS"]
+
+
 
 # win-utils
 scoop install ahkpm powertoys ueli wiztree openssh-connect
