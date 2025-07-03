@@ -12,23 +12,34 @@ install_platform_packages() {
   case "$OSTYPE" in
     linux-gnu*)
       read -rp "👾 Install Arch Linux packages? (y/N) 👀 " yn
-      [[ "${yn,,}" == "y" ]] && "$DIR/packages/archinstall.sh"
+      if [[ "${yn,,}" == "y" ]]; then
+        "$DIR/packages/archinstall.sh"
+      else
+        echo "⏭️ Skipping Arch Linux packages."
+      fi
       ;;
     darwin*)
       read -rp "🍏 Install Homebrew packages? (y/N) 👀 " yn
-      [[ "${yn,,}" == "y" ]] && "$DIR/packages/mac.sh"
+      if [[ "${yn,,}" == "y" ]]; then
+        "$DIR/packages/mac.sh"
+      else
+        echo "⏭️ Skipping Homebrew packages."
+      fi
       ;;
     linux-android*)
+      echo "📱 Detected Android/Termux, installing..."
       "$DIR/packages/termux.sh"
       ;;
     cygwin*)
+      echo "🪟 Detected Cygwin, installing..."
       "$DIR/packages/cygwin.sh"
       ;;
     msys*)
+      echo "🪟 Detected MSYS/Windows, installing..."
       "$DIR/packages/win.sh"
       ;;
     *)
-      printf "¯\\_(ツ)_/¯ Unknown system, packages won't be installed.\n"
+      echo "¯\\_(ツ)_/¯ Unknown system, packages won't be installed."
       ;;
   esac
 }
