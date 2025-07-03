@@ -1,62 +1,85 @@
 #!/usr/bin/env bash
 
-# Reliable way to get full path
-DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
+set -euo pipefail
+
+### 🧠 Initialize
+DIR="$(realpath "$(dirname "$0")")"
 cd "$DIR" || exit
-# `cd --` in case directory starts with `-`
-# `>/dev/null` in case cd has some output
 
-# Install packages
-printf "⌛... Installing missing packages... 📦☄\n"
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    read -rp "👾 Install archlinux packages? (y/N) 👀  " yn
-    if [ "$yn" == "y" ]; then
-        "$DIR"/packages/archinstall.sh
-    fi
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    read -rp "Install homebrew packages? (y/N) 👀  " yn
-    if [ "$yn" == "y" ]; then
-        "$DIR"/packages/mac.sh
-    fi
-elif [[ "$OSTYPE" == "linux-android"* ]]; then
-    "$DIR"/packages/termux.sh
-elif [[ "$OSTYPE" == "cygwin"* ]]; then
-    "$DIR"/packages/cygwin.sh
-elif [[ "$OSTYPE" == "msys"* ]]; then
-    "$DIR"/packages/win.sh
-else
-    printf " ¯ \ _ (ツ) _ / ¯  Unknown system, packages won't be installed.\n"
-fi
+### 📦 Install Platform Packages
+install_platform_packages() {
+  printf "\n⌛... Installing missing packages... 📦☄\n"
+  case "$OSTYPE" in
+    linux-gnu*)
+      read -rp "👾 Install Arch Linux packages? (y/N) 👀 " yn
+      [[ "${yn,,}" == "y" ]] && "$DIR/packages/archinstall.sh"
+      ;;
+    darwin*)
+      read -rp "🍏 Install Homebrew packages? (y/N) 👀 " yn
+      [[ "${yn,,}" == "y" ]] && "$DIR/packages/mac.sh"
+      ;;
+    linux-android*)
+      "$DIR/packages/termux.sh"
+      ;;
+    cygwin*)
+      "$DIR/packages/cygwin.sh"
+      ;;
+    msys*)
+      "$DIR/packages/win.sh"
+      ;;
+    *)
+      printf "¯\\_(ツ)_/¯ Unknown system, packages won't be installed.\n"
+      ;;
+  esac
+}
 
-# Window manager related
-if xhost >& /dev/null ; then 
+### 🖼 Configure X11 and WM
+setup_x11_and_wm() {
+  if command -v xhost &>/dev/null; then
     printf "🧿 Detected Xorg, configuring...\n"
-    ln -sfv "$DIR"/config/xorg/.xinitrc "$HOME"/
-    mkdir -p "$HOME"/.config/{dunst,rofi,mpd,ncmpcpp,waybar,goread}
-    ln -sfv "$DIR"/config/dunst/* "$HOME"/.config/dunst/
-    ln -sfv "$DIR"/config/goread/* "$HOME"/.config/goread/
-    # ln -sfv "$DIR"/config/rofi/* "$HOME"/.config/rofi/
-    ln -sfv "$DIR"/config/ranger/* "$HOME"/.config/ranger/
-    ln -sfv "$DIR"/config/mpd/* "$HOME"/.config/mpd/
-    ln -sfv "$DIR"/config/waybar/* "$HOME"/.config/waybar/
-    cp -n "$DIR"/config/xorg/.Xresources "$HOME"/
-    # Remove 4K configs if no 4K monitor is found
-    UHD="$(xrandr | awk '/3840x/ {print $1}')"
-    if [ ! "$UHD" ]; then
-        sed -i -e 's/^Xft.dpi: 192/!Xft.dpi: 192/' ~/.Xresources --follow-symlinks
+    ln -sfv "$DIR/config/xorg/.xinitrc" "$HOME/"
+
+    mkdir -p "$HOME/.config"/{dunst,rofi,mpd,ncmpcpp,waybar,goread,ranger}
+
+    ln -sfv "$DIR/config/dunst/"* "$HOME/.config/dunst/"
+    ln -sfv "$DIR/config/goread/"* "$HOME/.config/goread/"
+    ln -sfv "$DIR/config/ranger/"* "$HOME/.config/ranger/"
+    ln -sfv "$DIR/config/mpd/"* "$HOME/.config/mpd/"
+    ln -sfv "$DIR/config/waybar/"* "$HOME/.config/waybar/"
+    # ln -sfv "$DIR/config/rofi/"* "$HOME/.config/rofi/"  # enable if needed
+
+    cp -n "$DIR/config/xorg/.Xresources" "$HOME/"
+
+    # Disable high DPI setting if no 4K display is detected
+    if ! xrandr | grep -q '3840x'; then
+      sed -i -e 's/^Xft.dpi: 192/!Xft.dpi: 192/' "$HOME/.Xresources"
     fi
-fi
+  fi
 
-if [ -d "$HOME/.config/i3" ]; then
+  if [ -d "$HOME/.config/i3" ]; then
     printf "🧿 Detected i3, configuring...\n"
-    ln -sfv "$DIR"/config/i3/config "$HOME"/.config/i3/
-fi
+    ln -sfv "$DIR/config/i3/config" "$HOME/.config/i3/"
+  fi
 
-if [ -d "$HOME/.config/hypr" ]; then
-    rm -rf "$HOME"/.config/hypr
-    printf "🧿 Detected hyprland, configuring...\n"
-    ln -sfv "$DIR"/config/hypr "$HOME"/.config/
-fi
+  if [ -d "$HOME/.config/hypr" ]; then
+    printf "🧿 Detected Hyprland, configuring...\n"
+    rm -rf "$HOME/.config/hypr"
+    ln -sfv "$DIR/config/hypr" "$HOME/.config/"
+  fi
+}
 
-printf "\n⌛... Installing and configuring OS agnostic pkgs... 📂\n"
-"$DIR"/packages/shell_install.sh
+### 🧪 Install OS-agnostic shell tools
+install_shell_tools() {
+  printf "\n⌛... Installing and configuring OS-agnostic pkgs... 📂\n"
+  "$DIR/packages/shell_install.sh"
+}
+
+### 🚀 Run Script
+main() {
+  install_platform_packages
+  setup_x11_and_wm
+  install_shell_tools
+}
+
+main "$@"
+
