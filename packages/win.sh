@@ -27,7 +27,7 @@ scoop install jetbrains-toolbox
 
 
 # win-utils
-scoop install ahkpm powertoys ueli wiztree openssh-connect
+scoop install ahkpm powertoys ueli wiztree
 scoop install sumatrapdf eartrumpet 
 
 # games
