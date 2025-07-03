@@ -24,6 +24,7 @@
     programs.adb.enable = true;
     services.flatpak.enable = true;
 
+    xdg.portal.wlr.enable = true;
     environment.systemPackages = with pkgs; [
       appimage-run
     ];
