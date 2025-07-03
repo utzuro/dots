@@ -69,10 +69,10 @@ manual_shell_and_tools() {
     mkdir -p "$HOME/.config"/mpd
     ln -sfv "$DIR/config/mpd/"* "$HOME/.config/mpd/"
 
-    ln -sfv "$DIR/config/zsh/.zshrc" "$HOME"/
-    ln -sfv "$DIR/config/zsh/.p10k.zsh" "$HOME"/
     ln -sfv "$DIR/config/.bashrc" "$HOME"/
     ln -sfv "$DIR/config/tmux/.tmux.conf" "$HOME"/
+    ln -sfv "$DIR/config/zsh/.zshrc" "$HOME"/
+    ln -sfv "$DIR/config/zsh/.p10k.zsh" "$HOME"/
 
     printf "\n⌛... Getting ready files that shouldn't be linked... 🌐\n"
     touch "$HOME"/.profile 
@@ -149,9 +149,9 @@ main() {
   create_default_files
   setup_scripts_repo
   link_dotfiles
-  manual_shell_and_tools
   link_images
   setup_ssh
+  manual_shell_and_tools
   install_flatpak
   printf "\n🔥 Shell tools installation complete! 🔥\n"
 }
