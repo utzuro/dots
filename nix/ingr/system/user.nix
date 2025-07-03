@@ -23,7 +23,4 @@
       "podman" "docker" "kvm" "libvirtd" "vboxusers"
     ];
   };
-
-  programs.adb.enable = true;
-  services.flatpak.enable = true;
 }
