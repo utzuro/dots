@@ -12,6 +12,7 @@ scoop install python go protobuf nodejs rustup cmake
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 scoop install libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
 scoop install kitty wezterm alacritty
+scoop install jetbrains-toolbox
 
 # wezterm config:
 # return {
