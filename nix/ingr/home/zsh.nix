@@ -89,7 +89,7 @@ in {
         { name = "zsh-users/zsh-history-substring-search"; }
         { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
       ];
-   };
+    };
 
    initContent = ''
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
