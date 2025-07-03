@@ -31,9 +31,13 @@
 
       port = 51820;
 
+      # laptop
+      # publicKey = "7FslkahrdLwGbv4QSX5Cft5CtQLmBUlpWC382SSF7Hw=";
+      # ip = "103.125.235.19";
+
       # main
-      publicKey = "7FslkahrdLwGbv4QSX5Cft5CtQLmBUlpWC382SSF7Hw";
-      ip = "103.125.235.19";
+      publicKey = "IekoLP3CpczVNhssbBTXJ1SVwLbBtofVeGhqjBHRrlM=";
+      ip = "37.19.205.223";
 
       #swss
       # publicKey = "U6izVBdvmWafPuKXctnvArOx6W33X8wBkMvjoOdrBhs=";

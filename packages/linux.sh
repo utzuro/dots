@@ -11,9 +11,3 @@ sudo usermod -aG docker "$USER"
 sudo usermod -aG plugdev "$USER"
 sudo usermod -aG vboxusers "$USER"
 sudo usermod -aG lp "$USER" # bluetooth
-
-# Generic packages:
-go install github.com/masakichi/tango@latest
-echo
-echo "📝 Import Japanese dictionaries with: tango -import... 📚"
-

@@ -5,8 +5,10 @@
     # cli
     ffmpegthumbnailer 
 
+    # books
+    calibre 
+
     # images
-    darktable #digikam  # photo
     # gimp-with-plugins 
     krita pinta #mypaint # images
     inkscape scribus # docs
@@ -17,18 +19,19 @@
     # audio
     audacity
     lmms renoise
+    aaxtomp3 
 
     # music
     musescore
 
     # video
     handbrake
-    obs-studio simplescreenrecorder audio-recorder #easyeffects
+    obs-studio simplescreenrecorder 
+    audio-recorder #easyeffects
     video-trimmer
 
     # other
     xournalpp
-    mediainfo-gui
     xournalpp openboard
     foliate texliveSmall
   ];

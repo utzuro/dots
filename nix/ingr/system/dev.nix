@@ -13,9 +13,6 @@
     sqlc delve buf
     vips protobuf
 
-    # ruby
-    ruby
-
     # rust
     rustup
     cargo-edit cargo-watch
@@ -28,9 +25,12 @@
     uv nox
 
     # c/c++
-    cmake llvm #clang clang-tools
+    cmake llvm clang clang-tools
     ninja gnumake gdb
     ccls ctags
+
+    # ruby
+    ruby
 
     # functional
     nixpkgs-fmt nil

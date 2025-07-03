@@ -26,7 +26,6 @@
     libogg.dev
     mpg123.dev
     libsamplerate.dev
-    onnxruntime.dev
 
     # ML
     whisper-cpp

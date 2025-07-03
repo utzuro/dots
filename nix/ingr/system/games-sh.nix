@@ -4,8 +4,9 @@
   environment.systemPackages = with pkgs; [
 
     # output
-    sl cmatrix cowsay ponysay
-    disfetch lolcat neofetch pfetch
+    sl cmatrix 
+    cowsay ponysay lolcat 
+    neofetch
     
     # arcade
     ltris bastet #tetris

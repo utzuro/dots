@@ -50,7 +50,6 @@ repos=(
   "https://github.com/minio/minio.git"
   "https://github.com/moby/moby.git"
 
-
   # prlangs
   "https://github.com/rust-lang/rust"
   "https://github.com/python/cpython"
@@ -77,6 +76,7 @@ repos=(
   "https://github.com/DanteAlighierin/foot"
   "https://github.com/videolan/vlc"
   "https://github.com/mpv-player/mpv"
+  "https://github.com/kovidgoyal/calibre"
 
   # frameworks
   "https://github.com/fastapi/fastapi"

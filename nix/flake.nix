@@ -82,7 +82,7 @@
           ./ingr/system/boot.nix
           ./ingr/linux.nix 
           ./ingr/pkgs.nix
-          ./ingr/extra.nix 
+          # ./ingr/extra.nix 
           ./ingr/wm.nix
           ./ingr/pc.nix 
         ];

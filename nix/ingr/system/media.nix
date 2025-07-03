@@ -3,32 +3,59 @@
 {
   environment.systemPackages = with pkgs; [
 
-    # cli
+    # CLI
+
+    ## docs
     w3m asciidoctor pandoc 
-    imagemagick ffmpeg aaxtomp3 mkvtoolnix
+
+    ## img
+    nsxiv feh
+    imagemagick ffmpeg mkvtoolnix
+
+    ## pdf
     pdftk qpdf poppler-utils 
-    foremost # recover files
+    # recovering
+    foremost
+
+    ## audio
     mpd mpc-cli ncmpcpp kew
     cozy
-    nsxiv feh
-    yt-dlp pipe-viewer clipgrab wget
+
+    ## video
+    mpv 
+    yt-dlp pipe-viewer wget
+
+    ## web
     rtorrent
     tuir
-    libdvdcss libdvdread # dvd
-    mediainfo 
-    goread
 
-    # gui 
+    ## legacy
+    libdvdcss libdvdread # dvd
+
+    ## other
+    mediainfo 
+
+#--------------------------------------------------------
+
+    # GUI
+
+    ## docs
     zathura 
-    neovide vlc
-    qbittorrent-enhanced
-    calibre pandoc
+    pandoc
     libreoffice-fresh drawio
 
+    ## writing
+    neovide 
     (obsidian.override {
       commandLineArgs = 
       "--ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --disable-gpu-compositing";
     })
+
+    ## video
+    vlc
+
+    ## web
+    qbittorrent-enhanced
 
   ];
 }
