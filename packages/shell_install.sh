@@ -137,8 +137,13 @@ link_images() {
 install_flatpak() {
   printf "\n⌛... Installing Flatpak... 📦\n"
   if command -v flatpak >/dev/null; then
-    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    # for home-manager setup
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo | true
     flatpak update || true
+
+    # for system-wide setup
+    sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo | true
+    sudo flatpak update || true
   else
     printf "⚠️  Flatpak is not installed. Skipping.\n"
   fi
