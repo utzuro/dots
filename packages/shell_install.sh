@@ -143,8 +143,8 @@ main() {
   setup_scripts_repo
   link_dotfiles
   manual_shell_and_tools
-  setup_ssh
   link_images
+  setup_ssh
   install_flatpak
   printf "\n🔥 Shell tools installation complete! 🔥\n"
 }
