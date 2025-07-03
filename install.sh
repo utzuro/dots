@@ -7,9 +7,6 @@ cd "$DIR" || exit
 # `>/dev/null` in case cd has some output
 
 # Install packages
-printf "\n⌛... Installing and configuring OS agnostic pkgs... 📂\n"
-"$DIR"/packages/shell_install.sh
-
 printf "⌛... Installing missing packages... 📦☄\n"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     read -rp "👾 Install archlinux packages? (y/N) 👀  " yn
@@ -61,3 +58,5 @@ if [ -d "$HOME/.config/hypr" ]; then
     ln -sfv "$DIR"/config/hypr "$HOME"/.config/
 fi
 
+printf "\n⌛... Installing and configuring OS agnostic pkgs... 📂\n"
+"$DIR"/packages/shell_install.sh
