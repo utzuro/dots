@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 let
+
   aliases = {
+    update = "sudo nixos-rebuild switch";
+    conf = "sudo vim /etc/nixos/configuration.nix";
     c = "clear";
     vim = "nvim";
     v = "nvim";
@@ -62,17 +65,17 @@ in {
     file
   ];
 
-  users.extraUsers.void = {
-    shell = pkgs.zsh;
-  };
+  # users.extraUsers.void = {
+  #   shell = pkgs.zsh;
+  # };
 
   programs.zsh = {
     enable = true;
-    autosuggestion.enable = true;
+    autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     shellAliases = aliases;
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       plugins = [ 
         "git" "gitignore" 
@@ -85,13 +88,5 @@ in {
         "z" 
       ];
     };
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-history-substring-search"; }
-        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
-      ];
-    };
-
   };
 }

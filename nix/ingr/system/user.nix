@@ -24,20 +24,6 @@
     ];
   };
 
-  environment.shells = with pkgs; [ zsh ];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    
-    shellAliases = {
-      c = "clear";
-      update = "sudo nixos-rebuild switch";
-      conf = "sudo vim /etc/nixos/configuration.nix";
-    };
-  };
   programs.adb.enable = true;
   services.flatpak.enable = true;
 }
