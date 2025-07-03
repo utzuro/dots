@@ -66,7 +66,7 @@ manual_shell_and_tools() {
 
     printf "\n⌛... Linking shell configs... 🖥\n"
 
-    mkdir -p "$HOME/.config"/{mpd}
+    mkdir -p "$HOME/.config"/mpd
     ln -sfv "$DIR/config/mpd/"* "$HOME/.config/mpd/"
 
     ln -sfv "$DIR/config/zsh/.zshrc" "$HOME"/
