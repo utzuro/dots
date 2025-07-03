@@ -44,13 +44,14 @@ install_platform_packages() {
   esac
 }
 
+
 ### 🖼 Configure X11 and WM
 setup_x11_and_wm() {
   if command -v xhost &>/dev/null; then
     printf "🧿 Detected Xorg, configuring...\n"
     ln -sfv "$DIR/config/xorg/.xinitrc" "$HOME/"
 
-    mkdir -p "$HOME/.config"/{dunst,rofi,mpd,ncmpcpp,waybar,goread,ranger}
+    mkdir -p "$HOME/.config"/{dunst,rofi,ncmpcpp,waybar,goread,ranger}
 
     ln -sfv "$DIR/config/dunst/"* "$HOME/.config/dunst/"
     ln -sfv "$DIR/config/goread/"* "$HOME/.config/goread/"

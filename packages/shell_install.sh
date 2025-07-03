@@ -17,7 +17,7 @@ create_directories() {
 ### 📝 File Setup ###
 create_default_files() {
   printf "\n⌛... Creating default files... 📝\n"
-  touch "$HOME"/.profile "$HOME"/.zprofile "$HOME"/.secrets "$HOME"/.awsrc
+  touch "$HOME"/.zprofile "$HOME"/.secrets "$HOME"/.awsrc
 }
 
 ### 🧙 Clone Scripts Repo ###
@@ -65,10 +65,17 @@ manual_shell_and_tools() {
     printf "\n⌛... Nix not detected — installing shell tools manually... 🛠\n"
 
     printf "\n⌛... Linking shell configs... 🖥\n"
+
+    mkdir -p "$HOME/.config"/{mpd}
+    ln -sfv "$DIR/config/mpd/"* "$HOME/.config/mpd/"
+
     ln -sfv "$DIR/config/zsh/.zshrc" "$HOME"/
     ln -sfv "$DIR/config/zsh/.p10k.zsh" "$HOME"/
     ln -sfv "$DIR/config/.bashrc" "$HOME"/
     ln -sfv "$DIR/config/tmux/.tmux.conf" "$HOME"/
+
+    printf "\n⌛... Getting ready files that shouldn't be linked... 🌐\n"
+    touch "$HOME"/.profile 
 
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
