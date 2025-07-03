@@ -3,8 +3,9 @@
 alchemy="$HOME/alchemy"
 magic="$HOME/magic"
 
-DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
+CURDIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
 cd "$DIR" || exit
+DIR="$CURDIR/.."
 
 printf "\n⌛... Creating default folders... 📂\n"
 mkdir ~/{channeling,mnt}
