@@ -105,8 +105,9 @@ manual_shell_and_tools() {
     if [ ! -d "$HOME/.config/ranger/plugins/ranger_devicons" ]; then
       git clone https://github.com/alexanderjeurissen/ranger_devicons "$HOME/.config/ranger/plugins/ranger_devicons"
     fi
-
     ln -sfv "$DIR/config/ranger/rc.conf" "$HOME/.config/ranger/rc.conf"
+
+    mkdir -p "$HOME/.config/kitty"
     ln -sfv "$DIR/config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
 
     printf "\n⌛... Installing and configuring OS-agnostic packages... 📦\n"
