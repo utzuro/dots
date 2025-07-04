@@ -16,6 +16,7 @@
 
   security.rtkit.enable = true;
   services = { 
+    gnome.gnome-keyring.enable = true;
     fwupd.enable = true;
     pipewire = {
       enable = true;
@@ -24,7 +25,7 @@
       pulse.enable = true;
       jack.enable = true; 
     }; 
-    dbus = { enable = true; };
+    dbus.enable = true;
     udev = { 
       enable = true; 
       packages = with pkgs; [ platformio-core openocd ];
