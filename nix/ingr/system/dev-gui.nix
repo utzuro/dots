@@ -64,7 +64,8 @@ in {
     # IDE
     vscode android-studio jetbrains.writerside
 
-    jetbrains.gateway jetbrains.jdk
+    #jetbrains.gateway 
+    jetbrains.jdk
     (buildIdeWithPlugins jetbrains "idea-ultimate" pluginList)
     (buildIdeWithPlugins jetbrains "goland" pluginList)
     (buildIdeWithPlugins jetbrains "pycharm-professional" pluginList)
