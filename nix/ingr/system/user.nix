@@ -23,5 +23,5 @@
       "podman" "docker" "kvm" "libvirtd" "vboxusers"
     ];
   };
-  programs.zsh.enable;
+  programs.zsh.enable = true;
 }
