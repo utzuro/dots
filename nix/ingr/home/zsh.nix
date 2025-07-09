@@ -17,6 +17,7 @@ let
     upd = "git commit -am 'minor update' && git push";
     verupd = "git commit -am 'update version' && git push";
     refactor = "git commit -am 'refactor' && git push";
+    hotfix = "git commit -am 'hotfix' && git push";
     addtests = "git commit -am 'add tests' && git push";
     push = "git push";
     pull = "git pull --ff-only";
@@ -29,7 +30,9 @@ let
     diff = "git diff --color-words";
     cached = "git diff --cached --color-words";
     changes = "git diff main --color-words";
-    changedfiles = "git diff main --name-only";
+    chmain = "git diff main --name-only";
+    chmaster = "git diff main --name-only";
+    chdev = "git diff main --name-only";
 
     # run apps from terminal
     # apps
