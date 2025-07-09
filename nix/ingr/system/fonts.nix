@@ -6,44 +6,30 @@
   ];
 
   fonts.packages = with pkgs; with nerd-fonts; [
-    # main
-    monaspace anonymice
-    hack noto agave
-    lilex lekton profont
-    iosevka-term-slab zed-mono
 
-    # programming
-    go-mono blex-mono fira-mono 
-    dina-font proggyfonts
-    fira-code code-new-roman
-    proggy-clean-tt shure-tech-mono
-    geist-mono commit-mono
-    _3270 _0xproto d2coding departure-mono
+    # main
+    hack dejavu_fonts # default
+    go-mono geist-mono commit-mono
+    inconsolata-lgc _0xproto 
 
     # bitmap
-    gohufont 
-
-    # writing
-    im-writing inconsolata-lgc
-    space-mono roboto-mono intone-mono
+    gohufont
 
     # compability
-    wineWow64Packages.fonts
-    liberation tinos arimo cousine 
-    overpass mononoki 
+    wineWow64Packages.fonts 
+    liberation tinos arimo cousine noto 
 
-    # symbols
-    font-awesome powerline-fonts noto-fonts-emoji
-    monoid hurmit hasklug symbols-only
-
-    # special
-    monofur terminess-ttf
-    martian-mono open-dyslexic
-    caskaydia-cove comic-shanns-mono
-    fantasque-sans-mono
+    # support
+    powerline-fonts
+    font-awesome noto-fonts-emoji
+    hurmit hasklug symbols-only
 
     # kanji
-    noto-fonts noto-fonts-cjk-sans
+    noto-fonts-cjk-sans
+
+    # TODO: setup
+    monaspace
+
   ];
 
 }

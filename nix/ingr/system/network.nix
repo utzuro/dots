@@ -9,6 +9,7 @@
   services.timesyncd.enable = true;
 
   services.openssh.enable = true;
+  services.resolved.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
