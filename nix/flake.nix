@@ -103,10 +103,10 @@
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/system/boot.nix
-          ./ingr/system/corporate.nix
+          # ./ingr/system/corporate.nix
           ./ingr/linux.nix 
-          ./ingr/pkgs.nix
-          ./ingr/extra.nix 
+          # ./ingr/pkgs.nix
+          # ./ingr/extra.nix 
           ./ingr/wm.nix
           ./ingr/workstation.nix
         ];
