@@ -15,7 +15,7 @@ fi
 # Valid APT packages only
 cli_packages=(
   vim zsh git tmux ranger rsync wget curl file
-  neovim ack ripgrep fzf fd-find duf peco progress jq moreutils bat
+  neovim ack ripgrep eza fzf fd-find duf peco progress jq moreutils bat
   unzip zip gzip xz-utils atool zstd lz4 lzip rar unar p7zip-full
   ncdu usbutils htop iotop bc ledger taskwarrior timewarrior inotify-tools
   cmake llvm clang clang-tools build-essential make gdb universal-ctags
