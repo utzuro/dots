@@ -142,7 +142,6 @@ main() {
   link_images
   setup_ssh
   manual_shell_and_tools
-  install_flatpak
   printf "\n🔥 Shell tools installation complete! 🔥\n"
 }
 
