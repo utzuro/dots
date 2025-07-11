@@ -29,11 +29,11 @@ echo "📦 Detected distribution: $distro_id"
 case "$distro_id" in
   arch)
     echo "🚀 Starting Arch Linux setup..."
-    bash "$PKG_DIR/install_arch.sh"
+    bash "$PKG_DIR/archlinux.sh"
     ;;
   ubuntu|debian)
     echo "🚀 Starting Ubuntu/Debian setup..."
-    bash "$PKG_DIR/install_ubuntu.sh"
+    bash "$PKG_DIR/ubuntu.sh"
     ;;
   *)
     echo "❌ Unsupported distro: $distro_id"
@@ -42,10 +42,10 @@ case "$distro_id" in
 esac
 
 # --- 2. Run dotfile/shell/config installer ---
-if [[ -f "$PKG_DIR/install_shell.sh" ]]; then
+if [[ -f "$PKG_DIR/shell.sh" ]]; then
   echo
   echo "🪄 Running shell config installer..."
-  bash "$PKG_DIR/shell_install.sh"
+  bash "$PKG_DIR/shell.sh"
 else
   echo "⚠️  No shell_install.sh found in $PKG_DIR. Skipping."
 fi
