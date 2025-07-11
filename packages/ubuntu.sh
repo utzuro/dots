@@ -50,17 +50,6 @@ for pkg in "${snap_fallbacks[@]}"; do
   fi
 done
 
-# Fallbacks: Pip-based tools
-if ! command -v aws &>/dev/null; then
-  echo "⚠️ Installing awscli via pip3..."
-  pip3 install --user awscli
-fi
-
-if ! command -v awsebcli &>/dev/null; then
-  echo "⚠️ Installing awsebcli via pip3..."
-  pip3 install --user awsebcli
-fi
-
 # Go-based tools
 echo "📦 Installing Go-based dev tools..."
 export GOPATH="$HOME/go"
