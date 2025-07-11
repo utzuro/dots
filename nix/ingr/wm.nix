@@ -9,7 +9,9 @@
   imports =
     [ 
       ./system/wm/shared.nix
-      # ./system/wm/i3.nix
-      # enable plasma etc as options
+      ./system/wm/hyprland.nix
+      ./system/wm/i3.nix
+      ./system/wm/sway.nix
+      ./system/wm/kde.nix
     ];
 }
