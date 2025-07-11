@@ -29,11 +29,11 @@ echo "📦 Detected distribution: $distro_id"
 case "$distro_id" in
   arch)
     echo "🚀 Starting Arch Linux setup..."
-    bash "$PKG_DIR/install-arch.sh"
+    bash "$PKG_DIR/install_arch.sh"
     ;;
   ubuntu|debian)
     echo "🚀 Starting Ubuntu/Debian setup..."
-    bash "$PKG_DIR/install-ubuntu.sh"
+    bash "$PKG_DIR/install_ubuntu.sh"
     ;;
   *)
     echo "❌ Unsupported distro: $distro_id"
