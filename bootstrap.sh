@@ -42,7 +42,7 @@ case "$distro_id" in
 esac
 
 # --- 2. Run dotfile/shell/config installer ---
-if [[ -f "$PKG_DIR/shell_install.sh" ]]; then
+if [[ -f "$PKG_DIR/install_shell.sh" ]]; then
   echo
   echo "🪄 Running shell config installer..."
   bash "$PKG_DIR/shell_install.sh"
