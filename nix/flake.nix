@@ -76,7 +76,7 @@
 
       voidpc = let 
         system = {
-          inherit arch; host = "voidpc"; storageDriver = "btrfs";
+          inherit arch; host = "voidpc"; storageDriver = "overlay2";
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/system/boot.nix

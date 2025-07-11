@@ -133,28 +133,6 @@ link_images() {
   ln -sfv "$DIR/ingr/i/background.png" "$HOME/"
 }
 
-install_flatpak() {
-  printf "\n⌛... Configuring Flatpak... 📦\n"
-
-  if ! command -v flatpak >/dev/null; then
-    printf "⚠️  Flatpak is not installed. Skipping.\n"
-    return
-  fi
-
-  # Try user-level setup first
-  if flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo 2>/dev/null; then
-    flatpak update --noninteractive 2>/dev/null || true
-  else
-    # If user-level setup failed, try system-wide with sudo
-    if sudo -n true 2>/dev/null; then
-      sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo 2>/dev/null || true
-      sudo flatpak update --noninteractive 2>/dev/null || true
-    else
-      printf "⚠️  Flatpak setup failed and no sudo permissions available.\n"
-    fi
-  fi
-}
-
 ### 🚀 Run All ###
 main() {
   create_directories

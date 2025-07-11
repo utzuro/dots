@@ -20,7 +20,7 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
-  nixpkgs.config.cudaSupport = true;
+  # nixpkgs.config.cudaSupport = true;
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
     # cudaPackages.cuda_cccl

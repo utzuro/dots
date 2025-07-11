@@ -19,11 +19,11 @@
 
   environment.systemPackages = with pkgs; [
 
-    (retroarch.withCores (cores: with cores; [
-      genesis-plus-gx
-      snes9x
-      beetle-psx-hw
-    ]))
+    # (retroarch.withCores (cores: with cores; [
+    #   genesis-plus-gx
+    #   snes9x
+    #   beetle-psx-hw
+    # ]))
 
     steamcmd steam-run protontricks
     heroic lutris bottles
@@ -58,7 +58,7 @@
 
     dosbox-staging
     dolphin-emu
-    retroarch-full
+    # retroarch-full
     yabause # sega saturn
     flycast # sega dreamcast
     atari800
@@ -108,11 +108,11 @@
     rigsofrods-bin
 
     # engine recreations
-    vcmi fheroes2
-    openrct2 openra
-    openttd openxcom
-    openmw exult
-    fallout-ce #fallout2-ce
-    openjk theforceengine
+    vcmi #fheroes2
+    # openrct2 openra
+    # openttd openxcom
+    # openmw exult
+    #fallout-ce #fallout2-ce
+    #openjk theforceengine
   ];
 }
