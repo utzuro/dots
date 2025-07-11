@@ -16,7 +16,7 @@ fi
 cli_packages=(
   vim git tmux ranger rsync wget curl file
   neovim ack ripgrep fzf fd-find duf peco progress jq moreutils bat
-  unzip zip gzip xz-utils atool zstd lz4 lzip lzo lzop rar unar p7zip-full
+  unzip zip gzip xz-utils atool zstd lz4 lzip rar unar p7zip-full
   ncdu usbutils htop iotop bc ledger taskwarrior timewarrior inotify-tools
   cmake llvm clang clang-tools build-essential make gdb universal-ctags
   python3-pip python3-setuptools python3-wheel
@@ -24,7 +24,7 @@ cli_packages=(
   sqlite3 postgresql redis
   screen minicom picocom tio
   meson libnotify-bin graphviz imagemagick ffmpeg mkvtoolnix pdftk poppler-utils foremost
-  mpd mpc ncmpcpp mpv yt-dlp rtorrent tuir mediainfo
+  mpd mpc ncmpcpp mpv yt-dlp rtorrent mediainfo
 )
 
 # Update system
