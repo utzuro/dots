@@ -59,8 +59,6 @@ in
     pam.loginLimits = [ { domain = "@users"; item = "rtprio"; type = "-"; value = 1; } ];
   };
 
-
-
   environment.systemPackages = with pkgs; [
     (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
     firejail clamav

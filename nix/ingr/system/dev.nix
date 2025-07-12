@@ -37,8 +37,7 @@
     ghc cabal-install stack
     ocaml dune_3
 
-    # web
-    nodejs yarn php
+
     typescript typescript-language-server eslint
 
     # other
@@ -56,8 +55,8 @@
     lnav
     postman
     
-    # AI
-    ollama claude-code #openvino
+    # ml tools
+    claude-code 
 
     # DB
     sqlite postgresql redis pgcli 

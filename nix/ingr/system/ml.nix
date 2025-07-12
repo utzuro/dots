@@ -5,6 +5,9 @@
     tesseract
     ocrmypdf
 
+    ollama 
+    openvino
+
     # deps
     onnxruntime.dev
   ];

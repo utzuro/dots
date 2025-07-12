@@ -9,7 +9,7 @@
   services.timesyncd.enable = true;
 
   services.openssh.enable = true;
-  services.resolved.enable = true;
+  # services.resolved.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -38,7 +38,7 @@
     wireshark tshark
   ];
 
-  environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
+  # environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;

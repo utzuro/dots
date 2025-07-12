@@ -7,7 +7,7 @@ let
     "com.github.copilot"
     "dev.turingcomplete.intellijdevelopertoolsplugins"
     "com.intellij.ml.llm"
-    "org.jetbrains.junie"
+    # "org.jetbrains.junie"
 
     # tools
     "IdeaVIM"
@@ -39,10 +39,6 @@ let
     "org.intellij.plugins.postcss"
     # "org.intellij.css"
     "org.jetbrains.plugins.vue"
-
-    # andoird support
-    # "Dart"
-    # "io.flutter"
   ];
 
 in {
