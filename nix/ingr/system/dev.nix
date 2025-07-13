@@ -5,7 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     # tools
-    xc
+    xc nodejs
 
     # go
     go gopls gotags #gomod2nix
