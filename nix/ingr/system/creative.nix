@@ -6,7 +6,7 @@
     ffmpegthumbnailer 
 
     # books
-    # calibre 
+    calibre 
 
     # images
     # gimp-with-plugins 

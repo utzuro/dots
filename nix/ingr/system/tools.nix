@@ -14,5 +14,6 @@
 
     # extra
     woeusb # to create Windows USB installer
+    ventoy-full
   ];
 }

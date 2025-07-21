@@ -77,6 +77,7 @@
     acpi lm_sensors sysprof
     alsa-utils coppwr helvum pwvucontrol
     wireplumber easyeffects
+    dmidecode sysbench
 
     # network
     wget curl rsync
