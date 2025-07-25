@@ -5,6 +5,10 @@ echo
 echo "⌛... Installing all the packages for Ubuntu... 🖳"
 DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
 
+# Setup input
+echo "⌨️ Setting up input sources..."
+gsettings set org.gnome.desktop.input-sources xkb-options "['grp:caps_toggle']"
+
 # Detect WSL
 is_wsl=false
 if grep -qiE "(microsoft|wsl)" /proc/version; then
@@ -46,28 +50,6 @@ sudo apt update && sudo apt upgrade -y
 echo
 echo "🔧 Installing CLI packages..."
 sudo apt install -y "${cli_packages[@]}"
-
-# GUI prompt (if not WSL)
-if [[ "$is_wsl" == false ]]; then
-  read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀  " gui
-  if [[ "$gui" == "y" ]]; then
-    echo "🖼 Installing GUI packages..."
-    sudo apt install -y "${gui_packages[@]}"
-
-    read -rp "🖥️ Do you want to install a window manager? (i3/sway/hyprland) (y/N) 👀 " wm
-    if [[ "$wm" == "y" ]]; then
-      echo "🪟 Installing window manager packages..."
-      sudo apt install -y "${wm_packages[@]}"
-    fi
-
-    read -rp "🎮 Is this a gaming PC? (y/N) 👀 " game
-    if [[ "$game" == "y" ]]; then
-        sudo apt install software-properties-common apt-transport-https curl -y
-        sudo dpkg --add-architecture i386
-        sudo apt update
-    fi
-  fi
-fi
 
 # Fix command name differences
 echo "🔗 Creating compatibility symlinks (if needed)..."
@@ -153,6 +135,30 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest || true
 go install github.com/fatih/gomodifytags@latest || true
 go install github.com/josharian/impl@latest || true
 go install github.com/rogpeppe/godef@latest || true
+
+
+# GUI prompt (if not WSL)
+if [[ "$is_wsl" == false ]]; then
+  read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀  " gui
+  if [[ "$gui" == "y" ]]; then
+    echo "🖼 Installing GUI packages..."
+    sudo apt install -y "${gui_packages[@]}"
+
+    read -rp "🖥️ Do you want to install a window manager? (i3/sway/hyprland) (y/N) 👀 " wm
+    if [[ "$wm" == "y" ]]; then
+      echo "🪟 Installing window manager packages..."
+      sudo apt install -y "${wm_packages[@]}"
+    fi
+
+    read -rp "🎮 Is this a gaming PC? (y/N) 👀 " game
+    if [[ "$game" == "y" ]]; then
+        sudo apt install software-properties-common apt-transport-https curl -y
+        sudo dpkg --add-architecture i386
+        sudo apt update
+        flatpak install com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+    fi
+  fi
+fi
 
 echo
 echo "✅ Ubuntu package installation complete!"
