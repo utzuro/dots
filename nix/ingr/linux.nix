@@ -14,7 +14,6 @@
       ./system/system.nix
       ./system/user.nix
       ./system/security.nix
-      ./system/network.nix
       ./system/video.nix
       ./system/virtualization.nix
     ];

@@ -31,6 +31,7 @@ case "$distro_id" in
     echo "🚀 Starting Arch Linux setup..."
     bash "$PKG_DIR/archlinux.sh"
     ;;
+  # don't install any packages if nix is enabled
   ubuntu|debian)
     echo "🚀 Starting Ubuntu/Debian setup..."
     bash "$PKG_DIR/ubuntu.sh"

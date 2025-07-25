@@ -20,7 +20,8 @@
     rsync zsync
     usbutils 
     # monitoring
-    zenith-nvidia htop iotop ddgr bottom hwinfo pciutils psmisc
+    zenith-nvidia htop iotop bottom 
+    hwinfo pciutils psmisc ddgr 
     bc numbat #cava 
     ledger bc libqalculate 
     taskwarrior3 timewarrior

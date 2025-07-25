@@ -140,8 +140,11 @@ main() {
   setup_scripts_repo
   link_dotfiles
   link_images
-  setup_ssh
   manual_shell_and_tools
+  setup_ssh
+  # for non NixOS only
+  command -v zsh | sudo tee -a /etc/shells
+  sudo chsh -s "$(command -v zsh)" "${USER}"
   printf "\n🔥 Shell tools installation complete! 🔥\n"
 }
 

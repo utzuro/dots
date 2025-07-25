@@ -82,19 +82,13 @@
           ./ingr/system/boot.nix
           ./ingr/linux.nix 
           ./ingr/pkgs.nix
-          ./ingr/extra.nix 
+          ./ingr/pkgs-dev.nix
+          ./ingr/pkgs-network.nix
+          ./ingr/pkgs-extra.nix 
           ./ingr/wm.nix
           ./ingr/pc.nix 
         ];
         specialArgs = { inherit system inputs; }; 
-
-        # TODO: create options
-        # video.nvidia.enable = true;
-        # gaming.extra = true; # TODO: move gaming from the HM
-
-        # wm.hyprland.enable = true;
-        # wm.kde.enable = true;
-        # wm.i3.enable = true;
       };
 
       msi = let 
@@ -103,10 +97,10 @@
         }; in lib.nixosSystem {
         modules = [ 
           ./ingr/system/boot.nix
-          # ./ingr/system/corporate.nix
+          ./ingr/system/corporate.nix
           ./ingr/linux.nix 
-          # ./ingr/pkgs.nix
-          # ./ingr/extra.nix 
+          ./ingr/pkgs.nix
+          ./ingr/extra.nix 
           ./ingr/wm.nix
           ./ingr/workstation.nix
         ];
@@ -118,7 +112,12 @@
           inherit arch; host = "zeni"; storageDriver = "btrfs";
         }; in lib.nixosSystem {
         modules = [ 
-          ./ingr/general.nix
+          ./ingr/system/boot.nix
+          ./ingr/system/corporate.nix
+          ./ingr/linux.nix 
+          ./ingr/pkgs.nix
+          ./ingr/extra.nix 
+          ./ingr/wm.nix
           ./ingr/laptop.nix 
         ];
         specialArgs = { inherit system inputs; }; 
@@ -129,7 +128,12 @@
           inherit arch; host = "x240"; storageDriver = "btrfs";
         }; in lib.nixosSystem {
         modules = [ 
-          ./ingr/general.nix
+          ./ingr/system/boot.nix
+          ./ingr/system/corporate.nix
+          ./ingr/linux.nix 
+          ./ingr/pkgs.nix
+          ./ingr/extra.nix 
+          ./ingr/wm.nix
           ./ingr/low-laptop.nix 
         ];
         specialArgs = { inherit system inputs; }; 
@@ -148,24 +152,34 @@
         inherit pkgs;
         modules = [ 
           ./ingr/home.nix 
+          ./ingr/home-dev.nix 
+          ./ingr/home-extra.nix 
+          ./ingr/home-gui.nix 
+          ./ingr/home-theme.nix 
+          ./ingr/home/wm.nix
+          ./ingr/home-gaming.nix 
           inputs.stylix.homeModules.stylix 
         ];
         extraSpecialArgs = { inherit user inputs; };
       };
-
-      v = let user = {
+    };
+    homeConfigurations = { 
+      backupFileExtension = "backup";
+      # use the same user name, but different configurations for different machines
+      ubuntu = let user = { 
         name = "void"; 
         email = "utzuro@pm.me"; 
       };
-        in home-manager.lib.homeManagerConfiguration {
+      in home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
-          ./ingr/home-minimal.nix 
+          ./ingr/home.nix 
+          ./ingr/home-dev.nix 
+          ./ingr/home-theme.nix 
           inputs.stylix.homeModules.stylix 
         ];
         extraSpecialArgs = { inherit user inputs; };
       };
-
     };
   };
 }

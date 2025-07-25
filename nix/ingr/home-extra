@@ -1,0 +1,27 @@
+{ config, pkgs, user, inputs, ... }:
+
+let 
+  homeDir = "/home/"+user.name;
+in {
+
+  home.username = user.name;
+  home.homeDirectory = homeDir;
+
+  imports = [
+
+    ./home/dev-gui.nix
+
+    ./home/browser.nix
+    ./home/media-extra.nix
+
+    ./home/theme.nix
+
+    ./home/wm/hyprland.nix
+    ./home/wm/i3.nix
+
+  ];
+
+  programs.home-manager.enable = true;
+  home.stateVersion = "23.11";
+}
+

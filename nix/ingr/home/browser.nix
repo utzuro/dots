@@ -11,6 +11,10 @@
     }) 
   ]; 
 
+  programs.chromium = {
+    enable = true;
+  };
+
   programs.qutebrowser = {
     enable = true;
     settings = {

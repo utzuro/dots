@@ -9,4 +9,8 @@
   };
 
   home.file.".config/i3/config".source = ~/dots/config/i3/config;
+
+  home.packages = with pkgs; [
+    arandr
+  ];
 }

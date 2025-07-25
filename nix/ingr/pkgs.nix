@@ -3,23 +3,17 @@
 # on first install enable unstable channel
 # `nix-channel --add https://nixos.org/channels/nixos-unstable nixos`
 
-{ lib, pkgs, system, inputs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports =
     [ 
-      ./system/basic-sh.nix
+      ./system/sh.nix
+      ./system/sh-rich.nix
+      ./system/sh-games.nix
       ./system/fonts.nix 
-      ./system/rich-sh.nix
-      ./system/games-sh.nix
       ./system/comms.nix
       ./system/media.nix
-      ./system/dev.nix
-      ./system/ml.nix
-      ( import ./system/containers.nix {
-        inherit pkgs lib system;
-      })
-
     ];
 
     programs.adb.enable = true;

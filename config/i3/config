@@ -32,7 +32,7 @@ bindsym $alt+s exec xfce4-terminal -e "safe-suspend.sh"
 bindsym $super+shift+x exec i3lock -t -i ~/m/i/wallpapers/820012.png -e
 bindsym $super+space exec rofi -show run calc
 bindsym $super+s exec rofi-search 
-bindsym $super+Shift+q kill
+bindsym $super+q kill
 bindsym $super+Shift+e exec i3-msg exit
 bindsym $super+Shift+r restart
 

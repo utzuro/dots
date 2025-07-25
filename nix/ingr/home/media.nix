@@ -2,6 +2,65 @@
 
 {
 
+  home.packages = with pkgs; [
+    # CLI
+    mpd mpc-cli ncmpcpp
+    sxiv feh
+
+    ## docs
+    w3m asciidoctor pandoc 
+
+    ## img
+    nsxiv feh
+    imagemagick ffmpeg mkvtoolnix
+
+    ## pdf
+    pdftk qpdf poppler-utils 
+    # recovering
+    foremost
+
+    ## audio
+    mpd mpc-cli ncmpcpp kew
+    cozy
+
+    ## video
+    yt-dlp pipe-viewer wget
+
+    ## web
+    rtorrent
+    tuir
+
+    ## legacy
+    libdvdcss libdvdread # dvd
+
+    ## other
+    mediainfo 
+
+#---------------------------------------------------
+
+    # GUI
+
+    ## docs
+    zathura 
+    pandoc
+    libreoffice-fresh drawio
+
+    ## writing
+    neovide 
+    (obsidian.override {
+      commandLineArgs = 
+      "--ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --disable-gpu-compositing";
+    })
+
+    ## video
+    vlc
+
+    ## web
+    qbittorrent-enhanced
+
+
+  ];
+
   nixpkgs.overlays = [
     (self: super: {
       mpv = super.mpv.override {
@@ -27,10 +86,6 @@
       "ctrl+r" = "vf toggle lutyuv=y=negval";
     };
   };
-
-  home.packages = with pkgs; [
-    mpd mpc-cli ncmpcpp
-  ];
 
   home.file.".config/ncmpcpp/config".text = ''
     def_key "l"
