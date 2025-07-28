@@ -122,6 +122,8 @@ done
 sudo apt install flatpak
 sudo apt install gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install anki
+flatpak install vcmi
 echo "📦 Flatpak is set up!"
 
 # Go-based tools

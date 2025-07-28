@@ -10,4 +10,4 @@ export ALLOW_UNSAFE=1
 ./ingr/cleanup 
 
 # Buld the new home-manager configuration
-home-manager build --flake .#void switch --verbose --impure --extra-experimental-features nix-command --extra-experimental-features flakes
+home-manager build --flake .#ubuntu switch --verbose --impure --extra-experimental-features nix-command --extra-experimental-features flakes

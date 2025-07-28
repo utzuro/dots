@@ -21,3 +21,7 @@ inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 inoremap : :<C-g>u
 
+" Disable F1 in normal and insert mode
+nnoremap <F1> <Nop>
+inoremap <F1> <Nop>
+vnoremap <F1> <Nop>

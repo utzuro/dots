@@ -8,13 +8,15 @@
 
   home.packages = with pkgs; [
     # tools
-    xc nodejs
+    xc 
+    httpie
 
     # go
     go gopls gotags #gomod2nix
     gofumpt golangci-lint revive
     sqlc delve buf
     vips protobuf
+    protoc-gen-go protoc-gen-go-grpc
 
     # rust
     rustup
@@ -33,15 +35,18 @@
     ccls ctags
 
     # ruby
-    ruby
+    ruby ruby-lsp
 
     # functional
     nixpkgs-fmt nil
     ghc cabal-install stack
     ocaml dune_3
+    elixir erlang
 
 
+    # web
     typescript typescript-language-server eslint
+    nodejs yarn pnpm deno
 
     # other
     lua dart ghostscript

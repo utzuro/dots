@@ -18,10 +18,8 @@ in {
 
     ./home/sh.nix 
     ./home/sh-games.nix 
-    # ./home/fonts.nix
-    # ./home/media.nix
-    # ./home/comms.nix
-
+    ./home/media.nix
+    
   ];
 
   programs.home-manager.enable = true;

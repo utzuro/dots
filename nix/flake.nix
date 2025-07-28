@@ -162,9 +162,6 @@
         ];
         extraSpecialArgs = { inherit user inputs; };
       };
-    };
-    homeConfigurations = { 
-      backupFileExtension = "backup";
       # use the same user name, but different configurations for different machines
       ubuntu = let user = { 
         name = "void"; 
@@ -175,7 +172,7 @@
         modules = [ 
           ./ingr/home.nix 
           ./ingr/home-dev.nix 
-          ./ingr/home-theme.nix 
+      #    ./ingr/home-theme.nix 
           inputs.stylix.homeModules.stylix 
         ];
         extraSpecialArgs = { inherit user inputs; };
