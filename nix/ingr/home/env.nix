@@ -19,14 +19,22 @@
     STARDICT_DATA_DIR = "$manuscripts/ingredients/dicts/dic";
     LEDGER = "$HOME/alchemy/manuscripts/ledger/main.ledger";
     ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
+
+    # DEV
+    # Go
     GOPATH = "$HOME/go";
     GOPRIVATE="github.com/*";
-    CHROME_EXECUTABLE="chrome";
+    # Android
+    CHROME_EXECUTABLE="chromium";
+    ANDROID_HOME="$HOME/Android/Sdk";
+    ANDROID_SDK_ROOT="$HOME/Android/Sdk";
+    PATH="$HOME/alchemy/ingredients/flutter/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH";
 
     NIXPKGS_ALLOW_INSECURE = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
 
     QT_FONT_DPI = "204";
+
   };
 
   home.file.".profile".text = ''

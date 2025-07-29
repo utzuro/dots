@@ -43,13 +43,8 @@ case "$distro_id" in
 esac
 
 # --- 2. Run dotfile/shell/config installer ---
-if [[ -f "$PKG_DIR/shell.sh" ]]; then
-  echo
-  echo "🪄 Running shell config installer..."
-  bash "$PKG_DIR/shell.sh"
-else
-  echo "⚠️  No shell_install.sh found in $PKG_DIR. Skipping."
-fi
+echo "🪄 Running shell config installer..."
+bash "$PKG_DIR/shell.sh"
 
 echo
 echo "✅ Bootstrap complete!"
