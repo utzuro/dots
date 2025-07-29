@@ -1,0 +1,16 @@
+[Unit]
+Description=Start Fcitx5 input method framework
+
+[Service]
+ExecStart=/usr/bin/fcitx5
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
+# Note for Japanese input:
+# Use US input as first, and mozc as second.
+# Both F1 & F2 for "trigger input method".
+# Switch to english before triggering.
+# Don't setup any environment variables, it should work properly out of the box.
+# Electron apps ignore fcitx5 if you don't restart this service after they start.

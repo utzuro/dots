@@ -106,9 +106,6 @@ in {
    initContent = ''
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-    # Enable ibus compatibility for fcitx5
-    GLFW_IM_MODULE="ibus kitty";
-
     HYPHEN_INSENSITIVE="true"
     ENABLE_CORRECTION="true"
 

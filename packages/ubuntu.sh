@@ -31,6 +31,8 @@ cli_packages=(
   mpd mpc ncmpcpp mpv yt-dlp rtorrent mediainfo
   libfuse2
   cmatrix cowsay
+  # input
+  fcitx5 fcitx5-unikey fcitx5-configtool
 )
 
 gui_packages=(
@@ -137,6 +139,11 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest || true
 go install github.com/fatih/gomodifytags@latest || true
 go install github.com/josharian/impl@latest || true
 go install github.com/rogpeppe/godef@latest || true
+
+# Setup services
+mkdir -p ~/.config/systemd/user/
+ln -sfv "$DIR/../config/systemd/user/fcitx5.service" ~/.config/systemd/user/
+systemctl --user enable --now fcitx5.service
 
 
 # GUI prompt (if not WSL)
