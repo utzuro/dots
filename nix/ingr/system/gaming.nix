@@ -3,6 +3,7 @@
 {
   imports = [
     ./steam.nix
+    ./game-server.nix
     # ./minecraft.nix
   ];
 
