@@ -23,11 +23,10 @@
 
     ## video
     mpv 
-    yt-dlp pipe-viewer wget
+    yt-dlp pipe-viewer wget2
 
     ## web
-    rtorrent
-    tuir
+    rtorrent tuir monolith
 
     ## legacy
     libdvdcss libdvdread # dvd

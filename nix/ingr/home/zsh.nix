@@ -8,6 +8,7 @@ let
     ls = "eza";
     tree = "eza --tree";
     cat = "bat";
+    wget = "wget2";
     todo = "vim ~/todo";
     mpv = "mpv --alang=jpn";
     yt = "yt-dlp --no-playlist";

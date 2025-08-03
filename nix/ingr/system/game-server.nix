@@ -11,6 +11,7 @@
   # Quake, Doom, UT, Xonotic
   # OpenRA
   # 0 A.D. 
+  # Mage (xmage)
 
   # Voice chat server
 
