@@ -43,13 +43,15 @@
     ocaml dune_3
     elixir erlang
 
-
     # web
     typescript typescript-language-server eslint
     nodejs yarn pnpm deno
 
+    # android
+    # flutter
+
     # other
-    lua dart ghostscript
+    lua ghostscript
 
     # network
     gource

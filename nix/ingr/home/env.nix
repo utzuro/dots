@@ -24,7 +24,7 @@
     # Go
     GOPATH = "$HOME/go";
     GOPRIVATE="github.com/*";
-    # Android
+    # Flutter
     CHROME_EXECUTABLE="chromium";
     ANDROID_HOME="$HOME/Android/Sdk";
     ANDROID_SDK_ROOT="$HOME/Android/Sdk";
