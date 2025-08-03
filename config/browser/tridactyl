@@ -5,6 +5,7 @@ set searchurls.yt https://www.youtube.com/results?search_query=%s
 set searchurls.wiki https://www.wikipedia.org/w/index.php?search=%s
 set searchurls.az https://www.amazon.co.jp/s?k=%s
 set searchurls.nix https://search.nixos.org/packages?query=%s
+set searchurls.mynix https://mynixos.com/search?q=%s
 set searchurls.go https://pkg.go.dev/search?q=ptrutil&m=%s
 set searchurls.dj https://docs.djangoproject.com/en/5.1/search/?q=%s
 set searchurls.py https://docs.python.org/3/search.html?q=%s

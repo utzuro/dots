@@ -16,7 +16,7 @@ if grep -qiE "(microsoft|wsl)" /proc/version; then
   is_wsl=true
 fi
 
-# Valid APT packages only
+# No need when home-manager is used
 cli_packages=(
   vim zsh git tmux ranger rsync wget curl file
   neovim ack ripgrep eza fzf fd-find duf peco progress jq moreutils bat
@@ -48,6 +48,7 @@ wm_packages=(
 
 # Update system
 sudo apt update && sudo apt upgrade -y
+rustup default stable
 
 echo
 echo "🔧 Installing CLI packages..."
