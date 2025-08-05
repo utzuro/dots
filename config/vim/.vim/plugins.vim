@@ -68,8 +68,6 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'ledger/vim-ledger'
 
-" Run :PlugInstall to install the plugin.
-
 " gamedev
 Plug 'habamax/vim-godot'
 
