@@ -1,6 +1,10 @@
 { pkgs, ...}:
 
 {
+  imports = [
+    ./shared.nix
+    ./autorandr.nix
+  ];
   services.xserver = {
     enable = true;
     xkb = {

@@ -1,6 +1,9 @@
 { pkgs, lib, ...}:
 
 {
+  imports = [
+    ./shared.nix
+  ];
   security = {
     pam.services.swaylock = {
       text = ''

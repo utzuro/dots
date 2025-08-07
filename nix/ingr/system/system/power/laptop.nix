@@ -1,3 +1,4 @@
+# Power settings that try to keep battery alive as much as possible
 { config, pkgs, ...}:
 
 {

@@ -1,3 +1,4 @@
+# Power settings that balance between performance and battery life
 { pkgs, ...}:
 
 {

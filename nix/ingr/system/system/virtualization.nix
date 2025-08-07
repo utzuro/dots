@@ -2,6 +2,10 @@
 
 {
 
+  imports = [
+    ./lib/fhs.nix
+  ];
+
   virtualisation = {
 
     # xen.enable = true;

@@ -1,3 +1,4 @@
+# make user name configurable
 { pkgs, ... }:
 
 {

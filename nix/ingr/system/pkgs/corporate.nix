@@ -1,14 +1,11 @@
 { pkgs, ...}:
 
 {
-  environment.systemPackages = with pkgs; [
+    services.intune.enable = true;
 
-    signal-desktop 
-    discord vesktop
-    telegram-desktop
+    environment.systemPackages = with pkgs; [
 
-    element-desktop fractal
-    # threema-desktop
+    intune-portal
 
     slack slack-term
     matterbridge matterircd
@@ -18,4 +15,5 @@
     zoom-us
 
   ];
+
 }

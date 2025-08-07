@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./x.nix
+  ];
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./x11.nix
+    ./x.nix
   ];
 
   services.xserver = {

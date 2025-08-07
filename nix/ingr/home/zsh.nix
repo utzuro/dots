@@ -86,6 +86,7 @@ in {
     oh-my-zsh = {
       enable = true;
       plugins = [ 
+        "aws"
         "git" "gitignore" 
         "colored-man-pages" 
         "command-not-found" 

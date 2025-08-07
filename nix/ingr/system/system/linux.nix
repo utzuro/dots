@@ -8,10 +8,15 @@
 {
   imports =
     [ 
-      ./system/wm/shared.nix
-      ./system/wm/hyprland.nix
-      ./system/wm/i3.nix
-      ./system/wm/sway.nix
-      ./system/wm/kde.nix
+      ../machines/${system.host}/hardware-configuration.nix
+
+      # config
+      ./system/lib/boot.nix
+      ./system/lib/system.nix
+      ./system/lib/user.nix
+      ./system/lib/security.nix
     ];
+
+  system.copySystemConfiguration = false;
+  system.stateVersion = "23.11";
 }

@@ -1,3 +1,4 @@
+# Make sure to seperate settings between wayland based gnome and X one.
 { pkgs, ...}:
 
 {
