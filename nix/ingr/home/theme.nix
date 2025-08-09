@@ -10,8 +10,8 @@
     enable = true;
 
     polarity = "dark";
-    base16Scheme = ./theme.yaml;
-    image = ./i/background.png;
+    base16Scheme = ./lib/theme.yaml;
+    image = ./lib/i/background.png;
 
     opacity = {
       applications = 0.8;
@@ -56,6 +56,7 @@
         popups = 12;
       };
 
+      # doesn't work for some reason
       # monospace = {
       #   package = pkgs.monaspace;
       #   # name = "Monaspace Krypton";

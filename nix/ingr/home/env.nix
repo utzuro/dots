@@ -4,7 +4,7 @@
   home.sessionPath = [ "$HOME/scripts" ];
 
   imports = [
-    ./mimelist.nix
+    ./lib/mimelist.nix
   ];
 
   home.sessionVariables = {
@@ -29,6 +29,8 @@
     ANDROID_HOME="$HOME/Android/Sdk";
     ANDROID_SDK_ROOT="$HOME/Android/Sdk";
     PATH="$HOME/alchemy/ingredients/flutter/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH";
+    # IDE
+    PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts";
 
     NIXPKGS_ALLOW_INSECURE = "1";
     NIXPKGS_ALLOW_UNFREE = "1";

@@ -33,7 +33,16 @@ cli_packages=(
   cmatrix cowsay
   # input
   fcitx5 fcitx5-unikey fcitx5-configtool
+
+  # Furiganize
+  kakasi mecab mecab-naist-jdic-eucjp
 )
+
+# Needed even with home-manager on ubuntu
+extra_cli_packages=(
+  fonts-font-awesome
+)
+
 
 gui_packages=(
   kitty
@@ -53,6 +62,7 @@ rustup default stable
 echo
 echo "🔧 Installing CLI packages..."
 sudo apt install -y "${cli_packages[@]}"
+sudo apt install -y "${extra_cli_packages[@]}"
 
 # Fix command name differences
 echo "🔗 Creating compatibility symlinks (if needed)..."
@@ -127,7 +137,13 @@ sudo apt install gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install anki
 flatpak install vcmi
+flatpak install drawio
 echo "📦 Flatpak is set up!"
+
+# Install fonts
+echo "🖋 Installing fonts..."
+./install-fonts.sh
+fc-cache -fv
 
 # Go-based tools
 echo "📦 Installing Go-based dev tools..."

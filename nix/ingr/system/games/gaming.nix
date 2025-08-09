@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./steam.nix
-    ./game-server.nix
-    # ./minecraft.nix
+    ./lib/steam.nix
+    ./lib/game-server.nix
+    # ./lib/minecraft.nix
   ];
 
   hardware = {

@@ -79,30 +79,38 @@
           inherit arch; host = "voidpc"; storageDriver = "overlay2";
         }; in lib.nixosSystem {
         modules = [ 
+          # Only for NixOS
           ./ingr/system/system/linux.nix
-          ./ingr/system/system/wm/all.nix
           ./ingr/system/system/virtualization.nix
+          ./ingr/system/system/wm/all.nix
+          ./ingr/system/system/network/network.nix
+          ./ingr/system/system/network/vpn.nix
 
           ./ingr/system/system/power/pc.nix
           ./ingr/system/system/hardware/intel.nix
           ./ingr/system/system/hardware/video.nix
           ./ingr/system/system/hardware/nvidia.nix
           
+          ./ingr/system/corporate.nix
+
+          ./ingr/system/games/gaming.nix
+
+          # Below can be used on mac/wsl
+          ./ingr/system/fonts.nix
+
           ./ingr/system/sh/basic.nix
-          ./ingr/system/sh/rich.nix
+          ./ingr/system/sh/power.nix
+          ./ingr/system/sh/dev.nix
           ./ingr/system/sh/games.nix
 
+          ./ingr/system/gui/comms.nix
+          ./ingr/system/gui/media.nix
+          ./ingr/system/gui/learn.nix
+          ./ingr/system/gui/dev.nix
+          ./ingr/system/gui/creative.nix
 
-          # ./ingr/system/boot.nix
-          # ./ingr/linux.nix 
-          # ./ingr/pkgs.nix
-          # ./ingr/pkgs-dev.nix
-          # ./ingr/pkgs-network.nix
-          # ./ingr/pkgs-extra.nix 
-          # ./ingr/dev-extra.nix 
-          # ./ingr/wm.nix
-          # ./ingr/pc.nix 
         ];
+
         specialArgs = { inherit system inputs; }; 
       };
 
@@ -110,14 +118,7 @@
         system = {
           inherit arch; host = "x240"; storageDriver = "btrfs";
         }; in lib.nixosSystem {
-        modules = [ 
-          ./ingr/system/boot.nix
-          ./ingr/system/corporate.nix
-          ./ingr/linux.nix 
-          ./ingr/pkgs.nix
-          ./ingr/extra.nix 
-          ./ingr/wm.nix
-          ./ingr/low-laptop.nix 
+        modules = [
         ];
         specialArgs = { inherit system inputs; }; 
       };
@@ -134,28 +135,46 @@
       in home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
+
           ./ingr/home/home.nix 
-          ./ingr/home/home-dev.nix 
-          ./ingr/home/home-extra.nix 
-          ./ingr/home/home-gui.nix 
-          ./ingr/home/home-theme.nix 
-          ./ingr/home/home/wm.nix
-          ./ingr/home/home-gaming.nix 
+          ./ingr/home/env.nix 
+          ./ingr/home/theme.nix 
+          ./ingr/home/fonts.nix 
+
+          ./ingr/home/wm/all.nix
+
+          ./ingr/home/sh/basic.nix
+          ./ingr/home/sh/power.nix
+          ./ingr/home/sh/dev.nix
+          ./ingr/home/sh/games.nix
+
+          ./ingr/home/gui/browser.nix
+          ./ingr/home/gui/dev.nix
+
           inputs.stylix.homeModules.stylix 
         ];
+
         extraSpecialArgs = { inherit user inputs; };
       };
+
       # use the same user name, but different configurations for different machines
-      ubuntu = let user = { 
+      ubuntu = let user = {
         name = "void"; 
         email = "utzuro@pm.me"; 
       };
       in home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
-          ./ingr/home.nix 
-          ./ingr/home-dev.nix 
-          #./ingr/home-theme.nix 
+          ./ingr/home/home.nix 
+          ./ingr/home/env.nix 
+          # ./ingr/home/theme.nix 
+          # ./ingr/home/fonts.nix 
+
+          ./ingr/home/sh/basic.nix
+          ./ingr/home/sh/power.nix
+          # ./ingr/home/sh/dev.nix
+          # ./ingr/home/sh/games.nix
+
           inputs.stylix.homeModules.stylix 
         ];
         extraSpecialArgs = { inherit user inputs; };

@@ -16,9 +16,7 @@ in {
 
   imports = [
 
-    ./home/sh.nix 
-    ./home/sh-games.nix 
-    ./home/media.nix
+    # something essential?
     
   ];
 

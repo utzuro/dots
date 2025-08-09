@@ -1,0 +1,39 @@
+{ pkgs, ... }:
+
+{
+
+  imports = [
+    ./lib/tmux.nix
+    ./lib/zsh.nix
+    ./lib/lf.nix
+  ];
+
+  home.packages = with pkgs; [
+
+    # basic
+    vim git tmux
+    ranger
+    rsync wget curl
+    file
+
+    # core
+    neovim yazi
+    ack ripgrep ripgrep-all fzf fd
+    rsync zsync file
+    jq moreutils wget2
+    bat eza glow
+    peco progress
+    killall timer
+    duf
+
+    # media
+    ffmpeg imagemagick
+
+    # network
+    dhcpcd dialog wpa_supplicant wirelesstools
+    iproute2 iw ethtool libnatpmp busybox
+    ipcalc nmap tcpdump host dig
+    
+  ];
+
+}
