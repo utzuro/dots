@@ -2,97 +2,143 @@
 
 {
   imports =
-    [ 
-      ( import ./lib/containers.nix {
+    [
+      (import ./lib/containers.nix {
         inherit pkgs lib system;
       })
       ./lib/ml.nix
     ];
 
-    programs.adb.enable = true;
-    services.flatpak.enable = true;
+  programs.adb.enable = true;
+  services.flatpak.enable = true;
 
-    xdg.portal.wlr.enable = true;
-    environment.systemPackages = with pkgs; [
-      appimage-run
-    ];
+  xdg.portal.wlr.enable = true;
+  environment.systemPackages = with pkgs; [
+    appimage-run
+  ];
 
-    environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
 
-      # tools
-      xc nodejs httpie
+    # tools
+    xc
+    nodejs
+    httpie
 
-      # go
-      go gopls gotags #gomod2nix
-      gofumpt golangci-lint revive
-      sqlc delve buf
-      vips protobuf
-      protoc-gen-go protoc-gen-go-grpc
+    # go
+    go
+    gopls
+    gotags #gomod2nix
+    gofumpt
+    golangci-lint
+    revive
+    sqlc
+    delve
+    buf
+    vips
+    protobuf
+    protoc-gen-go
+    protoc-gen-go-grpc
 
-      # rust
-      rustup
-      cargo-edit cargo-watch
+    # rust
+    rustup
+    cargo-edit
+    cargo-watch
 
-      # python
-      (pkgs.python3.withPackages (
-        python-pkgs: with python-pkgs; [
-          pip setuptools wheel
-        ]))
-      uv nox
+    # python
+    (pkgs.python3.withPackages (
+      python-pkgs: with python-pkgs; [
+        pip
+        setuptools
+        wheel
+      ]
+    ))
+    uv
+    nox
 
-      # c/c++
-      cmake llvm clang clang-tools
-      ninja gnumake gdb
-      ccls ctags
+    # c/c++
+    cmake
+    llvm
+    clang
+    clang-tools
+    ninja
+    gnumake
+    gdb
+    ccls
+    ctags
 
-      # ruby
-      ruby ruby-lsp
+    # ruby
+    ruby
+    ruby-lsp
 
-      # functional
-      nixpkgs-fmt nil
-      ghc cabal-install stack
-      ocaml dune_3
-      elixir erlang
+    # functional
+    nixpkgs-fmt
+    nil
+    ghc
+    cabal-install
+    stack
+    ocaml
+    dune_3
+    elixir
+    erlang
 
-      # web
-      typescript typescript-language-server eslint
-      nodejs yarn pnpm deno
+    # web
+    typescript
+    typescript-language-server
+    eslint
+    nodejs
+    yarn
+    pnpm
+    deno
 
-      # android
-      flutter
+    # android
+    flutter
 
-      # other
-      lua ghostscript
+    # other
+    lua
+    ghostscript
 
-      # network
-      gource
+    # network
+    gource
 
-      # devops
-      tenv age 
-      kind kubectx kubectl
-      graphviz
-      minio-client awscli2 awsebcli
-      natscli
-      lnav
-      postman
-      
-      # ml tools
-      claude-code 
+    # devops
+    tenv
+    age
+    kind
+    kubectx
+    kubectl
+    graphviz
+    minio-client
+    awscli2
+    awsebcli
+    natscli
+    lnav
+    postman
 
-      # DB
-      sqlite postgresql redis pgcli 
+    # ml tools
+    claude-code
 
-      # hardware
-      avrdude
+    # DB
+    sqlite
+    postgresql
+    redis
+    pgcli
 
-      # system
-      diffutils findutils
-      patchelf
+    # hardware
+    avrdude
 
-      # embedded
-      screen minicom picocom tio bmaptool
+    # system
+    diffutils
+    findutils
+    patchelf
 
-    ];
+    # embedded
+    screen
+    minicom
+    picocom
+    tio
+    bmaptool
+
+  ];
 
 }
 

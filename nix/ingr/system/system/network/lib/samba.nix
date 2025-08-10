@@ -41,21 +41,21 @@
     };
   };
 
-services.samba-wsdd = {
-  enable = true;
-  openFirewall = true;
-};
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
+  };
 
-services.avahi = {
-  publish.enable = true;
-  publish.userServices = true;
-  # ^^ Needed to allow samba to automatically register mDNS records (without the need for an `extraServiceFile`
-  nssmdns4 = true;
-  # ^^ Not one hundred percent sure if this is needed- if it aint broke, don't fix it
-  enable = true;
-  openFirewall = true;
-};
+  services.avahi = {
+    publish.enable = true;
+    publish.userServices = true;
+    # ^^ Needed to allow samba to automatically register mDNS records (without the need for an `extraServiceFile`
+    nssmdns4 = true;
+    # ^^ Not one hundred percent sure if this is needed- if it aint broke, don't fix it
+    enable = true;
+    openFirewall = true;
+  };
 
-networking.firewall.enable = false;
-networking.firewall.allowPing = true;
+  networking.firewall.enable = false;
+  networking.firewall.allowPing = true;
 }

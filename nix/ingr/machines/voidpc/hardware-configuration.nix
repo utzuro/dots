@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.luks.devices = {
@@ -22,60 +23,70 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b1f2c704-09ee-4382-b2f6-9fe304e3832f";
+    {
+      device = "/dev/disk/by-uuid/b1f2c704-09ee-4382-b2f6-9fe304e3832f";
       fsType = "btrfs";
       options = [ "subvol=root" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/b1f2c704-09ee-4382-b2f6-9fe304e3832f";
+    {
+      device = "/dev/disk/by-uuid/b1f2c704-09ee-4382-b2f6-9fe304e3832f";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/b1f2c704-09ee-4382-b2f6-9fe304e3832f";
+    {
+      device = "/dev/disk/by-uuid/b1f2c704-09ee-4382-b2f6-9fe304e3832f";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/log" =
-    { device = "/dev/disk/by-uuid/b1f2c704-09ee-4382-b2f6-9fe304e3832f";
+    {
+      device = "/dev/disk/by-uuid/b1f2c704-09ee-4382-b2f6-9fe304e3832f";
       fsType = "btrfs";
       options = [ "subvol=log" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/mnt/seance" =
-    { device = "/dev/disk/by-uuid/360f587c-63c3-4161-894b-3ee9b5021fca";
+    {
+      device = "/dev/disk/by-uuid/360f587c-63c3-4161-894b-3ee9b5021fca";
       fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "nofail"];
+      options = [ "compress=zstd" "noatime" "nofail" ];
     };
 
   fileSystems."/mnt/summons" =
-    { device = "/dev/disk/by-uuid/829465d4-6783-4eb6-9f36-9abd3bcdfeb1";
+    {
+      device = "/dev/disk/by-uuid/829465d4-6783-4eb6-9f36-9abd3bcdfeb1";
       fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "nofail"];
+      options = [ "compress=zstd" "noatime" "nofail" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A8DA-E9CE";
+    {
+      device = "/dev/disk/by-uuid/A8DA-E9CE";
       fsType = "vfat";
     };
 
   fileSystems."/mnt/db" =
-    { device = "/dev/disk/by-uuid/AC1E8BBD1E8B7ED8";
+    {
+      device = "/dev/disk/by-uuid/AC1E8BBD1E8B7ED8";
       fsType = "ntfs3";
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
   fileSystems."/mnt/archive" =
-    { device = "/dev/disk/by-uuid/C0CA129FCA1291B0";
+    {
+      device = "/dev/disk/by-uuid/C0CA129FCA1291B0";
       fsType = "ntfs3";
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
   fileSystems."/mnt/zalot" =
-    { device = "/dev/disk/by-uuid/B43C9C923C9C516A";
+    {
+      device = "/dev/disk/by-uuid/B43C9C923C9C516A";
       fsType = "ntfs3";
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
@@ -87,34 +98,38 @@
   #  };
 
   fileSystems."/mnt/portal" =
-    { device = "/dev/disk/by-uuid/58AE3902AE38D9E8";
+    {
+      device = "/dev/disk/by-uuid/58AE3902AE38D9E8";
       fsType = "ntfs3";
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
   fileSystems."/mnt/darkarts" =
-    { device = "/dev/disk/by-uuid/E006CE2306CDFB14";
+    {
+      device = "/dev/disk/by-uuid/E006CE2306CDFB14";
       fsType = "ntfs3";
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
-   
+
   fileSystems."/mnt/archivum" =
-    { device = "/dev/disk/by-uuid/3A7C6B1B7C6AD0E5";
+    {
+      device = "/dev/disk/by-uuid/3A7C6B1B7C6AD0E5";
       fsType = "ntfs3";
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
   fileSystems."/mnt/awaw" =
-    { device = "/dev/disk/by-uuid/3E46DA2646D9DF29";
+    {
+      device = "/dev/disk/by-uuid/3E46DA2646D9DF29";
       fsType = "ntfs3";
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/356d8adc-29d3-4f3d-8966-7780968aab3c"; 
-        options = [ "noatime" ];
-      }
-    ];
+    [{
+      device = "/dev/disk/by-uuid/356d8adc-29d3-4f3d-8966-7780968aab3c";
+      options = [ "noatime" ];
+    }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

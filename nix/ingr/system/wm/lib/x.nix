@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -16,13 +16,15 @@
     };
   };
   services.libinput = {
-      enable = true;
-      touchpad.disableWhileTyping = true;
-    };
+    enable = true;
+    touchpad.disableWhileTyping = true;
+  };
 
   environment.systemPackages = with pkgs; [
-    xclip xdragon
-    sxiv feh
+    xclip
+    xdragon
+    sxiv
+    feh
   ];
 
   services = {

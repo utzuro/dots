@@ -1,16 +1,19 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
-    services.intune.enable = true;
+  services.intune.enable = true;
 
-    environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
 
     intune-portal
 
-    slack slack-term
-    matterbridge matterircd
+    slack
+    slack-term
+    matterbridge
+    matterircd
     # matterhorn # broken
-    mattermostLatest mattermost-desktop
+    mattermostLatest
+    mattermost-desktop
 
     zoom-us
 

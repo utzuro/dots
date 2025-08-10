@@ -17,7 +17,7 @@ let
     "com.intellij.ideolog"
     "idea.plugin.protoeditor"
     "com.intellij.lang.jsgraphql"
-    
+
     # cloud intergrations
     "org.jetbrains.plugins.github"
     "org.jetbrains.plugins.gitlab"
@@ -41,13 +41,16 @@ let
     "org.jetbrains.plugins.vue"
   ];
 
-in {
+in
+{
 
 
   environment.systemPackages = with pkgs; with plugins.lib."${system.arch}"; [
     jetbrains.jdk
 
-    vscode android-studio jetbrains.writerside
+    vscode
+    android-studio
+    jetbrains.writerside
 
     (buildIdeWithPlugins jetbrains "idea-ultimate" pluginList)
     (buildIdeWithPlugins jetbrains "goland" pluginList)

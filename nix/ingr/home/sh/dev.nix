@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
 
@@ -10,86 +10,131 @@
 
   home.packages = with pkgs; [
     # tools
-    xc 
+    xc
     httpie
 
     # go
-    go gopls gotags #gomod2nix
-    gofumpt golangci-lint revive
-    sqlc delve buf
-    vips protobuf
-    protoc-gen-go protoc-gen-go-grpc
+    go
+    gopls
+    gotags #gomod2nix
+    gofumpt
+    golangci-lint
+    revive
+    sqlc
+    delve
+    buf
+    vips
+    protobuf
+    protoc-gen-go
+    protoc-gen-go-grpc
 
     # rust
     rustup
-    cargo-edit cargo-watch
+    cargo-edit
+    cargo-watch
 
     # python
     (pkgs.python3.withPackages (
       python-pkgs: with python-pkgs; [
-        pip setuptools wheel
-      ]))
-    uv nox
+        pip
+        setuptools
+        wheel
+      ]
+    ))
+    uv
+    nox
 
     # c/c++
-    cmake llvm clang clang-tools
-    ninja gnumake gdb
-    ccls ctags
+    cmake
+    llvm
+    clang
+    clang-tools
+    ninja
+    gnumake
+    gdb
+    ccls
+    ctags
 
     # ruby
-    ruby ruby-lsp
+    ruby
+    ruby-lsp
 
     # functional
-    nixpkgs-fmt nil
-    ghc cabal-install stack
-    ocaml dune_3
-    elixir erlang
+    nixpkgs-fmt
+    nil
+    ghc
+    cabal-install
+    stack
+    ocaml
+    dune_3
+    elixir
+    erlang
 
     # web
-    typescript typescript-language-server eslint
-    nodejs yarn pnpm deno
+    typescript
+    typescript-language-server
+    eslint
+    nodejs
+    yarn
+    pnpm
+    deno
 
     # android
     # flutter
 
     # scripts
-    shfmt elvish
+    shfmt
+    elvish
 
     # other
-    lua ghostscript
+    lua
+    ghostscript
 
     # network
     gource
 
     # devops
-    tenv age 
-    kind kubectx kubectl
+    tenv
+    age
+    kind
+    kubectx
+    kubectl
     graphviz
-    minio-client awscli2 awsebcli
+    minio-client
+    awscli2
+    awsebcli
     natscli
     lnav
     postman
-    
+
     # ml tools
-    claude-code 
+    claude-code
 
     # DB
-    sqlite postgresql redis pgcli 
+    sqlite
+    postgresql
+    redis
+    pgcli
 
     # hardware
     avrdude
 
     # system
-    diffutils findutils
+    diffutils
+    findutils
     patchelf
 
     # embedded
-    screen minicom picocom tio bmaptool
+    screen
+    minicom
+    picocom
+    tio
+    bmaptool
 
   ];
 
   programs = {
-    
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -106,7 +151,15 @@
         };
       };
       extensions = with pkgs; [
-        gh-dash gh-f gh-s gh-i gh-poi gh-eco gh-cal gh-copilot gh2md
+        gh-dash
+        gh-f
+        gh-s
+        gh-i
+        gh-poi
+        gh-eco
+        gh-cal
+        gh-copilot
+        gh2md
       ];
     };
   };

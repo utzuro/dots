@@ -3,14 +3,30 @@
 {
   environment.systemPackages = with pkgs; [
     # archive
-    unzip zip gzip xz atool zstd lz4 lzip lzo lzop rar unar p7zip
+    unzip
+    zip
+    gzip
+    xz
+    atool
+    zstd
+    lz4
+    lzip
+    lzo
+    lzop
+    rar
+    unar
+    p7zip
 
     # tools
-    lfs lsd lsdvd ncdu
+    lfs
+    lsd
+    lsdvd
+    ncdu
     usbutils
     aaxtomp3
     inotify-tools
-    pistol vifm-full
+    pistol
+    vifm-full
 
     # media
     ffmpegthumbnailer
@@ -23,42 +39,65 @@
     pandoc
 
     # pdf
-    pdftk qpdf poppler-utils
+    pdftk
+    qpdf
+    poppler-utils
 
     # recovery
     foremost
 
     # audio
-    mpd mpc-cli ncmpcpp kew
+    mpd
+    mpc-cli
+    ncmpcpp
+    kew
 
     # video
-    yt-dlp pipe-viewer
+    yt-dlp
+    pipe-viewer
 
     # web
-    rtorrent tuir monolith
+    rtorrent
+    tuir
+    monolith
 
     # dict
-    tango sdcv
+    tango
+    sdcv
 
     # monitoring
-    zenith-nvidia htop iotop bottom
-    hwinfo pciutils psmisc ddgr
-    bc numbat
-    ledger libqalculate
-    taskwarrior3 timewarrior
+    zenith-nvidia
+    htop
+    iotop
+    bottom
+    hwinfo
+    pciutils
+    psmisc
+    ddgr
+    bc
+    numbat
+    ledger
+    libqalculate
+    taskwarrior3
+    timewarrior
 
     # net-analysis
     tshark
 
     # vpn
-    tor openvpn protonvpn-cli wireguard-tools
+    tor
+    openvpn
+    protonvpn-cli
+    wireguard-tools
     networkmanager-openvpn
 
     # legacy
-    libdvdcss libdvdread
+    libdvdcss
+    libdvdread
 
     # android
-    android-tools jmtpfs
+    android-tools
+    jmtpfs
 
     # extra
     woeusb

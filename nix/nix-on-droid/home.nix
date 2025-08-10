@@ -7,7 +7,7 @@
     { pkgs, ... }:
     {
       home.stateVersion = "24.05";
-      imports = [ 
+      imports = [
         ../ingr/home/sh.nix
         ../ingr/home/env.nix
         ../ingr/home/git.nix

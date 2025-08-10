@@ -1,4 +1,4 @@
-{ pkgs, lib, ...}:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -18,9 +18,18 @@
   environment.systemPackages = with pkgs;
     [
       wayland
-      wayland-protocols wayland-utils wlroots
-      wofi wev swww
-      grim grimblast slurp mako wl-clipboard swappy
+      wayland-protocols
+      wayland-utils
+      wlroots
+      wofi
+      wev
+      swww
+      grim
+      grimblast
+      slurp
+      mako
+      wl-clipboard
+      swappy
       cliphist
     ];
 }

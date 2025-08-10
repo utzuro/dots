@@ -8,11 +8,11 @@
       addons = with pkgs; [
         fcitx5-mozc
         fcitx5-gtk
-      ]; 
+      ];
       waylandFrontend = true;
       # plasma6Support = true; // default if plasma6.enable
       ignoreUserConfig = true;
-      settings.inputMethod = { 
+      settings.inputMethod = {
         "Groups/0" = {
           "Name" = "Default";
           "Default Layout" = "us";
@@ -30,8 +30,8 @@
           "0" = "Default";
         };
       };
-      quickPhrase = { 
-        smile = "（・∀・）"; 
+      quickPhrase = {
+        smile = "（・∀・）";
         angry = "(￣ー￣)";
       };
     };

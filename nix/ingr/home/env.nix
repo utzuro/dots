@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 
 {
   home.sessionPath = [ "$HOME/scripts" ];
@@ -23,12 +23,12 @@
     # DEV
     # Go
     GOPATH = "$HOME/go";
-    GOPRIVATE="github.com/*";
+    GOPRIVATE = "github.com/*";
     # Flutter
-    CHROME_EXECUTABLE="chromium";
-    ANDROID_HOME="$HOME/Android/Sdk";
-    ANDROID_SDK_ROOT="$HOME/Android/Sdk";
-    PATH="$PATH:$HOME/alchemy/ingredients/flutter/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$HOME/.local/share/JetBrains/Toolbox/scripts";
+    CHROME_EXECUTABLE = "chromium";
+    ANDROID_HOME = "$HOME/Android/Sdk";
+    ANDROID_SDK_ROOT = "$HOME/Android/Sdk";
+    PATH = "$PATH:$HOME/alchemy/ingredients/flutter/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$HOME/.local/share/JetBrains/Toolbox/scripts";
 
     NIXPKGS_ALLOW_INSECURE = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
@@ -37,6 +37,6 @@
   };
 
   home.file.".profile".text = ''
-  export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
-    '';
+    export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+  '';
 }

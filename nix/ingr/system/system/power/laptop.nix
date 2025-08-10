@@ -1,5 +1,5 @@
 # Power settings that try to keep battery alive as much as possible
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   boot = {
@@ -12,7 +12,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      cpufrequtils 
+      cpufrequtils
       cpupower-gui
       powerstat
       # tlp

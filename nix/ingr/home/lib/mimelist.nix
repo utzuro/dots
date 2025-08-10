@@ -7,7 +7,8 @@ let
   image-editor = "feh.desktop";
   book-viewer = "zathura.desktop";
   torrent = "qbittorrent.desktop";
-in {
+in
+{
   xdg.mimeApps = rec {
     enable = true;
     associations.added = defaultApplications;

@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 # Prepend Launch options for Steam games with:
 # - gamemode %command% too run optimizations
@@ -19,8 +19,8 @@
   };
   programs.gamemode.enable = true;
 
-  environment.systemPackages = with pkgs; [ steam vulkan-headers ntfs3g protonup ]; 
-  environment.sessionVariables = { 
+  environment.systemPackages = with pkgs; [ steam vulkan-headers ntfs3g protonup ];
+  environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS =
       "\${HOME}/.steam/root/compatibilitytools.d"; # for protonup to work
   };
@@ -29,9 +29,16 @@
     steam = pkgs.steam.override {
       extraPkgs = pkgs: with pkgs; [
         mangohud
-        xorg.libXcursor xorg.libXi xorg.libXinerama xorg.libXScrnSaver
-        libpng libpulseaudio libvorbis
-        stdenv.cc.cc.lib libkrb5 keyutils
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXinerama
+        xorg.libXScrnSaver
+        libpng
+        libpulseaudio
+        libvorbis
+        stdenv.cc.cc.lib
+        libkrb5
+        keyutils
       ];
     };
   };

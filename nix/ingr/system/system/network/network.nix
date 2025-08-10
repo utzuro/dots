@@ -1,4 +1,4 @@
-{ config, pkgs, system, ...}:
+{ config, pkgs, system, ... }:
 
 {
   imports = [
@@ -17,10 +17,10 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall = { 
+  networking.firewall = {
     enable = false;
     allowedUDPPorts = [ 27960 27961 27962 27963 ];
-    allowedTCPPorts = [ 80 443 8443];
+    allowedTCPPorts = [ 80 443 8443 ];
     allowedUDPPortRanges = [
       { from = 4000; to = 4007; }
       { from = 8000; to = 8010; }
@@ -28,7 +28,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    dhcpcd dialog wpa_supplicant wirelesstools
+    dhcpcd
+    dialog
+    wpa_supplicant
+    wirelesstools
   ];
 
   # environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";

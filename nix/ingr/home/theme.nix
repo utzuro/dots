@@ -21,7 +21,7 @@
     };
 
     cursor = {
-      package= pkgs.afterglow-cursors-recolored;
+      package = pkgs.afterglow-cursors-recolored;
       name = "Afterglow-Recolored-Dracula-Purple";
       size = 24;
     };

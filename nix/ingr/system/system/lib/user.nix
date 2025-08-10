@@ -16,12 +16,31 @@
     hashedPasswordFile = "../ingredients/system/env";
     uid = 1000;
     shell = pkgs.zsh;
-    extraGroups = [ 
-      "dialout" "adbusers" "audio" "corectrl" "disk" 
-      "input" "lp" "mongodb" "mysql" "network" "networkmanager" 
-      "postgres" "power" "scanner" "sound" "systemd-journal" 
-      "users" "video" "wheel" 
-      "podman" "docker" "kvm" "libvirtd" "vboxusers"
+    extraGroups = [
+      "dialout"
+      "adbusers"
+      "audio"
+      "corectrl"
+      "disk"
+      "input"
+      "lp"
+      "mongodb"
+      "mysql"
+      "network"
+      "networkmanager"
+      "postgres"
+      "power"
+      "scanner"
+      "sound"
+      "systemd-journal"
+      "users"
+      "video"
+      "wheel"
+      "podman"
+      "docker"
+      "kvm"
+      "libvirtd"
+      "vboxusers"
     ];
   };
   programs.zsh.enable = true;

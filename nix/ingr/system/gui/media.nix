@@ -1,32 +1,39 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
 
     # lit
-    calibre zathura pandoc
+    calibre
+    zathura
+    pandoc
 
     # img
-    nsxiv feh
+    nsxiv
+    feh
 
     # mu
-    amberol 
+    amberol
     cantata # mpd frontend
 
     # audio-books
     cozy
 
     ## video
-    vlc mpv
+    vlc
+    mpv
 
     # maps
-    qgis-ltr viking #marble 
-    
+    qgis-ltr
+    viking #marble 
+
     # transfer
     qbittorrent-enhanced
-    syncthing syncthingtray
-    filezilla libfilezilla
-    android-file-transfer 
+    syncthing
+    syncthingtray
+    filezilla
+    libfilezilla
+    android-file-transfer
 
   ];
 

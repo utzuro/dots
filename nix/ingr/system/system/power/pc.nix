@@ -1,5 +1,5 @@
 # Power settings that doesn't save any power
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   boot = {

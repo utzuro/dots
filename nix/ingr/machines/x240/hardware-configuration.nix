@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.luks.devices = {
@@ -20,43 +21,50 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
+    {
+      device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
       fsType = "btrfs";
       options = [ "subvol=root" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
+    {
+      device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
+    {
+      device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
+    {
+      device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
       fsType = "btrfs";
       options = [ "subvol=persist" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/log" =
-    { device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
+    {
+      device = "/dev/disk/by-uuid/ac07d0d4-298a-481a-8119-9009d257a6fc";
       fsType = "btrfs";
       options = [ "subvol=log" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8F53-0138";
+    {
+      device = "/dev/disk/by-uuid/8F53-0138";
       fsType = "vfat";
     };
 
   fileSystems."/archive" =
-    { device = "/dev/disk/by-uuid/2f3acb79-54c1-4a90-935c-424abcdcf98a";
+    {
+      device = "/dev/disk/by-uuid/2f3acb79-54c1-4a90-935c-424abcdcf98a";
       fsType = "btrfs";
       options = [ "compress=zstd" "noatime" ];
     };
@@ -64,8 +72,7 @@
   boot.initrd.luks.devices."storage".device = "/dev/disk/by-uuid/85431ee9-b726-4de3-931a-4cd685546e5a";
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/70278095-efac-45dc-80dd-63077223dfaa"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/70278095-efac-45dc-80dd-63077223dfaa"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

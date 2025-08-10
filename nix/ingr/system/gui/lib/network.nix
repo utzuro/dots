@@ -1,13 +1,15 @@
-{ config, pkgs, system, ...}:
+{ config, pkgs, system, ... }:
 
 {
   environment.systemPackages = with pkgs; [
 
     # vpn
-    networkmanager-openvpn networkmanagerapplet
+    networkmanager-openvpn
+    networkmanagerapplet
 
     # tools
-    wireshark tshark
+    wireshark
+    tshark
 
   ];
 }

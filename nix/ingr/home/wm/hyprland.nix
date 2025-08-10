@@ -1,10 +1,10 @@
-{ pkgs, lib, inputs, ...}:
+{ pkgs, lib, inputs, ... }:
 
 {
   imports = [
     inputs.hyprlux.homeManagerModules.default
   ];
-  
+
   services = {
     swww.enable = true;
   };
@@ -63,12 +63,19 @@
     pkgs.hyprlandPlugins.hypr-dynamic-cursors
   ];
 
-  home.packages = with pkgs; [ 
-    walker tofi foot
-    wlrctl wf-recorder
-    ags bun
-    woomer wvkbd hyprpicker
-    mpvpaper wlsunset
+  home.packages = with pkgs; [
+    walker
+    tofi
+    foot
+    wlrctl
+    wf-recorder
+    ags
+    bun
+    woomer
+    wvkbd
+    hyprpicker
+    mpvpaper
+    wlsunset
 
     hyprland-autoname-workspaces
     hyprland-monitor-attached
@@ -103,27 +110,28 @@
           strength = 100;
         }
       ];
-    }; 
+    };
 
     flameshot = {
-        enable = usrcfg.utility.capture.screen == "flameshot";
-        package = if config.core.graphic.server == "wayland"
-            then (pkgs.flameshot.override { enableWlrSupport = true; })
-            else pkgs.flameshot;
+      enable = usrcfg.utility.capture.screen == "flameshot";
+      package =
+        if config.core.graphic.server == "wayland"
+        then (pkgs.flameshot.override { enableWlrSupport = true; })
+        else pkgs.flameshot;
     };
 
     anyrun = {
       enable = true;
       config = {
         plugins = [
-        #   inputs.anyrun.packages.${pkgs.system}.applications
-        #   inputs.anyrun.packages.${pkgs.system}.stdin # dmenu
-        #   inputs.anyrun.packages.${pkgs.system}.dictionary
-        #   inputs.anyrun.packages.${pkgs.system}.rink
-        #   inputs.anyrun.packages.${pkgs.system}.shell
-        #   inputs.anyrun.packages.${pkgs.system}.symbols
-        #   inputs.anyrun.packages.${pkgs.system}.translate
-        #   inputs.anyrun.packages.${pkgs.system}.websearch
+          #   inputs.anyrun.packages.${pkgs.system}.applications
+          #   inputs.anyrun.packages.${pkgs.system}.stdin # dmenu
+          #   inputs.anyrun.packages.${pkgs.system}.dictionary
+          #   inputs.anyrun.packages.${pkgs.system}.rink
+          #   inputs.anyrun.packages.${pkgs.system}.shell
+          #   inputs.anyrun.packages.${pkgs.system}.symbols
+          #   inputs.anyrun.packages.${pkgs.system}.translate
+          #   inputs.anyrun.packages.${pkgs.system}.websearch
         ];
         x = { fraction = 0.5; };
         y = { fraction = 0.3; };
@@ -158,13 +166,13 @@
           text = "FFFFFFfa";
           prompt = "FFFFFFfa";
           placeholder = "FFFFFFfa";
-          selection-text= "FFFFFFfa";
+          selection-text = "FFFFFFfa";
           input = "FFFFFFfa";
           match = "FF00FFfa";
           selection-match = "FF00FFfa";
           counter = "FF00FFfa";
           background = "000000fa";
-          selection= "8A2BE2fa";
+          selection = "8A2BE2fa";
           border = "FF00FFfa";
         };
         # dmenu.exit-immediately-if-empty = true;

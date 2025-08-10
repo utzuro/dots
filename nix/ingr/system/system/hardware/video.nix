@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 {
 
@@ -6,17 +6,18 @@
 
     graphics = {
       enable = true;
-      enable32Bit = true; 
+      enable32Bit = true;
       extraPackages = with pkgs; [
         vpl-gpu-rt
         libvdpau-va-gl
-        libva libva-utils
+        libva
+        libva-utils
         vaapiVdpau
         vulkan-validation-layers
-      ]; 
+      ];
     };
 
-  }; 
+  };
 
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback

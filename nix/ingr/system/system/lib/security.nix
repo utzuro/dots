@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 
-let 
+let
   blocklist = builtins.readFile "${inputs.blocklist-repo}/alternates/fakenews-gambling-porn/hosts";
 in
 {
@@ -56,18 +56,19 @@ in
 
 
     # perf: allow any program to request real-time priority
-    pam.loginLimits = [ { domain = "@users"; item = "rtprio"; type = "-"; value = 1; } ];
+    pam.loginLimits = [{ domain = "@users"; item = "rtprio"; type = "-"; value = 1; }];
   };
 
   environment.systemPackages = with pkgs; [
     (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
-    firejail clamav
+    firejail
+    clamav
     opensnitch-ui
   ];
 
   networking.extraHosts = ''
     "${blocklist}"
-    '';
+  '';
 
   programs.firejail.wrappedBinaries = {
     steam = {

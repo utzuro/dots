@@ -1,18 +1,25 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs;
-  [
-    go rustup nodejs
+    [
+      go
+      rustup
+      nodejs
 
-    pyright
-    (pkgs.python3.withPackages (
-      python-pkgs: with python-pkgs; [ ] # no need for global pkgs yet
-    ))
+      pyright
+      (pkgs.python3.withPackages (
+        python-pkgs: with python-pkgs; [ ] # no need for global pkgs yet
+      ))
 
-    gopls sqlc ccls ctags gnumake
-    minio-client tenv
+      gopls
+      sqlc
+      ccls
+      ctags
+      gnumake
+      minio-client
+      tenv
 
-    nil
-  ];
+      nil
+    ];
 }

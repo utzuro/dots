@@ -18,47 +18,51 @@
 
   outputs = { nixpkgs, nix-darwin }@inputs:
 
-  let 
-    arch = "x86_64-linux"; 
-    lib = nix-darwin.lib;
-    pkgs = (import nixpkgs { 
-      system = arch; 
-      hostPlatform = arch;
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate = (_: true);
-      };
-    });
+    let
+      arch = "x86_64-linux";
+      lib = nix-darwin.lib;
+      pkgs = (import nixpkgs {
+        system = arch;
+        hostPlatform = arch;
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = (_: true);
+        };
+      });
 
-  in {
+    in
+    {
 
-    # Settings are different across the machines
-    nixosConfigurations = {
-      
-      darwinConfigurations."corp" = let
-        system = {
-          inherit arch; host = "corp"; 
-        }; in lib.darwinSystem {
-        modules = [ 
-          ./dev.nix
+      # Settings are different across the machines
+      nixosConfigurations = {
 
-          # Config MacOS
-          ({
-            nix.settings.experimental-features = "nix-command flakes";
-            system.stateVersion = 5;
-            nixpkgs.hostPlatform = "aarch64-darwin";
-
-            system.defaults = {
-              dock.autohide = true;
-              NSGlobalDomain.AppleICUForce24HourTime = true;
-              NSGlobalDomain.AppleShowAllExtensions = true;
-              NSGlobalDomain.AppleInterfaceStyle = "Dark";
+        darwinConfigurations."corp" =
+          let
+            system = {
+              inherit arch; host = "corp";
             };
-          })
+          in
+          lib.darwinSystem {
+            modules = [
+              ./dev.nix
 
-        ];
-        specialArgs = { inherit system pkgs inputs; };
+              # Config MacOS
+              ({
+                nix.settings.experimental-features = "nix-command flakes";
+                system.stateVersion = 5;
+                nixpkgs.hostPlatform = "aarch64-darwin";
+
+                system.defaults = {
+                  dock.autohide = true;
+                  NSGlobalDomain.AppleICUForce24HourTime = true;
+                  NSGlobalDomain.AppleShowAllExtensions = true;
+                  NSGlobalDomain.AppleInterfaceStyle = "Dark";
+                };
+              })
+
+            ];
+            specialArgs = { inherit system pkgs inputs; };
+          };
+
       };
-
-  };
-}
+    }

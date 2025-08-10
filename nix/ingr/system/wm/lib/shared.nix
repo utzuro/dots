@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ 
+  imports = [
     ./input.nix
   ];
 
@@ -19,28 +19,40 @@
 
   environment.systemPackages = with pkgs; [
 
-    xdotool xdg-launch xdg-utils xsettingsd
-    socat glances
-    kdePackages.konsole foot kitty wezterm st
+    xdotool
+    xdg-launch
+    xdg-utils
+    xsettingsd
+    socat
+    glances
+    kdePackages.konsole
+    foot
+    kitty
+    wezterm
+    st
     adwaita-icon-theme
 
-    nautilus kdePackages.dolphin xfce.thunar
+    nautilus
+    kdePackages.dolphin
+    xfce.thunar
 
 
     qt6.full
 
     (where-is-my-sddm-theme.override {
-      themeConfig.General = { 
-        passwordCharacter= "•";
-        background = "${./login-background.jpg}"; 
-        backgroundMode = "fill"; 
+      themeConfig.General = {
+        passwordCharacter = "•";
+        background = "${./login-background.jpg}";
+        backgroundMode = "fill";
         showSessionsByDefault = true;
-        sessionFontSize= 24;
-      }; 
+        sessionFontSize = 24;
+      };
     })
 
-    librewolf firefox 
-    chromium qutebrowser
+    librewolf
+    firefox
+    chromium
+    qutebrowser
 
   ];
 
@@ -63,7 +75,7 @@
       Xft.dpi: 100  
     EOF  
     '';
-    dpi = 204;#96;
+    dpi = 204; #96;
     enable = true;
     exportConfiguration = true;
 
@@ -71,11 +83,11 @@
   };
 
   services.displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      enableHidpi = true;
-      theme = "where_is_my_sddm_theme";
-    };
+    enable = true;
+    wayland.enable = true;
+    enableHidpi = true;
+    theme = "where_is_my_sddm_theme";
+  };
 
 
 }

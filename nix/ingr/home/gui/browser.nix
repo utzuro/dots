@@ -4,12 +4,12 @@
   nixpkgs.overlays = [
     # QUTEBROWSER 
 
-    (final: prev: { 
-      qutebrowser = prev.qutebrowser.override { 
-        enableWideVine = true; 
-      }; 
-    }) 
-  ]; 
+    (final: prev: {
+      qutebrowser = prev.qutebrowser.override {
+        enableWideVine = true;
+      };
+    })
+  ];
 
   programs.chromium = {
     enable = true;
@@ -20,7 +20,7 @@
     settings = {
       tabs.tabs_are_windows = false;
     };
-    keyMappings = {};
+    keyMappings = { };
     extraConfig = ''
       # Disable the default keybinding for opening the devtools
       config.bind('d', 'devtools.toggle')
@@ -28,7 +28,7 @@
       config.bind('D', 'devtools.toggle')
       # Disable the default keybinding for opening the devtools
       config.bind('Ctrl+Shift+I', 'devtools.toggle')
-      '';
+    '';
     searchEngines = {
       w = "https://en.wikipedia.org/wiki/Special:Search?search={}&amp;go=Go&amp;ns0=1";
       aw = "https://wiki.archlinux.org/?search={}";
@@ -40,9 +40,10 @@
       ddg = "https://duckduckgo.com/?q={}";
     };
   };
-  
+
   home.packages = with pkgs; [
-    tridactyl-native librewolf
+    tridactyl-native
+    librewolf
   ];
 
   # LIBREWOLF
@@ -86,15 +87,15 @@
     pref("privacy.clearOnShutdown.cookies",true);
     pref("gfx.webrender.software.opengl",false);
     pref("webgl.disabled",true);
-    '';
+  '';
 
-  home.sessionVariables = { DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";};
+  home.sessionVariables = { DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf"; };
 
   # FIREFOX
   programs.firefox = {
     enable = true;
-    profiles.${user.name} = { 
-      isDefault = true; 
+    profiles.${user.name} = {
+      isDefault = true;
 
       extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
         multi-account-containers
@@ -122,7 +123,7 @@
         # plasma-integration
       ];
 
-      settings = { 
+      settings = {
         "browser.aboutConfig.showWarning" = false;
         "browser.aboutwelcome.enabled" = false;
         "browser.bookmarks.addedImportButton" = false;
@@ -145,8 +146,8 @@
             icon = "https://kagi.com/favicon.ico";
             definedAliases = [ "@k" "kagi" ];
           };
-          
-         "Nix Packages" = {
+
+          "Nix Packages" = {
             urls = [{
               template = "https://search.nixos.org/packages";
               params = [
@@ -180,7 +181,7 @@
 
           "bing".metaData.hidden = true;
           # builtin engines only support specifying one additional alias
-          "google".metaData.alias = "@g"; 
+          "google".metaData.alias = "@g";
           "ddg".metaData.alias = "@d";
         };
 
@@ -190,9 +191,9 @@
       userContent = ''
         /* Hide scrollbar in FF Quantum */
         *{scrollbar-width:none !important}
-        ''; 
-        
-      containers = { 
+      '';
+
+      containers = {
         # icons:
         # "briefcase", "cart", "circle", "dollar", "fence", "fingerprint",
         # "gift", "vacation", "food", "fruit", "pet", "tree", "chill"

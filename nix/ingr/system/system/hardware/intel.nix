@@ -1,23 +1,23 @@
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 {
 
   hardware = {
 
-   cpu.intel.updateMicrocode = true;
-   intelgpu = {
+    cpu.intel.updateMicrocode = true;
+    intelgpu = {
       driver = "xe";
     };
 
     graphics = {
       enable = true;
-      enable32Bit = true; 
+      enable32Bit = true;
       extraPackages = with pkgs; [
         vaapiIntel
-      ]; 
+      ];
       extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
     };
 
-  }; 
+  };
 
 } 

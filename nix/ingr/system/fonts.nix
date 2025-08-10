@@ -8,21 +8,32 @@
   fonts.packages = with pkgs; with nerd-fonts; [
 
     # main
-    hack dejavu_fonts # default
-    go-mono geist-mono commit-mono
-    inconsolata-lgc _0xproto 
+    hack
+    dejavu_fonts # default
+    go-mono
+    geist-mono
+    commit-mono
+    inconsolata-lgc
+    _0xproto
 
     # bitmap
     gohufont
 
     # compability
-    wineWow64Packages.fonts 
-    liberation tinos arimo cousine noto 
+    wineWow64Packages.fonts
+    liberation
+    tinos
+    arimo
+    cousine
+    noto
 
     # support
     powerline-fonts
-    font-awesome noto-fonts-emoji
-    hurmit hasklug symbols-only
+    font-awesome
+    noto-fonts-emoji
+    hurmit
+    hasklug
+    symbols-only
 
     # kanji
     noto-fonts-cjk-sans

@@ -1,11 +1,11 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
 
   imports = [
-      ./gnome.nix
-      ./hyprland.nix
-      ./i3.nix
-    ];
+    ./gnome.nix
+    ./hyprland.nix
+    ./i3.nix
+  ];
 
 }

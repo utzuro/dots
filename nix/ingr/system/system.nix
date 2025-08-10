@@ -7,7 +7,7 @@
 
 {
   imports =
-    [ 
+    [
       ../machines/${system.host}/hardware-configuration.nix
 
       # config

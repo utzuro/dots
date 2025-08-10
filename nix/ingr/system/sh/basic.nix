@@ -65,31 +65,61 @@ let
     open-port = "while true ; do date ; natpmpc -a 1 0 udp 60 -g 10.2.0.1 && natpmpc -a 1 0 tcp 60 -g 10.2.0.1 || { echo -e 'ERROR' ; break ; } ; sleep 45 ; done";
   };
 
-in {
+in
+{
   environment.systemPackages = with pkgs; [
     # basic
-    vim git tmux
+    vim
+    git
+    tmux
     ranger
-    rsync wget curl
+    rsync
+    wget
+    curl
     file
 
     # core
-    neovim yazi
-    ack ripgrep ripgrep-all fzf fd
-    rsync zsync file
-    jq moreutils wget2
-    bat eza glow
-    peco progress
-    killall timer
+    neovim
+    yazi
+    ack
+    ripgrep
+    ripgrep-all
+    fzf
+    fd
+    rsync
+    zsync
+    file
+    jq
+    moreutils
+    wget2
+    bat
+    eza
+    glow
+    peco
+    progress
+    killall
+    timer
     duf
 
     # media
-    ffmpeg imagemagick
+    ffmpeg
+    imagemagick
 
     # network
-    dhcpcd dialog wpa_supplicant wirelesstools
-    iproute2 iw ethtool libnatpmp busybox
-    ipcalc nmap tcpdump host dig
+    dhcpcd
+    dialog
+    wpa_supplicant
+    wirelesstools
+    iproute2
+    iw
+    ethtool
+    libnatpmp
+    busybox
+    ipcalc
+    nmap
+    tcpdump
+    host
+    dig
   ];
 
   # users.extraUsers.void = {
@@ -104,15 +134,16 @@ in {
     shellAliases = aliases;
     ohMyZsh = {
       enable = true;
-      plugins = [ 
-        "git" "gitignore" 
-        "colored-man-pages" 
-        "command-not-found" 
-        "history" 
-        "pip" 
-        "zsh-interactive-cd" 
-        "web-search" 
-        "z" 
+      plugins = [
+        "git"
+        "gitignore"
+        "colored-man-pages"
+        "command-not-found"
+        "history"
+        "pip"
+        "zsh-interactive-cd"
+        "web-search"
+        "z"
       ];
     };
   };

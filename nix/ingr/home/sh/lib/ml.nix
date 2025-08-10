@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
 
@@ -6,7 +6,7 @@
     tesseract
     ocrmypdf
 
-    ollama 
+    ollama
     # openvino # conflicts with protobuf for some reason!
   ];
 

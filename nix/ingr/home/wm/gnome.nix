@@ -1,5 +1,5 @@
 # Make sure to seperate settings between wayland based gnome and X one.
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
   dconf = {
@@ -13,7 +13,7 @@
           # you can easily get its UUID by accessing its extensionUuid
           # field (look at the following example).
           pkgs.gnomeExtensions.gsconnect.extensionUuid
-          
+
           # Alternatively, you can manually pass UUID as a string.  
           "blur-my-shell@aunetx"
           # ...
@@ -24,9 +24,9 @@
       "org/gnome/shell/extensions/blur-my-shell" = {
         brightness = 0.75;
         noise-amount = 0;
-      }; 
-      "org/gnome/desktop/interface" = { 
-        clock-show-weekday = true; 
+      };
+      "org/gnome/desktop/interface" = {
+        clock-show-weekday = true;
       };
     };
   };

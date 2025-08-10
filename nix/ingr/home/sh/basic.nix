@@ -11,29 +11,57 @@
   home.packages = with pkgs; [
 
     # basic
-    vim git tmux
+    vim
+    git
+    tmux
     ranger
-    rsync wget curl
+    rsync
+    wget
+    curl
     file
 
     # core
-    neovim yazi
-    ack ripgrep ripgrep-all fzf fd
-    rsync zsync file
-    jq moreutils wget2
-    bat glow
-    peco progress
-    killall timer
+    neovim
+    yazi
+    ack
+    ripgrep
+    ripgrep-all
+    fzf
+    fd
+    rsync
+    zsync
+    file
+    jq
+    moreutils
+    wget2
+    bat
+    glow
+    peco
+    progress
+    killall
+    timer
     duf
 
     # media
-    ffmpeg imagemagick
+    ffmpeg
+    imagemagick
 
     # network
-    dhcpcd dialog wpa_supplicant wirelesstools
-    iproute2 iw ethtool libnatpmp busybox
-    ipcalc nmap tcpdump host dig
-    
+    dhcpcd
+    dialog
+    wpa_supplicant
+    wirelesstools
+    iproute2
+    iw
+    ethtool
+    libnatpmp
+    busybox
+    ipcalc
+    nmap
+    tcpdump
+    host
+    dig
+
   ];
 
   programs = {

@@ -1,10 +1,15 @@
-{ pkgs, lib, system ? null, ...}:
+{ pkgs, lib, system ? null, ... }:
 
 assert lib.asserts.assertOneOf "storageDriver" system.storageDriver
-[
-  null "aufs" "btrfs" "devicemapper"
-  "overlay" "overlay2" "zfs"
-];
+  [
+    null
+    "aufs"
+    "btrfs"
+    "devicemapper"
+    "overlay"
+    "overlay2"
+    "zfs"
+  ];
 
 {
 
@@ -29,10 +34,16 @@ assert lib.asserts.assertOneOf "storageDriver" system.storageDriver
   };
 
   environment.systemPackages = with pkgs; [
-    kubernetes minikube kubectl 
-    kubernetes-helm kompose
+    kubernetes
+    minikube
+    kubectl
+    kubernetes-helm
+    kompose
     # podman-compose 
-    docker docker-compose compose2nix lazydocker
+    docker
+    docker-compose
+    compose2nix
+    lazydocker
   ];
 
 }

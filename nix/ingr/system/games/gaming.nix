@@ -9,7 +9,7 @@
 
   hardware = {
     graphics.enable32Bit = true;
-    steam-hardware.enable = true; 
+    steam-hardware.enable = true;
     new-lg4ff.enable = true;
   };
 
@@ -26,8 +26,12 @@
     #   beetle-psx-hw
     # ]))
 
-    steamcmd steam-run protontricks
-    heroic lutris bottles
+    steamcmd
+    steam-run
+    protontricks
+    heroic
+    lutris
+    bottles
     adwaita-icon-theme # required for lutris
     oversteer
 
@@ -67,41 +71,49 @@
 
     # OPEN GAMES
     # rpg
-    freedink 
+    freedink
     ##doesn't build
     #devilutionx 
     #veloren
 
     # online
-    runelite runescape
+    runelite
+    runescape
 
     # action
-    quake3e starsector
+    quake3e
+    starsector
     yquake2-all-games
     anarch
     dxx-rebirth
-    
-    openarena ioq3-scion openspades
+
+    openarena
+    ioq3-scion
+    openspades
     # unvanquished 
-    xonotic 
+    xonotic
     #assaultcube
     cataclysm-dda
 
-    crawl  experienced-pixel-dungeon
+    crawl
+    experienced-pixel-dungeon
 
     superTuxKart
 
     # space
-    endless-sky pioneer 
-    naev 
+    endless-sky
+    pioneer
+    naev
     ## doesn't build
     #freeorion flightgear
 
     # strategy
     #zeroad warzone2100
-    wesnoth unciv
+    wesnoth
+    unciv
     mindustry-wayland #mindustry
-    opendune widelands
+    opendune
+    widelands
     ## not building
     # colobot 
 

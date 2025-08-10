@@ -6,9 +6,10 @@
 
 { config, pkgs, user, inputs, ... }:
 
-let 
-  homeDir = "/home/"+user.name;
-in {
+let
+  homeDir = "/home/" + user.name;
+in
+{
 
   home.username = user.name;
   home.homeDirectory = homeDir;
@@ -17,7 +18,7 @@ in {
   imports = [
 
     # something essential?
-    
+
   ];
 
   programs.home-manager.enable = true;

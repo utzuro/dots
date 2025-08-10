@@ -1,10 +1,11 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
 
-    signal-desktop 
-    discord vesktop
+    signal-desktop
+    discord
+    vesktop
     telegram-desktop
 
     # try later

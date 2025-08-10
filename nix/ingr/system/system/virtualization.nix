@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
 
@@ -29,11 +29,12 @@
   };
 
   environment.systemPackages = with pkgs; [
-    qemu virtualbox
+    qemu
+    virtualbox
   ];
 
   boot.binfmt.emulatedSystems = [
-    "aarch64-linux" 
+    "aarch64-linux"
     "riscv64-linux"
     "wasm64-wasi"
     "x86_64-windows"

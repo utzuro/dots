@@ -4,22 +4,22 @@
   environment.systemPackages = with pkgs; {
 
     # DB
-    sqlitebrowser 
-    dbeaver-bin pgmodeler 
+    sqlitebrowser
+      dbeaver-bin pgmodeler
 
-    # Tools
-    ghidra
-    httpie altair
-    portaudio
+      # Tools
+      ghidra
+      httpie altair
+      portaudio
 
-    # Robotics
-    # mblock-mlink
-    # ros2
+      # Robotics
+      # mblock-mlink
+      # ros2
 
-    # andoird
-    scrcpy
+      # andoird
+      scrcpy
 
-    # network
-    wireshark networkmanagerapplet
+      # network
+      wireshark networkmanagerapplet
 
-}
+      }

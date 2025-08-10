@@ -1,11 +1,11 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     tesseract
     ocrmypdf
 
-    ollama 
+    ollama
     openvino
   ];
 }

@@ -2,9 +2,14 @@
 
 {
   environment.packages = with pkgs; [
-    vim git tmux openssh zsh
+    vim
+    git
+    tmux
+    openssh
+    zsh
     busybox
-    zip unzip
+    zip
+    unzip
   ];
 
   environment.etcBackupExtension = ".bak";
