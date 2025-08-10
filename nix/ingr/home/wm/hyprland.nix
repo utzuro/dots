@@ -112,14 +112,6 @@
       ];
     };
 
-    flameshot = {
-      enable = usrcfg.utility.capture.screen == "flameshot";
-      package =
-        if config.core.graphic.server == "wayland"
-        then (pkgs.flameshot.override { enableWlrSupport = true; })
-        else pkgs.flameshot;
-    };
-
     anyrun = {
       enable = true;
       config = {

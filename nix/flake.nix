@@ -85,11 +85,12 @@
           lib.nixosSystem {
             modules = [
               # Only for NixOS
-              ./ingr/system/system/linux.nix
+              ./ingr/system/system.nix
               ./ingr/system/system/virtualization.nix
-              ./ingr/system/system/wm/all.nix
               ./ingr/system/system/network/network.nix
               ./ingr/system/system/network/vpn.nix
+
+              ./ingr/system/wm/all.nix
 
               ./ingr/system/system/power/pc.nix
               ./ingr/system/system/hardware/intel.nix
