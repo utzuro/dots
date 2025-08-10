@@ -52,6 +52,9 @@
     # android
     # flutter
 
+    # scripts
+    shfmt elvish
+
     # other
     lua ghostscript
 
