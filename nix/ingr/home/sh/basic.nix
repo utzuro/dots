@@ -21,7 +21,7 @@
     ack ripgrep ripgrep-all fzf fd
     rsync zsync file
     jq moreutils wget2
-    bat eza glow
+    bat glow
     peco progress
     killall timer
     duf
@@ -35,5 +35,14 @@
     ipcalc nmap tcpdump host dig
     
   ];
+
+  programs = {
+    eza = {
+      enable = true;
+      git = true;
+      icons = "always";
+    };
+
+  };
 
 }

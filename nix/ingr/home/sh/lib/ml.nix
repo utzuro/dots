@@ -2,13 +2,12 @@
 
 {
 
-  home.packages = with pkgs [
+  home.packages = with pkgs; [
     tesseract
     ocrmypdf
 
     ollama 
-    openvino
+    # openvino # conflicts with protobuf for some reason!
   ];
 
 }
-

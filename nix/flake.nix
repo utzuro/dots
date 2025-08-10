@@ -167,13 +167,12 @@
         modules = [ 
           ./ingr/home/home.nix 
           ./ingr/home/env.nix 
-          # ./ingr/home/theme.nix 
-          # ./ingr/home/fonts.nix 
+          ./ingr/home/fonts.nix 
 
           ./ingr/home/sh/basic.nix
           ./ingr/home/sh/power.nix
-          # ./ingr/home/sh/dev.nix
-          # ./ingr/home/sh/games.nix
+          ./ingr/home/sh/dev.nix
+          ./ingr/home/sh/games.nix
 
           inputs.stylix.homeModules.stylix 
         ];
