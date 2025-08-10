@@ -72,12 +72,12 @@
       ];
     };
 
-    riff.enable = true;
+    riff.enable = false;
 
     patdiff.enable = false;
 
     diff-so-fancy = {
-      enable = false;
+      enable = true;
       markEmptyLines = true;
       pagerOpts = [
         "--tabs=4"
