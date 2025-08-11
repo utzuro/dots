@@ -1,6 +1,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio          = [ 0, 1, 4 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
@@ -14,7 +14,7 @@ scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
 title_format   = "Yazi: {cwd}"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["F"]
 run = "plugin --sync minimal"
 
