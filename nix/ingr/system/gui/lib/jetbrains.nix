@@ -7,7 +7,7 @@ let
     "com.github.copilot"
     "dev.turingcomplete.intellijdevelopertoolsplugins"
     # "com.intellij.ml.llm"
-    # "org.jetbrains.junie"
+    "org.jetbrains.junie"
 
     # tools
     "IdeaVIM"
@@ -39,6 +39,9 @@ let
     "org.intellij.plugins.postcss"
     # "org.intellij.css"
     "org.jetbrains.plugins.vue"
+
+    # Theme
+    "yogi-amoled"
   ];
 
 in
@@ -61,8 +64,8 @@ in
     (buildIdeWithPlugins jetbrains "ruby-mine" pluginList)
     (buildIdeWithPlugins jetbrains "webstorm" pluginList)
     (buildIdeWithPlugins jetbrains "datagrip" pluginList)
-    (buildIdeWithPlugins jetbrains "dataspell" pluginList)
-    (buildIdeWithPlugins jetbrains "aqua" pluginList)
+    # (buildIdeWithPlugins jetbrains "dataspell" pluginList)
+    # (buildIdeWithPlugins jetbrains "aqua" pluginList)
   ];
 
 }
