@@ -1,19 +1,18 @@
-scheme: "void dark"
+scheme: "void"
 author: "utzuro <utzuro@pm.me>"
-base00: "000000"  # True black background
-base01: "1C1C2C"  # Dark violet
-base02: "2A2A3C"  # Darker violet
-base03: "3E3E5A"  # Deep violet
-base04: "6C4C80"  # Muted violet
-# base05: "C070D0"  # Soft magenta
-base05: "E6E1CF"  # Use 06 because foot is using this as text color
-base06: "E6E1CF"  # Light cream (to maintain readability)
-base07: "F3F4F5"  # Light grey (to maintain readability)
-base08: "FF00FF"  # Magenta
-base09: "8A2BE2"  # Violet
-base0A: "BF40BF"  # Deep magenta
-base0B: "DA70D6"  # Orchid
-base0C: "DDA0DD"  # Plum
-base0D: "9370DB"  # Medium purple
-base0E: "D2A6FF"  # Light violet
-base0F: "BA55D3"  # Medium orchid
+base00: "000000" # Default background
+base01: "2A2A3C" # Lighter background (for status bars, line number columns)
+base02: "6C6C7C" # Selection background or secondary background panels
+base03: "3E3E5A" # Comments, invisibles, subtle indicators
+base04: "6C4C80" # Dark foreground (less important text, e.g., inactive tabs)
+base05: "E6E1CF" # Default foreground (main text color)
+base06: "E6E1CF" # Light foreground (bright text, prompt text)
+base07: "F3F4F5" # Lightest foreground (bold text, headings)
+base08: "E02C00" # Red – errors, removed lines in diffs, important "bad" states
+base09: "FFB86C" # Orange/amber – warnings, annotations, numbers
+base0A: "FFC74F" # Yellow – constants, highlights, search matches
+base0B: "E000B3" # Bright Magenta – success messages, added lines in diffs, strings
+base0C: "7DF9FF" # Cyan – special keywords, regex, escape characters
+base0D: "9A7DFF" # Blue/violet – function names, methods, links
+base0E: "9A50B0" # Magenta – keywords, storage types, class names
+base0F: "D19A66" # Brown/orange – deprecated code, escape sequences, special vars

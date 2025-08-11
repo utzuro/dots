@@ -85,7 +85,7 @@ fi
 
 # JS/TS/JSON/YAML/MD/HTML/CSS: prettier
 prettier_bins=()
-have npx && prettier_bins+=("npx" "prettier" "--")
+have npx && prettier_bins+=("npx" "prettier")
 have prettier && prettier_bins=("prettier")
 if [ "${#prettier_bins[@]}" -eq 0 ]; then
 	[ "${#js[@]}${#ts[@]}${#json[@]}${#yaml[@]}${#md[@]}${#html[@]}${#css[@]}" != "0000000" ] &&
@@ -97,7 +97,7 @@ else
 		files=("${!arr_name}")
 		[ "${#files[@]}" -gt 0 ] || continue
 		echo "→ prettier: ${#files[@]} $group file(s)"
-		"${prettier_bins[@]}" --write "${files[@]}"
+		"${prettier_bins[@]}" --write -- "${files[@]}"
 		git add -- "${files[@]}"
 	done
 fi
