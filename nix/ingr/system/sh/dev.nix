@@ -13,9 +13,6 @@
   services.flatpak.enable = true;
 
   xdg.portal.wlr.enable = true;
-  environment.systemPackages = with pkgs; [
-    appimage-run
-  ];
 
   environment.systemPackages = with pkgs; [
 
@@ -96,6 +93,7 @@
     # other
     lua
     ghostscript
+    appimage-run
 
     # network
     gource

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # system
-waybar &
+#waybar &
 dunst &
 blueman &
 # wlsunset -l 39.9 -L 116.3 & # replaced with hyprlux
@@ -11,11 +11,8 @@ GDK_SCALE=1 GDK_DPI_SCALE=1 librewolf &
 ~/.config/hypr/apps/sig &
 ~/.config/hypr/apps/discord &
 # ~/.config/hypr/apps/slack &
-# vesktop & 
+# vesktop &
 ~/.config/hypr/wall.sh
-
 
 # ~/.config/hypr/apps/chrome &
 # ~/.config/hypr/apps/obsidian &
-
-

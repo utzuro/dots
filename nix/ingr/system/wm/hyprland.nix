@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./wayland.nix
+    ./lib/wayland.nix
   ];
 
   programs = {

@@ -6,7 +6,7 @@ let
     # ai
     "com.github.copilot"
     "dev.turingcomplete.intellijdevelopertoolsplugins"
-    "com.intellij.ml.llm"
+    # "com.intellij.ml.llm"
     # "org.jetbrains.junie"
 
     # tools

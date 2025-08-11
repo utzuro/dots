@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
-    ./x.nix
+    ./lib/x.nix
   ];
 
   services.xserver = {
-    displayManager.gdm.enable = true;
+    displayManager.gdm.enable = false;
     desktopManager.gnome.enable = true;
   };
 
@@ -20,9 +20,12 @@
   environment.gnome.excludePackages = (with pkgs; [
     gnome-tour
     gnome-connections
-  ]) ++ (with pkgs.gnome; [
     epiphany
     geary
     evince
-  ]);
+  ]) ++ (with pkgs.gnome; [ ]);
+
+  # Avoid conflicts between different desktop environments
+  programs.seahorse.enable = lib.mkForce false;
+
 }

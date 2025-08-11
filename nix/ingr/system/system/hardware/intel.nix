@@ -5,9 +5,9 @@
   hardware = {
 
     cpu.intel.updateMicrocode = true;
-    intelgpu = {
-      driver = "xe";
-    };
+    # intelgpu = {
+    #   driver = "xe";
+    # };
 
     graphics = {
       enable = true;

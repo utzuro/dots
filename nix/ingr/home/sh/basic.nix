@@ -19,6 +19,7 @@
     wget
     curl
     file
+    less
 
     # core
     neovim
