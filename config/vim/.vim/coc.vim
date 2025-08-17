@@ -143,8 +143,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Mappings for CoCList
 " Show all diagnostics
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" COC-Explorer
+nmap <space>e <Cmd>CocCommand explorer<CR>
+nmap <C-n> <Cmd>CocCommand explorer<CR>
 " Show commands
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
@@ -158,4 +159,4 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-let g:coc_global_extensions = [ 'coc-sh', 'coc-nix', 'coc-toml', 'coc-json', 'coc-go', 'coc-html', 'coc-markdownlint', 'coc-git', 'coc-css', 'coc-yaml', 'coc-pyright', 'coc-clangd', 'coc-cmake', 'coc-rls', 'coc-rust-analyzer', 'coc-solargraph', 'coc-sql', 'coc-texlab', 'coc-deno', 'coc-flutter', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-vetur', 'coc-protobuf' ]
+let g:coc_global_extensions = [ 'coc-explorer', 'coc-sh', 'coc-nix', 'coc-toml', 'coc-json', 'coc-go', 'coc-html', 'coc-markdownlint', 'coc-git', 'coc-css', 'coc-yaml', 'coc-pyright', 'coc-clangd', 'coc-cmake', 'coc-rls', 'coc-rust-analyzer', 'coc-solargraph', 'coc-sql', 'coc-texlab', 'coc-deno', 'coc-flutter', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-vetur', 'coc-protobuf' ]

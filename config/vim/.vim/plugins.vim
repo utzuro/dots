@@ -29,7 +29,7 @@ Plug 'powerman/vim-plugin-AnsiEsc'
 
 " TOOLS
 Plug 'KabbAmine/lazyList.vim'
-Plug 'preservim/nerdtree' " :NERDTree
+" Plug 'preservim/nerdtree' " :NERDTree Use coc-explorer instead
 Plug 'kevinhwang91/rnvimr' " ranger
 Plug 'will133/vim-dirdiff'
 Plug 'tpope/vim-fugitive' " :G
@@ -132,9 +132,9 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call plug#end()            " required
 
 " NERDTREE
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-nnoremap <A-n> :RnvimrToggle<CR>
+" nnoremap <C-n> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
+" nnoremap <A-n> :RnvimrToggle<CR>
 
 " LEADER
 let mapleader = ','
