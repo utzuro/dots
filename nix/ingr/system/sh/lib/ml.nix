@@ -5,7 +5,13 @@
     tesseract
     ocrmypdf
 
-    ollama
     openvino
+
+    python3.withPackages
+    (ps: with ps; [
+      torch
+      torchaudio
+      torchvision
+    ])
   ];
 }
