@@ -35,13 +35,12 @@
     adwaita-icon-theme # required for lutris
     oversteer
 
-    # inputs.nix-gaming.packages.${pkgs.system}.wine-ge
-    # wineWowPackages.waylandFull
-    # (wineWowPackages.full.override {
-    #   wineRelease = "staging";
-    #   mingwSupport = true;
-    # })
-    # winetricks
+    wineWowPackages.waylandFull
+    (wineWowPackages.full.override {
+      wineRelease = "staging";
+      mingwSupport = true;
+    })
+    winetricks
 
     (lutris.override {
       extraLibraries = pkgs: [

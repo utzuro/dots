@@ -26,7 +26,7 @@
     GOPRIVATE = "github.com/*";
     # Flutter
     CHROME_EXECUTABLE = "chromium";
-    ANDROID_HOME = "$HOME/Android/Sdk";
+    ANDROID_HOME = "$HOME/alchemy/ingredients/android";
     ANDROID_SDK_ROOT = "$HOME/Android/Sdk";
     PATH = "$PATH:$HOME/alchemy/ingredients/flutter/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$HOME/.local/share/JetBrains/Toolbox/scripts";
 
