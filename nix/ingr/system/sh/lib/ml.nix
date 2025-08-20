@@ -6,6 +6,13 @@
     ocrmypdf
 
     openvino
+
+    python3.withPackages
+    (ps: with ps; [
+      torch
+      torchaudio
+      torchvision
+    ])
   ];
 
   services.ollama = {
