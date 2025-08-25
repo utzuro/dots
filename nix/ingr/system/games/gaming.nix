@@ -20,6 +20,9 @@
 
   environment.systemPackages = with pkgs; [
 
+    linuxConsoleTools
+    jstest-gtk
+
     # (retroarch.withCores (cores: with cores; [
     #   genesis-plus-gx
     #   snes9x

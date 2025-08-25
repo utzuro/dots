@@ -5,14 +5,14 @@
     tesseract
     ocrmypdf
 
-    openvino
+    # openvino
 
-    python3.withPackages
-    (ps: with ps; [
-      torch
-      torchaudio
-      torchvision
-    ])
+    # python3.withPackages
+    # (ps: with ps; [
+    #   torch
+    #   torchaudio
+    #   torchvision
+    # ])
   ];
 
   services.ollama = {
