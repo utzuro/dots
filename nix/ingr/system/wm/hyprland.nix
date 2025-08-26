@@ -14,9 +14,10 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # Not using any bar or now
+    # waybar
+    # eww
     hyprlock
-    waybar
-    eww
     xdg-desktop-portal-hyprland
     hyprland-protocols
     hyprprop
@@ -24,13 +25,13 @@
     hypridle
   ];
 
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   # (self: super: {
+  #   #   # waybar = super.waybar.overrideAttrs (oldAttrs: {
+  #   #   #   mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  #   #   # });
+  #   # })
+  # ];
 
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];
