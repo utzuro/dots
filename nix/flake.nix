@@ -100,6 +100,7 @@
               ./ingr/system/corporate.nix
 
               ./ingr/system/games/gaming.nix
+              ./ingr/system/games/steam.nix
 
               # Below can be used on mac/wsl
               ./ingr/system/fonts.nix
@@ -129,6 +130,36 @@
           in
           lib.nixosSystem {
             modules = [
+              # Only for NixOS
+              ./ingr/system/system.nix
+              # ./ingr/system/system/virtualization.nix
+              ./ingr/system/system/network/network.nix
+              # ./ingr/system/system/network/vpn.nix
+
+              ./ingr/system/wm/i3.nix
+              ./ingr/system/wm/hyprland.nix
+
+              ./ingr/system/system/power/laptop.nix
+              ./ingr/system/system/hardware/intel.nix
+              ./ingr/system/system/hardware/video.nix
+
+              ./ingr/system/games/steam.nix
+
+              # Below can be used on mac/wsl
+              ./ingr/system/fonts.nix
+
+              ./ingr/system/sh/basic.nix
+              # ./ingr/system/sh/power.nix
+              # ./ingr/system/sh/dev.nix
+              # ./ingr/system/sh/games.nix
+
+              ./ingr/system/gui/comms.nix
+              # ./ingr/system/gui/media.nix
+              # ./ingr/system/gui/learn.nix
+              # ./ingr/system/gui/dev.nix
+              # ./ingr/system/gui/creative.nix
+
+
             ];
             specialArgs = { inherit system inputs; };
           };
