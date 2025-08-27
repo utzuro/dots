@@ -82,6 +82,7 @@
 
     # system
     acpi
+    lshw
     lm_sensors
     sysprof
     alsa-utils
@@ -92,6 +93,12 @@
     easyeffects
     dmidecode
     sysbench
+
+    # hardware testing
+    memtest86plus
+    stressapptest
+    msr-tools
+    hwinfo
 
     # network
     wget
