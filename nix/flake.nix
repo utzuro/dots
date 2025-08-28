@@ -191,6 +191,7 @@
               ./ingr/home/sh/power.nix
               ./ingr/home/sh/dev.nix
               ./ingr/home/sh/games.nix
+              ./ingr/home/sh/subs.nix
 
               ./ingr/home/gui/browser.nix
               ./ingr/home/gui/dev.nix

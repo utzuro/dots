@@ -1,0 +1,41 @@
+{ ... }:
+
+{
+  programs.newsboat = {
+    enable = true;
+    autoReload = true;
+    reloadTime = 30; # minutes
+    extraConfig = ''
+    '';
+    urls = [
+      # general
+      "https://news.ycombinator.com/rss"
+      "https://xkcd.com/rss.xml"
+
+      # tech
+      "https://www.reddit.com/r/programming/.rss"
+      "https://hnrss.org/frontpage"
+      "https://hackaday.com/feed/"
+      "http://feeds.arstechnica.com/arstechnica/technology-lab"
+      "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"
+      "https://www.reddit.com/r/linux/.rss"
+      "https://lobste.rs/rss"
+
+      # dev
+      "https://cprss.s3.amazonaws.com/golangweekly.com.xml"
+      "https://blog.rust-lang.org/feed.xml"
+      "https://lists.yoctoproject.org/g/yocto/rss"
+
+      # sci
+      "http://queue.acm.org/rss/feeds/queuecontent.xml"
+      "https://blog.acolyer.org/feed"
+      "https://arxiv.org/rss/cs"
+      "https://www.3quarksdaily.com/feed"
+      "https://philosophynow.org/rss"
+      "http://www.lightspeedmagazine.com/feed/"
+
+      # keep an eye on
+      "https://github.com/nixos/nixpkgs/releases.atom"
+    ];
+  };
+}
