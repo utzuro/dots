@@ -186,3 +186,6 @@ augroup end"
 
 so ~/.vim/coc.vim
 so ~/.vim/telescope.vim
+
+" disabel copilot by default
+let g:copilot_enabled = v:false
