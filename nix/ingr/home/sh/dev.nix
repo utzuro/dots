@@ -51,6 +51,7 @@
     clang-tools
     ninja
     gnumake
+    just
     gdb
     ccls
     ctags

@@ -31,6 +31,7 @@
   environment.systemPackages = with pkgs; [
     qemu
     virtualbox
+    cabextract
   ];
 
   boot.binfmt.emulatedSystems = [

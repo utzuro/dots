@@ -21,6 +21,11 @@
   };
 
   environment.systemPackages = with pkgs; [
+    xorg.xinput
+    evtest
+    antimicrox
+    qjoypad
+    moltengamepad
     xclip
     xdragon
     sxiv
