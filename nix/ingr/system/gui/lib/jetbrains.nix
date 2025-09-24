@@ -11,6 +11,8 @@ let
 
     # tools
     "IdeaVIM"
+    "org.jetbrains.IdeaVim-EasyMotion"
+    "AceJump"
     "Docker"
     "org.intellij.plugins.hcl"
     "com.intellij.kubernetes"

@@ -43,6 +43,8 @@
     # libraries = options.programs.ni
   };
 
+  # Drasticly increases the disk space usage but allows offline rebuiles
+  system.includeBuildDependencies = true;
   nix.gc = {
     automatic = true;
     randomizedDelaySec = "14m";

@@ -48,9 +48,23 @@ let
 
     ## dev
     k8s = "kubectl";
-    clion = "nohup clion >/dev/null 2>&1 &";
+
+    idea = "nohup idea-ultimate >/dev/null 2>&1 &";
     goland = "nohup goland >/dev/null 2>&1 &";
-    pycharm = "nohup pycharm-community >/dev/null 2>&1 &";
+    pycharm = "nohup pycharm-professional >/dev/null 2>&1 &";
+    clion = "nohup clion >/dev/null 2>&1 &";
+    rustrover = "nohup rust-rover >/dev/null 2>&1 &";
+    rubymine = "nohup ruby-mine >/dev/null 2>&1 &";
+    rider = "nohup rider >/dev/null 2>&1 &";
+    webstorm = "nohup webstorm >/dev/null 2>&1 &";
+    datagrip = "nohup datagrip >/dev/null 2>&1 &";
+    studio = "nohup android-studio >/dev/null 2>&1 &";
+    code = "nohup code >/dev/null 2>&1 &";
+
+    dbeaver = "nohup dbeaver >/dev/null 2>&1 &";
+    postman = "nohup postman >/dev/null 2>&1 &";
+
+    notion = "nohup notion-app >/dev/null 2>&1 &";
 
     ## browsers
     chrome = "nohup chromium >/dev/null 2>&1 &";

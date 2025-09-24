@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -73,9 +73,6 @@
     # OPEN GAMES
     # rpg
     freedink
-    ##doesn't build
-    #devilutionx 
-    #veloren
 
     # online
     runelite
@@ -91,9 +88,7 @@
     openarena
     ioq3-scion
     openspades
-    # unvanquished 
     xonotic
-    #assaultcube
     cataclysm-dda
 
     crawl
@@ -105,18 +100,12 @@
     endless-sky
     pioneer
     naev
-    ## doesn't build
-    #freeorion flightgear
 
     # strategy
-    #zeroad warzone2100
     wesnoth
     unciv
-    mindustry-wayland #mindustry
+    mindustry-wayland
     opendune
-    widelands
-    ## not building
-    # colobot 
 
     # sim
     rigsofrods-bin
@@ -128,5 +117,18 @@
     # openmw exult
     #fallout-ce #fallout2-ce
     #openjk theforceengine
+
+    ###########################################
+    ## BUILDING ISSUES
+    # freeorion flightgear
+    # zeroad warzone2100
+    # widelands 
+    # mindustry
+    # colobot 
+    # unvanquished 
+    # assaultcube
+    # devilutionx 
+    # veloren
+
   ];
 }

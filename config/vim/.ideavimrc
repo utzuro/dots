@@ -1,34 +1,103 @@
-filetype plugin indent on
+let mapleader = ","
 
-so ~/.vim/basic.vim
-"so ~/.vim/maps.vim
-so ~/.vim/auto.vim
-so ~/.vim/plugins.vim
-
-""" Idea specific settings ------------------
 set ideajoin
 set ideastatusicon=gray
 set idearefactormode=keep
-set NERDTree
+
+" Emulated Vim plugins (only the ones IdeaVim supports)
 set argtextobj
-set vim-paragraph-motion
+set commentary
+set easymotion          " requires IdeaVim-EasyMotion + AceJump plugins
+set exchange
+set highlightedyank
+set matchit
+set multiple-cursors
+set NERDTree
+set peekaboo
+set sneak               " requires IdeaVim-Sneak plugin
+set surround
 set textobj-indent
+set vim-paragraph-motion
 
-map <leader>d <Action>(Debug)
-map <leader>r <Action>(RenameElement)
-map <leader>c <Action>(Stop)
-map <leader>z <Action>(ToggleDistractionFreeMode)
+" ================== KEYMAPS ==================
 
-map <leader>s <Action>(SelectInProjectView)
-map <leader>a <Action>(Annotate)
-map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
-map <S-Space> <Action>(GotoNextError)
+" --- CoC-parity navigation ---
+nnoremap <silent> gd <Action>(GotoDeclaration)
+nnoremap <silent> gi <Action>(GotoImplementation)
+nnoremap <silent> gr <Action>(FindUsages)
+nnoremap <silent> gy <Action>(GotoTypeDeclaration)
 
-map <leader>b <Action>(ToggleLineBreakpoint)
-map <leader>o <Action>(FileStructurePopup)
+" Hover docs (K)
+nnoremap <silent> K  <Action>(QuickDocumentation)
 
-""" Unset vim mapping that don't work in Idea
-iunmap .
-iunmap !
-iunmap ?
-iunmap :
+" Diagnostics next/prev ( ]g / [g )
+nnoremap <silent> ]g <Action>(GotoNextError)
+nnoremap <silent> [g <Action>(GotoPreviousError)
+
+" Rename ( <leader>rn )
+nnoremap <silent> <leader>rn <Action>(RenameElement)
+
+" Format ( <leader>f ) — keep both modes
+nnoremap <silent> <leader>f  <Action>(ReformatCode)
+xnoremap <silent> <leader>f  <Action>(ReformatCode)
+
+" Code actions / quick fixes ( <leader>a / <leader>qf )
+nnoremap <silent> <leader>qf <Action>(ShowIntentionActions)
+nnoremap <silent> <leader>a  <Action>(ShowIntentionActions)
+
+" Outline / symbols ( <Space>o / <Space>s )
+nnoremap <silent> <Space>o <Action>(FileStructurePopup)
+nnoremap <silent> <Space>s <Action>(GotoSymbol)
+
+" “Explorer” parity (coc-explorer) — use ONLY <Space>e to avoid <C-n> conflict
+nnoremap <silent> <Space>e <Action>(ActivateProjectToolWindow)
+
+" Diagnostics list (coc’s <Space>a)
+nnoremap <silent> <Space>a <Action>(ActivateProblemsToolWindow)
+
+" CocList-ish
+nnoremap <silent> <Space>c <Action>(GotoAction)
+nnoremap <silent> <Space>p <Action>(RecentFiles)
+
+" --- Telescope-style search ---
+nnoremap <silent> <leader>ff <Action>(GotoFile)      " find files
+nnoremap <silent> <leader>fg <Action>(FindInPath)    " ripgrep-like
+nnoremap <silent> <leader>fb <Action>(RecentFiles)   " buffers feel
+nnoremap <silent> <leader>fh <Action>(GotoAction)    " help/commands
+" Optional extras:
+nnoremap <silent> <leader>fs <Action>(GotoSymbol)    " workspace symbols
+nnoremap <silent> <leader>fo <Action>(FileStructurePopup)
+nnoremap <silent> <leader>fr <Action>(RecentLocations)
+
+" --- Multiple Cursors (no <C-n> conflicts elsewhere) ---
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" --- VCS / Debug (use non-conflicting leaders) ---
+nnoremap <silent> <leader>dd <Action>(Debug)                    " was <leader>d
+nnoremap <silent> <leader>dc <Action>(Stop)                     " was <leader>c
+nnoremap <silent> <leader>db <Action>(ToggleLineBreakpoint)
+nnoremap <silent> <leader>zb <Action>(ToggleDistractionFreeMode)
+nnoremap <silent> <leader>gs <Action>(SelectInProjectView)      " was <leader>s
+nnoremap <silent> <leader>gb <Action>(Annotate)                 " was <leader>a (conflicted)
+nnoremap <silent> <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+
+" --- Quickfix-like next/prev ( ]q / [q ) ---
+nnoremap ]q <Action>(GotoNextFoundUsage)
+nnoremap [q <Action>(GotoPreviousFoundUsage)
+
+" ================== INSERT COMPLETION TWEAKS ==================
+" Make <Tab>/<S-Tab> cycle when completion popup is visible
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" If you prefer Enter to accept explicitly:
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+" ================== QoL OPTIONS ==================
+set incsearch
+set hlsearch
+set clipboard=unnamedplus

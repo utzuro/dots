@@ -120,6 +120,7 @@
     postgresql
     redis
     pgcli
+    mariadb
     atlas
 
     # hardware
