@@ -12,6 +12,7 @@
     # tools
     xc
     httpie
+    valgrind
 
     # go
     go
@@ -57,8 +58,8 @@
     ctags
 
     # ruby
-    ruby
-    ruby-lsp
+    # ruby
+    # ruby-lsp
 
     # functional
     nixpkgs-fmt
@@ -116,6 +117,7 @@
     postgresql
     redis
     pgcli
+    mariadb
     atlas
 
     # hardware
