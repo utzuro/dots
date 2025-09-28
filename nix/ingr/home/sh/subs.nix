@@ -29,6 +29,10 @@
       }
       {
         tags = [ "tech" ];
+        url = " hackaday.com/feed";
+      }
+      {
+        tags = [ "tech" ];
         url = "https://hnrss.org/frontpage";
       }
       {
