@@ -13,6 +13,7 @@
     xc
     httpie
     valgrind
+    secretspec
 
     # go
     go
