@@ -23,6 +23,7 @@
     hyprprop
     hyprland-workspaces
     hypridle
+    pyprland
   ];
 
   # nixpkgs.overlays = [
