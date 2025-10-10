@@ -107,6 +107,9 @@
     mindustry-wayland
     opendune
 
+    # card
+    xmage
+
     # sim
     rigsofrods-bin
 

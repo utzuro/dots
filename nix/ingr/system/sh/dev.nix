@@ -108,6 +108,10 @@
     minio-client
     awscli2
     awsebcli
+    saml2aws
+    aws-gate
+    awsls
+    ssm-session-manager-plugin
     natscli
     lnav
     postman

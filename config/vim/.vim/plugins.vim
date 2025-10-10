@@ -29,7 +29,6 @@ Plug 'powerman/vim-plugin-AnsiEsc'
 
 " TOOLS
 Plug 'KabbAmine/lazyList.vim'
-" Plug 'preservim/nerdtree' " :NERDTree Use coc-explorer instead
 Plug 'kevinhwang91/rnvimr' " ranger
 Plug 'will133/vim-dirdiff'
 Plug 'tpope/vim-fugitive' " :G
@@ -98,7 +97,6 @@ Plug 'rust-lang/rust.vim'
 
     " Frontend
 Plug 'mattn/emmet-vim'
-Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'cakebaker/scss-syntax.vim'

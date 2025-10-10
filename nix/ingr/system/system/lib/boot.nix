@@ -2,7 +2,8 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     consoleLogLevel = 0;
     supportedFilesystems = [ "btrfs" "ext4" "xfs" ];
     loader.systemd-boot.enable = true;

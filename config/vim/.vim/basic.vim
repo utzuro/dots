@@ -52,7 +52,7 @@ set hlsearch            " Highlight search results
 " REGEX SETTINGS
 " ==========================================================
 set magic               " Enable 'magic' mode for regex
-set regexpengine=1      " Use the first regex engine
+set regexpengine=0      " Use default regex engine
 
 " ==========================================================
 " BACKUP AND UNDO SETTINGS

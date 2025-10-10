@@ -160,4 +160,4 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-let g:coc_global_extensions = [ 'coc-explorer', 'coc-sh', 'coc-nix', 'coc-toml', 'coc-json', 'coc-go', 'coc-html', 'coc-markdownlint', 'coc-git', 'coc-css', 'coc-yaml', 'coc-pyright', 'coc-clangd', 'coc-cmake', 'coc-rls', 'coc-rust-analyzer', 'coc-solargraph', 'coc-sql', 'coc-texlab', 'coc-deno', 'coc-flutter', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-vetur', 'coc-protobuf' ]
+let g:coc_global_extensions = [ 'coc-explorer', 'coc-sh', 'coc-nix', 'coc-toml', 'coc-json', 'coc-go', 'coc-html', 'coc-markdownlint', 'coc-git', 'coc-css', 'coc-yaml', 'coc-pyright', 'coc-clangd', 'coc-cmake', 'coc-rls', 'coc-rust-analyzer', 'coc-solargraph', 'coc-sql', 'coc-texlab', 'coc-deno', 'coc-flutter', 'coc-vetur', 'coc-protobuf' ]

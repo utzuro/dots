@@ -4,7 +4,7 @@
 #waybar &
 dunst &
 blueman &
-pypr
+#pypr
 # wlsunset -l 39.9 -L 116.3 & # replaced with hyprlux
 
 # apps

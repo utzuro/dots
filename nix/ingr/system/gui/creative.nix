@@ -13,7 +13,6 @@
 
     # docs
     libreoffice-fresh
-    inkscape
     scribus
 
     # drawing
@@ -45,6 +44,10 @@
     simplescreenrecorder
     audio-recorder #easyeffects
     video-trimmer
+
+    # modeling
+    freecad
+    librecad
 
     # other
     xournalpp
