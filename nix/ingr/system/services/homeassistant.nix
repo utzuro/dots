@@ -33,7 +33,7 @@
   };
 
   services.postgresql = {
-    enable = true;
+    enable = false;
     ensureDatabases = [ "hass" ];
     ensureUsers = [{
       name = "hass";

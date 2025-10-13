@@ -97,6 +97,8 @@
 
     # android
     android-tools
+    simple-mtpfs
+    go-mtpfs
     jmtpfs
 
     # extra

@@ -116,7 +116,8 @@
               ./ingr/system/gui/dev.nix
               ./ingr/system/gui/creative.nix
 
-              # ./ingr/system/services/homeassistant.nix
+              ./ingr/system/services/homeassistant.nix
+              ./ingr/system/services/sync.nix
 
             ];
 
