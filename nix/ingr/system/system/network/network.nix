@@ -1,9 +1,6 @@
-{ config, pkgs, system, ... }:
+{ pkgs, system, ... }:
 
 {
-  imports = [
-    ./lib/samba.nix
-  ];
   networking.hostName = "${system.host}";
   networking.networkmanager.enable = true;
   services.timesyncd.enable = true;
@@ -17,8 +14,10 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
+
   networking.firewall = {
     enable = false;
+    allowPing = true;
     allowedUDPPorts = [ 27960 27961 27962 27963 ];
     allowedTCPPorts = [ 80 443 8443 ];
     allowedUDPPortRanges = [
