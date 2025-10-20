@@ -2,68 +2,87 @@
 
 {
 
-  programs.git = {
+  programs = {
+    git = {
 
-    # base configs
-    enable = true;
-    lfs.enable = true;
-    userName = "utzuro";
-    userEmail = "utzuro@pm.me";
+      settings = {
+        # base configs
+        enable = true;
+        lfs.enable = true;
+        user.name = "utzuro";
+        user.email = "utzuro@pm.me";
 
-    signing = {
-      signer = "utzuro";
-      key = "utzuro@pm.me";
-      signByDefault = true;
-    };
-
-    aliases = {
-      co = "checkout";
-      sw = "switch";
-    };
-
-    # extra configs
-    hooks = {
-      pre-commit = ./pre-commit-script.sh;
-    };
-
-    extraConfig = {
-      init.defaultBranch = "main";
-      push.autoSetupRemote = true;
-      url = {
-        "git@github.com:" = {
-          insteadOf = [
-            "gh:"
-            "github:"
-          ];
+        signing = {
+          signer = "utzuro";
+          key = "utzuro@pm.me";
+          signByDefault = true;
         };
-        "git@github.com:chikei-development/" = {
-          insteadOf = [
-            "https://github.com/chikei-development/"
-          ];
+
+        aliases = {
+          co = "checkout";
+          sw = "switch";
+        };
+
+        # extra configs
+        hooks = {
+          pre-commit = ./pre-commit-script.sh;
+        };
+
+        init.defaultBranch = "main";
+        push.autoSetupRemote = true;
+        url = {
+          "git@github.com:" = {
+            insteadOf = [
+              "gh:"
+              "github:"
+            ];
+          };
+          "git@github.com:chikei-development/" = {
+            insteadOf = [
+              "https://github.com/chikei-development/"
+            ];
+          };
         };
       };
-    };
 
-    ignores = [
-      "*~"
-      "*.swp"
-    ];
-
-    attributes = [
-      "*.pdf diff=pdf"
-    ];
-
-    maintenance = {
-      enable = true;
-      timers = {
-        daily = "Tue..Sun *-*-* 12:00:00";
-      };
-      repositories = [
+      ignores = [
+        "*~"
+        "*.swp"
       ];
+
+      attributes = [
+        "*.pdf diff=pdf"
+      ];
+
+      maintenance = {
+        enable = true;
+        timers = {
+          daily = "Tue..Sun *-*-* 12:00:00";
+        };
+        repositories = [
+        ];
+      };
+
     };
 
 
     # diffs
+
+    diff-so-fancy = {
+      enable = true;
+      settings = {
+        markEmptyLines = true;
+        pagerOpts = [
+          "--tabs=4"
+          "-RFX"
+        ];
+      };
+    };
+
+    riff.enable = false;
+
+    patdiff.enable = false;
+
     diff-highlight = {
       enable = false;
       pagerOpts = [
@@ -72,24 +91,13 @@
       ];
     };
 
-    riff.enable = false;
-
-    patdiff.enable = false;
-
-    diff-so-fancy = {
-      enable = true;
-      markEmptyLines = true;
-      pagerOpts = [
-        "--tabs=4"
-        "-RFX"
-      ];
-    };
-
     difftastic = {
       enable = false;
+      options = {
       enableAsDifftool = true;
       display = "side-by-side"; # "inline"
-      background = "dark";
+        background = "dark";
+      };
     };
 
     delta = {

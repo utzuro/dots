@@ -19,7 +19,6 @@
       enable = true;
       qemu = {
         swtpm.enable = true;
-        ovmf.packages = with pkgs; [ OVMFFull.fd ];
       };
     };
     spiceUSBRedirection.enable = true;
