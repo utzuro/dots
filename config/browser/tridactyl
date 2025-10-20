@@ -10,6 +10,7 @@ set searchurls.go https://pkg.go.dev/search?q=ptrutil&m=%s
 set searchurls.dj https://docs.djangoproject.com/en/5.1/search/?q=%s
 set searchurls.py https://docs.python.org/3/search.html?q=%s
 set searchurls.mal https://myanimelist.net/search/all?q=%s&cat=all
+set searchurls.dic https://www.dictionary.com/browse/%s
 
 # When searching for the pattern, highlight all words and move to next/prev witn n/N
 bind / fillcmdline find

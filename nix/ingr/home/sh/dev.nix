@@ -12,6 +12,7 @@
     # tools
     xc
     httpie
+    grpcurl
     valgrind
     secretspec
 

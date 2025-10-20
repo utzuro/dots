@@ -1,6 +1,18 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  environment.systemPackages = [
+    pkgs.jellyfin
+    pkgs.jellyfin-web
+    pkgs.jellyfin-ffmpeg
+  ];
+
   services.samba = {
     enable = true;
     openFirewall = true;
@@ -14,7 +26,7 @@
         #"use sendfile" = "yes";
         #"max protocol" = "smb2";
         # note: localhost is the ipv6 localhost ::1
-        "hosts allow" = "192.168.50. 127.0.0.1 localhost";
+        "hosts allow" = "192.168. 127.0.0.1 localhost";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";

@@ -20,6 +20,7 @@
     xc
     nodejs
     httpie
+    grpcurl
 
     # go
     go
