@@ -22,7 +22,7 @@
     less
 
     # core
-    neovim
+    # neovim
     yazi
     ack
     ripgrep
