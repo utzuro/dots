@@ -14,9 +14,19 @@
       enable = true;
       enableExtensionPack = true;
     };
+    users.extraGroups.vboxusers.members = [ "void" ];
+
+    xen = {
+      enable = true;
+    };
+
+    vmware = {
+      host.enable = true;
+    };
 
     libvirtd = {
       enable = true;
+      programs.virt-manager.enable = true;
       qemu = {
         swtpm.enable = true;
       };
