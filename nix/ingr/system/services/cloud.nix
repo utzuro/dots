@@ -1,6 +1,28 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  services.Invidious = {
+    enable = true;
+    port = 5599;
+    openFirewall = true;
+    sig-helper.enable = true;
+    http3-ytproxy.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    jellyfin
+    jellyfin-web
+    jellyfin-ffmpeg
+
+    invidtui
+  ];
+
   services.samba = {
     enable = true;
     openFirewall = true;
@@ -14,7 +36,7 @@
         #"use sendfile" = "yes";
         #"max protocol" = "smb2";
         # note: localhost is the ipv6 localhost ::1
-        "hosts allow" = "192.168.50. 127.0.0.1 localhost";
+        "hosts allow" = "192.168. 127.0.0.1 localhost";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";
@@ -72,4 +94,5 @@
     extraGroups = [ "users" ];
     isNormalUser = true;
   };
+  
 }

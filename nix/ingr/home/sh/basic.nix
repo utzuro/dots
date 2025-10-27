@@ -43,7 +43,7 @@
     timer
     duf
 
-    # media
+    # # media
     ffmpeg
     imagemagick
 
@@ -60,7 +60,6 @@
     ipcalc
     nmap
     tcpdump
-    host
     dig
 
   ];

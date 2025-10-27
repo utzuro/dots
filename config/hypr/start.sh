@@ -10,7 +10,7 @@ blueman &
 # apps
 GDK_SCALE=1 GDK_DPI_SCALE=1 librewolf &
 ~/.config/hypr/apps/sig &
-~/.config/hypr/apps/discord &
+#########~/.config/hypr/apps/discord &
 # ~/.config/hypr/apps/slack &
 # vesktop &
 ~/.config/hypr/wall.sh
