@@ -118,7 +118,6 @@ in
     ipcalc
     nmap
     tcpdump
-    host
     dig
   ];
 

@@ -3,6 +3,9 @@
 {
   home.packages = with pkgs; [
 
+    # training
+    tt
+
     # output
     sl
     cmatrix

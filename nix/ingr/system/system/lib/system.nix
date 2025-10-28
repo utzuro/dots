@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   hardware = {
@@ -17,6 +17,10 @@
   security.rtkit.enable = true;
   services = {
     gnome.gnome-keyring.enable = true;
+    gvfs = {
+      enable = true;
+      package = lib.mkForce pkgs.gnome.gvfs;
+    };
     fwupd.enable = true;
     pipewire = {
       enable = true;

@@ -41,6 +41,7 @@
       "kvm"
       "libvirtd"
       "vboxusers"
+      "samba"
     ];
   };
   programs.zsh.enable = true;

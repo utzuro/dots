@@ -118,6 +118,8 @@
 
               ./ingr/system/services/homeassistant.nix
               ./ingr/system/services/sync.nix
+              ./ingr/system/services/cloud.nix
+              # ./ingr/system/services/monitoring.nix
 
             ];
 
@@ -198,6 +200,7 @@
 
               ./ingr/home/gui/browser.nix
               ./ingr/home/gui/dev.nix
+              ./ingr/home/gui/media.nix
 
               inputs.stylix.homeModules.stylix
             ];
