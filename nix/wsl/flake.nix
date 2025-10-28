@@ -3,10 +3,15 @@
 
   # example usage:
   # - nix flake update
-  # - nixos-rebuild switch --flake .#corp
+  # - sudo nixos-rebuild switch --flake .#wsl --impure
+  # - home-manager switch --flake .#wsl --impure
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +23,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixos-wsl, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nixos-wsl, ... }@inputs:
 
     let
       arch = "x86_64-linux";
@@ -38,10 +43,10 @@
       # Settings are different across the machines
       nixosConfigurations = {
 
-        corp =
+        wsl =
           let
             system = {
-              inherit arch; host = "corp";
+              inherit arch; host = "wsl";
               storageDriver = "overlay2";
             };
           in
@@ -52,7 +57,12 @@
 
               ./hardware-configuration.nix
               ./apps.nix
-              ../ingr/pkgs.nix
+              ../ingr/system/sh/basic.nix
+              ../ingr/system/sh/power.nix
+              ../ingr/system/sh/dev.nix
+              ../ingr/system/sh/games.nix
+
+              ../ingr/system/fonts.nix
 
               # Setup WSL
               nixos-wsl.nixosModules.default
@@ -78,6 +88,33 @@
 
             ];
             specialArgs = { inherit system pkgs inputs; };
+          };
+      };
+
+      homeConfigurations = {
+        backupFileExtension = "backup";
+        void =
+          let
+            user = {
+              name = "void";
+              email = "utzuro@pm.me";
+            };
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+              ../ingr/home/home.nix
+              ../ingr/home/env.nix
+              ../ingr/home/fonts.nix
+
+              ../ingr/home/sh/basic.nix
+              ../ingr/home/sh/power.nix
+              ../ingr/home/sh/dev.nix
+              ../ingr/home/sh/games.nix
+              ../ingr/home/sh/subs.nix
+            ];
+
+            extraSpecialArgs = { inherit user inputs; };
           };
       };
     };

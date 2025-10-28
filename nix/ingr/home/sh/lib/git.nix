@@ -4,10 +4,15 @@
 
   programs = {
     git = {
+      enable = true;
+
+      # extra configs
+      hooks = {
+        pre-commit = ./pre-commit-script.sh;
+      };
 
       settings = {
         # base configs
-        enable = true;
         lfs.enable = true;
         user.name = "utzuro";
         user.email = "utzuro@pm.me";
@@ -21,11 +26,6 @@
         aliases = {
           co = "checkout";
           sw = "switch";
-        };
-
-        # extra configs
-        hooks = {
-          pre-commit = ./pre-commit-script.sh;
         };
 
         init.defaultBranch = "main";
@@ -94,8 +94,8 @@
     difftastic = {
       enable = false;
       options = {
-      enableAsDifftool = true;
-      display = "side-by-side"; # "inline"
+        enableAsDifftool = true;
+        display = "side-by-side"; # "inline"
         background = "dark";
       };
     };

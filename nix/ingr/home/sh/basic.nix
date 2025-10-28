@@ -12,7 +12,6 @@
 
     # basic
     vim
-    git
     tmux
     ranger
     rsync
