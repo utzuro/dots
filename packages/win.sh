@@ -6,10 +6,13 @@
 
 scoop bucket add extras 
 
-# tools (normally installed with nix)
+# shell
 scoop install neovim
+scoop install eza fzf
 scoop install python go protobuf nodejs rustup cmake
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
+
+# GUI
 scoop install libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
 scoop install kitty wezterm alacritty
 scoop install jetbrains-toolbox
@@ -23,7 +26,6 @@ scoop install jetbrains-toolbox
 # shell:
 #   program: "wsl"
 #   args: ["-d", "NixOS"]
-
 
 
 # win-utils
