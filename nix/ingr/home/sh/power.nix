@@ -98,10 +98,6 @@
     # android
     android-tools
     jmtpfs
-
-    # extra
-    woeusb
-    ventoy-full
   ];
 
   nixpkgs.overlays = [

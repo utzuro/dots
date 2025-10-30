@@ -3,8 +3,8 @@
 {
   environment.systemPackages = with pkgs;
     [
+      home-manager
       # WSL specific packages here
-
     ];
 
   # Required to work for apps like vscode

@@ -12,8 +12,8 @@
 !p::Send "{PgUp}"
 
 ; switch between windows
-^j::Send "{Alt down}{Tab}{Alt up}"
-^k::Send "{Alt down}{Shift down}{Tab}{Shift up}{Alt up}"
+; ^j::Send "{Alt down}{Tab}{Alt up}"
+; ^k::Send "{Alt down}{Shift down}{Tab}{Shift up}{Alt up}"
 
 ; Keyboard Layout
 CapsLock::Send "{Shift down}{Alt}{Shift up}"

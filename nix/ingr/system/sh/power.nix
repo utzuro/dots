@@ -102,8 +102,8 @@
     jmtpfs
 
     # extra
-    woeusb
-    ventoy-full
+    # woeusb
+    # ventoy-full
   ];
 }
 

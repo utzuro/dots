@@ -125,6 +125,8 @@ in
   #   shell = pkgs.zsh;
   # };
 
+  users.users.void.shell = pkgs.zsh;
+
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;
