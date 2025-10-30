@@ -18,7 +18,7 @@
     p7zip
 
     # tools
-    lfs
+    dysk
     lsd
     lsdvd
     ncdu

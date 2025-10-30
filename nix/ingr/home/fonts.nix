@@ -27,7 +27,7 @@
     # support
     powerline-fonts
     font-awesome
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     hurmit
     hasklug
     symbols-only
