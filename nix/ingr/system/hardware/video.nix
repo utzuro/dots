@@ -12,7 +12,7 @@
         libvdpau-va-gl
         libva
         libva-utils
-        vaapiVdpau
+        libva-vdpau-driver
         vulkan-validation-layers
       ];
     };

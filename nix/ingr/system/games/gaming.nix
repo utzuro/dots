@@ -72,24 +72,24 @@
 
     # OPEN GAMES
     # rpg
-    freedink
+    # freedink
 
     # online
-    runelite
-    runescape
+    # runelite
+    # runescape
 
     # action
-    quake3e
-    starsector
-    yquake2-all-games
-    anarch
-    dxx-rebirth
+    # quake3e
+    # starsector
+    # yquake2-all-games
+    # anarch
+    # dxx-rebirth
 
     openarena
-    ioq3-scion
-    openspades
-    xonotic
-    cataclysm-dda
+    # ioq3-scion
+    # openspades
+    # xonotic
+    # cataclysm-dda
 
     crawl
     experienced-pixel-dungeon
@@ -97,21 +97,21 @@
     superTuxKart
 
     # space
-    endless-sky
-    pioneer
-    naev
+    # endless-sky
+    # pioneer
+    #naev
 
     # strategy
     wesnoth
     unciv
     mindustry-wayland
-    opendune
+    # opendune
 
     # card
-    xmage
+    # xmage
 
     # sim
-    rigsofrods-bin
+    # rigsofrods-bin
 
     # engine recreations
     vcmi #fheroes2

@@ -14,7 +14,7 @@
       enable = true;
       enableExtensionPack = true;
     };
-    users.extraGroups.vboxusers.members = [ "void" ];
+    # users.extraGroups.vboxusers.members = [ "void" ];
 
     xen = {
       enable = true;
@@ -24,13 +24,13 @@
       host.enable = true;
     };
 
-    libvirtd = {
-      enable = true;
-      programs.virt-manager.enable = true;
-      qemu = {
-        swtpm.enable = true;
-      };
-    };
+    # libvirtd = {
+    #   enable = true;
+    #   virt-manager.enable = true;
+    #   qemu = {
+    #     swtpm.enable = true;
+    #   };
+    # };
     spiceUSBRedirection.enable = true;
 
     waydroid.enable = true;

@@ -27,7 +27,7 @@
     qjoypad
     moltengamepad
     xclip
-    xdragon
+    dragon-drop
     sxiv
     feh
   ];

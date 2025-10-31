@@ -19,26 +19,23 @@
 
   environment.systemPackages = with pkgs; [
 
+    # tools
     xdotool
     xdg-launch
     xdg-utils
     xsettingsd
     socat
     glances
-    kdePackages.konsole
+
+    # terms
     foot
     kitty
     wezterm
     st
+    kdePackages.konsole
+
+    # theme
     adwaita-icon-theme
-
-    nautilus
-    kdePackages.dolphin
-    xfce.thunar
-
-
-    qt6.full
-
     (where-is-my-sddm-theme.override {
       themeConfig.General = {
         passwordCharacter = "•";
@@ -49,9 +46,7 @@
       };
     })
 
-    librewolf
-    firefox
-    chromium
+    # web
     qutebrowser
 
   ];

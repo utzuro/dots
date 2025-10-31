@@ -3,9 +3,9 @@
 {
   imports = [
     # ./gnome.nix
-    ./kde.nix
+    # ./kde.nix
     ./i3.nix
-    ./sway.nix
+    # ./sway.nix
     ./hyprland.nix
   ];
 

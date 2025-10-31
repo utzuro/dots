@@ -4,7 +4,7 @@
   services.home-assistant = {
     enable = true;
     extraPackages = ps: with ps; [ psycopg2 ];
-    config.recorder.db_url = "postgresql://@/hass";
+    # config.recorder.db_url = "postgresql://@/hass";
     extraComponents = [
       # Components required to complete the onboarding
       "analytics"
@@ -32,14 +32,14 @@
     };
   };
 
-  services.postgresql = {
-    enable = false;
-    ensureDatabases = [ "hass" ];
-    ensureUsers = [{
-      name = "hass";
-      ensureDBOwnership = true;
-    }];
-  };
+  # services.postgresql = {
+  #   enable = false;
+  #   ensureDatabases = [ "hass" ];
+  #   ensureUsers = [{
+  #     name = "hass";
+  #     ensureDBOwnership = true;
+  #   }];
+  # };
 
 
 }
