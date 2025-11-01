@@ -19,6 +19,9 @@
 
   environment.systemPackages = with pkgs; [
 
+    #basic
+    kdePackages.qt5compat
+
     # tools
     xdotool
     xdg-launch

@@ -89,7 +89,7 @@
               ./ingr/system/dev.nix
               ./ingr/system/network/settings.nix
               ./ingr/system/network/vpn.nix
-              ./ingr/system/virtualization.nix
+              # ./ingr/system/virtualization.nix
 
               ./ingr/system/wm/all.nix
               ./ingr/system/gui.nix

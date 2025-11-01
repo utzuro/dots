@@ -2,6 +2,5 @@
 {
   home.packages = with pkgs; [
     hakuneko
-    discord
   ];
 }

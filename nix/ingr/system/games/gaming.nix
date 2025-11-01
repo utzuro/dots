@@ -37,11 +37,11 @@
     adwaita-icon-theme # required for lutris
     oversteer
 
-    wineWowPackages.waylandFull
-    (wineWowPackages.full.override {
-      wineRelease = "staging";
-      mingwSupport = true;
-    })
+    wineWowPackages.staging
+    # (wineWowPackages.full.override {
+    #   wineRelease = "staging";
+    #   mingwSupport = true;
+    # })
     winetricks
 
     (lutris.override {

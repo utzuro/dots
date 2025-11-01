@@ -29,5 +29,7 @@
 
   environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_zen.v4l2loopback
+    mesa
+    mesa-demos
   ];
 } 
