@@ -11,6 +11,7 @@ set searchurls.dj https://docs.djangoproject.com/en/5.1/search/?q=%s
 set searchurls.py https://docs.python.org/3/search.html?q=%s
 set searchurls.mal https://myanimelist.net/search/all?q=%s&cat=all
 set searchurls.dic https://www.dictionary.com/browse/%s
+set searchurls.homm https://heroes.thelazy.net/index.php?search=%s&title=Special%3ASearch&fulltext=Search
 
 # When searching for the pattern, highlight all words and move to next/prev witn n/N
 bind / fillcmdline find
