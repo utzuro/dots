@@ -16,7 +16,6 @@
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
     blocklist-repo = {
       url = "github:StevenBlack/hosts";
       flake = false;
@@ -40,9 +39,7 @@
     in
     {
 
-      # Settings are different across the machines
       nixosConfigurations = {
-
         wsl =
           let
             system = {
@@ -67,23 +64,36 @@
               # Setup WSL
               nixos-wsl.nixosModules.default
               {
-                system.stateVersion = "24.05";
-                wsl.enable = true;
-                wsl.defaultUser = "void";
-                wsl.docker-desktop.enable = true;
-                wsl.interop.register = true;
-                wsl.startMenuLaunchers = true;
-                wsl.usbip.enable = true;
-                wsl.useWindowsDriver = true; # OpenGL
-                # wsl.wrapBinShell = true;
-                wsl.wslConf = {
-                  # put confs here
-                  # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-settings-for-wslconf
-                  automount.enabled = true;
-                  automount.ldconfig = true;
-                  interop.enabled = true;
-                  interop.appendWindowsPath = true;
+                wsl = {
+                  enable = true;
+                  defaultUser = "void";
+                  docker-desktop.enable = true;
+                  useWindowsDriver = true; # OpenGL
+                  interop.includePath = false;
+                  interop.register = true;
+                  usbip.enable = true;
+                  # wsl.wrapBinShell = true;
+                  wslConf = {
+                    # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-settings-for-wslconf
+                    automount.enabled = true;
+                    automount.ldconfig = true;
+                    interop.enabled = true;
+                    interop.appendWindowsPath = false;
+                  };
                 };
+
+                systemd.services.wsl-keepalive = {
+                  description = "Keep WSL VM alive";
+                  wantedBy = [ "multi-user.target" ];
+                  after = [ "network.target" ];
+
+                  serviceConfig = {
+                    Type = "simple";
+                    ExecStart = "${pkgs.bash}/bin/bash -c 'while true; do sleep 60; done'";
+                  };
+                };
+
+                system.stateVersion = "24.05";
               }
 
             ];

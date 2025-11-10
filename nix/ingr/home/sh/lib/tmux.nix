@@ -7,7 +7,7 @@ in
 {
   programs.tmux = {
     enable = true;
-    prefix = "M-a";
+    # prefix = "C-a";
     keyMode = "vi";
     clock24 = true;
     newSession = true;
