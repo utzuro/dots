@@ -33,7 +33,7 @@
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
     cudaPackages.cuda_cccl
-    cudaPackages.cudnn
+    # cudaPackages.cudnn
     cudatoolkit
     ocl-icd
     #rocm-opencl-runtime

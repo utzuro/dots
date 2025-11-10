@@ -19,7 +19,7 @@
     p7zip
 
     # tools
-    lfs
+    dysk
     lsd
     lsdvd
     ncdu
@@ -49,7 +49,7 @@
 
     # audio
     mpd
-    mpc-cli
+    mpc
     ncmpcpp
     kew
 
@@ -88,7 +88,6 @@
     # vpn
     tor
     openvpn
-    protonvpn-cli
     wireguard-tools
     networkmanager-openvpn
 
@@ -99,12 +98,6 @@
     # android
     android-tools
     jmtpfs
-
-    # extra
-    woeusb
-    # ventoy-full #broken
-
-
   ];
 
   nixpkgs.overlays = [

@@ -24,6 +24,7 @@
     hyprland-workspaces
     hypridle
     pyprland
+    hyprland-qt-support
   ];
 
   # nixpkgs.overlays = [

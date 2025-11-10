@@ -31,6 +31,9 @@
     dialog
     wpa_supplicant
     wirelesstools
+    bluetuith
+    bluetui
+    overskride
   ];
 
   # environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";

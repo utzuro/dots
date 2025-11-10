@@ -85,40 +85,27 @@
           lib.nixosSystem {
             modules = [
               # Only for NixOS
-              ./ingr/system/system.nix
-              ./ingr/system/system/virtualization.nix
-              ./ingr/system/system/network/network.nix
-              ./ingr/system/system/network/vpn.nix
+              ./ingr/system/basic.nix
+              ./ingr/system/dev.nix
+              ./ingr/system/network/settings.nix
+              ./ingr/system/network/vpn.nix
+              # ./ingr/system/virtualization.nix
 
               ./ingr/system/wm/all.nix
+              ./ingr/system/gui.nix
 
-              ./ingr/system/system/power/pc.nix
-              ./ingr/system/system/hardware/intel.nix
-              ./ingr/system/system/hardware/video.nix
-              ./ingr/system/system/hardware/nvidia.nix
-
-              ./ingr/system/corporate.nix
+              ./ingr/system/power/pc.nix
+              ./ingr/system/hardware/intel.nix
+              ./ingr/system/hardware/video.nix
+              ./ingr/system/hardware/nvidia.nix
 
               ./ingr/system/games/gaming.nix
               ./ingr/system/games/steam.nix
 
               # Below can be used on mac/wsl
-              ./ingr/system/fonts.nix
-
-              ./ingr/system/sh/basic.nix
-              ./ingr/system/sh/power.nix
-              ./ingr/system/sh/dev.nix
-              ./ingr/system/sh/games.nix
-
-              ./ingr/system/gui/comms.nix
-              ./ingr/system/gui/media.nix
-              ./ingr/system/gui/learn.nix
-              ./ingr/system/gui/dev.nix
-              ./ingr/system/gui/creative.nix
-
-              ./ingr/system/services/homeassistant.nix
-              ./ingr/system/services/sync.nix
-              ./ingr/system/services/cloud.nix
+              # ./ingr/system/services/homeassistant.nix
+              # ./ingr/system/services/sync.nix
+              # ./ingr/system/services/cloud.nix
               # ./ingr/system/services/monitoring.nix
 
             ];
@@ -135,36 +122,6 @@
           in
           lib.nixosSystem {
             modules = [
-              # Only for NixOS
-              ./ingr/system/system.nix
-              # ./ingr/system/system/virtualization.nix
-              ./ingr/system/system/network/network.nix
-              # ./ingr/system/system/network/vpn.nix
-
-              ./ingr/system/wm/i3.nix
-              ./ingr/system/wm/hyprland.nix
-
-              ./ingr/system/system/power/laptop.nix
-              ./ingr/system/system/hardware/intel.nix
-              ./ingr/system/system/hardware/video.nix
-
-              ./ingr/system/games/steam.nix
-
-              # Below can be used on mac/wsl
-              ./ingr/system/fonts.nix
-
-              ./ingr/system/sh/basic.nix
-              # ./ingr/system/sh/power.nix
-              # ./ingr/system/sh/dev.nix
-              # ./ingr/system/sh/games.nix
-
-              ./ingr/system/gui/comms.nix
-              # ./ingr/system/gui/media.nix
-              # ./ingr/system/gui/learn.nix
-              # ./ingr/system/gui/dev.nix
-              # ./ingr/system/gui/creative.nix
-
-
             ];
             specialArgs = { inherit system inputs; };
           };
@@ -201,6 +158,7 @@
               ./ingr/home/gui/browser.nix
               ./ingr/home/gui/dev.nix
               ./ingr/home/gui/media.nix
+              ./ingr/home/gui/comms.nix
 
               inputs.stylix.homeModules.stylix
             ];

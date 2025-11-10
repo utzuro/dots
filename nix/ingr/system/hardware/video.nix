@@ -12,7 +12,7 @@
         libvdpau-va-gl
         libva
         libva-utils
-        vaapiVdpau
+        libva-vdpau-driver
         vulkan-validation-layers
       ];
     };
@@ -29,5 +29,7 @@
 
   environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_zen.v4l2loopback
+    mesa
+    mesa-demos
   ];
 } 

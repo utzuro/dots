@@ -7,10 +7,9 @@
     openFirewall = true;
   };
 
-  services.Invidious = {
+  services.invidious = {
     enable = true;
     port = 5599;
-    openFirewall = true;
     sig-helper.enable = true;
     http3-ytproxy.enable = true;
   };
@@ -94,5 +93,5 @@
     extraGroups = [ "users" ];
     isNormalUser = true;
   };
-  
+
 }
