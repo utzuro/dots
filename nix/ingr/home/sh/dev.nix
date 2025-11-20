@@ -24,6 +24,7 @@
     golangci-lint
     revive
     sqlc
+    sqlfluff
     delve
     buf
     vips
@@ -46,6 +47,7 @@
     ))
     uv
     nox
+    ruff
 
     # c/c++
     cmake
@@ -84,7 +86,13 @@
     deno
 
     # android
-    # flutter
+    flutter
+    # androidenv.test-suite
+    androidenv.androidPkgs.tools
+    androidenv.androidPkgs.platform-tools
+    androidenv.androidPkgs.ndk-bundle
+    androidenv.androidPkgs.emulator
+    androidenv.androidPkgs.androidsdk
 
     # scripts
     shfmt
@@ -94,8 +102,15 @@
     lua
     ghostscript
 
+    # writing
+    typst
+    texlab
+    texliveFull
+
     # network
     gource
+    mdns
+    mdns-scanner
 
     # devops
     tenv
@@ -124,6 +139,7 @@
 
     # hardware
     avrdude
+    libinput
 
     # system
     diffutils

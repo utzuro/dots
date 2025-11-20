@@ -12,34 +12,37 @@
 {
   programs.steam = {
     enable = true;
+    extest.enable = true;
     remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
     dedicatedServer.openFirewall = true;
     gamescopeSession.enable = true;
     extraCompatPackages = [ pkgs.proton-ge-bin ];
+    extraPackages = with pkgs; [
+      steamcmd
+      steam-tui
+      steam-run
+      steamback
+      steam-devices-udev-rules
+      mangohud
+      xorg.libXcursor
+      xorg.libXi
+      xorg.libXinerama
+      xorg.libXScrnSaver
+      libpng
+      libpulseaudio
+      libvorbis
+      stdenv.cc.cc.lib
+      libkrb5
+      keyutils
+      protonup-ng
+    ];
+    protontricks.enable = true;
   };
   programs.gamemode.enable = true;
 
-  environment.systemPackages = with pkgs; [ steam vulkan-headers ntfs3g protonup-ng ];
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS =
       "\${HOME}/.steam/root/compatibilitytools.d"; # for protonup to work
-  };
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    steam = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [
-        mangohud
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXinerama
-        xorg.libXScrnSaver
-        libpng
-        libpulseaudio
-        libvorbis
-        stdenv.cc.cc.lib
-        libkrb5
-        keyutils
-      ];
-    };
   };
 }

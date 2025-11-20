@@ -28,9 +28,6 @@
     #   beetle-psx-hw
     # ]))
 
-    steamcmd
-    steam-run
-    protontricks
     heroic
     lutris
     bottles
@@ -105,6 +102,7 @@
     wesnoth
     unciv
     mindustry-wayland
+    # faf-client
     # opendune
 
     # card

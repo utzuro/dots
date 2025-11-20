@@ -56,7 +56,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nix-gaming, ... }@inputs:
 
     let
       arch = "x86_64-linux";
@@ -66,7 +66,13 @@
         config = {
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
+          android_sdk.accept_license = true;
         };
+        overlays = [
+          (final: prev: {
+            gaming = nix-gaming.packages.${arch};
+          })
+        ];
       });
 
     in
@@ -159,6 +165,7 @@
               ./ingr/home/gui/dev.nix
               ./ingr/home/gui/media.nix
               ./ingr/home/gui/comms.nix
+              ./ingr/home/gui/games.nix
 
               inputs.stylix.homeModules.stylix
             ];

@@ -14,6 +14,7 @@
         libva-utils
         libva-vdpau-driver
         vulkan-validation-layers
+        vulkan-headers
       ];
     };
 

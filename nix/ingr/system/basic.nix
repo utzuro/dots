@@ -133,5 +133,9 @@ in
     nmap
     tcpdump
     dig
+
+    # OS
+    exfat
+    exfatprogs
   ];
 }

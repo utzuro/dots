@@ -89,19 +89,19 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'mhinz/vim-signify'
 
-    " Server
+" Server
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 " Plug 'vim-python/python-syntax'
 " Plug 'nvie/vim-flake8' " :PyFlake8
 
-    " Frontend
+" Frontend
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'cakebaker/scss-syntax.vim'
 
-    " Config scripts support
+" Config scripts support
 Plug 'LnL7/vim-nix'
 Plug 'elkowar/yuck.vim'
 Plug 'mboughaba/i3config.vim'
@@ -113,6 +113,9 @@ Plug 'stephpy/vim-yaml'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'towolf/vim-helm'
+
+" Devcontainers
+Plug 'esensar/nvim-dev-container'
 
 "Visual
 Plug 'dracula/vim'

@@ -4,13 +4,14 @@
   hardware = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
-    flipperzero.enable = true;
-    sensor.iio.enable = true;
     ipu6.enable = true;
     # ipu6 for Tiger Lake
     # ipu6ep for Alder Lake / Raptor Lake
     # ipu6epmtl for Meteor Lake.
     ipu6.platform = "ipu6ep";
+    # extra
+    flipperzero.enable = true;
+    sensor.iio.enable = true;
   };
   environment.pathsToLink = [ "/libexec" ];
 
@@ -27,6 +28,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber.enable = true;
       jack.enable = true;
     };
     dbus.enable = true;
@@ -95,7 +97,6 @@
     coppwr
     helvum
     pwvucontrol
-    wireplumber
     easyeffects
     dmidecode
     sysbench

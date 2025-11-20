@@ -72,9 +72,9 @@
 
   fileSystems."/mnt/db" =
     {
-      device = "/dev/disk/by-uuid/AC1E8BBD1E8B7ED8";
-      fsType = "ntfs3";
-      options = [ "rw" "uid=1000" "nofail" "noatime" ];
+      device = "/dev/disk/by-uuid/15bca260-3e5f-4577-b634-f4ecee56137f";
+      fsType = "xfs";
+      options = [ "nofail" "noatime" "acl" ];
     };
 
   fileSystems."/mnt/archive" =
