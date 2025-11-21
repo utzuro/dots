@@ -6,22 +6,21 @@
     ./lib/fhs.nix
   ];
 
+  users.extraGroups.vboxusers.members = [ "void" ];
   virtualisation = {
-
-    # xen.enable = true;
 
     virtualbox.host = {
       enable = true;
       enableExtensionPack = true;
     };
-    # users.extraGroups.vboxusers.members = [ "void" ];
-
-    xen = {
-      enable = true;
-    };
 
     vmware = {
       host.enable = true;
+    };
+
+
+    xen = {
+      enable = true;
     };
 
     # libvirtd = {
