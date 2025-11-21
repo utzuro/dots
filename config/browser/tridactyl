@@ -9,6 +9,7 @@ set searchurls.mynix https://mynixos.com/search?q=%s
 set searchurls.go https://pkg.go.dev/search?q=ptrutil&m=%s
 set searchurls.dj https://docs.djangoproject.com/en/5.1/search/?q=%s
 set searchurls.py https://docs.python.org/3/search.html?q=%s
+set searchurls.go https://pkg.go.dev/search?q=%s&m=
 set searchurls.mal https://myanimelist.net/search/all?q=%s&cat=all
 set searchurls.dic https://www.dictionary.com/browse/%s
 set searchurls.homm https://heroes.thelazy.net/index.php?search=%s&title=Special%3ASearch&fulltext=Search
