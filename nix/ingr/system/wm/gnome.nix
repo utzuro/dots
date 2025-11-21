@@ -15,7 +15,7 @@
     ++ (with pkgs.gnomeExtensions; [ appindicator ])
     ++ (with pkgs.gnome; [ ]);
 
-  services.udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
+  services.udev.packages = [ pkgs.gnome-settings-daemon ];
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-tour
