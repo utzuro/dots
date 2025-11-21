@@ -33,6 +33,7 @@
         config = {
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
+          android_sdk.accept_license = true;
         };
       });
 
@@ -54,10 +55,9 @@
 
               ./hardware-configuration.nix
               ./apps.nix
-              ../ingr/system/sh/basic.nix
-              ../ingr/system/sh/power.nix
-              ../ingr/system/sh/dev.nix
-              ../ingr/system/sh/games.nix
+              ../ingr/system/basic.nix
+              ./ingr/system/dev.nix
+              ./ingr/system/network/settings.nix
 
               ../ingr/system/fonts.nix
 
