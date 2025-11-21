@@ -74,7 +74,7 @@
     {
       device = "/dev/disk/by-uuid/15bca260-3e5f-4577-b634-f4ecee56137f";
       fsType = "xfs";
-      options = [ "nofail" "noatime" "acl" ];
+      options = [ "nofail" "noatime" ];
     };
 
   fileSystems."/mnt/archive" =

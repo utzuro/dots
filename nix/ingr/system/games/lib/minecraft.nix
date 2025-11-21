@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 
 {
+  # Also explore
+  # veloren
 
   services.minecraft-server = {
     enable = true;

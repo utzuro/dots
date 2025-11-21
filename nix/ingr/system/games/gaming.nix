@@ -19,8 +19,8 @@
 
   environment.systemPackages = with pkgs; [
 
-    linuxConsoleTools
-    jstest-gtk
+    # linuxConsoleTools
+    # jstest-gtk
 
     # (retroarch.withCores (cores: with cores; [
     #   genesis-plus-gx
@@ -28,108 +28,106 @@
     #   beetle-psx-hw
     # ]))
 
-    heroic
-    lutris
-    bottles
-    adwaita-icon-theme # required for lutris
-    oversteer
+    # heroic
+    # lutris adwaita-icon-theme
+    # bottles
+    # oversteer
 
-    wineWowPackages.staging
+    # wineWowPackages.staging winetricks
     # (wineWowPackages.full.override {
     #   wineRelease = "staging";
     #   mingwSupport = true;
     # })
-    winetricks
 
-    (lutris.override {
-      extraLibraries = pkgs: [
-        # If any games are unable to run 
-        # due to missing dependencies, 
-        # libraries can be installed here.
-      ];
-      extraPkgs = pkgs: [
-        # If any games are unable to run 
-        # due to missing dependencies, 
-        # pkgs can be installed here.
-      ];
-    })
+    # (lutris.override {
+    #   extraLibraries = pkgs: [
+    #     # If any games are unable to run 
+    #     # due to missing dependencies, 
+    #     # libraries can be installed here.
+    #   ];
+    #   extraPkgs = pkgs: [
+    #     # If any games are unable to run 
+    #     # due to missing dependencies, 
+    #     # pkgs can be installed here.
+    #   ];
+    # })
 
     # https://theforceengine.github.io/
     # https://github.com/JACoders/OpenJK
     # Wait for The Dark Mode to come to pkgs
 
 
-    dosbox-staging
-    dolphin-emu
+    # dosbox-staging
+    # dolphin-emu
     # retroarch-full
-    yabause # sega saturn
-    flycast # sega dreamcast
-    atari800
+    # yabause # sega saturn
+    # flycast # sega dreamcast
+    # atari800
 
+    #========================OPEN GAMES
+    #===Engine Recreations
+    vcmi
+    fheroes2
+    fallout-ce
+    fallout2-ce
+    openttd
+    openxcom
+    openmw
+    exult
+    openjk
+    theforceengine
 
-    # OPEN GAMES
-    # rpg
-    # freedink
+    #===Strategy
+    wesnoth
+    unciv
+    mindustry-wayland #mindustry
+    opendune
+    zeroad
+    widelands
+    unvanquished
 
-    # online
+    #===Card Games
+    xmage
+
+    #===RPG
+    freedink
+
+    #===Action
+    quake3e
+    starsector
+    yquake2-all-games
+    anarch
+    dxx-rebirth
+
+    #===Lan Party
+    openarena
+    assaultcube
+    superTuxKart
+
+    #===MMO
     # runelite
     # runescape
 
-    # action
-    # quake3e
-    # starsector
-    # yquake2-all-games
-    # anarch
-    # dxx-rebirth
+    ioq3-scion
+    openspades
+    xonotic
+    cataclysm-dda
 
-    openarena
-    # ioq3-scion
-    # openspades
-    # xonotic
-    # cataclysm-dda
-
-    crawl
+    #===Crawl
     experienced-pixel-dungeon
 
-    superTuxKart
+    #===Space
+    endless-sky
 
-    # space
-    # endless-sky
-    # pioneer
-    #naev
-
-    # strategy
-    wesnoth
-    unciv
-    mindustry-wayland
-    # faf-client
-    # opendune
-
-    # card
-    # xmage
-
-    # sim
-    # rigsofrods-bin
-
-    # engine recreations
-    vcmi #fheroes2
-    # openrct2 openra
-    # openttd openxcom
-    # openmw exult
-    #fallout-ce #fallout2-ce
-    #openjk theforceengine
+    #===Simulation
+    colobot
+    rigsofrods-bin
+    freeorion
+    flightgear
 
     ###########################################
     ## BUILDING ISSUES
-    # freeorion flightgear
-    # zeroad warzone2100
-    # widelands 
-    # mindustry
-    # colobot 
-    # unvanquished 
-    # assaultcube
+    # warzone2100
     # devilutionx 
-    # veloren
-
   ];
 }

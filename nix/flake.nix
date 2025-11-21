@@ -67,6 +67,7 @@
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
           android_sdk.accept_license = true;
+          doCheckByDefault = false;
         };
         overlays = [
           (final: prev: {
@@ -79,6 +80,7 @@
     {
 
       # Settings are different across the machines
+      doCheckByDefault = false;
       nixosConfigurations = {
 
         voidpc =
@@ -95,7 +97,7 @@
               ./ingr/system/dev.nix
               ./ingr/system/network/settings.nix
               ./ingr/system/network/vpn.nix
-              # ./ingr/system/virtualization.nix
+              ./ingr/system/virtualization.nix
 
               ./ingr/system/wm/all.nix
               ./ingr/system/gui.nix
