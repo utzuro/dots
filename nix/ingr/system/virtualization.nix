@@ -14,14 +14,13 @@
       enableExtensionPack = true;
     };
 
-    vmware = {
-      host.enable = true;
-    };
+    # vmware = {
+    #   host.enable = true;
+    # };
 
-
-    xen = {
-      enable = true;
-    };
+    # xen = {
+    #   enable = true;
+    # };
 
     # libvirtd = {
     #   enable = true;
@@ -38,7 +37,6 @@
 
   environment.systemPackages = with pkgs; [
     qemu
-    virtualbox
     cabextract
   ];
 
