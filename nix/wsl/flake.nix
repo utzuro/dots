@@ -89,7 +89,7 @@
 
                   serviceConfig = {
                     Type = "simple";
-                    ExecStart = "${pkgs.bash}/bin/bash -c 'while true; do sleep 60; done'";
+                    ExecStart = "${pkgs.bash}/bin/bash -c 'sleep infinity'";
                   };
                 };
 
