@@ -92,29 +92,34 @@
           in
           lib.nixosSystem {
             modules = [
+              # Only on virtual guest
+              ./virtualbox.nix
+              ./vmware.nix
+              ./xen.nix
+
               # Only for NixOS
-              ./ingr/system/basic.nix
-              ./ingr/system/dev.nix
-              ./ingr/system/network/settings.nix
-              ./ingr/system/network/vpn.nix
-              ./ingr/system/virtualization.nix
+              ../ingr/system/basic.nix
+              ../ingr/system/dev.nix
+              ../ingr/system/network/settings.nix
+              ../ingr/system/network/vpn.nix
+              ../ingr/system/virtualization.nix
 
-              ./ingr/system/wm/all.nix
-              ./ingr/system/gui.nix
+              ../ingr/system/wm/all.nix
+              ../ingr/system/gui.nix
 
-              ./ingr/system/power/pc.nix
-              ./ingr/system/hardware/intel.nix
-              ./ingr/system/hardware/video.nix
-              ./ingr/system/hardware/nvidia.nix
+              ../ingr/system/power/pc.nix
+              ../ingr/system/hardware/intel.nix
+              ../ingr/system/hardware/video.nix
+              ../ingr/system/hardware/nvidia.nix
 
-              ./ingr/system/games/gaming.nix
-              ./ingr/system/games/steam.nix
+              ../ingr/system/games/gaming.nix
+              ../ingr/system/games/steam.nix
 
               # Below can be used on mac/wsl
-              # ./ingr/system/services/homeassistant.nix
-              # ./ingr/system/services/sync.nix
-              ./ingr/system/services/cloud.nix
-              # ./ingr/system/services/monitoring.nix
+              # ../ingr/system/services/homeassistant.nix
+              # ../ingr/system/services/sync.nix
+              ../ingr/system/services/cloud.nix
+              # ../ingr/system/services/monitoring.nix
 
             ];
 
@@ -150,24 +155,24 @@
             inherit pkgs;
             modules = [
 
-              ./ingr/home/home.nix
-              ./ingr/home/env.nix
-              ./ingr/home/theme.nix
-              ./ingr/home/fonts.nix
+              ../ingr/home/home.nix
+              ../ingr/home/env.nix
+              ../ingr/home/theme.nix
+              ../ingr/home/fonts.nix
 
-              ./ingr/home/wm/all.nix
+              ../ingr/home/wm/all.nix
 
-              ./ingr/home/sh/basic.nix
-              ./ingr/home/sh/power.nix
-              ./ingr/home/sh/dev.nix
-              ./ingr/home/sh/games.nix
-              ./ingr/home/sh/subs.nix
+              ../ingr/home/sh/basic.nix
+              ../ingr/home/sh/power.nix
+              ../ingr/home/sh/dev.nix
+              ../ingr/home/sh/games.nix
+              ../ingr/home/sh/subs.nix
 
-              ./ingr/home/gui/browser.nix
-              ./ingr/home/gui/dev.nix
-              ./ingr/home/gui/media.nix
-              ./ingr/home/gui/comms.nix
-              ./ingr/home/gui/games.nix
+              ../ingr/home/gui/browser.nix
+              ../ingr/home/gui/dev.nix
+              ../ingr/home/gui/media.nix
+              ../ingr/home/gui/comms.nix
+              ../ingr/home/gui/games.nix
 
               inputs.stylix.homeModules.stylix
             ];
@@ -186,14 +191,14 @@
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [
-              ./ingr/home/home.nix
-              ./ingr/home/env.nix
-              ./ingr/home/fonts.nix
+              ../ingr/home/home.nix
+              ../ingr/home/env.nix
+              ../ingr/home/fonts.nix
 
-              ./ingr/home/sh/basic.nix
-              ./ingr/home/sh/power.nix
-              ./ingr/home/sh/dev.nix
-              ./ingr/home/sh/games.nix
+              ../ingr/home/sh/basic.nix
+              ../ingr/home/sh/power.nix
+              ../ingr/home/sh/dev.nix
+              ../ingr/home/sh/games.nix
 
               inputs.stylix.homeModules.stylix
             ];

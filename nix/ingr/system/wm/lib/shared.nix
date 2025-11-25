@@ -39,6 +39,7 @@
 
     # theme
     adwaita-icon-theme
+    gnome-themes-extra
     (where-is-my-sddm-theme.override {
       themeConfig.General = {
         passwordCharacter = "•";

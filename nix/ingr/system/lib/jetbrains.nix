@@ -38,9 +38,9 @@ let
 
     # frontend
     "NodeJS"
-    "org.intellij.plugins.postcss"
+    # "org.intellij.plugins.postcss"
     # "org.intellij.css"
-    "org.jetbrains.plugins.vue"
+    # "org.jetbrains.plugins.vue"
 
     # Theme
     "yogi-amoled"

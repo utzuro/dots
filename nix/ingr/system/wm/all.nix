@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # ./gnome.nix
+    ./gnome.nix
     # ./kde.nix
     ./i3.nix
     # ./sway.nix
