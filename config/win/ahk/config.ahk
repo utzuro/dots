@@ -34,15 +34,15 @@ F1::Send "{Alt down}{``}{Alt up}"
 #enter::Run "C:\Users\void\scoop\apps\git\current\git-bash.exe"
 
 ; Emulate numpad
-!q::Send "{Numpad7}"
-!w::Send "{Numpad8}"
-!e::Send "{Numpad9}"
-!a::Send "{Numpad4}"
-!s::Send "{Numpad5}"
-!d::Send "{Numpad6}"
-!z::Send "{Numpad1}"
-!x::Send "{Numpad2}"
-!c::Send "{Numpad3}"
+; !q::Send "{Numpad7}"
+; !w::Send "{Numpad8}"
+; !e::Send "{Numpad9}"
+; !a::Send "{Numpad4}"
+; !s::Send "{Numpad5}"
+; !d::Send "{Numpad6}"
+; !z::Send "{Numpad1}"
+; !x::Send "{Numpad2}"
+; !c::Send "{Numpad3}"
 
 ; Shortcuts overwriting
 
