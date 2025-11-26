@@ -77,12 +77,15 @@ link_dotfiles() {
 	printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 
 	printf "\n⌛... Linking vim configs... 📝\n"
-	ln_sf_or_copy "$DIR/config/vim/.vimrc" "$HOME/.vimrc"
+	ln_sf_or_copy "$DIR/config/vim/.vimrc" "$HOME/"
 
 	mkdir -p "$HOME/.config/nvim"
-	ln_sf_or_copy "$DIR/config/vim/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+	ln_sf_or_copy "$DIR/config/vim/nvim" "$HOME/.config/"
+	# workaround to avoid devcontainer error
+	mkdir ~/.cache/nvim
+	touch ~/.cache/nvim/devcontainer.log
 
-	ln_sf_or_copy "$DIR/config/vim/.ideavimrc" "$HOME/.ideavimrc"
+	ln_sf_or_copy "$DIR/config/vim/.ideavimrc" "$HOME/"
 
 	mkdir -p "$HOME/.vim"
 	for file in "$DIR"/config/vim/.vim/*.vim; do
