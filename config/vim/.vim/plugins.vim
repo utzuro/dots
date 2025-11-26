@@ -115,6 +115,7 @@ Plug 'wgwoods/vim-systemd-syntax'
 Plug 'towolf/vim-helm'
 
 " Devcontainers
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'esensar/nvim-dev-container'
 
 "Visual
