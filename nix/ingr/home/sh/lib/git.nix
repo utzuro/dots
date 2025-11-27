@@ -117,6 +117,7 @@
 
   home.packages = with pkgs; [
     onefetch
+    lazygit
   ];
 
 }
