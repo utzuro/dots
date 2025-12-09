@@ -61,6 +61,7 @@
     rtorrent
     tuir
     monolith
+    gallery-dl
 
     # dict
     tango
