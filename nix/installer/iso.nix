@@ -40,6 +40,58 @@
     curl
     rxvt-unicode # for terminfo
     lshw
+
+    # basic
+    vim
+    tmux
+    ranger
+    rsync
+    wget
+    curl
+    file
+    less
+
+    # core
+    neovim
+    yazi
+    ack
+    ripgrep
+    ripgrep-all
+    fzf
+    fd
+    rsync
+    zsync
+    file
+    jq
+    moreutils
+    wget2
+    bat
+    glow
+    peco
+    progress
+    killall
+    timer
+    duf
+
+    # # media
+    ffmpeg
+    imagemagick
+
+    # network
+    dhcpcd
+    dialog
+    wpa_supplicant
+    wirelesstools
+    iproute2
+    iw
+    ethtool
+    libnatpmp
+    busybox
+    ipcalc
+    nmap
+    tcpdump
+    dig
+
   ];
 
   programs.zsh.enable = true;

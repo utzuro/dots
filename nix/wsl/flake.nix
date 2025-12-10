@@ -67,66 +67,77 @@
                 wsl = {
                   enable = true;
                   defaultUser = "void";
-                  docker-desktop.enable = true;
-                  useWindowsDriver = true; # OpenGL
-                  interop.includePath = false;
-                  interop.register = true;
-                  usbip.enable = true;
-                  # wsl.wrapBinShell = true;
+                  docker-desktop.enable = false;
+                  useWindowsDriver = false; # OpenGL
+                  startMenuLaunchers = false;
+                  interop = {
+                    includePath = false;
+                    register = false;
+                  };
+                  usbip.enable = false;
+                  wsl.wrapBinSh = true;
                   wslConf = {
                     # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-settings-for-wslconf
-                    automount.enabled = true;
-                    automount.ldconfig = true;
-                    interop.enabled = true;
-                    interop.appendWindowsPath = false;
+                    automount = {
+                      enabled = false;
+                      ldconfig = false;
+                    };
+                    interop = {
+                      enabled = false;
+                      appendWindowsPath = false;
+                    };
+                    network = {
+                      generateHosts = true;
+                      generateResolvConf = true;
+                      hostname = "vois-wsl";
+                    };
                   };
-                };
 
-                systemd.services.wsl-keepalive = {
-                  description = "Keep WSL VM alive";
-                  wantedBy = [ "multi-user.target" ];
-                  after = [ "network.target" ];
+                  systemd.services.wsl-keepalive = {
+                    description = "Keep WSL VM alive";
+                    wantedBy = [ "multi-user.target" ];
+                    after = [ "network.target" ];
 
-                  serviceConfig = {
-                    Type = "simple";
-                    ExecStart = "${pkgs.bash}/bin/bash -c 'sleep infinity'";
+                    serviceConfig = {
+                      Type = "simple";
+                      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep infinity'";
+                    };
                   };
+
+                  system.stateVersion = "24.05";
+                }
+
+                  ];
+                specialArgs = { inherit system pkgs inputs; };
+              };
+              };
+
+              homeConfigurations = {
+              backupFileExtension = "backup";
+              void =
+                let
+                  user = {
+                    name = "void";
+                    email = "utzuro@pm.me";
+                  };
+                in
+                home-manager.lib.homeManagerConfiguration {
+                  inherit pkgs;
+                  modules = [
+                    ../ingr/home/home.nix
+                    ../ingr/home/env.nix
+                    ../ingr/home/fonts.nix
+
+                    ../ingr/home/sh/basic.nix
+                    ../ingr/home/sh/power.nix
+                    ../ingr/home/sh/dev.nix
+                    ../ingr/home/sh/games.nix
+                    ../ingr/home/sh/subs.nix
+                  ];
+
+                  extraSpecialArgs = { inherit user inputs; };
                 };
-
-                system.stateVersion = "24.05";
-              }
-
-            ];
-            specialArgs = { inherit system pkgs inputs; };
-          };
-      };
-
-      homeConfigurations = {
-        backupFileExtension = "backup";
-        void =
-          let
-            user = {
-              name = "void";
-              email = "utzuro@pm.me";
             };
-          in
-          home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [
-              ../ingr/home/home.nix
-              ../ingr/home/env.nix
-              ../ingr/home/fonts.nix
-
-              ../ingr/home/sh/basic.nix
-              ../ingr/home/sh/power.nix
-              ../ingr/home/sh/dev.nix
-              ../ingr/home/sh/games.nix
-              ../ingr/home/sh/subs.nix
-            ];
-
-            extraSpecialArgs = { inherit user inputs; };
-          };
-      };
-    };
-}
+              };
+              }
 
