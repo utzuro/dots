@@ -11,10 +11,10 @@
       settings = {
         server = {
           http_addr = "127.0.0.1";
-          http_port = 3000;
+          http_port = 8880;
           enforce_domain = true;
           enable_gzip = true;
-          domain = "grafana.your.domain";
+          domain = "grafana.cyber.space";
 
           # Alternatively, if you want to serve Grafana from a subpath:
           # domain = "your.domain";

@@ -19,11 +19,6 @@
     gamescopeSession.enable = true;
     extraCompatPackages = [ pkgs.proton-ge-bin ];
     extraPackages = with pkgs; [
-      steamcmd
-      steam-tui
-      steam-run
-      steamback
-      steam-devices-udev-rules
       mangohud
       xorg.libXcursor
       xorg.libXi
@@ -35,11 +30,19 @@
       stdenv.cc.cc.lib
       libkrb5
       keyutils
-      protonup-ng
     ];
     protontricks.enable = true;
   };
   programs.gamemode.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    steam-run
+    protonup-ng
+    steamcmd
+    steam-tui
+    steamback
+    steam-devices-udev-rules
+  ];
 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS =

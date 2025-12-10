@@ -11,7 +11,7 @@
 
     libvirtd = {
       enable = true;
-      virt-manager.enable = true;
+      # virt-manager.enable = true;
       qemu = {
         swtpm.enable = true;
       };

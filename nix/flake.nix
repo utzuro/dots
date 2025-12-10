@@ -114,7 +114,7 @@
               # ./ingr/system/services/homeassistant.nix
               # ./ingr/system/services/sync.nix
               ./ingr/system/services/cloud.nix
-              # ./ingr/system/services/monitoring.nix
+              ./ingr/system/services/monitoring.nix
 
             ];
 
