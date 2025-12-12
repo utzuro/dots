@@ -87,3 +87,13 @@ so ~/.vim/telescope.vim
 
 " disabel copilot by default
 let g:copilot_enabled = v:false
+
+let g:signify_disable_by_default = 1
+
+" Signify
+:nnoremap <leader>se :SignifyEnable<cr>
+:nnoremap <leader>sd :SignifyDisable<cr>
+:nnoremap <leader>ss :SignifyHunkDiff<cr>
+:nnoremap <leader>su :SignifyHunkUndo<cr>
+:nmap <leader>sn <plug>(signify-next-hunk)
+:nmap <leader>sp <plug>(signify-prev-hunk)
