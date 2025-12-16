@@ -34,7 +34,8 @@
     protoc-gen-go-grpc
 
     # rust
-    rustup
+    cargo
+    rustc
     cargo-edit
     cargo-watch
 
