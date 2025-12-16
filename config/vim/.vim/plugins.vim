@@ -39,6 +39,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive' " :G
 Plug 'will133/vim-dirdiff'
+Plug 'alx741/vinfo'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
@@ -53,6 +54,7 @@ Plug 'tpope/vim-dadbod'
 Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-endwise'
+Plug 'gauteh/vim-cppman'
 Plug 'mattn/emmet-vim'
 Plug 'habamax/vim-godot'
 

@@ -114,6 +114,7 @@ in
     killall
     timer
     duf
+    nixos-generators
 
     # media
     ffmpeg

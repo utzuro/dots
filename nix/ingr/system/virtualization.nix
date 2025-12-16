@@ -7,6 +7,7 @@
   ];
 
   users.extraGroups.vboxusers.members = [ "void" ];
+  users.extraGroups.kvm.members = [ "void" ];
   virtualisation = {
 
     libvirtd = {
@@ -14,6 +15,7 @@
       # virt-manager.enable = true;
       qemu = {
         swtpm.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
       };
     };
     spiceUSBRedirection.enable = true;

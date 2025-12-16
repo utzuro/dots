@@ -15,6 +15,7 @@
     grpcurl
     valgrind
     secretspec
+    pprof
 
     # go
     go
@@ -60,6 +61,7 @@
     gdb
     ccls
     ctags
+    cppman
 
     # ruby
     # ruby
@@ -152,6 +154,12 @@
     picocom
     tio
     bmaptool
+
+    # docs
+    doxygen
+    man-pages
+    man-pages-posix
+    glibcInfo
 
   ];
 
