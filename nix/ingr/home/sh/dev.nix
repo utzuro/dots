@@ -162,6 +162,11 @@
     man-pages-posix
     glibcInfo
 
+    # corp
+    jiratui
+    go-jira
+    jira-cli
+
   ];
 
   programs = {
