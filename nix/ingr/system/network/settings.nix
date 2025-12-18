@@ -16,7 +16,7 @@
   # Or disable the firewall altogether.
 
   networking.firewall = {
-    enable = true;
+    enable = false;
     allowPing = true;
     allowedUDPPorts = [ 27960 27961 27962 27963 ];
     allowedTCPPorts = [ 80 443 8443 8096 ];

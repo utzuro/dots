@@ -6,7 +6,11 @@
     tesseract
     ocrmypdf
 
+    # agents
     codex
+    claude-code
+    copilot-cli
+
   ];
 
 }

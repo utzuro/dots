@@ -5,5 +5,6 @@
     libreoffice-qt6-fresh
     anki
     zathura
+    qbittorrent
   ];
 }

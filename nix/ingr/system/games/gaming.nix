@@ -64,6 +64,8 @@
     # flycast # sega dreamcast
     # atari800
 
+    moonlight-qt
+
     #========================OPEN GAMES
     #===Engine Recreations
     vcmi

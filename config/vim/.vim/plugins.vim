@@ -63,7 +63,6 @@ Plug 'sheerun/vim-polyglot'
 
 " syntax
 Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
 Plug 'thosakwe/vim-flutter'
 Plug 'LnL7/vim-nix'
 Plug 'othree/html5.vim'

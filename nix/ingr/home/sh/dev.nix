@@ -34,7 +34,8 @@
     protoc-gen-go-grpc
 
     # rust
-    cargo
+    # cargo
+    rustup
     rustc
     cargo-edit
     cargo-watch
@@ -128,9 +129,6 @@
     natscli
     lnav
     postman
-
-    # ml tools
-    claude-code
 
     # DB
     sqlite

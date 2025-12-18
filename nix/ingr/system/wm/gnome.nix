@@ -5,9 +5,9 @@
     ./lib/x.nix
   ];
 
-  services.xserver = {
+  services = {
     displayManager.gdm.enable = false;
-    desktopManager.gnome.enable = true;
+    desktopManager.gnome.enable = false;
   };
 
   environment.systemPackages =
