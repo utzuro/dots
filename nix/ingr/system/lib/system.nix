@@ -92,7 +92,6 @@
     acpi
     lshw
     lm_sensors
-    sysprof
     alsa-utils
     coppwr
     helvum
