@@ -170,6 +170,8 @@
               ./ingr/home/gui/comms.nix
               ./ingr/home/gui/games.nix
 
+              # ./ingr/home/corp.nix
+
               inputs.stylix.homeModules.stylix
             ];
 

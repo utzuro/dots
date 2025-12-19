@@ -6,5 +6,6 @@
     anki
     zathura
     qbittorrent
+    qgis
   ];
 }
