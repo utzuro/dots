@@ -49,7 +49,6 @@ in
       ../machines/${system.host}/hardware-configuration.nix
 
       # config
-      ./lib/boot.nix
       ./lib/system.nix
       ./lib/user.nix
       ./lib/security.nix
@@ -57,7 +56,7 @@ in
     ];
 
   system.copySystemConfiguration = false;
-  system.stateVersion = "23.11";
+  # system.stateVersion = "23.11";
 
   programs.zsh = {
     enable = true;

@@ -51,12 +51,10 @@
             modules = [
               { nix.registry.nixpkgs.flake = nixpkgs; }
 
-              ./hardware-configuration.nix
               ./apps.nix
               ../ingr/system/basic.nix
-              ./ingr/system/dev.nix
-              ./ingr/system/network/settings.nix
-              ../ingr/system/fonts.nix
+              ../ingr/system/dev.nix
+              ../ingr/system/network/settings.nix
 
               # Setup WSL
               nixos-wsl.nixosModules.default
@@ -72,7 +70,7 @@
                     register = false;
                   };
                   usbip.enable = false;
-                  wsl.wrapBinSh = true;
+                  wrapBinSh = true;
                   wslConf = {
                     # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-settings-for-wslconf
                     automount = {

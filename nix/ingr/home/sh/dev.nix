@@ -15,7 +15,7 @@
     grpcurl
     valgrind
     secretspec
-    pprof
+    #pprof
 
     # go
     go

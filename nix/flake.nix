@@ -93,6 +93,7 @@
           lib.nixosSystem {
             modules = [
               # Only for NixOS
+              ./ingr/system/boot.nix
               ./ingr/system/basic.nix
               ./ingr/system/dev.nix
               ./ingr/system/network/settings.nix
