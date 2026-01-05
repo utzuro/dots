@@ -23,11 +23,10 @@
   };
 
   outputs = { nixpkgs, home-manager, nixos-wsl, ... }@inputs:
-
     let
       arch = "x86_64-linux";
       lib = nixpkgs.lib;
-      pkgs = (import nixpkgs {
+      pkgs = import nixpkgs {
         system = arch;
         hostPlatform = arch;
         config = {
@@ -35,21 +34,20 @@
           allowUnfreePredicate = (_: true);
           android_sdk.accept_license = true;
         };
-      });
-
+      };
     in
     {
-
       nixosConfigurations = {
         wsl =
           let
             system = {
-              inherit arch; host = "wsl";
+              inherit arch;
+              host = "wsl";
               storageDriver = "overlay2";
             };
           in
           lib.nixosSystem {
-
+            system = arch;
             modules = [
               { nix.registry.nixpkgs.flake = nixpkgs; }
 
@@ -58,7 +56,6 @@
               ../ingr/system/basic.nix
               ./ingr/system/dev.nix
               ./ingr/system/network/settings.nix
-
               ../ingr/system/fonts.nix
 
               # Setup WSL
@@ -92,52 +89,52 @@
                       hostname = "vois-wsl";
                     };
                   };
-
-                  systemd.services.wsl-keepalive = {
-                    description = "Keep WSL VM alive";
-                    wantedBy = [ "multi-user.target" ];
-                    after = [ "network.target" ];
-
-                    serviceConfig = {
-                      Type = "simple";
-                      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep infinity'";
-                    };
-                  };
-
-                  system.stateVersion = "24.05";
-                }
-
-                  ];
-                specialArgs = { inherit system pkgs inputs; };
-              };
-              };
-
-              homeConfigurations = {
-              backupFileExtension = "backup";
-              void =
-                let
-                  user = {
-                    name = "void";
-                    email = "utzuro@pm.me";
-                  };
-                in
-                home-manager.lib.homeManagerConfiguration {
-                  inherit pkgs;
-                  modules = [
-                    ../ingr/home/home.nix
-                    ../ingr/home/env.nix
-                    ../ingr/home/fonts.nix
-
-                    ../ingr/home/sh/basic.nix
-                    ../ingr/home/sh/power.nix
-                    ../ingr/home/sh/dev.nix
-                    ../ingr/home/sh/games.nix
-                    ../ingr/home/sh/subs.nix
-                  ];
-
-                  extraSpecialArgs = { inherit user inputs; };
                 };
-            };
-              };
-              }
 
+                systemd.services.wsl-keepalive = {
+                  description = "Keep WSL VM alive";
+                  wantedBy = [ "multi-user.target" ];
+                  after = [ "network.target" ];
+
+                  serviceConfig = {
+                    Type = "simple";
+                    ExecStart = "${pkgs.bash}/bin/bash -c 'sleep infinity'";
+                  };
+                };
+
+                system.stateVersion = "24.05";
+              }
+            ];
+
+            specialArgs = { inherit system pkgs inputs; };
+          };
+      };
+
+      homeConfigurations = {
+        backupFileExtension = "backup";
+        void =
+          let
+            user = {
+              name = "void";
+              email = "utzuro@pm.me";
+            };
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+              ../ingr/home/home.nix
+              ../ingr/home/env.nix
+              ../ingr/home/fonts.nix
+
+              ../ingr/home/sh/basic.nix
+              ../ingr/home/sh/power.nix
+              ../ingr/home/sh/dev.nix
+              ../ingr/home/sh/games.nix
+              ../ingr/home/sh/subs.nix
+            ];
+
+            extraSpecialArgs = { inherit user inputs; };
+          };
+      };
+    };
+}
