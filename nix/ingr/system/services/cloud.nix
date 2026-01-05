@@ -7,19 +7,12 @@
     openFirewall = true;
   };
 
-  # services.invidious = {
-  #   enable = true;
-  #   port = 5599;
-  #   sig-helper.enable = true;
-  #   http3-ytproxy.enable = true;
-  # };
-
   environment.systemPackages = with pkgs; [
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
 
-    invidtui
+    ytdl-sub
   ];
 
   services.samba = {

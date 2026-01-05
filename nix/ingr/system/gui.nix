@@ -5,6 +5,7 @@
 {
   imports =
     [
+      ./lib/gamedev.nix
       (import ./lib/jetbrains.nix {
         inherit pkgs lib system;
         plugins = inputs.nix-jetbrains-plugins;

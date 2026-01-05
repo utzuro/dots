@@ -19,7 +19,11 @@
     };
     spiceUSBRedirection.enable = true;
 
-    waydroid.enable = true;
+    waydroid = {
+      enable = true;
+      package = pkgs.waydroid-nftables;
+    };
+
 
     # Works but libvirtd is better on linux
     # virtualbox.host = {

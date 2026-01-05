@@ -19,8 +19,8 @@
 
   environment.systemPackages = with pkgs; [
 
-    # linuxConsoleTools
-    # jstest-gtk
+    linuxConsoleTools
+    jstest-gtk
 
     # (retroarch.withCores (cores: with cores; [
     #   genesis-plus-gx
@@ -28,16 +28,18 @@
     #   beetle-psx-hw
     # ]))
 
-    # heroic
-    # lutris adwaita-icon-theme
-    # bottles
-    # oversteer
+    heroic
+    lutris
+    adwaita-icon-theme
+    bottles
+    oversteer
 
-    # wineWowPackages.staging winetricks
-    # (wineWowPackages.full.override {
-    #   wineRelease = "staging";
-    #   mingwSupport = true;
-    # })
+    wineWowPackages.staging
+    winetricks
+    (wineWowPackages.full.override {
+      wineRelease = "staging";
+      mingwSupport = true;
+    })
 
     # (lutris.override {
     #   extraLibraries = pkgs: [
@@ -57,9 +59,9 @@
     # Wait for The Dark Mode to come to pkgs
 
 
-    # dosbox-staging
+    dosbox-staging
+    retroarch-full
     # dolphin-emu
-    # retroarch-full
     # yabause # sega saturn
     # flycast # sega dreamcast
     # atari800
@@ -85,7 +87,6 @@
     mindustry-wayland #mindustry
     opendune
     zeroad
-    widelands
     unvanquished
 
     #===Card Games

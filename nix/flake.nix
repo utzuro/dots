@@ -100,7 +100,7 @@
               ./ingr/system/virtualization.nix
 
               ./ingr/system/wm/all.nix
-              ./ingr/system/gui.nix
+              # ./ingr/system/gui.nix # move to home manager
 
               ./ingr/system/power/pc.nix
               ./ingr/system/hardware/intel.nix

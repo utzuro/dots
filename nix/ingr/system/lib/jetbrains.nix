@@ -57,15 +57,15 @@ in
     android-studio
     jetbrains.writerside
 
-    (buildIdeWithPlugins jetbrains "idea-ultimate" pluginList)
     (buildIdeWithPlugins jetbrains "goland" pluginList)
-    (buildIdeWithPlugins jetbrains "pycharm-professional" pluginList)
     (buildIdeWithPlugins jetbrains "clion" pluginList)
-    (buildIdeWithPlugins jetbrains "rust-rover" pluginList)
     (buildIdeWithPlugins jetbrains "rider" pluginList)
-    (buildIdeWithPlugins jetbrains "ruby-mine" pluginList)
     (buildIdeWithPlugins jetbrains "webstorm" pluginList)
-    (buildIdeWithPlugins jetbrains "datagrip" pluginList)
+    # (buildIdeWithPlugins jetbrains "idea-ultimate" pluginList)
+    # (buildIdeWithPlugins jetbrains "pycharm-professional" pluginList)
+    # (buildIdeWithPlugins jetbrains "rust-rover" pluginList)
+    # (buildIdeWithPlugins jetbrains "ruby-mine" pluginList)
+    # (buildIdeWithPlugins jetbrains "datagrip" pluginList)
     # (buildIdeWithPlugins jetbrains "dataspell" pluginList)
     # (buildIdeWithPlugins jetbrains "aqua" pluginList)
   ];
