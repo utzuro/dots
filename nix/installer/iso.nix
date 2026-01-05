@@ -24,7 +24,7 @@
     isNormalUser = true;
     description = "Lord of Chaos";
     extraGroups = [ "wheel audio video" ];
-    initialPassword = "tmp"; # random for this post
+    initialPassword = "tmp";
     shell = pkgs.zsh;
     packages = with pkgs; [ ];
   };
