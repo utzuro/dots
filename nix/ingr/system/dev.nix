@@ -6,7 +6,6 @@
       ./lib/containers.nix
     ];
 
-  programs.adb.enable = true;
   services.flatpak.enable = true;
 
   xdg.portal.wlr.enable = true;
