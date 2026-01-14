@@ -87,14 +87,15 @@
           let
             system = {
               inherit arch; host = "voidpc";
-              storageDriver = "overlay2";
             };
           in
           lib.nixosSystem {
             modules = [
               # Only for NixOS
+              ./ingr/machines/${system.host}/hardware-configuration.nix
               ./ingr/system/boot.nix
               ./ingr/system/basic.nix
+              ./ingr/system/firewall.nix
               ./ingr/system/dev.nix
               ./ingr/system/network/settings.nix
               ./ingr/system/network/vpn.nix

@@ -1,11 +1,9 @@
-{ lib, pkgs, system, ... }:
+{ pkgs, ... }:
 
 {
   imports =
     [
-      (import ./lib/containers.nix {
-        inherit pkgs lib system;
-      })
+      ./lib/containers.nix
     ];
 
   programs.adb.enable = true;

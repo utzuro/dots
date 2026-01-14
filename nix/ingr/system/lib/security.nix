@@ -1,8 +1,5 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  blocklist = builtins.readFile "${inputs.blocklist-repo}/alternates/fakenews-gambling-porn/hosts";
-in
 {
   programs.mtr.enable = true;
   programs.gnupg.agent = {
@@ -29,8 +26,10 @@ in
     #   persist = true;
     # }];
 
+
     sudo = {
       enable = true;
+      wheelNeedsPassword = true;
       extraRules = [{
         commands = [
           {
@@ -66,10 +65,6 @@ in
     clamav
     opensnitch-ui
   ];
-
-  networking.extraHosts = ''
-    "${blocklist}"
-  '';
 
   programs.firejail.wrappedBinaries = {
     steam = {
