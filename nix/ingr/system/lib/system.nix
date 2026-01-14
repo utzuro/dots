@@ -97,6 +97,7 @@
     coppwr
     helvum
     pwvucontrol
+    wiremix
     easyeffects
     dmidecode
     sysbench
