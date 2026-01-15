@@ -71,36 +71,36 @@
     #========================OPEN GAMES
     #===Engine Recreations
     vcmi
-    fheroes2
-    fallout-ce
-    fallout2-ce
-    openttd
-    openxcom
-    openmw
-    exult
-    openjk
-    theforceengine
+    # fheroes2
+    # fallout-ce
+    # fallout2-ce
+    # openttd
+    # openxcom
+    # openmw
+    # exult
+    # openjk
+    # theforceengine
 
     #===Strategy
     wesnoth
     unciv
     mindustry-wayland #mindustry
-    opendune
+    # opendune
     zeroad
     unvanquished
 
     #===Card Games
-    xmage
+    # xmage
 
     #===RPG
-    freedink
+    # freedink
 
     #===Action
-    quake3e
-    starsector
-    yquake2-all-games
-    anarch
-    dxx-rebirth
+    # quake3e
+    # starsector
+    # yquake2-all-games
+    # anarch
+    # dxx-rebirth
 
     #===Lan Party
     openarena
@@ -111,10 +111,10 @@
     # runelite
     # runescape
 
-    ioq3-scion
-    openspades
-    xonotic
-    cataclysm-dda
+    # ioq3-scion
+    # openspades
+    # xonotic
+    # cataclysm-dda
 
     #===Crawl
     experienced-pixel-dungeon
@@ -123,10 +123,10 @@
     endless-sky
 
     #===Simulation
-    colobot
-    rigsofrods-bin
-    freeorion
-    flightgear
+    # colobot
+    # rigsofrods-bin
+    # freeorion
+    # flightgear
 
     ###########################################
     ## BUILDING ISSUES

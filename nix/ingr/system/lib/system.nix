@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 
 {
+
   hardware = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;

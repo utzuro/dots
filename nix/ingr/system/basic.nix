@@ -46,9 +46,6 @@ in
 
   imports =
     [
-      ../machines/${system.host}/hardware-configuration.nix
-
-      # config
       ./lib/system.nix
       ./lib/user.nix
       ./lib/security.nix
@@ -56,7 +53,6 @@ in
     ];
 
   system.copySystemConfiguration = false;
-  # system.stateVersion = "23.11";
 
   programs.zsh = {
     enable = true;
@@ -133,6 +129,13 @@ in
     nmap
     tcpdump
     dig
+    dhcpcd
+    dialog
+    wpa_supplicant
+    wirelesstools
+    bluetuith
+    bluetui
+    overskride
 
     # OS
     exfat

@@ -70,6 +70,13 @@
       fsType = "vfat";
     };
 
+  fileSystems."/mnt/portal" =
+    {
+      device = "/dev/disk/by-uuid/bc137aa2-c754-4cdf-b5a1-315e286d956a";
+      fsType = "xfs";
+      options = [ "nofail" "noatime" ];
+    };
+
   fileSystems."/mnt/db" =
     {
       device = "/dev/disk/by-uuid/15bca260-3e5f-4577-b634-f4ecee56137f";
@@ -96,13 +103,6 @@
   #    fsType = "ntfs3";
   #    options = [ "rw" "uid=1000" "nofail" "noatime" ];
   #  };
-
-  fileSystems."/mnt/portal" =
-    {
-      device = "/dev/disk/by-uuid/58AE3902AE38D9E8";
-      fsType = "ntfs3";
-      options = [ "rw" "uid=1000" "nofail" "noatime" ];
-    };
 
   fileSystems."/mnt/darkarts" =
     {

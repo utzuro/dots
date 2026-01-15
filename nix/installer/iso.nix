@@ -1,102 +1,36 @@
 # how to build:
 # export NIX_PATH=nixos-config=$PWD/iso.nix:nixpkgs=channel:nixos-25.05
 #  nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
+
+    # Inject the same settings as main flake.nix uses
+    ../ingr/system/boot.nix
+    ../ingr/system/basic.nix
+    ../ingr/system/dev.nix
+    ../ingr/system/virtualization.nix
+
+    ../ingr/system/wm/all.nix
+
+    # ../ingr/system/power/pc.nix
+    ../ingr/system/hardware/intel.nix
+    ../ingr/system/hardware/video.nix
+    ../ingr/system/hardware/nvidia.nix
+
+    ../ingr/system/games/gaming.nix
+    ../ingr/system/games/steam.nix
   ];
 
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-  ];
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  security.sudo.wheelNeedsPassword = false;
-  users.users.void = {
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPBVZd4VBBztymo6sO0RxMPCLbswmOXJViK18Qs1c504"
-      # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5key"
-    ];
-
-    isNormalUser = true;
-    description = "Lord of Chaos";
-    extraGroups = [ "wheel audio video" ];
-    initialPassword = "tmp";
-    shell = pkgs.zsh;
-    packages = with pkgs; [ ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    git
-    rsync
-    yazi
-    eza
-    zsh
-    vim
-    wget
-    curl
-    rxvt-unicode # for terminfo
-    lshw
-
-    # basic
-    vim
-    tmux
-    ranger
-    rsync
-    wget
-    curl
-    file
-    less
-
-    # core
-    neovim
-    yazi
-    ack
-    ripgrep
-    ripgrep-all
-    fzf
-    fd
-    rsync
-    zsync
-    file
-    jq
-    moreutils
-    wget2
-    bat
-    glow
-    peco
-    progress
-    killall
-    timer
-    duf
-
-    # # media
-    ffmpeg
-    imagemagick
-
-    # network
-    dhcpcd
-    dialog
-    wpa_supplicant
-    wirelesstools
-    iproute2
-    iw
-    ethtool
-    libnatpmp
-    busybox
-    ipcalc
-    nmap
-    tcpdump
-    dig
-
-  ];
-
-  programs.zsh.enable = true;
+  networking.hostName = "VoidOS";
   services.openssh.enable = true;
+  # services.resolved.enable = true;
 
-  system.stateVersion = "25.05";
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
 }

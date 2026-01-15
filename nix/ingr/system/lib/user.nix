@@ -13,8 +13,12 @@
 
   users.users.void = {
     isNormalUser = true;
-    hashedPasswordFile = "../ingredients/system/env";
     uid = 1000;
+    hashedPasswordFile = "../ingr/system/env";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPBVZd4VBBztymo6sO0RxMPCLbswmOXJViK18Qs1c504"
+      # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5key"
+    ];
     shell = pkgs.zsh;
     extraGroups = [
       "dialout"
