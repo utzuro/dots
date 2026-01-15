@@ -9,8 +9,12 @@ scoop bucket add extras
 # shell
 scoop install neovim
 scoop install eza fzf
-scoop install python go protobuf nodejs rustup cmake
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
+
+# dev
+scoop install python go protobuf nodejs rustup cmake
+scoop install mingw grpc-tools grpcurl
+
 
 # GUI
 scoop install libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
