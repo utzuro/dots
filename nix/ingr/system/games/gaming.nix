@@ -85,7 +85,7 @@
     wesnoth
     unciv
     mindustry-wayland #mindustry
-    opendune
+    # opendune
     zeroad
     unvanquished
 
