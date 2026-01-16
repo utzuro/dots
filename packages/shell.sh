@@ -76,6 +76,11 @@ setup_scripts_repo() {
 link_dotfiles() {
 	printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 
+	printf "\n⌛... Linking nix configs... 📝\n"
+	ln_sf_or_copy "$DIR/config/nix" "$HOME/.config/"
+
+	printf "\n⌛... Linking vim configs... 📝\n"
+	ln_sf_or_copy "$DIR/config/vim/.vimrc" "$HOME/"
 	printf "\n⌛... Linking vim configs... 📝\n"
 	ln_sf_or_copy "$DIR/config/vim/.vimrc" "$HOME/"
 

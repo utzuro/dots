@@ -13,6 +13,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,7 +59,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nix-gaming, ... }@inputs:
+  outputs = { nixpkgs, home-manager, disko, nix-gaming, ... }@inputs:
 
     let
       arch = "x86_64-linux";
@@ -93,6 +96,7 @@
             modules = [
               # Only for NixOS
               ./ingr/machines/${system.host}/hardware-configuration.nix
+              ./ingr/disko.nixosModules.disko
               ./ingr/system/boot.nix
               ./ingr/system/basic.nix
               ./ingr/system/firewall.nix
@@ -120,7 +124,10 @@
 
             ];
 
+            formatter.${system} = pkgs.nixfmt-tree;
+
             specialArgs = { inherit system inputs; };
+
           };
 
         x240 =
