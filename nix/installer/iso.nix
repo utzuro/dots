@@ -9,7 +9,6 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
 
     # Inject the same settings as main flake.nix uses
-    ../ingr/system/boot.nix
     ../ingr/system/basic.nix
     # ../ingr/system/dev.nix
     # ../ingr/system/virtualization.nix
