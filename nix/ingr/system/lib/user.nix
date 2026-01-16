@@ -14,7 +14,7 @@
   users.users.void = {
     isNormalUser = true;
     uid = 1000;
-    # Generate it with mkpasswd
+    # Generate it with mkpasswd > ingr/system/lib/hashedPasswordFile and clean up the file
     hashedPasswordFile = "./hashedPasswordFile";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPBVZd4VBBztymo6sO0RxMPCLbswmOXJViK18Qs1c504"
@@ -49,5 +49,6 @@
       "samba"
     ];
   };
+  nix.settings.trusted-users = [ "void" "root" ];
   programs.zsh.enable = true;
 }
