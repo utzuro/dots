@@ -11,18 +11,18 @@
     # Inject the same settings as main flake.nix uses
     ../ingr/system/boot.nix
     ../ingr/system/basic.nix
-    ../ingr/system/dev.nix
-    ../ingr/system/virtualization.nix
+    # ../ingr/system/dev.nix
+    # ../ingr/system/virtualization.nix
 
-    ../ingr/system/wm/all.nix
+    # ../ingr/system/wm/all.nix
 
     # ../ingr/system/power/pc.nix
-    ../ingr/system/hardware/intel.nix
-    ../ingr/system/hardware/video.nix
-    ../ingr/system/hardware/nvidia.nix
+    # ../ingr/system/hardware/intel.nix
+    # ../ingr/system/hardware/video.nix
+    # ../ingr/system/hardware/nvidia.nix
 
-    ../ingr/system/games/gaming.nix
-    ../ingr/system/games/steam.nix
+    # ../ingr/system/games/gaming.nix
+    # ../ingr/system/games/steam.nix
   ];
 
   networking.hostName = "VoidOS";

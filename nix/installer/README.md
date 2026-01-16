@@ -1,9 +1,16 @@
 # Custom NixOS Installation
 
+## Create a hashedPasswordFile
+
+```sh
+passwd > hashedPasswordFile
+# rm the word "password:" from the generated file
+```
+
 ## Build an ISO
 
 ```sh
-export NIX_PATH=nixos-config=$PWD/iso.nix:nixpkgs=channel:nixos-25.05
+export NIX_PATH=nixos-config=$PWD/iso.nix:nixpkgs=channel:nixos-unstable
  nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage
 ```
 
@@ -13,6 +20,4 @@ export NIX_PATH=nixos-config=$PWD/iso.nix:nixpkgs=channel:nixos-25.05
 ff?
 ```
 
-## Boot they installer and SSH into it
-
-Inital password: `tmp`
+## Boot the installer and SSH into it
