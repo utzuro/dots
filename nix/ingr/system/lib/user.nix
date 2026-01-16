@@ -14,7 +14,8 @@
   users.users.void = {
     isNormalUser = true;
     uid = 1000;
-    hashedPasswordFile = "../ingr/system/env";
+    # Generate it with mkpasswd
+    hashedPasswordFile = "./hashedPasswordFile";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPBVZd4VBBztymo6sO0RxMPCLbswmOXJViK18Qs1c504"
       # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5key"
