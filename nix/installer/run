@@ -1,0 +1,4 @@
+nix run github:nix-community/nixos-anywhere -- \
+  --flake .#void \
+  --generate-hardware-config nixos-generate-config ./hardware-configuration.nix \
+  --target-host void@newvoid.lan
