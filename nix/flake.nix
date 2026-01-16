@@ -95,8 +95,8 @@
           lib.nixosSystem {
             modules = [
               # Only for NixOS
+              disko.nixosModules.disko
               ./ingr/machines/${system.host}/hardware-configuration.nix
-              ./ingr/disko.nixosModules.disko
               ./ingr/system/boot.nix
               ./ingr/system/basic.nix
               ./ingr/system/firewall.nix
@@ -123,8 +123,6 @@
               # ./ingr/system/services/monitoring.nix
 
             ];
-
-            formatter.${system} = pkgs.nixfmt-tree;
 
             specialArgs = { inherit system inputs; };
 

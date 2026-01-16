@@ -12,9 +12,8 @@
 
     libvirtd = {
       enable = true;
-      # virt-manager.enable = true;
       qemu = {
-        swtpm.enable = true;
+        swtpm.enable = true; # TPM support
       };
     };
     spiceUSBRedirection.enable = true;
@@ -59,6 +58,8 @@
 
   environment.systemPackages = with pkgs; [
     qemu
+    libvirt
+    OVMF # (uefi)
     cabextract
   ];
 

@@ -1,7 +1,8 @@
-# how to build:
-# export NIX_PATH=nixos-config=$PWD/iso.nix:nixpkgs=channel:nixos-25.05
+# How to build:
+# mkpasswd > ingr/system/lib/hashedPasswordFile # clean the file
+# export NIX_PATH=nixos-config=$PWD/iso.nix:nixpkgs=channel:nixos-unstable
 #  nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage 
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
