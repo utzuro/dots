@@ -6,7 +6,17 @@
   services.timesyncd.enable = true;
 
   services.openssh.enable = true;
-  # services.resolved.enable = true;
+  services.resolved.enable = true;
+  networking.useDHCP = false;
+  systemd.network.enable = true;
+
+  systemd.network.networks."10-e" = {
+    matchConfig.Name = "e*"; # enp9s0 (10G) or enp8s0 (1G)
+    networkConfig = {
+      IPv6AcceptRA = true;
+      DHCP = "yes";
+    };
+  };
 
   # TODO: setup wifi here
 
