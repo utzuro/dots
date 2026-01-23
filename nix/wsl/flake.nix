@@ -54,7 +54,7 @@
               ./apps.nix
               ../ingr/system/basic.nix
               ../ingr/system/dev.nix
-              ../ingr/system/network/settings.nix
+              # ../ingr/system/network/settings.nix
 
               # Setup WSL
               nixos-wsl.nixosModules.default
@@ -66,25 +66,25 @@
                   useWindowsDriver = false; # OpenGL
                   startMenuLaunchers = false;
                   interop = {
-                    includePath = false;
-                    register = false;
+                    includePath = true;
+                    register = true;
                   };
                   usbip.enable = false;
                   wrapBinSh = true;
                   wslConf = {
                     # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-settings-for-wslconf
                     automount = {
-                      enabled = false;
-                      ldconfig = false;
+                      enabled = true;
+                      ldconfig = true;
                     };
                     interop = {
-                      enabled = false;
-                      appendWindowsPath = false;
+                      enabled = true;
+                      appendWindowsPath = true;
                     };
                     network = {
                       generateHosts = true;
                       generateResolvConf = true;
-                      hostname = "vois-wsl";
+                      hostname = "void-wsl";
                     };
                   };
                 };
