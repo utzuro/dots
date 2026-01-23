@@ -76,6 +76,9 @@ setup_scripts_repo() {
 link_dotfiles() {
 	printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 
+	printf "\n⌛... Linking GnuPG configs... 📝\n"
+	ln_sf_or_copy "$DIR/config/gnupg/*" "$HOME/.gnupg/"
+
 	printf "\n⌛... Linking nix configs... 📝\n"
 	ln_sf_or_copy "$DIR/config/nix" "$HOME/.config/"
 
