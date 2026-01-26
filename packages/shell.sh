@@ -79,6 +79,9 @@ link_dotfiles() {
 	printf "\n⌛... Linking GnuPG configs... 📝\n"
 	ln_sf_or_copy "$DIR/config/gnupg/*" "$HOME/.gnupg/"
 
+	printf "\n⌛... Linking opencode configs... 📝\n"
+	ln_sf_or_copy "$DIR/config/opencode/*" "$HOME/.opencode/"
+
 	printf "\n⌛... Linking nix configs... 📝\n"
 	ln_sf_or_copy "$DIR/config/nix" "$HOME/.config/"
 
