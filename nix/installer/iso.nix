@@ -11,14 +11,14 @@
 
     # Inject the same settings as main flake.nix uses
     ../ingr/system/basic.nix
-    # ../ingr/system/dev.nix
+    ../ingr/system/dev.nix
     # ../ingr/system/virtualization.nix
 
     # ../ingr/system/wm/all.nix
 
-    # ../ingr/system/power/pc.nix
-    # ../ingr/system/hardware/intel.nix
-    # ../ingr/system/hardware/video.nix
+    ../ingr/system/power/pc.nix
+    ../ingr/system/hardware/intel.nix
+    ../ingr/system/hardware/video.nix
     # ../ingr/system/hardware/nvidia.nix
 
     # ../ingr/system/games/gaming.nix

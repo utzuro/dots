@@ -12,6 +12,7 @@ let
     todo = "vim ~/todo";
     mpv = "mpv --alang=jpn";
     yt = "yt-dlp --no-playlist";
+    ytp = "yt-dlp -f \"bv*[height<=2160]+ba/b\" --cookies-from-browser firefox";
     k = "ps aux | fzf | awk '{print }' | xargs -r kill -9";
 
     # git

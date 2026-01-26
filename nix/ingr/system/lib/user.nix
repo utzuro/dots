@@ -14,10 +14,9 @@
   users.users.void = {
     isNormalUser = true;
     uid = 1000;
-    # Generate it with mkpasswd
-    hashedPassword = "oAFZQrphDsb2c";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPBVZd4VBBztymo6sO0RxMPCLbswmOXJViK18Qs1c504"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB7ODfKTPOro31QduDsXcSpSrvbvlkuB2V1tCZwvjMAs"
     ];
     shell = pkgs.zsh;
     extraGroups = [

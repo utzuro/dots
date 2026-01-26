@@ -34,6 +34,7 @@
     foot
     kitty
     wezterm
+    alacritty
     st
     kdePackages.konsole
 

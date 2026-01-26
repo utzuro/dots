@@ -53,6 +53,7 @@ in
     ];
 
   system.copySystemConfiguration = false;
+  system.stateVersion = "26.05";
 
   programs.zsh = {
     enable = true;
@@ -141,4 +142,5 @@ in
     exfat
     exfatprogs
   ];
+
 }

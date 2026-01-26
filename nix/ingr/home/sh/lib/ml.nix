@@ -9,7 +9,7 @@
     # agents
     codex
     claude-code
-    copilot-cli
+    opencode
 
   ];
 
