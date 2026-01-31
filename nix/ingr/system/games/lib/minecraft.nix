@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ ... }:
 
 {
   # Also explore
@@ -11,7 +11,7 @@
 
     serverProperties = {
       gamemode = "survival";
-      difficutly = "hard";
+      difficulty = "hard";
       simulation-distance = 10;
       level-seed = 4;
       server-port = 25565;
