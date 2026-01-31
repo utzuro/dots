@@ -57,6 +57,11 @@
       url = "github:StevenBlack/hosts";
       flake = false;
     };
+
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, disko, nix-gaming, ... }@inputs:
@@ -64,6 +69,9 @@
     let
       arch = "x86_64-linux";
       lib = nixpkgs.lib;
+      dirs = {
+        config = ../config;
+      };
       pkgs = (import nixpkgs {
         system = arch;
         config = {
@@ -91,6 +99,9 @@
             system = {
               inherit arch; host = "voidpc";
             };
+            user = {
+              name = "void";
+            };
           in
           lib.nixosSystem {
             modules = [
@@ -117,14 +128,14 @@
               ./ingr/system/games/steam.nix
 
               # Below can be used on mac/wsl
-              # ./ingr/system/services/homeassistant.nix
+              ./ingr/system/services/homeassistant.nix
               # ./ingr/system/services/sync.nix
               ./ingr/system/services/cloud.nix
               # ./ingr/system/services/monitoring.nix
 
             ];
 
-            specialArgs = { inherit system inputs; };
+            specialArgs = { inherit system inputs user; };
 
           };
 
@@ -134,18 +145,20 @@
               inherit arch; host = "x240";
               storageDriver = "btrfs";
             };
+            user = {
+              name = "void";
+            };
           in
           lib.nixosSystem {
             modules = [
             ];
-            specialArgs = { inherit system inputs; };
+            specialArgs = { inherit system inputs user; };
           };
       };
 
 
       # Settings different across users
       homeConfigurations = {
-        backupFileExtension = "backup";
         void =
           let
             user = {
@@ -182,7 +195,7 @@
               inputs.stylix.homeModules.stylix
             ];
 
-            extraSpecialArgs = { inherit user inputs; };
+            extraSpecialArgs = { inherit user inputs dirs; };
           };
 
         # use the same user name, but different configurations for different machines
@@ -207,7 +220,7 @@
 
               inputs.stylix.homeModules.stylix
             ];
-            extraSpecialArgs = { inherit user inputs; };
+            extraSpecialArgs = { inherit user inputs dirs; };
           };
       };
     };
