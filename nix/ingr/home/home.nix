@@ -4,13 +4,12 @@
 # `nix-shell '<home-manager> -A install`
 # update configs with `home-manager switch --flake .#void`
 
-{ config, pkgs, user, inputs, ... }:
+{ pkgs, user, ... }:
 
 let
   homeDir = "/home/" + user.name;
 in
 {
-
   home.username = user.name;
   home.homeDirectory = homeDir;
   targets.genericLinux.enable = true;

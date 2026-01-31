@@ -4,7 +4,6 @@
 
   imports = [
     ./lib/git.nix
-    ./lib/containers.nix
     ./lib/ml.nix
   ];
 

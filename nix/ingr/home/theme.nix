@@ -1,10 +1,10 @@
-{ inputs, config, pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
   stylix = {
 
     targets = {
-      firefox.profileNames = [ "void" ];
+      firefox.profileNames = [ user.name ];
     };
 
     enable = true;

@@ -37,7 +37,5 @@
 
     # TODO: setup
     monaspace
-
   ];
-
 }

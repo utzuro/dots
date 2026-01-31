@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 let
-  resurrectDir = "/home/void/.tmux/resurrect";
-  usr = "void";
+  resurrectDir = "/home/${user.name}/.tmux/resurrect";
 in
 {
   programs.tmux = {
