@@ -1,5 +1,5 @@
-# make user name configurable
-{ pkgs, ... }:
+# User configuration - uses user.name from specialArgs
+{ pkgs, user, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -11,7 +11,7 @@
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
-  users.users.void = {
+  users.users.${user.name} = {
     isNormalUser = true;
     uid = 1000;
     openssh.authorizedKeys.keys = [
@@ -47,6 +47,6 @@
       "samba"
     ];
   };
-  nix.settings.trusted-users = [ "void" "root" ];
+  nix.settings.trusted-users = [ user.name "root" ];
   programs.zsh.enable = true;
 }

@@ -21,7 +21,7 @@
     gnome.gnome-keyring.enable = true;
     gvfs = {
       enable = true;
-      package = lib.mkForce pkgs.gnome.gvfs;
+      package = lib.mkForce pkgs.gvfs;
     };
     fwupd.enable = true;
     pipewire = {
@@ -74,72 +74,4 @@
     LC_TIME = "es_VE.UTF-8";
     LC_COLLATE = "es_VE.UTF-8";
   };
-
-  environment.systemPackages = with pkgs; [
-    # Only basic packages here, as this file is the first to be loaded.
-    # basic shell
-    zsh
-    vim
-    tmux
-    git
-    ranger
-    peco
-    progress
-    jq
-    htop
-    ncurses
-
-    # system
-    acpi
-    lshw
-    lm_sensors
-    alsa-utils
-    coppwr
-    helvum
-    pwvucontrol
-    easyeffects
-    dmidecode
-    sysbench
-
-    # hardware testing
-    memtest86plus
-    stressapptest
-    msr-tools
-    hwinfo
-
-    # network
-    wget
-    curl
-    rsync
-
-    # modern unix
-    ack
-    ripgrep
-    eza
-    bat
-    zenith
-
-    # media
-    playerctl
-    pavucontrol
-    mpv
-
-    # filesystem
-    gparted
-    hw-probe
-    ntfs3g
-    gptfdisk
-    e2fsprogs
-
-    # tools
-    gzip
-    bzip2
-    xz
-    unzip
-
-    # user env
-    home-manager
-
-  ];
-
 }

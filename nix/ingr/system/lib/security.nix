@@ -18,14 +18,12 @@
   security = {
     polkit.enable = true;
 
-    # doas stopped working
-    # doas.enable = true;
-    # doas.extraRules = [{
-    #   users = [ "void" ];
-    #   keepEnv = true;
-    #   persist = true;
-    # }];
-
+    audit = {
+      enable = true;
+      rules = [
+        "-a exit,always -F arch=b64 -S execve"
+      ];
+    };
 
     sudo = {
       enable = true;
