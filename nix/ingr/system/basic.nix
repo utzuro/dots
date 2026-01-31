@@ -1,9 +1,9 @@
 # install with
-# `nixos-rebuild switch --flake .#{machine-name} --impure --use-remote-sudo`
+# `nixos-rebuild switch --flake .#{machine-name} --impure --use-remote-sudo
 # on first install enable unstable channel
 # `nix-channel --add https://nixos.org/channels/nixos-unstable nixos`
 
-{ lib, pkgs, system, inputs, ... }:
+{ pkgs, system, ... }:
 
 let
 
@@ -28,8 +28,8 @@ let
     pul = "git pull --ff-only";
     pl = "git pull --ff-only";
     rebase = "git pull --rebase";
-    force = "git push --force";
-    forc = "git push --force";
+    force = "git push --force-with-lease";
+    forc = "git push --force-with-lease";
     amend = "git commit --amend";
     diff = "git diff --color-words";
     cached = "git diff --cached --color-words";
@@ -78,69 +78,108 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    # basic
-    vim
-    git
-    tmux
-    ranger
-    rsync
-    wget
-    curl
-    file
-
-    # core
+    # shell
+    zsh
     neovim
+    vim
+    tmux
+
+    # core CLI & navigation
+    git
+    ranger
     yazi
-    ack
-    ripgrep
-    ripgrep-all
     fzf
     fd
-    rsync
-    zsync
-    file
-    jq
-    moreutils
-    wget2
+    peco
+    ripgrep
+    ack
     bat
     eza
     glow
-    peco
-    progress
+    jq
+    moreutils
+    file
     killall
     timer
+    progress
+    zenith
     duf
-    nixos-generators
 
-    # media
-    ffmpeg
-    imagemagick
+    # system introspection & power
+    acpi
+    lshw
+    lm_sensors
+    dmidecode
+    hwinfo
+    hw-probe
+    sysbench
+    msr-tools
+    coppwr
 
-    # network
-    dhcpcd
-    dialog
-    wpa_supplicant
-    wirelesstools
+    # audio & pipewire
+    alsa-utils
+    helvum
+    pwvucontrol
+    pavucontrol
+    easyeffects
+    playerctl
+
+    # filesystem & disks
+    gparted
+    gptfdisk
+    e2fsprogs
+    ntfs3g
+    exfat
+    exfatprogs
+
+    # compression & archives
+    gzip
+    bzip2
+    xz
+    unzip
+
+    # networking – base
     iproute2
     iw
     ethtool
+    wirelesstools
+    wpa_supplicant
+    dhcpcd
     libnatpmp
-    busybox
     ipcalc
+
+    # networking – diagnostics & ops
+    wget
+    wget2
+    curl
+    rsync
     nmap
     tcpdump
     dig
-    dhcpcd
-    dialog
-    wpa_supplicant
-    wirelesstools
+    busybox
+
+    # bluetooth & wireless UI
     bluetuith
     bluetui
     overskride
 
-    # OS
-    exfat
-    exfatprogs
+    # hardware testing & stress
+    memtest86plus
+    stressapptest
+
+    # media tools
+    mpv
+    ffmpeg
+    imagemagick
+
+    # system libraries & TUI base
+    ncurses
+    dialog
+
+    # user environment & OS tooling
+    home-manager
+    nixos-generators
+    zsync
   ];
 
 }
