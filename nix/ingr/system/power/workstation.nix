@@ -3,8 +3,8 @@
 
 {
   boot = {
-    kernelModules = [ "xe", "i2c-dev" "i2c-piix4","intel_idle.max_cstate=1" "i915.enable_dc=0" "ahci.mobile_lpm_policy=1" ];
-    kernelParams = [ "i915.force_probe=7d55" ];
+    kernelModules = [ "xe" "i2c-dev" "i2c-piix4" ];
+    kernelParams = [ "intel_idle.max_cstate=1" "i915.enable_dc=0" "ahci.mobile_lpm_policy=1" "i915.force_probe=7d55" ];
   };
 
   powerManagement = {
@@ -12,7 +12,7 @@
     cpuFreqGovernor = "balanced"; # "powersave" / "performance" / "powersave"
   };
 
-  logind = {
+  services.logind = {
     lidSwitch = "suspend-then-hibernate";
     lidSwitchExternalPower = "lock";
     lidSwitchDocked = "ignore";
@@ -22,9 +22,9 @@
   };
 
   # Protects against overheating
-  thermald.enable = true;
+  services.thermald.enable = true;
 
-  tlp = {
+  services.tlp = {
     enable = true;
     settings = {
       # https://discourse.nixos.org/t/nixos-power-management-help-usb-doesnt-work/9933/2
