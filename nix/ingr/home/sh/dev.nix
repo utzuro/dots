@@ -188,7 +188,6 @@
         gh-poi
         gh-eco
         gh-cal
-        gh-copilot
         gh2md
       ];
     };

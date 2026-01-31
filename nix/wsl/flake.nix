@@ -99,8 +99,6 @@
                     ExecStart = "${pkgs.bash}/bin/bash -c 'sleep infinity'";
                   };
                 };
-
-                system.stateVersion = "24.05";
               }
             ];
 
