@@ -6,6 +6,12 @@
     enable = true;
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-gnome3;
+    settings = {
+      default-cache-ttl = 28800; # 8 hours
+      max-cache-ttl = 28800; # 8 hours
+      default-cache-ttl-ssh = 28800; # 8 hours for SSH keys
+      max-cache-ttl-ssh = 28800; # 8 hours for SSH keys
+    };
   };
 
   services = {
