@@ -45,6 +45,9 @@
               host = "wsl";
               storageDriver = "overlay2";
             };
+            user = {
+              name = "void";
+            };
           in
           lib.nixosSystem {
             system = arch;
@@ -102,7 +105,7 @@
               }
             ];
 
-            specialArgs = { inherit system pkgs inputs; };
+            specialArgs = { inherit system pkgs inputs user; };
           };
       };
 
