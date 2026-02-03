@@ -69,7 +69,7 @@
     # diffs
 
     diff-so-fancy = {
-      enable = true;
+      enable = false;
       settings = {
         markEmptyLines = true;
         pagerOpts = [
@@ -101,8 +101,12 @@
     };
 
     delta = {
-      enable = false;
+      enable = true;
+      enableGitIntegration = true;
       options = {
+        navigate = true;
+        "side-by-side" = true;
+        "line-numbers" = true;
         decorations = {
           commit-decoration-style = "bold yellow box ul";
           file-decoration-style = "none";
@@ -110,6 +114,9 @@
         };
         features = "decorations";
         whitespace-error-style = "22 reverse";
+        "syntax-theme" = "Dracula";
+        "keep-plus-minus-markers" = true;
+        width = "variable";
       };
     };
 
