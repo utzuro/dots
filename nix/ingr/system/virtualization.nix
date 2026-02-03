@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
 
@@ -6,8 +6,8 @@
     ./lib/fhs.nix
   ];
 
-  users.extraGroups.vboxusers.members = [ "void" ];
-  users.extraGroups.kvm.members = [ "void" ];
+  users.extraGroups.vboxusers.members = [ user.name ];
+  users.extraGroups.kvm.members = [ user.name ];
   virtualisation = {
 
     libvirtd = {
