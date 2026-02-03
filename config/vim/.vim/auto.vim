@@ -24,13 +24,13 @@ augroup autosourcing
   autocmd BufWritePost .vimrc source %
 augroup END
 
-" breaks light themes
-" augroup AMOLED
-" 	au!
-" 	autocmd Colorscheme	*	highlight NonText cterm=NONE ctermbg=17 gui=NONE guibg=#000000
-" 						\ |	highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#000000
-" 						\ |	highlight Visual cterm=NONE ctermbg=76 ctermfg=16 gui=NONE guibg=#500060
-" augroup END
+" AMOLED: only force black for Dracula
+augroup AMOLED
+  au!
+  autocmd Colorscheme dracula highlight NonText cterm=NONE ctermbg=17 gui=NONE guibg=#000000
+        \ | highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#000000
+        \ | highlight Visual cterm=NONE ctermbg=76 ctermfg=16 gui=NONE guibg=#500060
+augroup END
 
 " Auto-resize splits when Vim gets resized.
 autocmd VimResized * wincmd =
@@ -77,5 +77,4 @@ augroup END
 let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
 
 set wildignore+=**/bower_components/**,**/node_modules/**,**/dist/**,**/bin/**,**/tmp/**
-
 
