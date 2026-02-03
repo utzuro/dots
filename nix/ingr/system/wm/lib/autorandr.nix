@@ -1,7 +1,4 @@
-# ---------------------------------------------------------------------
-# Setup auto randering when monitors / external moniters plugged in
-# ---------------------------------------------------------------------
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services = {
