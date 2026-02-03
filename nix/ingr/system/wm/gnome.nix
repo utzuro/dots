@@ -12,18 +12,17 @@
 
   environment.systemPackages =
     (with pkgs; [ ])
-    ++ (with pkgs.gnomeExtensions; [ appindicator ])
-    ++ (with pkgs.gnome; [ ]);
+    ++ (with pkgs.gnomeExtensions; [ appindicator ]);
 
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
 
-  environment.gnome.excludePackages = (with pkgs; [
+  environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     gnome-connections
     epiphany
     geary
     evince
-  ]) ++ (with pkgs.gnome; [ ]);
+  ];
 
   # Avoid conflicts between different desktop environments
   programs.seahorse.enable = lib.mkForce false;
