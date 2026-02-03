@@ -14,6 +14,7 @@
     grpcurl
     valgrind
     secretspec
+    tig
     #pprof
 
     # go

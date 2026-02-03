@@ -1,0 +1,11 @@
+# My Filters
+
+```
+||accounts.google.com/gsi/*$xhr,script,3p
+
+! Hide Reddit 'Top Broadcast Now' & 'Top livestream'
+reddit.com##a[href^="/rpan/"] > h3:has-text(/Top (livestream|broadcast)/):upward(7)
+! Block downloading
+||strapi.reddit.com^$xhr,domain=reddit.com
+
+```
