@@ -2,7 +2,7 @@
 
 {
 
-  services.pcscd.enable = true;
+  # services.pcscd.enable = true;
 
   home.packages = with pkgs; [
 

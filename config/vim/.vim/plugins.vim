@@ -38,6 +38,8 @@ Plug 'tpope/vim-surround'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive' " :G
+Plug 'sindrets/diffview.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'will133/vim-dirdiff'
 Plug 'alx741/vinfo'
 Plug 'nvim-telescope/telescope.nvim'

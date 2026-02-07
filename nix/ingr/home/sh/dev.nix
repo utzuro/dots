@@ -15,6 +15,7 @@
     valgrind
     secretspec
     tig
+    gitui
     #pprof
 
     # go
