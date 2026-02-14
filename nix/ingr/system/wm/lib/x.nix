@@ -9,12 +9,13 @@
   services.xserver = {
     # Keyboard layout
     xkb = {
-      layout = "us";
-      options = "eurosign:e,caps:escape"; # Simplified - caps as escape is useful
+      layout = "us,ua";
+      options = "grp:switch,grp:caps_toggle,grp_led:caps";
     };
 
     # Disable default xterm
     desktopManager.xterm.enable = false;
+    displayManager.startx.enable = true;
 
     # NVIDIA-specific X11 settings
     screenSection = ''
@@ -34,6 +35,9 @@
     };
   };
 
+  environment.etc."soundfonts/default.sf2".source =
+    "${pkgs.soundfont-fluid}/share/soundfonts/FluidR3_GM2-2.sf2";
+
   environment.systemPackages = with pkgs; [
     # X11 utilities
     xorg.xinput
@@ -42,6 +46,10 @@
     xorg.xev # Debug keyboard/mouse events
     xorg.xprop # Window properties
     xorg.xwininfo # Window info
+
+    # Compability
+    soundfont-fluid
+    libsForQt5.qt5ct
 
     # Input testing
     evtest

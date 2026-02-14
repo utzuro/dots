@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     gnome-font-viewer
+    freetype
   ];
 
   fonts.packages = with pkgs; with nerd-fonts; [
@@ -22,6 +23,7 @@
     # compability
     wineWow64Packages.fonts
     liberation
+    liberation_ttf
     tinos
     arimo
     cousine
