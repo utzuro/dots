@@ -76,17 +76,13 @@ setup_scripts_repo() {
 link_dotfiles() {
 	printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 
+	# Extra configs
 	printf "\n⌛... Linking GnuPG configs... 📝\n"
 	ln_sf_or_copy "$DIR/config/gnupg/*" "$HOME/.gnupg/"
-
-	printf "\n⌛... Linking opencode configs... 📝\n"
-	ln_sf_or_copy "$DIR/config/opencode/*" "$HOME/.opencode/"
 
 	printf "\n⌛... Linking nix configs... 📝\n"
 	ln_sf_or_copy "$DIR/config/nix" "$HOME/.config/"
 
-	printf "\n⌛... Linking vim configs... 📝\n"
-	ln_sf_or_copy "$DIR/config/vim/.vimrc" "$HOME/"
 	printf "\n⌛... Linking vim configs... 📝\n"
 	ln_sf_or_copy "$DIR/config/vim/.vimrc" "$HOME/"
 
@@ -110,6 +106,13 @@ link_dotfiles() {
 	printf "📝 Installing vim plugins... 🚀\n"
 	(have_cmd vim && vim +PlugInstall +qall) || true
 	(have_cmd nvim && nvim +PlugInstall +qall) || true
+
+	# Agents
+	printf "\n⌛... Linking agents configs... 📝\n"
+	ln_sf_or_copy "$DIR/config/agents/AGENTS.md" "$HOME/"
+
+	printf "\n⌛... Linking opencode configs... 📝\n"
+	ln_sf_or_copy "$DIR/config/opencode/*" "$HOME/.opencode/"
 }
 
 ### 🛠 Shell & Tool Setup (if not using Home Manager)
