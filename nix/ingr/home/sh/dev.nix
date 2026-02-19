@@ -67,8 +67,9 @@
     cppman
 
     # ruby
-    # ruby
-    # ruby-lsp
+    ruby
+    ruby-lsp
+    rubyPackages.solargraph
 
     # functional
     nixpkgs-fmt
