@@ -120,11 +120,27 @@
       };
     };
 
+    lazygit = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        lightTheme = false;
+        activeBorderColor = [ "violet" "bold" ];
+        inactiveBorderColor = [ "black" ];
+        selectedLineBgColor = [ "default" ];
+        git = {
+          pagers = [
+            { pager = "delta --dark --paging=never"; }
+            { pager = "diff-so-fancy"; }
+          ];
+        };
+      };
+    };
+
   };
 
   home.packages = with pkgs; [
     onefetch
-    lazygit
   ];
 
 }

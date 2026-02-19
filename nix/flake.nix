@@ -124,6 +124,8 @@
               ./ingr/system/hardware/video.nix
               ./ingr/system/hardware/nvidia.nix
 
+              ./ingr/system/hardware/nfs.nix
+
               ./ingr/system/games/gaming.nix
               ./ingr/system/games/steam.nix
 
@@ -179,7 +181,6 @@
 
               ./ingr/home/sh/basic.nix
               ./ingr/home/sh/power.nix
-              ./ingr/home/sh/hack.nix
               ./ingr/home/sh/learn.nix
               ./ingr/home/sh/dev.nix
               ./ingr/home/sh/games.nix
