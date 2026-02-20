@@ -141,7 +141,6 @@
     mycli
     usql
     lazysql
-    sqlit
     atlas
 
     # hardware
