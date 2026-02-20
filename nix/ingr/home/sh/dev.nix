@@ -138,6 +138,10 @@
     redis
     pgcli
     mariadb
+    mycli
+    usql
+    lazysql
+    sqlit
     atlas
 
     # hardware
