@@ -10,6 +10,8 @@
 
 ## Behaviour
 
+- Keep in mind that human is editing the files during your working sessions,
+  so check for updates before aplying patches, don't rely solely on your snapshot of the file.
 - Avoid workarounds or code smell. When task requires the workaround, let me know.
 - Before proceeding with a big scale change, show examples and confirm with me.
 - Try to minimize the amount of code. Always try to simplify and make your code effective.

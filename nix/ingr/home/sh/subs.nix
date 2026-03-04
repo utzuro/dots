@@ -5,8 +5,6 @@
     enable = true;
     autoReload = true;
     reloadTime = 30; # minutes
-    extraConfig = ''
-    '';
 
     urls = [
 
@@ -60,6 +58,11 @@
         url = "https://lists.yoctoproject.org/g/yocto/rss";
       }
 
+      {
+        tags = [ "dev" "sre" ];
+        url = "https://www.datadoghq.com/blog/index.xml";
+      }
+
       # hacking / security
       {
         tags = [ "hacking" ];
@@ -90,7 +93,17 @@
         url = "https://www.reddit.com/r/OSINT/.rss";
       }
 
+      # security
+      {
+        tags = [ "security" "datadog" ];
+        url = "https://securitylabs.datadoghq.com/rss/feed.xml";
+      }
+
       # tech
+      {
+        tags = [ "tech" ];
+        url = "https://stonetools.ghost.io/rss/";
+      }
       {
         tags = [ "tech" ];
         url = "https://hackaday.com/feed/";
