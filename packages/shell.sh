@@ -86,6 +86,10 @@ link_dotfiles() {
 	printf "\n⌛... Linking vim configs... 📝\n"
 	ln_sf_or_copy "$DIR/config/vim/.vimrc" "$HOME/"
 
+	printf "\n⌛... Linking custom themes... 📝\n"
+	ln_sf_or_copy "$DIR/config/vim/.vim/colors" "$HOME/.vim/"
+	ln_sf_or_copy "$DIR/config/vim/.vim/colors" "$HOME/.config/nvim/"
+
 	mkdir -p "$HOME/.config/nvim"
 	ln_sf_or_copy "$DIR/config/vim/nvim" "$HOME/.config/"
 	# workaround to avoid devcontainer error

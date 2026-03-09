@@ -15,6 +15,12 @@ dd if=archlinux.iso of=/dev/sdx bs=4M status=progress oflag=sync
 
 ## Installation
 
+### Make sure UEFI is there
+
+```sh
+cat /sys/firmware/efi/fw_platform_size
+```
+
 ### Connect to Wi-Fi if necessary
 
 ```bash
@@ -45,7 +51,7 @@ gdisk /dev/sdx
 Command: n <-- create new partition
 Partition number: (default)
 First sector: (default)
-Last sector: +256M
+Last sector: +512M
 
 Command: t
 Partition type: 1 # EFI System
@@ -85,7 +91,7 @@ pvcreate /dev/mapper/luks
 vgcreate vg0 /dev/mapper/luks
 lvcreate -L 8G vg0 --name swap
 lvcreate -l 100%FREE vg0 --name root
-mkfs.ext4 /dev/vg0/root
+mkfs.btrfs /dev/vg0/root
 mkswap /dev/vg0/swap
 ```
 
@@ -93,9 +99,16 @@ mkswap /dev/vg0/swap
 
 ```bash
 mount /dev/vg0/root /mnt
+btrfs subvolume create /mnt/@
+btrfs subvolume create /mnt/@home
+umount /mnt
+
 swapon /dev/vg0/swap
-mkdir /mnt/boot
-mount /dev/sdx1 /mnt/boot
+mount -o compress=zstd,subvol=@ /dev/vg0/root /mnt
+mkdir /mnt/home
+mount -o compress=zstd,subvol=@home /dev/vg0/root /mnt/home
+mkdir /mnt/efi # place boot files here to snapshot them too
+mount /dev/sdx1 /mnt/efi
 ```
 
 ### Install the base system together will necessary packages
@@ -103,7 +116,7 @@ mount /dev/sdx1 /mnt/boot
 #### Get during install full basic essential pack:
 
 ```bash
-pacstrap /mnt -S base base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode man-db man-pages texinfo vim zsh git tmux openssh sshfs wget w3m mpv tree unzip unrar htop rsync ranger mpd ncmpcpp mpc rtorrent ntp grub efibootmgr dosfstools os-prober mtools cmake xsettingsd pasystray xfce4-power-manager
+pacstrap -K /mnt base base-devel linux linux-firmware git lvm2 intel-ucode btrfs-progs grub efibootmgr grub-btrfs inotify-tools timeshift vim pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber reflector zsh zsh-completions zsh-autosuggestions openssh man man-db man-pages texinfo sudo zsh sshfs wget curl w3m mpv tree unzip unrar htop rsync ranger mpd ncmpcpp mpc rtorrent ntp grub efibootmgr dosfstools os-prober mtools cmake
 ```
 
 #### if network manager in need:

@@ -6,6 +6,7 @@ so ~/.vim/custom.vim
 " so ~/.vim/light.vim
 
 " colorscheme dracula
+colorscheme eink
 
 " disabel copilot by default
 let g:copilot_enabled = v:false
