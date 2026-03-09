@@ -17,10 +17,11 @@ let
 
     # git
     upd = "git commit -am 'minor update' && git push";
-    verupd = "git commit -am 'update version' && git push";
+    bump = "git commit -am 'version bump' && git push";
     refactor = "git commit -am 'refactor' && git push";
     hotfix = "git commit -am 'hotfix' && git push";
     addtests = "git commit -am 'add tests' && git push";
+    com = "git commit";
     push = "git push";
     pull = "git pull --ff-only";
     pul = "git pull --ff-only";

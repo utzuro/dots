@@ -7,5 +7,6 @@
     zathura
     qbittorrent
     qgis
+    kooha
   ];
 }

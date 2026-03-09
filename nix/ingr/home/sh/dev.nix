@@ -17,6 +17,7 @@
     tig
     gitui
     #pprof
+    devcontainer
 
     # go
     go
@@ -24,6 +25,7 @@
     gotags #gomod2nix
     gofumpt
     golangci-lint
+    goda
     revive
     sqlc
     sqlfluff
@@ -138,7 +140,7 @@
     redis
     pgcli
     mariadb
-    mycli
+    # mycli
     usql
     lazysql
     atlas

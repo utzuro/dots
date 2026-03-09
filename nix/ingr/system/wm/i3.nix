@@ -20,9 +20,9 @@
       i3 = {
         enable = true;
         extraPackages = with pkgs; [
-          xorg.xhost
-          xorg.xbacklight
-          xorg.xinit
+          xhost
+          xbacklight
+          xinit
           picom
           brightnessctl
           bumblebee-status

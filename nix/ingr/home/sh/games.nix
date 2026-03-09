@@ -12,7 +12,7 @@
     cowsay
     ponysay
     lolcat
-    neofetch
+    fastfetch
 
     # arcade
     ltris

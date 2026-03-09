@@ -40,12 +40,12 @@
 
   environment.systemPackages = with pkgs; [
     # X11 utilities
-    xorg.xinput
-    xorg.xrandr
-    xorg.xdpyinfo
-    xorg.xev # Debug keyboard/mouse events
-    xorg.xprop # Window properties
-    xorg.xwininfo # Window info
+    xinput
+    xrandr
+    xdpyinfo
+    xev # Debug keyboard/mouse events
+    xprop # Window properties
+    xwininfo # Window info
 
     # Compability
     soundfont-fluid

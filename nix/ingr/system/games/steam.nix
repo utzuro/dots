@@ -20,10 +20,10 @@
     extraCompatPackages = [ pkgs.proton-ge-bin ];
     extraPackages = with pkgs; [
       mangohud
-      xorg.libXcursor
-      xorg.libXi
-      xorg.libXinerama
-      xorg.libXScrnSaver
+      libXcursor
+      libXi
+      libXinerama
+      libXScrnSaver
       libpng
       libpulseaudio
       libvorbis

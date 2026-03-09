@@ -118,7 +118,7 @@ in
 
     # audio & pipewire
     alsa-utils
-    helvum
+    crosspipe
     pwvucontrol
     pavucontrol
     easyeffects

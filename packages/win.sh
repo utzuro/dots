@@ -4,7 +4,7 @@
 
 # note: chats don't work well when installed with scoop, so omit those
 
-scoop bucket add extras 
+scoop bucket add extras
 
 # shell
 scoop install neovim
@@ -15,10 +15,9 @@ scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 scoop install python go protobuf nodejs rustup cmake
 scoop install mingw grpc-tools grpcurl
 
-
 # GUI
-scoop install libreoffice qbittorrent vlc sumatrapdf anki eartrumpet 
-scoop install kitty wezterm alacritty
+scoop install libreoffice qbittorrent vlc sumatrapdf anki eartrumpet
+scoop install kitty wezterm alacritty screentogif
 scoop install jetbrains-toolbox
 
 # wezterm config:
@@ -31,10 +30,9 @@ scoop install jetbrains-toolbox
 #   program: "wsl"
 #   args: ["-d", "NixOS"]
 
-
 # win-utils
 scoop install powertoys ueli wiztree
-scoop install sumatrapdf eartrumpet 
+scoop install sumatrapdf eartrumpet
 
 # games
 # scoop bucket add versions
@@ -42,7 +40,7 @@ scoop install sumatrapdf eartrumpet
 
 # run with admin rights (buckets can be installed as normal user)
 # scoop bucket add games
-# scoop bucket add nonportable 
-# scoop install protonvpn-np 
+# scoop bucket add nonportable
+# scoop install protonvpn-np
 # scoop install epic-games-launcher
-# scoop install voicemeeter-np 
+# scoop install voicemeeter-np
