@@ -17,6 +17,7 @@
     tig
     gitui
     #pprof
+    devcontainer
 
     # go
     go
@@ -139,7 +140,7 @@
     redis
     pgcli
     mariadb
-    mycli
+    # mycli
     usql
     lazysql
     atlas

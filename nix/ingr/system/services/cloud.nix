@@ -2,6 +2,18 @@
 
 {
 
+  # services.netbird.clients.wt0 = {
+  #   login = {
+  #     enable = false; # disable autologin
+  #     # setupKeyFile = "/root/secrets/netbird-main";
+  #   };
+  #   port = 51844;
+  #   interface = "wt0";
+  #   ui.enable = false;
+  #   openFirewall = true;
+  #   openInternalFirewall = true;
+  # };
+
   services.jellyfin = {
     enable = true;
     openFirewall = true;

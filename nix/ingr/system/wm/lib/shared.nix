@@ -59,8 +59,6 @@
 
   programs = {
 
-    light.enable = true;
-
     dconf.enable = true;
 
     foot = {
@@ -77,7 +75,7 @@
     # DPI settings
     dpi = 204;
     displayManager.sessionCommands = ''  
-      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF  
+      ${pkgs.xrdb}/bin/xrdb -merge <<EOF  
       Xft.dpi: 100  
     EOF  
     '';

@@ -12,6 +12,7 @@
     commit-mono
     inconsolata-lgc
     _0xproto
+    source-sans-pro
 
     # bitmap
     gohufont

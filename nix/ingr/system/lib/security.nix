@@ -18,7 +18,6 @@
     dbus.packages = [ pkgs.gcr ];
     clamav.daemon.enable = true;
     clamav.updater.enable = true;
-    opensnitch.enable = true;
   };
 
   security = {
@@ -67,7 +66,6 @@
     # (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
     firejail
     clamav
-    opensnitch-ui
   ];
 
   programs.firejail.wrappedBinaries = {

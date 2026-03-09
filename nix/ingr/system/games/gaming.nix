@@ -34,9 +34,9 @@
     bottles
     oversteer
 
-    wineWowPackages.staging
+    wineWow64Packages.staging
     winetricks
-    (wineWowPackages.full.override {
+    (wineWow64Packages.full.override {
       wineRelease = "staging";
       mingwSupport = true;
     })
@@ -105,7 +105,7 @@
     #===Lan Party
     openarena
     assaultcube
-    superTuxKart
+    supertuxkart
 
     #===MMO
     # runelite
