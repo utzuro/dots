@@ -16,6 +16,7 @@
   services.resolved.enable = true;
   networking.useDHCP = false;
   systemd.network.enable = true;
+  systemd.network.wait-online.enable = false;
 
   systemd.network.networks."10-e" = {
     matchConfig.Name = "e*"; # enp9s0 (10G) or enp8s0 (1G)

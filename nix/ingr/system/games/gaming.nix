@@ -105,7 +105,7 @@
     #===Lan Party
     openarena
     assaultcube
-    supertuxkart
+    # supertuxkart
 
     #===MMO
     # runelite
