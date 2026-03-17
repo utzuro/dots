@@ -14,8 +14,8 @@ for _, file in ipairs(files) do
   source(file)
 end
 
-vim.cmd.colorscheme('dracula')
 vim.cmd.colorscheme('eink')
+vim.cmd.colorscheme('dracula')
 
 local config_root = vim.fn.stdpath('config')
 -- local devcontainer_file = config_root .. '/devcontainer.lua'

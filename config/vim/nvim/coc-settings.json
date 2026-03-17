@@ -1,30 +1,21 @@
 {
   "languageserver": {
-      "ccls": {
-          "command": "ccls",
-          "filetypes": ["c", "cc", "cpp", "c++", "objc", "ino", "objcpp"],
-          "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"]
-      },
-      "go": {
-        "command": "gopls",
-        "rootPatterns": ["go.mod"],
-        "trace.server": "verbose",
-        "filetypes": ["go"]
-      }
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "ino", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"]
+    }
   },
   "pyright.enable": true,
   "python.analysis.autoImportCompletions": true,
   "python.analysis.autoSearchPaths": true,
 
+  "go.goplsPath": "gopls",
   "go.goplsOptions": {
     "completeUnimported": true
   },
-  "go.goplsEnv": {
-    "GOOS": "js",
-    "GOARCH": "wasm"
-  },
 
-  "nix.enableLanguageServer": true, 
-  "nix.formatterPath": "nixpkgs-fmt" ,
+  "nix.enableLanguageServer": true,
+  "nix.formatterPath": "nixpkgs-fmt",
   "nix.serverPath": "nil"
 }
