@@ -25,7 +25,7 @@
     modesetting.enable = true;
     powerManagement.enable = true;
     powerManagement.finegrained = false; # Only for Optimus laptops
-    open = false; # still beta
+    open = true; # still beta
     # Options: stable, beta, production, vulkan_beta, legacy_*
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
