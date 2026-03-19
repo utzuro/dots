@@ -18,6 +18,7 @@
     gitui
     #pprof
     devcontainer
+    heaptrack
 
     # go
     go
