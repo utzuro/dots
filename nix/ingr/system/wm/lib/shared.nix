@@ -19,7 +19,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-
     #basic
     kdePackages.qt5compat
 
@@ -83,10 +82,17 @@
     desktopManager.runXdgAutostartIfNone = true;
   };
 
+  security.pam.services = {
+    sddm.enableGnomeKeyring = true;
+    login.enableGnomeKeyring = true;
+  };
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = false;
     enableHidpi = true;
+    extraPackages = [
+      pkgs.kdePackages.qt5compat
+    ];
     theme = "where_is_my_sddm_theme";
     settings = {
       General = {
