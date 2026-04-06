@@ -29,18 +29,6 @@ sudo_safe() {
 	fi
 }
 
-# Symlink helper: fallback to copy if symlink fails (Windows policy)
-ln_sf_or_copy() {
-	local src="$1" dst="$2"
-	if ln -sfv "$src" "$dst" 2>/dev/null; then
-		return 0
-	fi
-	# If symlink failed, try copy (preserving attrs where possible)
-	printf "🔁 Symlink failed, copying instead: %s → %s\n" "$src" "$dst"
-	mkdir -p "$(dirname "$dst")"
-	cp -afv "$src" "$dst"
-}
-
 ### 🗂 Directory Setup
 create_directories() {
 	printf "\n⌛... Creating default folders... 📂\n"
@@ -79,34 +67,34 @@ link_dotfiles() {
 	# Extra configs
 	printf "\n⌛... Linking GnuPG configs... 📝\n"
 	mkdir "$HOME/.gnupg/"
-	ln_sf_or_copy "$DIR/config/gnupg/*" "$HOME/.gnupg/"
+	ln -sfv "$DIR/config/gnupg/*" "$HOME/.gnupg/"
 
 	printf "\n⌛... Linking nix configs... 📝\n"
-	ln_sf_or_copy "$DIR/config/nix" "$HOME/.config/"
+	ln -sfv "$DIR/config/nix" "$HOME/.config/"
 
 	printf "\n⌛... Linking vim configs... 📝\n"
-	ln_sf_or_copy "$DIR/config/vim/.vimrc" "$HOME/"
+	ln -sfv "$DIR/config/vim/.vimrc" "$HOME/"
 
 	printf "\n⌛... Linking custom themes... 📝\n"
-	ln_sf_or_copy "$DIR/config/vim/.vim/colors" "$HOME/.vim/"
-	ln_sf_or_copy "$DIR/config/vim/.vim/colors" "$HOME/.config/nvim/"
+	ln -sfv "$DIR/config/vim/.vim/colors" "$HOME/.vim/"
+	ln -sfv "$DIR/config/vim/.vim/colors" "$HOME/.config/nvim/"
 
 	mkdir -p "$HOME/.config/nvim"
-	ln_sf_or_copy "$DIR/config/vim/nvim" "$HOME/.config/"
+	ln -sfv "$DIR/config/vim/nvim" "$HOME/.config/"
 	# workaround to avoid devcontainer error
 	mkdir -p ~/.cache/nvim
 	touch ~/.cache/nvim/devcontainer.log
 
-	ln_sf_or_copy "$DIR/config/vim/.ideavimrc" "$HOME/"
+	ln -sfv "$DIR/config/vim/.ideavimrc" "$HOME/"
 
 	mkdir -p "$HOME/.vim"
 	for file in "$DIR"/config/vim/.vim/*.vim; do
-		ln_sf_or_copy "$file" "$HOME/.vim/$(basename "$file")"
+		ln -sfv "$file" "$HOME/.vim/$(basename "$file")"
 	done
 
 	# Remove spellcheck from commented out lines
 	mkdir -p "$HOME/.vim/after/syntax"
-	ln_sf_or_copy "$DIR/config/vim/.vim/after/syntax/asciidoc.vim" "$HOME/.vim/after/syntax/asciidoc.vim"
+	ln -sfv "$DIR/config/vim/.vim/after/syntax/asciidoc.vim" "$HOME/.vim/after/syntax/asciidoc.vim"
 
 	printf "📝 Installing vim plugins... 🚀\n"
 	(have_cmd vim && vim +PlugInstall +qall) || true
@@ -114,11 +102,11 @@ link_dotfiles() {
 
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
-	ln_sf_or_copy "$DIR/config/agents/AGENTS.md" "$HOME/"
+	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/"
 
 	printf "\n⌛... Linking opencode configs... 📝\n"
 	mkdir -p "$HOME/.opencode/"
-	ln_sf_or_copy "$DIR/config/opencode/*" "$HOME/.opencode/"
+	ln -sfv "$DIR/config/opencode/*" "$HOME/.opencode/"
 }
 
 ### 🛠 Shell & Tool Setup (if not using Home Manager)
@@ -128,12 +116,12 @@ manual_shell_and_tools() {
 		printf "\n⌛... Linking shell configs... 🖥\n"
 
 		mkdir -p "$HOME/.config/mpd"
-		ln_sf_or_copy "$DIR/config/mpd/"* "$HOME/.config/mpd/" || true
+		ln -sfv "$DIR/config/mpd/"* "$HOME/.config/mpd/" || true
 
-		ln_sf_or_copy "$DIR/config/.bashrc" "$HOME/.bashrc"
-		ln_sf_or_copy "$DIR/config/tmux/.tmux.conf" "$HOME/.tmux.conf"
-		ln_sf_or_copy "$DIR/config/zsh/.zshrc" "$HOME/.zshrc"
-		ln_sf_or_copy "$DIR/config/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+		ln -sfv "$DIR/config/.bashrc" "$HOME/.bashrc"
+		ln -sfv "$DIR/config/tmux/.tmux.conf" "$HOME/.tmux.conf"
+		ln -sfv "$DIR/config/zsh/.zshrc" "$HOME/.zshrc"
+		ln -sfv "$DIR/config/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
 		printf "\n⌛... Getting ready files that shouldn't be linked... 🌐\n"
 		: >"$HOME/.profile"
@@ -164,16 +152,16 @@ manual_shell_and_tools() {
 
 		printf "\n⌛... Linking terminal tools configs... 🖥\n"
 		mkdir -p "$HOME/.config/ncmpcpp"
-		ln_sf_or_copy "$DIR/config/ncmpcpp/"* "$HOME/.config/ncmpcpp/" || true
+		ln -sfv "$DIR/config/ncmpcpp/"* "$HOME/.config/ncmpcpp/" || true
 
 		mkdir -p "$HOME/.config/ranger"
 		if [ ! -d "$HOME/.config/ranger/plugins/ranger_devicons" ]; then
 			git clone https://github.com/alexanderjeurissen/ranger_devicons "$HOME/.config/ranger/plugins/ranger_devicons"
 		fi
-		ln_sf_or_copy "$DIR/config/ranger/rc.conf" "$HOME/.config/ranger/rc.conf"
+		ln -sfv "$DIR/config/ranger/rc.conf" "$HOME/.config/ranger/rc.conf"
 
 		mkdir -p "$HOME/.config/kitty"
-		ln_sf_or_copy "$DIR/config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+		ln -sfv "$DIR/config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
 
 		printf "\n⌛... Installing and configuring OS-agnostic packages... 📦\n"
 		"$DIR/packages/osagnostic.sh"
@@ -197,8 +185,8 @@ setup_ssh() {
 ### 🖼 Misc files
 link_images() {
 	printf "\n⌛... Linking image files... 🖇\n"
-	ln_sf_or_copy "$DIR/ingr/i/.face" "$HOME/.face" || true
-	ln_sf_or_copy "$DIR/ingr/i/background.png" "$HOME/background.png" || true
+	ln -sfv "$DIR/ingr/i/.face" "$HOME/.face" || true
+	ln -sfv "$DIR/ingr/i/background.png" "$HOME/background.png" || true
 }
 
 ### 🐚 Default shell handling
