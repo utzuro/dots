@@ -71,13 +71,17 @@ link_dotfiles() {
 	ln -sfv "$DIR/config/gnupg/scdaemon.conf" "$HOME/.gnupg/"
 
 	printf "\n⌛... Linking nix configs... 📝\n"
+	rm -rf "$HOME/.config/nix"
 	ln -sfv "$DIR/config/nix" "$HOME/.config/"
 
 	printf "\n⌛... Linking vim configs... 📝\n"
 	ln -sfv "$DIR/config/vim/.vimrc" "$HOME/"
 
 	printf "\n⌛... Linking custom themes... 📝\n"
+	rm -rf "$HOME/.vim/colors"
 	ln -sfv "$DIR/config/vim/.vim/colors" "$HOME/.vim/"
+	mkdir -p "$HOME/.config/nvim/"
+	rm -rf "$HOME/.config/nvim/colors"
 	ln -sfv "$DIR/config/vim/.vim/colors" "$HOME/.config/nvim/"
 
 	mkdir -p "$HOME/.config/nvim"
