@@ -67,7 +67,8 @@ link_dotfiles() {
 	# Extra configs
 	printf "\n⌛... Linking GnuPG configs... 📝\n"
 	mkdir -p "$HOME/.gnupg/"
-	ln -sfv "$DIR/config/gnupg/*" "$HOME/.gnupg/"
+	ln -sfv "$DIR/config/gnupg/gpg-agent.conf" "$HOME/.gnupg/"
+	ln -sfv "$DIR/config/gnupg/scdaemon.conf" "$HOME/.gnupg/"
 
 	printf "\n⌛... Linking nix configs... 📝\n"
 	ln -sfv "$DIR/config/nix" "$HOME/.config/"
@@ -105,8 +106,13 @@ link_dotfiles() {
 	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/"
 
 	printf "\n⌛... Linking opencode configs... 📝\n"
-	mkdir -p "$HOME/.opencode/"
-	ln -sfv "$DIR/config/opencode/*" "$HOME/.opencode/"
+	mkdir -p "$HOME/.opencode/{commands,skills}"
+	for file in "$DIR"/config/opencode/commands/*; do
+		ln -sfv "$file" "$HOME/.opencode/commands/$(basename "$file")"
+	done
+	for file in "$DIR"/config/opencode/skills/*; do
+		ln -sfv "$file" "$HOME/.opencode/skills/$(basename "$file")"
+	done
 }
 
 ### 🛠 Shell & Tool Setup (if not using Home Manager)
