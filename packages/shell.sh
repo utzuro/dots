@@ -106,7 +106,7 @@ link_dotfiles() {
 	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/"
 
 	printf "\n⌛... Linking opencode configs... 📝\n"
-	mkdir -p "$HOME/.opencode/{commands,skills}"
+	mkdir -p "$HOME"/.opencode/{commands,skills}
 	for file in "$DIR"/config/opencode/commands/*; do
 		ln -sfv "$file" "$HOME/.opencode/commands/$(basename "$file")"
 	done
