@@ -81,7 +81,6 @@ link_dotfiles() {
 	rm -rf "$HOME/.vim/colors"
 	ln -sfv "$DIR/config/vim/.vim/colors" "$HOME/.vim/"
 
-	mkdir -p "$HOME/.config/nvim"
 	ln -sfv "$DIR/config/vim/nvim" "$HOME/.config/"
 	# workaround to avoid devcontainer error
 	mkdir -p ~/.cache/nvim
