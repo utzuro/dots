@@ -66,7 +66,7 @@ link_dotfiles() {
 
 	# Extra configs
 	printf "\n⌛... Linking GnuPG configs... 📝\n"
-	mkdir "$HOME/.gnupg/"
+	mkdir -p "$HOME/.gnupg/"
 	ln -sfv "$DIR/config/gnupg/*" "$HOME/.gnupg/"
 
 	printf "\n⌛... Linking nix configs... 📝\n"
