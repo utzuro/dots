@@ -80,9 +80,6 @@ link_dotfiles() {
 	printf "\n⌛... Linking custom themes... 📝\n"
 	rm -rf "$HOME/.vim/colors"
 	ln -sfv "$DIR/config/vim/.vim/colors" "$HOME/.vim/"
-	mkdir -p "$HOME/.config/nvim/"
-	rm -rf "$HOME/.config/nvim/colors"
-	ln -sfv "$DIR/config/vim/.vim/colors" "$HOME/.config/nvim/"
 
 	mkdir -p "$HOME/.config/nvim"
 	ln -sfv "$DIR/config/vim/nvim" "$HOME/.config/"
