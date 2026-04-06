@@ -78,6 +78,7 @@ link_dotfiles() {
 
 	# Extra configs
 	printf "\n⌛... Linking GnuPG configs... 📝\n"
+	mkdir "$HOME/.gnupg/"
 	ln_sf_or_copy "$DIR/config/gnupg/*" "$HOME/.gnupg/"
 
 	printf "\n⌛... Linking nix configs... 📝\n"
@@ -93,7 +94,7 @@ link_dotfiles() {
 	mkdir -p "$HOME/.config/nvim"
 	ln_sf_or_copy "$DIR/config/vim/nvim" "$HOME/.config/"
 	# workaround to avoid devcontainer error
-	mkdir ~/.cache/nvim
+	mkdir -p ~/.cache/nvim
 	touch ~/.cache/nvim/devcontainer.log
 
 	ln_sf_or_copy "$DIR/config/vim/.ideavimrc" "$HOME/"
@@ -116,6 +117,7 @@ link_dotfiles() {
 	ln_sf_or_copy "$DIR/config/agents/AGENTS.md" "$HOME/"
 
 	printf "\n⌛... Linking opencode configs... 📝\n"
+	mkdir -p "$HOME/.opencode/"
 	ln_sf_or_copy "$DIR/config/opencode/*" "$HOME/.opencode/"
 }
 
