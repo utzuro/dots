@@ -11,7 +11,6 @@
     # ipu6epmtl for Meteor Lake.
     ipu6.platform = "ipu6ep";
     # extra
-    flipperzero.enable = true;
     sensor.iio.enable = true;
   };
   environment.pathsToLink = [ "/libexec" ];

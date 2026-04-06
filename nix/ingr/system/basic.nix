@@ -3,7 +3,7 @@
 # on first install enable unstable channel
 # `nix-channel --add https://nixos.org/channels/nixos-unstable nixos`
 
-{ pkgs, system, ... }:
+{ pkgs, ... }:
 
 let
 
