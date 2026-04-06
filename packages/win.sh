@@ -1,6 +1,9 @@
 # Install scoop as package manager (powershell req):
 # > Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 # > irm get.scoop.sh | iex
+# To customize install
+# > irm get.scoop.sh -outfile 'install.ps1'
+# > .\install.ps1 -ScoopDir 'A:\scoop' -ScoopGlobalDir 'A:\scoop-global'
 
 # note: chats don't work well when installed with scoop, so omit those
 
@@ -16,10 +19,10 @@ scoop install python go protobuf nodejs rustup cmake
 scoop install mingw grpc-tools grpcurl
 
 # GUI
-scoop install libreoffice qbittorrent vlc sumatrapdf anki eartrumpet
-scoop install kitty wezterm alacritty screentogif
-scoop install jetbrains-toolbox
+# scoop install libreoffice qbittorrent vlc sumatrapdf anki
+scoop install kitty nu wezterm alacritty # can't decide which to use
 
+# Notes for nixos wsl:
 # wezterm config:
 # return {
 #   default_prog = { "wsl.exe", "-d", "NixOS" },
@@ -31,8 +34,8 @@ scoop install jetbrains-toolbox
 #   args: ["-d", "NixOS"]
 
 # win-utils
-scoop install powertoys ueli wiztree
-scoop install sumatrapdf eartrumpet
+# scoop install powertoys ueli wiztree
+# scoop install sumatrapdf eartrumpet
 
 # games
 # scoop bucket add versions
