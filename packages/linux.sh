@@ -1,6 +1,9 @@
 echo
 echo "⌛... Configuring Linux ... 🖳"
-DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
+DIR="$(
+	cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit
+	pwd -P
+)"
 
 # Set up user groups:
 echo
