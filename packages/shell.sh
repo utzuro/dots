@@ -133,19 +133,23 @@ manual_shell_and_tools() {
 		: >"$HOME/.profile"
 
 		# Oh My Zsh
-		if [ ! -d "$HOME/.oh-my-zsh" ]; then
-			RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
-				sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-		else
-			printf "📝 Oh My Zsh already installed.\n"
+		if have_cmd zsh; then
+			if [ ! -d "$HOME/.oh-my-zsh" ]; then
+				RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
+					sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+			else
+				printf "📝 Oh My Zsh already installed.\n"
+			fi
 		fi
 
 		# zplug
-		if [ ! -d "$HOME/.zplug" ]; then
-			curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-			printf "📝 Run 'zplug install' to install plugins.\n"
-		else
-			printf "📝 Zplug already installed.\n"
+		if have_cmd zsh; then
+			if [ ! -d "$HOME/.zplug" ]; then
+				curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+				printf "📝 Run 'zplug install' to install plugins.\n"
+			else
+				printf "📝 Zplug already installed.\n"
+			fi
 		fi
 
 		# tmux plugin manager
