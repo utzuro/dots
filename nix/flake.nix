@@ -166,6 +166,7 @@
           let
             user = {
               name = "void";
+              public_name = "utzuro";
               email = "utzuro@pm.me";
             };
           in

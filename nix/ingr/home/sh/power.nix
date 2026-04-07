@@ -73,13 +73,21 @@
     iotop
     bottom
     hwinfo
+
+    # system
     pciutils
     psmisc
+
+    # search
     ddgr
+
+    # calc
     bc
     numbat
-    ledger
     libqalculate
+
+    # management
+    ledger
     taskwarrior3
     timewarrior
 

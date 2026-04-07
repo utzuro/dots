@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
 
@@ -14,12 +14,12 @@
       settings = {
         # base configs
         lfs.enable = true;
-        user.name = "utzuro";
-        user.email = "utzuro@pm.me";
+        user.name = user.public_name;
+        user.email = user.email;
 
         signing = {
-          signer = "utzuro";
-          key = "utzuro@pm.me";
+          signer = user.public_name;
+          key = user.email;
           signByDefault = true;
         };
 
@@ -37,9 +37,9 @@
               "github:"
             ];
           };
-          "git@github.com:chikei-development/" = {
+          "git@github.com:cyber-space/" = {
             insteadOf = [
-              "https://github.com/chikei-development/"
+              "https://github.com/cyber-space/"
             ];
           };
         };
