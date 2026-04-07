@@ -14,6 +14,8 @@ scoop install neovim
 scoop install eza fzf
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 
+scoop install opencode
+
 # dev
 scoop install python go protobuf nodejs rustup cmake
 scoop install mingw grpc-tools grpcurl
@@ -21,6 +23,7 @@ scoop install mingw grpc-tools grpcurl
 # GUI
 # scoop install libreoffice qbittorrent vlc sumatrapdf anki
 scoop install kitty nu wezterm alacritty # can't decide which to use
+scoop install vscode
 
 # Notes for nixos wsl:
 # wezterm config:
