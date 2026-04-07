@@ -19,6 +19,10 @@ fi
 
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 
+home_manager_detected() {
+	have_cmd home-manager || [ -x "$HOME/.nix-profile/bin/home-manager" ]
+}
+
 # Safe sudo wrapper: no sudo on MSYS2, so just run the cmd (or warn)
 sudo_safe() {
 	if $is_msys2; then
@@ -113,7 +117,7 @@ link_dotfiles() {
 
 ### 🛠 Shell & Tool Setup (if not using Home Manager)
 manual_shell_and_tools() {
-	if [ ! -x "$HOME/.nix-profile/bin/home-manager" ]; then
+	if ! home_manager_detected; then
 		printf "\n⌛... Home-manager not detected — configuring shell tools manually... 🛠\n"
 		printf "\n⌛... Linking shell configs... 🖥\n"
 
@@ -197,6 +201,11 @@ link_images() {
 
 ### 🐚 Default shell handling
 configure_default_shell() {
+	if home_manager_detected; then
+		printf "\n📝 Home-manager detected. Skipping default shell configuration.\n"
+		return
+	fi
+
 	if ! $is_msys2; then
 		if have_cmd zsh; then
 			zsh_path="$(command -v zsh)"
