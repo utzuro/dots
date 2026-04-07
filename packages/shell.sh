@@ -93,6 +93,10 @@ link_dotfiles() {
 		ln -sfv "$file" "$HOME/.vim/$(basename "$file")"
 	done
 
+	printf "\n⌛... Linking custom themes... 📝\n"
+	rm -rf "$HOME/.vim/colors"
+	ln -sfv "$DIR/config/vim/.vim/colors" "$HOME/.vim/"
+
 	# Remove spellcheck from commented out lines
 	mkdir -p "$HOME/.vim/after/syntax"
 	ln -sfv "$DIR/config/vim/.vim/after/syntax/asciidoc.vim" "$HOME/.vim/after/syntax/asciidoc.vim"
