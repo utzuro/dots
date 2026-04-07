@@ -219,6 +219,7 @@
 
               ./ingr/home/sh/basic.nix
               ./ingr/home/sh/power.nix
+              ./ingr/home/sh/media.nix
               ./ingr/home/sh/dev.nix
               ./ingr/home/sh/games.nix
 

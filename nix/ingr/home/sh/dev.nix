@@ -94,15 +94,6 @@
     pnpm
     deno
 
-    # android
-    flutter
-    # androidenv.test-suite
-    androidenv.androidPkgs.tools
-    androidenv.androidPkgs.platform-tools
-    androidenv.androidPkgs.ndk-bundle
-    androidenv.androidPkgs.emulator
-    androidenv.androidPkgs.androidsdk
-
     # scripts
     shfmt
     elvish
@@ -115,11 +106,6 @@
     typst
     texlab
     texliveFull
-
-    # network
-    gource
-    mdns
-    mdns-scanner
 
     # devops
     tenv
@@ -173,8 +159,8 @@
   programs = {
 
     direnv = {
-      enable = true;
-      nix-direnv.enable = true;
+      enable = false;
+      nix-direnv.enable = false;
     };
 
     gh = {

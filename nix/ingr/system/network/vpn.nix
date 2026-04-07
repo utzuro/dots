@@ -1,8 +1,14 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [ inputs.erosanix.nixosModules.protonvpn ];
 
+  home.packages = with pkgs; [
+    tor
+    openvpn
+    wireguard-tools
+    networkmanager-openvpn
+  ];
 
   services.protonvpn = {
 
