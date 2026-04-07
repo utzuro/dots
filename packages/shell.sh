@@ -74,6 +74,9 @@ link_dotfiles() {
 	ln -sfv "$DIR/config/gnupg/gpg-agent.conf" "$HOME/.gnupg/"
 	ln -sfv "$DIR/config/gnupg/scdaemon.conf" "$HOME/.gnupg/"
 
+	printf "\n⌛... Linking WSL configs... 📝\n"
+	ln -sfv "$DIR/config/win/.wslconfig" "$HOME/"
+
 	printf "\n⌛... Linking nix configs... 📝\n"
 	rm -rf "$HOME/.config/nix"
 	ln -sfv "$DIR/config/nix" "$HOME/.config/"
