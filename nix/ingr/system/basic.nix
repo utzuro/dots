@@ -147,6 +147,7 @@ in
     dhcpcd
     libnatpmp
     ipcalc
+    openssl
 
     # networking – diagnostics & ops
     wget
