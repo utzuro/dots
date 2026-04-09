@@ -59,6 +59,8 @@ Plug 'tpope/vim-endwise'
 Plug 'gauteh/vim-cppman'
 Plug 'mattn/emmet-vim'
 Plug 'habamax/vim-godot'
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'npm ci'}
 Plug 'sheerun/vim-polyglot'
@@ -87,6 +89,7 @@ let mapleader = ','
 so ~/.vim/godot.vim
 so ~/.vim/coc.vim
 so ~/.vim/telescope.vim
+so ~/.vim/dap.vim
 
 " disabel copilot by default
 let g:copilot_enabled = v:false

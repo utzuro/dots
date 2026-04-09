@@ -37,8 +37,6 @@
     protoc-gen-go
     protoc-gen-go-grpc
 
-    # rust
-    # cargo
     rustup
     rustc
     cargo-edit
@@ -120,6 +118,7 @@
     natscli
     lnav
     postman
+    docker-slim
 
     # DB
     sqlite
