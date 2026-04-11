@@ -59,3 +59,8 @@ scoop install vscode
 # scoop install protonvpn-np
 # scoop install epic-games-launcher
 # scoop install voicemeeter-np
+echo "All done!"
+
+echo 'Install vim-plug on windows:\n
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni $HOME/vimfiles/autoload/plug.vim -Force'
