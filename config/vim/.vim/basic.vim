@@ -2,7 +2,6 @@
 " ==========================================================
 " COMPATIBILITY SETTINGS
 " ==========================================================
-set shellslash          " Use forward slashes, even on Windows
 set mouse=a             " Enable mouse support in all modes
 set t_Co=256            " Use 256 colors
 set nocompatible        " Use Vim defaults instead of Vi defaults
