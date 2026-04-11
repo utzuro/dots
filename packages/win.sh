@@ -11,16 +11,14 @@ scoop bucket add extras
 
 # shell
 scoop install neovim
-echo 'Install vim-plug on windows:\n
-iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-    ni $HOME/vimfiles/autoload/plug.vim -Force'
 
 # Temp workaround to make it work on windows
-mv ~/alchemy/dots/config/vim/nvim ~/AppData/Local/
+rm -rf ~/AppData/Local/nvim
+cp ~/alchemy/dots/config/vim/nvim ~/AppData/Local/
 rm -rf ~/AppData/Local/nvim/colors
-mv ~/alchemy/dots/config/vim/.vim/colors ~/AppData/Local/nvim/
+cp ~/alchemy/dots/config/vim/.vim/colors ~/AppData/Local/nvim/
 
-scoop install eza fzf
+scoop install eza fzf ripgrep
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 
 scoop install opencode
@@ -61,6 +59,6 @@ scoop install vscode
 # scoop install voicemeeter-np
 echo "All done!"
 
-echo 'Install vim-plug on windows:\n
+echo 'Install vim-plug on windows:
 iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
     ni $HOME/vimfiles/autoload/plug.vim -Force'
