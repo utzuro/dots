@@ -11,6 +11,14 @@ scoop bucket add extras
 
 # shell
 scoop install neovim
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |
+	ni $HOME/vimfiles/autoload/plug.vim -Force
+
+# Temp workaround to make it work on windows
+mv ~/alchemy/dots/config/vim/nvim ~/AppData/Local/
+rm -rf ~/AppData/Local/nvim/colors
+mv ~/alchemy/dots/config/vim/.vim/colors ~/AppData/Local/nvim/
+
 scoop install eza fzf
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 
