@@ -5,7 +5,7 @@ DIR="$(
 	pwd -P
 )"
 
-./shell_install.sh
+"$DIR/shell.sh"
 
 sudo yum install ranger
 sudo yum install -y gcc kernel-devel make ncurses-devel

@@ -49,7 +49,7 @@ extra_cli_packages=(
 gui_packages=(
 	kitty
 	emacs libreoffice qbittorrent vlc zathura
-	inkscape blender librecad godot3 lfcOpen 02:20:22 PM
+	inkscape blender librecad godot3
 )
 
 wm_packages=(

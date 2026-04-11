@@ -14,9 +14,9 @@ scoop install neovim
 
 # Temp workaround to make it work on windows
 rm -rf ~/AppData/Local/nvim
-cp ~/alchemy/dots/config/vim/nvim ~/AppData/Local/
+cp -r ~/alchemy/dots/config/vim/nvim ~/AppData/Local/
 rm -rf ~/AppData/Local/nvim/colors
-cp ~/alchemy/dots/config/vim/.vim/colors ~/AppData/Local/nvim/
+cp -r ~/alchemy/dots/config/vim/colors ~/AppData/Local/nvim/
 
 scoop install eza fzf ripgrep
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
@@ -59,6 +59,10 @@ scoop install vscode
 # scoop install voicemeeter-np
 echo "All done!"
 
-echo 'Install vim-plug on windows:
+echo 'Install vim-plug for vim:
 iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
     ni $HOME/vimfiles/autoload/plug.vim -Force'
+
+echo 'Install vim-plug for neovim:
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force'

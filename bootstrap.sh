@@ -24,8 +24,21 @@ fi
 distro_id=""
 pretty_src=""
 
+# Termux (Android)
+if [[ -n "${PREFIX:-}" && -d /data/data/com.termux ]]; then
+	distro_id="termux"
+	pretty_src="termux env"
+fi
+
+# macOS (no /etc/os-release)
+uname_s="$(uname -s 2>/dev/null || echo "")"
+if [[ -z "$distro_id" && "$uname_s" == "Darwin" ]]; then
+	distro_id="macos"
+	pretty_src="uname -s:$uname_s"
+fi
+
 # Prefer /etc/os-release when present (Linuxes incl. WSL)
-if [[ -f /etc/os-release ]]; then
+if [[ -z "$distro_id" && -f /etc/os-release ]]; then
 	# shellcheck disable=SC1091
 	. /etc/os-release
 	# Some environments (MSYS2) may set ID=msys – normalize to msys2
@@ -38,7 +51,6 @@ fi
 
 # Fallbacks for MSYS2 / Cygwin / MinGW where os-release may vary
 if [[ -z "$distro_id" ]]; then
-	uname_s="$(uname -s 2>/dev/null || echo "")"
 	case "$uname_s" in
 	MSYS_NT* | MINGW* | CYGWIN*)
 		distro_id="msys2"
@@ -65,6 +77,10 @@ case "$distro_id" in
 nixos)
 	echo "🚀 Detected NixOS, no need to install packages"
 	;;
+macos)
+	echo "🚀 Starting macOS setup..."
+	bash "$PKG_DIR/mac.sh"
+	;;
 arch)
 	echo "🚀 Starting Arch Linux setup..."
 	bash "$PKG_DIR/archlinux.sh"
@@ -73,10 +89,18 @@ ubuntu | debian)
 	echo "🚀 Starting Ubuntu/Debian setup..."
 	bash "$PKG_DIR/ubuntu.sh"
 	;;
+amzn | amzn2 | amazon)
+	echo "🚀 Starting Amazon Linux setup..."
+	bash "$PKG_DIR/awslinux.sh"
+	;;
 msys2)
 	# On native Windows MSYS2, you're not in WSL, so treat as MSYS2 even if $is_wsl=true due to edge cases.
 	echo "🚀 Starting MSYS2 setup..."
 	bash "$PKG_DIR/msys2.sh"
+	;;
+termux)
+	echo "🚀 Starting Termux setup..."
+	bash "$PKG_DIR/termux.sh"
 	;;
 *)
 	echo "❌ Unsupported distro: $distro_id"

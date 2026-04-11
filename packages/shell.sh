@@ -82,27 +82,27 @@ link_dotfiles() {
 	ln -sfv "$DIR/config/nix" "$HOME/.config/"
 
 	printf "\n⌛... Linking vim configs... 📝\n"
-	ln -sfv "$DIR/config/vim/.vimrc" "$HOME/"
+	ln -sfv "$DIR/config/vim/vimrc" "$HOME/.vimrc"
 
 	ln -sfv "$DIR/config/vim/nvim" "$HOME/.config/"
 	# workaround to avoid devcontainer error
 	mkdir -p ~/.cache/nvim
 	touch ~/.cache/nvim/devcontainer.log
 
-	ln -sfv "$DIR/config/vim/.ideavimrc" "$HOME/"
+	ln -sfv "$DIR/config/vim/ideavimrc" "$HOME/.ideavimrc"
 
 	mkdir -p "$HOME/.vim"
-	for file in "$DIR"/config/vim/.vim/*.vim; do
+	for file in "$DIR"/config/vim/vim/*.vim; do
 		ln -sfv "$file" "$HOME/.vim/$(basename "$file")"
 	done
 
 	printf "\n⌛... Linking custom themes... 📝\n"
-	rm -rf "$HOME/.vim/colors"
-	ln -sfv "$DIR/config/vim/.vim/colors" "$HOME/.vim/"
+	ln -sfv "$DIR/config/vim/colors" "$HOME/.vim/"
+	ln -sfv "$DIR/config/vim/colors" "$HOME/.config/nvim/"
 
 	# Remove spellcheck from commented out lines
 	mkdir -p "$HOME/.vim/after/syntax"
-	ln -sfv "$DIR/config/vim/.vim/after/syntax/asciidoc.vim" "$HOME/.vim/after/syntax/asciidoc.vim"
+	ln -sfv "$DIR/config/vim/vim/after/syntax/asciidoc.vim" "$HOME/.vim/after/syntax/asciidoc.vim"
 
 	printf "📝 Installing vim plugins... 🚀\n"
 	(have_cmd vim && vim +PlugInstall +qall) || true
