@@ -10,7 +10,7 @@ pkg upgrade -y
 
 core_packages=(
 	coreutils findutils grep sed gawk diffutils file less which man
-	tar gzip xz bzip2 zip unzip p7zip ncurses-utils
+	tar gzip bzip2 zip unzip p7zip ncurses-utils
 )
 
 shell_packages=(
@@ -47,7 +47,7 @@ system_packages=(
 )
 
 net_extra_packages=(
-	aria2 netcat-openbsd nmap tcpdump
+	aria2 netcat-openbsd nmap
 )
 
 container_packages=(

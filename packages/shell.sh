@@ -157,6 +157,8 @@ manual_shell_and_tools() {
 			else
 				printf "📝 Zplug already installed.\n"
 			fi
+			zsh
+			zplug install
 		fi
 
 		# tmux plugin manager
