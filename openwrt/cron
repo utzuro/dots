@@ -1,0 +1,4 @@
+echo '*/10 * * * * /root/ds-lite.sh >/dev/null 2>&1' >> /etc/crontabs/root
+
+/etc/init.d/cron enable
+/etc/init.d/cron restart
