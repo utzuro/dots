@@ -1,0 +1,6 @@
+[wsl2]
+networkingMode=nat
+localhostForwarding=true
+dnsTunneling=true
+guiApplications=true
+
