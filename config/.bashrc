@@ -46,19 +46,34 @@ alias v="nvim"
 alias ls="eza"
 alias tree="eza --tree"
 alias cat="bat"
+alias wget="wget2"
 alias todo="vim ~/todo"
 alias mpv="mpv --alang=jpn"
 alias yt="yt-dlp --no-playlist"
+alias ytp='yt-dlp -f "bv*[height<=2160]+ba/b" --cookies-from-browser firefox'
+alias k="ps aux | fzf | awk '{print }' | xargs -r kill -9"
 
 # Git
-alias upd='git commit -am "update" && git push'
+alias upd="git commit -am 'minor update' && git push"
+alias bump="git commit -am 'version bump' && git push"
+alias refactor="git commit -am 'refactor' && git push"
+alias hotfix="git commit -am 'hotfix' && git push"
+alias addtests="git commit -am 'add tests' && git push"
+alias com='git commit'
 alias push='git push'
 alias pull='git pull --ff-only'
 alias pul='git pull --ff-only'
+alias pl='git pull --ff-only'
 alias rebase='git pull --rebase'
-alias force='git push --force'
-alias forc='git push --force'
+alias force='git push --force-with-lease'
+alias forc='git push --force-with-lease'
 alias amend='git commit --amend'
+alias diff='git diff --color-words'
+alias cached='git diff --cached --color-words'
+alias changes='git diff main --color-words'
+alias chmain='git diff main --name-only'
+alias chmaster='git diff main --name-only'
+alias chdev='git diff main --name-only'
 
 # Apps
 alias m="myougiden"
@@ -69,6 +84,41 @@ alias roff="redshift -P -O 6200 -b1"
 alias ino="arduino-cli"
 alias real="ledger -f $LEDGER bal Assets --real"
 alias budgets="ledger -f $LEDGER bal Budget"
+alias k8s='kubectl'
+alias idea='nohup idea-ultimate >/dev/null 2>&1 &'
+alias goland='nohup goland >/dev/null 2>&1 &'
+alias pycharm='nohup pycharm-professional >/dev/null 2>&1 &'
+alias clion='nohup clion >/dev/null 2>&1 &'
+alias rustrover='nohup rust-rover >/dev/null 2>&1 &'
+alias rubymine='nohup ruby-mine >/dev/null 2>&1 &'
+alias rider='nohup rider >/dev/null 2>&1 &'
+alias webstorm='nohup webstorm >/dev/null 2>&1 &'
+alias datagrip='nohup datagrip >/dev/null 2>&1 &'
+alias studio='nohup android-studio >/dev/null 2>&1 &'
+alias code='nohup code >/dev/null 2>&1 &'
+alias dbeaver='nohup dbeaver >/dev/null 2>&1 &'
+alias postman='nohup postman >/dev/null 2>&1 &'
+alias notion='nohup notion-app >/dev/null 2>&1 &'
+alias chrome='nohup chromium >/dev/null 2>&1 &'
+alias libre='nohup librewolf >/dev/null 2>&1 &'
+alias firefox='nohup firefox >/dev/null 2>&1 &'
+
+# AI
+alias expl='gh copilot explain '
+alias sugg='gh copilot suggest'
+
+# System
+alias MY_HOMEMANAGER='~/alchemy/summons/nixos/home-manager'
+alias build-my-home='./ingr/cleanup && home-manager switch --flake .#$USER --impure'
+alias open-port="while true ; do date ; natpmpc -a 1 0 udp 60 -g 10.2.0.1 && natpmpc -a 1 0 tcp 60 -g 10.2.0.1 || { echo -e 'ERROR' ; break ; } ; sleep 45 ; done"
+alias XDG_DESKTOP_DIR='$HOME/'
+alias XDG_DOWNLOAD_DIR='$HOME/channeling'
+alias XDG_TEMPLATES_DIR='$HOME/magic'
+alias XDG_PUBLICSHARE_DIR='$HOME/magic'
+alias XDG_DOCUMENTS_DIR='$HOME/magic'
+alias XDG_MUSIC_DIR='$HOME/magic'
+alias XDG_PICTURES_DIR='$HOME/magic'
+alias XDG_VIDEOS_DIR='$HOME/magic'
 
 # Pagers
 export PAGER="nvimpager"
@@ -84,4 +134,3 @@ fi
 
 # Load AWS creds if present
 [ -f ~/.awsrc ] && source ~/.awsrc
-

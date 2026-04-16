@@ -76,6 +76,7 @@ link_dotfiles() {
 
 	printf "\n⌛... Linking WSL configs... 📝\n"
 	ln -sfv "$DIR/config/win/.wslconfig" "$HOME/"
+	ln -sfv "$DIR/config/.bashrc" "$HOME/.bashrc"
 
 	printf "\n⌛... Linking nix configs... 📝\n"
 	rm -rf "$HOME/.config/nix"
