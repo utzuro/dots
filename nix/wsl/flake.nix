@@ -60,6 +60,8 @@
               ../ingr/system/dev.nix
               # ../ingr/system/network/settings.nix
 
+              ../ingr/system/services/storage.nix
+
               # Setup WSL
               nixos-wsl.nixosModules.default
               {
