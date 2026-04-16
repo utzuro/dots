@@ -70,8 +70,8 @@
                   useWindowsDriver = false; # OpenGL
                   startMenuLaunchers = false;
                   interop = {
-                    includePath = false;
-                    register = false;
+                    includePath = true;
+                    register = true;
                   };
                   usbip.enable = false;
                   wrapBinSh = true;
@@ -82,8 +82,8 @@
                       ldconfig = true;
                     };
                     interop = {
-                      enabled = false;
-                      appendWindowsPath = false;
+                      enabled = true;
+                      appendWindowsPath = true;
                     };
                     network = {
                       generateHosts = true;
