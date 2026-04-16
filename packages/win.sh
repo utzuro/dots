@@ -31,6 +31,7 @@ scoop install mingw grpc-tools grpcurl
 # scoop install libreoffice qbittorrent vlc sumatrapdf anki
 scoop install kitty nu wezterm alacritty # can't decide which to use
 scoop install vscode
+scoop install dbeaver
 
 # Notes for nixos wsl:
 # wezterm config:
