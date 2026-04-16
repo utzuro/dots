@@ -45,4 +45,4 @@ F1::Send "{Alt down}{``}{Alt up}"
 
 ; Text shortcuts
 >!s::Send "ы"
-::ue::Unreal Engine 5
+; ::ue::Unreal Engine 5
