@@ -2,27 +2,79 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-echo
-echo "⌛... Installing packages for Termux... 📱"
+install_group() {
+	local title="$1"
+	shift
+	local -a pkgs=("$@")
+	if [[ ${#pkgs[@]} -eq 0 ]]; then
+		return 0
+	fi
 
+	echo "?? Installing ${title}..."
+	pkg install -y "${pkgs[@]}"
+}
+
+apply_termux_font() {
+	local font_file=""
+
+	if ! command -v fc-match >/dev/null 2>&1; then
+		echo "??  fontconfig-utils is missing; skipping font application"
+		return 0
+	fi
+
+	if command -v fc-cache >/dev/null 2>&1; then
+		fc-cache -f >/dev/null 2>&1 || true
+	fi
+
+	for pattern in \
+		'JetBrains Mono:style=Regular' \
+		'JetBrains Mono' \
+		'DejaVu Sans Mono:style=Book' \
+		'DejaVu Sans Mono'; do
+		font_file="$(fc-match -f '%{file}\n' "$pattern" 2>/dev/null | head -n1 || true)"
+		if [[ -n "$font_file" && -f "$font_file" ]]; then
+			break
+		fi
+	done
+
+	if [[ -z "$font_file" || ! -f "$font_file" ]]; then
+		echo "??  Could not locate an installed monospace TTF; skipping ~/.termux/font.ttf setup"
+		return 0
+	fi
+
+	mkdir -p "$HOME/.termux"
+	cp -f "$font_file" "$HOME/.termux/font.ttf"
+
+	if command -v termux-reload-settings >/dev/null 2>&1; then
+		termux-reload-settings || true
+	fi
+
+	echo "?? Applied terminal font from: $font_file"
+}
+
+echo
+echo "?... Installing packages for Termux... ??"
+
+echo "?? Updating package metadata..."
 pkg update -y
 pkg upgrade -y
 
 core_packages=(
-	coreutils findutils grep sed gawk diffutils file less which man
-	tar gzip bzip2 zip unzip p7zip ncurses-utils
+	coreutils findutils grep sed gawk diffutils file less which mandoc manpages
+	tar gzip bzip2 xz-utils zip unzip p7zip zstd zsync lzip lz4 lzop ncurses-utils
 )
 
 shell_packages=(
-	zsh tmux
+	zsh tmux screen
 )
 
 editor_packages=(
-	vim neovim
+	vim neovim emacs ctags
 )
 
 net_packages=(
-	git openssh curl wget rsync ca-certificates
+	git git-lfs openssh curl wget rsync aria2 ca-certificates
+	netcat-openbsd nmap kubectl awscli
 )
 
 android_packages=(
@@ -30,76 +82,52 @@ android_packages=(
 )
 
 search_packages=(
-	ripgrep fd fzf tree
+	ripgrep ripgrep-all fd fzf tree ack-grep bat eza peco w3m
 )
 
 data_packages=(
-	jq sqlite
+	jq sqlite postgresql redis taskwarrior timewarrior
 )
 
 dev_packages=(
-	build-essential cmake pkg-config
-	python nodejs golang rust perl ruby
+	build-essential clang llvm cmake ninja make pkg-config gdb patchelf
+	python nodejs yarn golang rust perl ruby php lua54 dart
+	ccls delve gopls uv
+)
+
+docs_packages=(
+	asciidoctor pandoc glow graphviz poppler pdftk
+)
+
+media_packages=(
+	ffmpeg imagemagick ghostscript mediainfo python-yt-dlp
+	mpv mpd mpc ncmpcpp vlc rtorrent sdcv
 )
 
 system_packages=(
-	htop ncdu lsof strace
-)
-
-net_extra_packages=(
-	aria2 netcat-openbsd nmap
+	htop duf ncdu lsof strace inotify-tools moreutils psmisc
+	minicom picocom age atool buf qalc pv ledger
 )
 
 container_packages=(
 	proot proot-distro
 )
 
-media_packages=(
-	ffmpeg imagemagick
+font_packages=(
+	fontconfig fontconfig-utils ttf-jetbrains-mono ttf-dejavu ttf-nerd-fonts-symbols
 )
 
-misc_packages=(
-	qalc bc
-)
-
-echo "📦 Installing core tools..."
-pkg install -y "${core_packages[@]}"
-
-echo "🐚 Installing shell tools..."
-pkg install -y "${shell_packages[@]}"
-
-echo "📝 Installing editors..."
-pkg install -y "${editor_packages[@]}"
-
-echo "🌐 Installing network and VCS tools..."
-pkg install -y "${net_packages[@]}"
-
-echo "🤖 Installing Android integration tools..."
-pkg install -y "${android_packages[@]}"
-
-echo "🔎 Installing search and navigation tools..."
-pkg install -y "${search_packages[@]}"
-
-echo "🧮 Installing data tools..."
-pkg install -y "${data_packages[@]}"
-
-echo "🛠 Installing dev toolchains..."
-pkg install -y "${dev_packages[@]}"
-
-echo "🧪 Installing system and debug tools..."
-pkg install -y "${system_packages[@]}"
-
-echo "📡 Installing extra network tools..."
-pkg install -y "${net_extra_packages[@]}"
-
-echo "📦 Installing proot tools..."
-pkg install -y "${container_packages[@]}"
-
-echo "🎛 Installing media tools..."
-pkg install -y "${media_packages[@]}"
-
-echo "🧰 Installing misc utilities..."
-pkg install -y "${misc_packages[@]}"
-
-echo
-echo "✅ Termux package installation complete!"
+install_group "core tools" "${core_packages[@]}"
+install_group "shell and session tools" "${shell_packages[@]}"
+install_group "editors" "${editor_packages[@]}"
+install_group "network and VCS tools" "${net_packages[@]}"
+install_group "Android integration tools" "${android_packages[@]}"
+install_group "search and navigation tools" "${search_packages[@]}"
+install_group "data and database tools" "${data_packages[@]}"
+install_group "development toolchains" "${dev_packages[@]}"
+install_group "documentation and diagram tools" "${docs_packages[@]}"
+install_group "media tools" "${media_packages[@]}"
+install_group "system, utility and serial tools" "${system_packages[@]}"
+install_group "proot tools" "${container_packages[@]}"
+install_group "fonts" "${font_packages[@]}"
+apply_termux_font
