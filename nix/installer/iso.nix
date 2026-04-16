@@ -4,7 +4,13 @@
 #  nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage 
 { ... }:
 
+let
+  user = {
+    name = "void";
+  };
+in
 {
+  _module.args = { inherit user; };
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>

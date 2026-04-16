@@ -1,35 +1,233 @@
 {
-  description = "initial flake for the fresh installation";
+  description = "root config file for linux";
+
+  # example usage:
+  # - nix flake update
+  # - nixos-rebuild switch --flake .#<output-name> --impure --use-remote-sudo
+  # - home-manager switch --flake .#<output-name> --override-input home-manager ~/<path-to-local-home-manager-repo> --impure
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprlux = {
+      url = "github:amadejkastelic/Hyprlux";
+    };
+    hypr-darkwindow = {
+      url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hyprland-easymotion = {
+      url = "github:zakk4223/hyprland-easymotion";
+      inputs.hyprland.follows = "hyprland";
+    };
+    #--------------------------------------------------------
+
+    erosanix = {
+      url = "github:emmanuelrosa/erosanix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
+
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    blocklist-repo = {
+      url = "github:StevenBlack/hosts";
+      flake = false;
+    };
+
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { nixpkgs
-    , disko
-    , ...
-    }:
+  outputs = { nixpkgs, home-manager, disko, nix-gaming, ... }@inputs:
+
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
+      arch = "x86_64-linux";
+      lib = nixpkgs.lib;
+      dirs = {
+        config = ../config;
       };
+      pkgs = (import nixpkgs {
+        system = arch;
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = (_: true);
+          android_sdk.accept_license = true;
+          doCheckByDefault = false;
+        };
+        overlays = [
+          (final: prev: {
+            gaming = nix-gaming.packages.${arch};
+          })
+        ];
+      });
+
     in
     {
-      nixosConfigurations.zammadn = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit pkgs;
-        modules = [
-          disko.nixosModules.disko
-          ./configuration.nix
-        ];
+
+      # Settings are different across the machines
+      doCheckByDefault = false;
+      nixosConfigurations = {
+
+        voidpc =
+          let
+            system = {
+              inherit arch; host = "voidpc";
+            };
+            user = {
+              name = "void";
+            };
+          in
+          lib.nixosSystem {
+            modules = [
+              # Only for NixOS
+              disko.nixosModules.disko
+              ./ingr/machines/${system.host}/hardware-configuration.nix
+              ./ingr/system/boot.nix
+              ./ingr/system/basic.nix
+              ./ingr/system/firewall.nix
+              ./ingr/system/dev.nix
+              ./ingr/system/network/settings.nix
+              ./ingr/system/network/vpn.nix
+              ./ingr/system/virtualization.nix
+
+              ./ingr/system/wm/all.nix
+              # ./ingr/system/gui.nix # move to home manager
+
+              ./ingr/system/power/pc.nix
+              ./ingr/system/hardware/intel.nix
+              ./ingr/system/hardware/video.nix
+              ./ingr/system/hardware/nvidia.nix
+
+              ./ingr/system/hardware/nfs.nix
+
+              ./ingr/system/games/gaming.nix
+              ./ingr/system/games/steam.nix
+
+              # Below can be used on mac/wsl
+              ./ingr/system/services/homeassistant.nix
+              # ./ingr/system/services/sync.nix
+              ./ingr/system/services/cloud.nix
+              ./ingr/system/services/ml.nix
+              ./ingr/system/services/storage.nix
+              # ./ingr/system/services/monitoring.nix
+
+            ];
+
+            specialArgs = { inherit system inputs user; };
+
+          };
+
+        x240 =
+          let
+            system = {
+              inherit arch; host = "x240";
+              storageDriver = "btrfs";
+            };
+            user = {
+              name = "void";
+            };
+          in
+          lib.nixosSystem {
+            modules = [
+            ];
+            specialArgs = { inherit system inputs user; };
+          };
       };
-      formatter.${system} = pkgs.nixfmt-tree;
+
+
+      # Settings different across users
+      homeConfigurations = {
+        void =
+          let
+            user = {
+              name = "void";
+              public_name = "utzuro";
+              email = "utzuro@pm.me";
+            };
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+
+              ./ingr/home/home.nix
+              ./ingr/home/env.nix
+              ./ingr/home/theme.nix
+              ./ingr/home/fonts.nix
+
+              ./ingr/home/wm/all.nix
+
+              ./ingr/home/sh/basic.nix
+              ./ingr/home/sh/power.nix
+              ./ingr/home/sh/learn.nix
+              ./ingr/home/sh/dev.nix
+              ./ingr/home/sh/games.nix
+              ./ingr/home/sh/subs.nix
+
+              ./ingr/home/gui/browser.nix
+              ./ingr/home/gui/dev.nix
+              ./ingr/home/gui/media.nix
+              ./ingr/home/gui/comms.nix
+              ./ingr/home/gui/games.nix
+
+              # ./ingr/home/corp.nix
+
+              inputs.stylix.homeModules.stylix
+            ];
+
+            extraSpecialArgs = { inherit user inputs dirs; };
+          };
+
+        # use the same user name, but different configurations for different machines
+        ubuntu =
+          let
+            user = {
+              name = "void";
+              email = "utzuro@pm.me";
+            };
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+              ./ingr/home/home.nix
+              ./ingr/home/env.nix
+              ./ingr/home/fonts.nix
+
+              ./ingr/home/sh/basic.nix
+              ./ingr/home/sh/power.nix
+              ./ingr/home/sh/media.nix
+              ./ingr/home/sh/dev.nix
+              ./ingr/home/sh/games.nix
+
+              inputs.stylix.homeModules.stylix
+            ];
+            extraSpecialArgs = { inherit user inputs dirs; };
+          };
+      };
     };
 }
-
