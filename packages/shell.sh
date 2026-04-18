@@ -87,6 +87,7 @@ link_dotfiles() {
 	printf "\n⌛... Linking vim configs... 📝\n"
 	ln -sfv "$DIR/config/vim/vimrc" "$HOME/.vimrc"
 
+	rm -rf "$HOME/.config/nvim"
 	ln -sfv "$DIR/config/vim/nvim" "$HOME/.config/"
 	# workaround to avoid devcontainer error
 	mkdir -p ~/.cache/nvim
