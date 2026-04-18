@@ -69,7 +69,7 @@ link_dotfiles() {
 	printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 
 	# Extra configs
-	mkdir ~/.config
+	mkdir -p ~/.config
 
 	printf "\n⌛... Linking GnuPG configs... 📝\n"
 	mkdir -p "$HOME/.gnupg/"
