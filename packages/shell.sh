@@ -69,6 +69,8 @@ link_dotfiles() {
 	printf "\n⌛... Linking configuration files to the corresponding places in the system... 🖇\n"
 
 	# Extra configs
+	mkdir ~/.config
+
 	printf "\n⌛... Linking GnuPG configs... 📝\n"
 	mkdir -p "$HOME/.gnupg/"
 	ln -sfv "$DIR/config/gnupg/gpg-agent.conf" "$HOME/.gnupg/"

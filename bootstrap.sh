@@ -48,7 +48,6 @@ if [[ -z "$distro_id" && -f /etc/os-release ]]; then
 	esac
 	pretty_src="/etc/os-release"
 fi
-
 # Fallbacks for MSYS2 / Cygwin / MinGW where os-release may vary
 if [[ -z "$distro_id" ]]; then
 	case "$uname_s" in
@@ -63,6 +62,13 @@ fi
 if [[ -z "$distro_id" && -x /usr/bin/pacman && -f /etc/msystem ]]; then
 	distro_id="msys2"
 	pretty_src="/etc/msystem"
+fi
+
+# Git Bash can look like MSYS2, but has no pacman.
+if [[ "$distro_id" == "msys2" ]] && ! command -v pacman >/dev/null 2>&1; then
+	echo "🧠 Detected Git Bash environment (MSYS2 without pacman)"
+	distro_id="gitbash"
+	pretty_src="${pretty_src:+$pretty_src, }no pacman"
 fi
 
 if [[ -z "$distro_id" ]]; then
@@ -97,6 +103,10 @@ msys2)
 	# On native Windows MSYS2, you're not in WSL, so treat as MSYS2 even if $is_wsl=true due to edge cases.
 	echo "🚀 Starting MSYS2 setup..."
 	bash "$PKG_DIR/msys2.sh"
+	;;
+gitbash)
+	echo "🚀 Starting Git Bash setup..."
+	bash "$PKG_DIR/win.sh"
 	;;
 termux)
 	echo "🚀 Starting Termux setup..."
