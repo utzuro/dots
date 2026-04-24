@@ -158,6 +158,9 @@ in
     tcpdump
     dig
     busybox
+    speedtest-cli
+    speedtest-go
+    speedtest-rs
 
     # bluetooth & wireless UI
     bluetuith
