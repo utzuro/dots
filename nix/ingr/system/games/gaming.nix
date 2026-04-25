@@ -65,7 +65,7 @@
 
     #========================OPEN GAMES
     #===Engine Recreations
-    vcmi
+    # vcmi
     # fheroes2
     # fallout-ce
     # fallout2-ce
