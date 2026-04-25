@@ -3,7 +3,7 @@
 {
   imports = [ inputs.erosanix.nixosModules.protonvpn ];
 
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     tor
     openvpn
     wireguard-tools

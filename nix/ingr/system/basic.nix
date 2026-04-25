@@ -161,6 +161,8 @@ in
     speedtest-cli
     speedtest-go
     speedtest-rs
+    librespeed-cli
+    librespeed-rust
 
     # bluetooth & wireless UI
     bluetuith
