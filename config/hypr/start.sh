@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Unlock gnome-keyring and export to systemd/dbus environment
+eval $(gnome-keyring-daemon --start --components=secrets,pkcs11)
+export GNOME_KEYRING_CONTROL
+dbus-update-activation-environment --systemd GNOME_KEYRING_CONTROL
+
 # system
 #waybar &
 dunst &
