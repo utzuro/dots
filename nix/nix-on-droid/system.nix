@@ -13,7 +13,7 @@
   ];
 
   environment.etcBackupExtension = ".bak";
-  system.stateVersion = "24.05";
+  system.stateVersion = "26.05";
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';

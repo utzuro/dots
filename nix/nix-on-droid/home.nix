@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 {
-  system.stateVersion = "24.05";
+  system.stateVersion = "26.05";
 
   home-manager.config =
     { pkgs, ... }:
     {
-      home.stateVersion = "24.05";
+      home.stateVersion = "26.05";
       imports = [
         ../ingr/home/sh.nix
         ../ingr/home/env.nix

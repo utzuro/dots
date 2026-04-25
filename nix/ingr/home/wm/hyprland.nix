@@ -6,7 +6,7 @@
   ];
 
   services = {
-    swww.enable = true;
+    awww.enable = true;
   };
 
 

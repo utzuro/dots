@@ -124,7 +124,7 @@
     sqlite
     postgresql
     redis
-    pgcli
+    # pgcli
     mariadb
     # mycli
     usql

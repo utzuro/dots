@@ -28,7 +28,7 @@
     xdg-utils
     xsettingsd
     socat
-    glances
+    # glances
 
     # terms
     foot

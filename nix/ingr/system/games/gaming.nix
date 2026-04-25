@@ -1,11 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./lib/game-server.nix
-    # ./lib/minecraft.nix
-  ];
-
   hardware = {
     graphics.enable32Bit = true;
     steam-hardware.enable = true;
@@ -28,11 +23,11 @@
     #   beetle-psx-hw
     # ]))
 
-    heroic
-    lutris
-    adwaita-icon-theme
-    bottles
+    # heroic
+    # lutris
+    # bottles
     oversteer
+    adwaita-icon-theme
 
     wineWow64Packages.staging
     winetricks
@@ -60,13 +55,13 @@
 
 
     dosbox-staging
-    retroarch-full
+    # retroarch-full
     # dolphin-emu
     # yabause # sega saturn
     # flycast # sega dreamcast
     # atari800
 
-    moonlight-qt
+    # moonlight-qt
 
     #========================OPEN GAMES
     #===Engine Recreations

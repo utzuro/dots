@@ -131,11 +131,15 @@
 
               # Below can be used on mac/wsl
               ./ingr/system/services/homeassistant.nix
+              # ./ingr/system/games/game-server.nix # broken in latest nixpkgs
               # ./ingr/system/services/sync.nix
               ./ingr/system/services/cloud.nix
               ./ingr/system/services/ml.nix
               ./ingr/system/services/storage.nix
               # ./ingr/system/services/monitoring.nix
+
+              # temporary fixes, etc
+              ./ingr/system/temp.nix
 
             ];
 
