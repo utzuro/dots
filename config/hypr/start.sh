@@ -4,15 +4,15 @@
 #waybar &
 dunst &
 blueman &
-#pypr
-# wlsunset -l 39.9 -L 116.3 & # replaced with hyprlux
+#pypr # enable when I setup any plugins
 
 # apps
 GDK_SCALE=1 GDK_DPI_SCALE=1 librewolf &
 ~/.config/hypr/apps/sig &
-#########~/.config/hypr/apps/discord &
-# ~/.config/hypr/apps/slack &
+~/.config/hypr/apps/discord &
 # vesktop &
+# ~/.config/hypr/apps/slack &
+
 ~/.config/hypr/wall.sh
 
 # ~/.config/hypr/apps/chrome &

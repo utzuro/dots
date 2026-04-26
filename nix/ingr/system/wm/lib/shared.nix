@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
     ./input.nix
   ];
 
+  # Configs
   fonts.fontDir.enable = true;
 
   xdg = {
@@ -18,6 +19,58 @@
     mime.enable = true;
   };
 
+  services.xserver = {
+    enable = true;
+    exportConfiguration = true;
+
+    # DPI settings
+    dpi = 204;
+    displayManager.sessionCommands = ''  
+      ${pkgs.xrdb}/bin/xrdb -merge <<EOF  
+      Xft.dpi: 100  
+    EOF  
+    '';
+
+    desktopManager.runXdgAutostartIfNone = true;
+  };
+
+  # Background services useful for any desktop environment
+  services.power-profiles-daemon.enable = lib.mkDefault true;
+
+  # Login
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    enableHidpi = true;
+    extraPackages = [
+      pkgs.kdePackages.qt5compat
+    ];
+
+    # look
+    theme = "where_is_my_sddm_theme";
+    settings = {
+      Theme = {
+        CursorTheme = "breeze_cursors";
+      };
+    };
+  };
+
+  # Security
+  security.pam.services = {
+    sddm.enableGnomeKeyring = true;
+    login.enableGnomeKeyring = true;
+  };
+  programs.seahorse.enable = true;
+  # KWallet for credential storage (alternative to gnome-keyring)
+  # security.pam.services.sddm.enableKwallet = true;
+
+  # Apps useful for any desktop environment
+
+  programs = {
+    dconf.enable = true;
+    foot.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     #basic
     kdePackages.qt5compat
@@ -28,6 +81,7 @@
     xdg-utils
     xsettingsd
     socat
+    libsecret
     # glances
 
     # terms
@@ -55,45 +109,5 @@
     qutebrowser
 
   ];
-
-  programs = {
-
-    dconf.enable = true;
-
-    foot = {
-      enable = true;
-    };
-
-  };
-
-
-  services.xserver = {
-    enable = true;
-    exportConfiguration = true;
-
-    # DPI settings
-    dpi = 204;
-    displayManager.sessionCommands = ''  
-      ${pkgs.xrdb}/bin/xrdb -merge <<EOF  
-      Xft.dpi: 100  
-    EOF  
-    '';
-
-    desktopManager.runXdgAutostartIfNone = true;
-  };
-
-  security.pam.services = {
-    sddm.enableGnomeKeyring = true;
-    login.enableGnomeKeyring = true;
-  };
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    enableHidpi = true;
-    extraPackages = [
-      pkgs.kdePackages.qt5compat
-    ];
-    theme = "where_is_my_sddm_theme";
-  };
 
 }

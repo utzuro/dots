@@ -95,19 +95,4 @@
     # SSH_ASKPASS = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
     # SSH_ASKPASS_REQUIRE = "prefer";
   };
-  # KWallet for credential storage (alternative to gnome-keyring)
-  # security.pam.services.sddm.enableKwallet = true;
-
-  services.power-profiles-daemon.enable = lib.mkDefault true;
-
-  services.displayManager.sddm = {
-    wayland.enable = lib.mkDefault true;
-    # Use Breeze theme for KDE consistency (overridable by custom theme in shared.nix)
-    theme = lib.mkDefault "breeze";
-    settings = {
-      Theme = {
-        CursorTheme = "breeze_cursors";
-      };
-    };
-  };
 }
