@@ -80,7 +80,6 @@
   environment.etc."xdg/picom.conf".text = ''
     # Backend - glx works best with NVIDIA
     backend = "glx";
-    glx-no-stencil = true;
     glx-copy-from-front = false;
 
     # VSync - important for NVIDIA

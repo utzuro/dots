@@ -40,8 +40,6 @@
       wayland
       wayland-protocols
       wayland-utils
-      qt5-wayland
-      qt6-wayland
       wlroots
       wofi
       wev
