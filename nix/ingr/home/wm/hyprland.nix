@@ -1,9 +1,11 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, config, ... }:
 
 {
   imports = [
     inputs.hyprlux.homeManagerModules.default
   ];
+
+  xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
 
   services = {
     awww.enable = true;

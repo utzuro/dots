@@ -1,9 +1,28 @@
 { pkgs, lib, ... }:
 
 {
+
   imports = [
     ./shared.nix
   ];
+
+  programs.uwsm = {
+    enable = true;
+    # Should be done on thy wm side already
+    # waylandCompositors = {
+    #   hyprland = {
+    #     prettyName = "Hyprland";
+    #     comment = "Hyprland compositor managed by UWSM";
+    #     binPath = "/run/current-system/sw/bin/Hyprland";
+    #   };
+    #   sway = {
+    #     prettyName = "Sway";
+    #     comment = "Sway compositor managed by UWSM";
+    #     binPath = "/run/current-system/sw/bin/sway";
+    #   };
+    # };
+  };
+
   security = {
     pam.services.swaylock = {
       text = ''
@@ -21,6 +40,8 @@
       wayland
       wayland-protocols
       wayland-utils
+      qt5-wayland
+      qt6-wayland
       wlroots
       wofi
       wev
