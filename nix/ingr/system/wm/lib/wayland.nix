@@ -23,7 +23,7 @@
       wlroots
       wofi
       wev
-      swww
+      awww
       grim
       grimblast
       slurp
