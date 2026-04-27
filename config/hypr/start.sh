@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+exec-once = sh -lc 'eval "$(gnome-keyring-daemon --start --components=secrets,pkcs11 2>/dev/null || true)"; dbus-update-activation-environment --systemd GNOME_KEYRING_CONTROL'
+
 # system
 #waybar &
 dunst &

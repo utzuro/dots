@@ -20,6 +20,7 @@ repos=(
 	"https://github.com/Uriopass/Egregoria"
 	"https://github.com/Anuken/Mindustry"
 	"https://github.com/OpenDUNE/OpenDUNE"
+	"https://github.com/openrails"
 	## space
 	"https://github.com/endless-sky/endless-sky"
 	## rpg
