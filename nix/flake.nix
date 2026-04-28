@@ -120,6 +120,7 @@
 
               ./ingr/system/power/pc.nix
               ./ingr/system/hardware/intel.nix
+              ./ingr/system/hardware/storage.nix
               ./ingr/system/hardware/video.nix
               ./ingr/system/hardware/nvidia.nix
 
