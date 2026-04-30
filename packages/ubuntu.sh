@@ -136,7 +136,7 @@ echo "🐳 Docker & Docker Compose are installed and ready to use!"
 
 # Install fonts
 echo "🖋 Installing fonts..."
-./install-fonts.sh
+./packages/install-fonts.sh
 fc-cache -fv
 
 # Go-based tools
