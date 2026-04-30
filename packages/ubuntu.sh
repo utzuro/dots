@@ -8,10 +8,6 @@ DIR="$(
 	pwd -P
 )"
 
-# Setup input
-echo "⌨️ Setting up input sources..."
-gsettings set org.gnome.desktop.input-sources xkb-options "['grp:caps_toggle']"
-
 # Detect WSL
 is_wsl=false
 if grep -qiE "(microsoft|wsl)" /proc/version; then
@@ -177,6 +173,11 @@ wget -qO- https://pyenv.run | bash
 if [[ "$is_wsl" == false ]]; then
 	read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀  " gui
 	if [[ "$gui" == "y" ]]; then
+
+		# Setup input
+		echo "⌨️ Setting up input sources..."
+		gsettings set org.gnome.desktop.input-sources xkb-options "['grp:caps_toggle']"
+
 		echo "🖼 Installing GUI packages..."
 		sudo apt install -y "${gui_packages[@]}"
 
