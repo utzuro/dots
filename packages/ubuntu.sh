@@ -151,18 +151,6 @@ go install github.com/fatih/gomodifytags@latest || true
 go install github.com/josharian/impl@latest || true
 go install github.com/rogpeppe/godef@latest || true
 
-# Fallbacks: Snap-based tools
-snap_fallbacks=(
-	glow golangci-lint kubectl protobuf sqlc tango
-	slack discord chromium
-)
-for pkg in "${snap_fallbacks[@]}"; do
-	if ! command -v "$pkg" &>/dev/null; then
-		echo "⚠️ Installing $pkg via snap..."
-		sudo snap install "$pkg" --classic || true
-	fi
-done
-
 # Direct installs
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 wget -qO- https://get.pnpm.io/install.sh | sh -
@@ -208,6 +196,19 @@ if [[ "$is_wsl" == false ]]; then
 			sudo apt update
 			flatpak install com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 		fi
+
+		# Fallbacks: Snap-based tools
+		snap_fallbacks=(
+			glow golangci-lint kubectl protobuf sqlc tango
+			slack discord chromium
+		)
+		for pkg in "${snap_fallbacks[@]}"; do
+			if ! command -v "$pkg" &>/dev/null; then
+				echo "⚠️ Installing $pkg via snap..."
+				sudo snap install "$pkg" --classic || true
+			fi
+		done
+
 	fi
 fi
 
