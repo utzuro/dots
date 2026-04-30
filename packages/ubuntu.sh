@@ -73,7 +73,7 @@ wm_packages=(
 
 # Update system
 sudo apt update && sudo apt upgrade -y
-rustup default stable
+sudo apt autoremove
 
 echo
 echo "🔧 Installing CLI packages..."
