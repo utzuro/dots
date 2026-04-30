@@ -21,41 +21,58 @@ fi
 
 # No need when home-manager is used
 cli_packages=(
-	vim zsh git tmux ranger rsync wget curl file
+	vim zsh git tmux ranger rsync wget curl file mpv
 	neovim ack ripgrep eza fzf fd-find duf peco progress jq moreutils bat
 	unzip zip gzip xz-utils atool zstd lz4 lzip rar unar p7zip-full
 	ncdu usbutils htop iotop bc ledger taskwarrior timewarrior inotify-tools
+
+	# dev
 	cmake llvm clang clang-tools build-essential make gdb universal-ctags
 	python3-pip python3-setuptools python3-wheel
-	golang-go ruby
-	sqlite3 postgresql redis
-	screen minicom picocom tio
-	meson libnotify-bin graphviz imagemagick ffmpeg mkvtoolnix pdftk poppler-utils foremost
-	mpd mpc ncmpcpp mpv yt-dlp rtorrent mediainfo
-	libfuse2
-	cmatrix cowsay
-	# input
-	fcitx5 fcitx5-unikey fcitx5-configtool
+	golang-go
+	ruby
 
-	# Furiganize
-	kakasi mecab mecab-naist-jdic-eucjp
+	# db
+	sqlite3 postgresql redis
+
+	# libs
+	screen minicom picocom tio
+	meson graphviz imagemagick ffmpeg
+	libfuse2 libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
+	libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libzstd-dev
 )
 
 # Needed even with home-manager on ubuntu
 extra_cli_packages=(
 	fonts-font-awesome
+
+	# asobi
+	cmatrix cowsay
+
+	# media
+	mpd mpc ncmpcpp yt-dlp rtorrent mediainfo
+	pdftk poppler-utils foremost
 )
 
 gui_packages=(
 	kitty
 	emacs libreoffice qbittorrent vlc zathura
 	inkscape blender librecad godot3
+
+	# input
+	fcitx5 fcitx5-unikey fcitx5-configtool
+
+	# Furiganize
+	# kakasi mecab mecab-naist-jdic-eucjp
 )
 
 wm_packages=(
 	i3 rofi
 	# sway swaybg swaylock grim slurp waybar wofi mako foot
 	# hyprland hyprpaper hyprpicker hyprshot hyprctl
+
+	# libs
+	libnotify-bin
 )
 
 # Update system
@@ -68,7 +85,7 @@ sudo apt install -y "${cli_packages[@]}"
 sudo apt install -y "${extra_cli_packages[@]}"
 
 # Fix command name differences
-echo "🔗 Creating compatibility symlinks (if needed)..."
+echo "🔗 Creating compatibility symlinks..."
 [ -f /usr/bin/fdfind ] && sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd || true
 [ -f /usr/bin/batcat ] && sudo ln -sf /usr/bin/batcat /usr/local/bin/bat || true
 
@@ -121,28 +138,6 @@ fi
 
 echo "🐳 Docker & Docker Compose are installed and ready to use!"
 
-# Fallbacks: Snap-based tools
-snap_fallbacks=(
-	glow golangci-lint kubectl protobuf sqlc tango
-	slack discord chromium
-)
-for pkg in "${snap_fallbacks[@]}"; do
-	if ! command -v "$pkg" &>/dev/null; then
-		echo "⚠️ Installing $pkg via snap..."
-		sudo snap install "$pkg" --classic || true
-	fi
-done
-
-# Get the flatpak ready
-echo "📦 Setting up Flatpak..."
-sudo apt install flatpak
-sudo apt install gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install anki
-flatpak install vcmi
-flatpak install drawio
-echo "📦 Flatpak is set up!"
-
 # Install fonts
 echo "🖋 Installing fonts..."
 ./install-fonts.sh
@@ -160,10 +155,23 @@ go install github.com/fatih/gomodifytags@latest || true
 go install github.com/josharian/impl@latest || true
 go install github.com/rogpeppe/godef@latest || true
 
-# Setup services
-mkdir -p ~/.config/systemd/user/
-ln -sfv "$DIR/../config/systemd/user/fcitx5.service" ~/.config/systemd/user/
-systemctl --user enable --now fcitx5.service
+# Fallbacks: Snap-based tools
+snap_fallbacks=(
+	glow golangci-lint kubectl protobuf sqlc tango
+	slack discord chromium
+)
+for pkg in "${snap_fallbacks[@]}"; do
+	if ! command -v "$pkg" &>/dev/null; then
+		echo "⚠️ Installing $pkg via snap..."
+		sudo snap install "$pkg" --classic || true
+	fi
+done
+
+# Direct installs
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+wget -qO- https://get.pnpm.io/install.sh | sh -
+wget -qO- https://install.python-poetry.org | python3 -
+wget -qO- https://pyenv.run | bash
 
 # GUI prompt (if not WSL)
 if [[ "$is_wsl" == false ]]; then
@@ -172,11 +180,25 @@ if [[ "$is_wsl" == false ]]; then
 		echo "🖼 Installing GUI packages..."
 		sudo apt install -y "${gui_packages[@]}"
 
+		# Get the flatpak ready
+		echo "📦 Setting up Flatpak..."
+		sudo apt install flatpak
+		sudo apt install gnome-software-plugin-flatpak
+		flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+		flatpak install anki
+		flatpak install drawio
+		echo "📦 Flatpak is set up!"
+
 		read -rp "🖥️ Do you want to install a window manager? (i3/sway/hyprland) (y/N) 👀 " wm
 		if [[ "$wm" == "y" ]]; then
 			echo "🪟 Installing window manager packages..."
 			sudo apt install -y "${wm_packages[@]}"
 		fi
+
+		# Setup services
+		mkdir -p ~/.config/systemd/user/
+		ln -sfv "$DIR/../config/systemd/user/fcitx5.service" ~/.config/systemd/user/
+		systemctl --user enable --now fcitx5.service
 
 		read -rp "🎮 Is this a gaming PC? (y/N) 👀 " game
 		if [[ "$game" == "y" ]]; then
