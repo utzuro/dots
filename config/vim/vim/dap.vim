@@ -1,3 +1,7 @@
+if !has('nvim')
+  finish
+endif
+
 lua require("dap-go").setup()
 
 nnoremap <leader>db <Cmd>DapToggleBreakpoint<CR>
