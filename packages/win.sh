@@ -26,8 +26,6 @@ cp -r ~/alchemy/dots/config/vim/colors ~/AppData/Local/nvim/
 scoop install eza fzf ripgrep
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 
-scoop install opencode
-
 # --- Development tools ---
 scoop install python go protobuf nodejs rustup cmake
 scoop install mingw grpc-tools grpcurl

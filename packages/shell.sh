@@ -113,32 +113,6 @@ link_dotfiles() {
 	printf "\n⌛... Linking agents configs... 📝\n"
 	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/"
 
-	printf "\n⌛... Linking opencode configs... 📝\n"
-	mkdir -p "$HOME"/.opencode/{commands,skills}
-	for file in "$DIR"/config/opencode/commands/*; do
-		dest="$HOME/.opencode/commands/$(basename "$file")"
-		if [ -L "$dest" ]; then
-			rm -f "$dest"
-		fi
-		if [ -d "$file" ]; then
-			mkdir -p "$dest"
-			cp -af "$file"/. "$dest"/
-		else
-			cp -af "$file" "$dest"
-		fi
-	done
-	for file in "$DIR"/config/opencode/skills/*; do
-		dest="$HOME/.opencode/skills/$(basename "$file")"
-		if [ -L "$dest" ]; then
-			rm -f "$dest"
-		fi
-		if [ -d "$file" ]; then
-			mkdir -p "$dest"
-			cp -af "$file"/. "$dest"/
-		else
-			cp -af "$file" "$dest"
-		fi
-	done
 }
 
 install_vim_plugins() {
