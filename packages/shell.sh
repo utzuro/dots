@@ -44,9 +44,7 @@ create_directories() {
 ### 📝 File Setup
 create_default_files() {
 	printf "\n⌛... Creating default files... 📝\n"
-	: >"$HOME/.zprofile"
-	: >"$HOME/.secrets"
-	: >"$HOME/.awsrc"
+	touch "$HOME/.zprofile" "$HOME/.secrets" "$HOME/.awsrc"
 }
 
 ### 🧙 Clone Scripts Repo
@@ -140,7 +138,7 @@ manual_shell_and_tools() {
 		ln -sfv "$DIR/config/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
 		printf "\n⌛... Getting ready files that shouldn't be linked... 🌐\n"
-		: >"$HOME/.profile"
+		touch "$HOME/.profile"
 
 		# Oh My Zsh
 		if have_cmd zsh; then
@@ -157,16 +155,15 @@ manual_shell_and_tools() {
 			if [ ! -d "$HOME/.zplug" ]; then
 				curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 				printf "📝 Zplug installed.\n"
-			else
-				printf "📝 Zplug already installed.\n"
-			fi
-
-			if [ -f "$HOME/.zplug/init.zsh" ]; then
-				if ! zsh -lc 'source "$HOME/.zplug/init.zsh" && zplug install'; then
-					printf "⚠️  Zplug install failed; continuing bootstrap.\n"
+				if [ -f "$HOME/.zplug/init.zsh" ]; then
+					if ! zsh -lc 'source "$HOME/.zplug/init.zsh" && zplug install'; then
+						printf "⚠️  Zplug install failed; continuing bootstrap.\n"
+					fi
+				else
+					printf "⚠️  Zplug init script not found; skipping zplug install.\n"
 				fi
 			else
-				printf "⚠️  Zplug init script not found; skipping zplug install.\n"
+				printf "📝 Zplug already installed.\n"
 			fi
 		fi
 

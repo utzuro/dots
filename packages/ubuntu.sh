@@ -160,7 +160,7 @@ if [[ "$is_wsl" == false ]]; then
 		flatpak install drawio
 		echo "📦 Flatpak is set up!"
 
-		read -rp "🖥️ Do you want to install a window manager? (i3/sway/hyprland) (y/N) 👀 " wm
+		read -rp "🖥️ Do you want to install window manager packages? (y/N) 👀 " wm
 		if [[ "$wm" == "y" ]]; then
 			echo "🪟 Installing window manager packages..."
 			sudo apt install -y "${wm_packages[@]}"

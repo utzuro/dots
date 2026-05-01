@@ -11,10 +11,14 @@ else
 	wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 fi
 
-source "$HOME/.nvm/nvm.sh"
-nvm install 22
-nvm alias default 22
-node -v
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+	source "$HOME/.nvm/nvm.sh"
+	nvm install 22
+	nvm alias default 22
+	node -v
+else
+	echo "⚠️  nvm init script not found; skipping Node.js setup."
+fi
 
 echo "📦 Installing pnpm package manager..."
 if command -v pnpm >/dev/null 2>&1; then
