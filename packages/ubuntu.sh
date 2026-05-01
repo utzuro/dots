@@ -152,10 +152,25 @@ go install github.com/josharian/impl@latest || true
 go install github.com/rogpeppe/godef@latest || true
 
 # Direct installs
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+if [ -d "$HOME/.nvm" ]; then
+	echo "⏭️  nvm already installed at ~/.nvm, skipping."
+else
+	wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+fi
+
 wget -qO- https://get.pnpm.io/install.sh | sh -
-wget -qO- https://install.python-poetry.org | python3 -
-wget -qO- https://pyenv.run | bash
+
+if [ -d "$HOME/.local/share/pypoetry" ]; then
+	echo "⏭️  poetry already installed at ~/.local/share/pypoetry, skipping."
+else
+	wget -qO- https://install.python-poetry.org | python3 -
+fi
+
+if [ -d "$HOME/.pyenv" ]; then
+	echo "⏭️  pyenv already installed at ~/.pyenv, skipping."
+else
+	wget -qO- https://pyenv.run | bash
+fi
 
 # GUI prompt (if not WSL)
 if [[ "$is_wsl" == false ]]; then
