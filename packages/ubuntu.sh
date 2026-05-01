@@ -8,14 +8,14 @@ DIR="$(
 	pwd -P
 )"
 
-# Detect WSL
+# --- Detect WSL ---
 is_wsl=false
 if grep -qiE "(microsoft|wsl)" /proc/version; then
 	echo "🧠 Detected WSL environment"
 	is_wsl=true
 fi
 
-# No need when home-manager is used
+# --- Core CLI packages ---
 cli_packages=(
 	vim zsh git tmux ranger rsync wget curl file mpv
 	neovim ack ripgrep eza fzf fd-find duf peco progress jq moreutils bat
@@ -38,7 +38,7 @@ cli_packages=(
 	libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libzstd-dev
 )
 
-# Needed even with home-manager on ubuntu
+# --- Extra CLI packages ---
 extra_cli_packages=(
 	fonts-font-awesome
 
@@ -71,7 +71,7 @@ wm_packages=(
 	libnotify-bin
 )
 
-# Update system
+# --- Update system ---
 sudo apt update && sudo apt upgrade -y
 sudo apt autoremove
 
@@ -80,27 +80,27 @@ echo "🔧 Installing CLI packages..."
 sudo apt install -y "${cli_packages[@]}"
 sudo apt install -y "${extra_cli_packages[@]}"
 
-# Fix command name differences
+# --- Fix command name differences ---
 echo "🔗 Creating compatibility symlinks..."
 [ -f /usr/bin/fdfind ] && sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd || true
 [ -f /usr/bin/batcat ] && sudo ln -sf /usr/bin/batcat /usr/local/bin/bat || true
 
-# Install docker
+# --- Install Docker ---
 echo
 echo "🐳 Installing Docker & Docker Compose..."
 
-# Ensure keyrings directory exists
+# Ensure keyrings directory exists.
 if [ ! -d /etc/apt/keyrings ]; then
 	sudo install -m 0755 -d /etc/apt/keyrings
 fi
 
-# Add Docker's official GPG key if not present
+# Add Docker's official GPG key if not present.
 if [ ! -f /etc/apt/keyrings/docker.gpg ]; then
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 	sudo chmod a+r /etc/apt/keyrings/docker.gpg
 fi
 
-# Add Docker repository if not already present
+# Add Docker repository if not already present.
 DOCKER_REPO_FILE="/etc/apt/sources.list.d/docker.list"
 if ! grep -q "download.docker.com/linux/ubuntu" "$DOCKER_REPO_FILE" 2>/dev/null; then
 	echo \
@@ -108,25 +108,25 @@ if ! grep -q "download.docker.com/linux/ubuntu" "$DOCKER_REPO_FILE" 2>/dev/null;
       $(lsb_release -cs) stable" | sudo tee "$DOCKER_REPO_FILE" >/dev/null
 fi
 
-# Update package index
+# Update package index.
 sudo apt-get update -qq
 
-# Install Docker Engine & Compose plugin if not already installed
+# Install Docker Engine and Compose plugin if not already installed.
 if ! dpkg -l | grep -q docker-ce; then
 	sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 fi
 
-# Enable Docker service if not already enabled
+# Enable Docker service if not already enabled.
 if ! systemctl is-enabled --quiet docker; then
 	sudo systemctl enable docker
 fi
 
-# Start Docker if not running
+# Start Docker if not running.
 if ! systemctl is-active --quiet docker; then
 	sudo systemctl start docker
 fi
 
-# Add current user to Docker group if not already a member
+# Add current user to Docker group if not already a member.
 if ! id -nG "$USER" | grep -qw docker; then
 	sudo usermod -aG docker "$USER"
 	echo "User added to docker group. Log out and back in for changes to take effect."
@@ -134,24 +134,24 @@ fi
 
 echo "🐳 Docker & Docker Compose are installed and ready to use!"
 
-# Install fonts
+# --- Install fonts ---
 echo "🖋 Installing fonts..."
 ./packages/install-fonts.sh
 fc-cache -fv
 
-# GUI prompt (if not WSL)
+# --- Optional GUI setup (non-WSL only) ---
 if [[ "$is_wsl" == false ]]; then
 	read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀  " gui
 	if [[ "$gui" == "y" ]]; then
 
-		# Setup input
+		# Setup input.
 		echo "⌨️ Setting up input sources..."
 		gsettings set org.gnome.desktop.input-sources xkb-options "['grp:caps_toggle']"
 
 		echo "🖼 Installing GUI packages..."
 		sudo apt install -y "${gui_packages[@]}"
 
-		# Get the flatpak ready
+		# Prepare Flatpak.
 		echo "📦 Setting up Flatpak..."
 		sudo apt install flatpak
 		sudo apt install gnome-software-plugin-flatpak
@@ -166,7 +166,7 @@ if [[ "$is_wsl" == false ]]; then
 			sudo apt install -y "${wm_packages[@]}"
 		fi
 
-		# Setup services
+		# Setup services.
 		mkdir -p ~/.config/systemd/user/
 		ln -sfv "$DIR/../config/systemd/user/fcitx5.service" ~/.config/systemd/user/
 		systemctl --user enable --now fcitx5.service
@@ -179,7 +179,7 @@ if [[ "$is_wsl" == false ]]; then
 			flatpak install com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 		fi
 
-		# Fallbacks: Snap-based tools
+		# Fallbacks: snap-based tools.
 		snap_fallbacks=(
 			glow golangci-lint kubectl protobuf sqlc tango
 			slack discord chromium
