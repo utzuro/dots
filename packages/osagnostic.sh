@@ -15,6 +15,7 @@ source "$HOME/.nvm/nvm.sh"
 nvm install 22
 node -v
 
+echo "📦 Installing pnpm package manager..."
 if command -v pnpm >/dev/null 2>&1; then
 	echo "⏭️  pnpm already installed, skipping."
 else
@@ -26,14 +27,15 @@ mkdir -p "$GOPATH/bin"
 export PATH="$GOPATH/bin:$PATH"
 
 # --- Python tooling ---
-printf "\n⌛... Installing Poetry for Python... 🖥\n"
+printf "\n⌛... Installing Python tooling... 🐍\n"
+echo "📦 Installing Poetry..."
 if [ -d "$HOME/.local/share/pypoetry" ]; then
 	echo "⏭️  poetry already installed at ~/.local/share/pypoetry, skipping."
 else
 	wget -qO- https://install.python-poetry.org | python3 -
 fi
 
-printf "\n⌛... Installing pyenv for Python... 🖥\n"
+echo "📦 Installing pyenv..."
 if [ -d "$HOME/.pyenv" ]; then
 	echo "⏭️  pyenv already installed at ~/.pyenv, skipping."
 else
@@ -41,17 +43,18 @@ else
 fi
 
 # --- Go tooling ---
-printf "\n⌛... Installing RSS tools... 🖥\n"
+printf "\n⌛... Installing Go tooling... 🐹\n"
+echo "📦 Installing RSS reader tool (goread)..."
 go install github.com/TypicalAM/goread@latest || true
 
-echo "📦 Installing Go-based development tools..."
+echo "📦 Installing Go development tools..."
 go install github.com/kyleconroy/sqlc/cmd/sqlc@latest || true
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest || true
 go install github.com/fatih/gomodifytags@latest || true
 go install github.com/josharian/impl@latest || true
 go install github.com/rogpeppe/godef@latest || true
 
-printf "\n⌛... Installing dictionaries... 🖥\n"
+echo "📦 Installing dictionary tooling..."
 go install github.com/masakichi/tango@latest || true
 echo
 echo "📝 Import Japanese dictionaries with: tango -import... 📚"

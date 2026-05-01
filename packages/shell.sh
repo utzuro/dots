@@ -116,6 +116,7 @@ link_dotfiles() {
 }
 
 install_vim_plugins() {
+	source $HOME/.zshrc
 	printf "📝 Installing vim plugins... 🚀\n"
 	(have_cmd vim && vim +PlugInstall +qall) || true
 	(have_cmd nvim && nvim +PlugInstall +qall) || true
@@ -215,6 +216,7 @@ link_images() {
 
 ### 🐚 Default shell handling
 configure_default_shell() {
+	source $HOME/.zshrc
 	if home_manager_detected; then
 		printf "\n📝 Home-manager detected. Skipping default shell configuration.\n"
 		return
