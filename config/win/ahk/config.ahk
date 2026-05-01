@@ -8,6 +8,13 @@
 !n::Send "{PgDn}"
 !p::Send "{PgUp}"
 
+#j::Send "{Down}"
+#k::Send "{Up}"
+#h::Send "{Left}"
+#l::Send "{Right}"
+#n::Send "{PgDn}"
+#p::Send "{PgUp}"
+
 ; Switch between windows
 ; ^j::Send "{Alt down}{Tab}{Alt up}"
 ; ^k::Send "{Alt down}{Shift down}{Tab}{Shift up}{Alt up}"
@@ -20,13 +27,13 @@ F1::Send "{Alt down}{``}{Alt up}"
 
 
 ; Open apps
-#n::
-{
-    if WinExist("ahk_class Notepad")
-        WinActivate 
-    else
-        Run "notepad"
-}
+; #n::
+; {
+;     if WinExist("ahk_class Notepad")
+;         WinActivate 
+;     else
+;         Run "notepad"
+; }
 #enter::Run "C:\Program Files\Git\git-bash.exe"
 
 

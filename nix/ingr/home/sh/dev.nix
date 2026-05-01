@@ -128,6 +128,7 @@
     pgcli
     mariadb
     # mycli
+    rainfrog
     usql
     lazysql
     atlas
