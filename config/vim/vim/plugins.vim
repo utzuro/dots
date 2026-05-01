@@ -48,7 +48,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 Plug 'https://gitlab.com/hedrok/langtool-adoc-vim.git'
 
 " AI
-Plug 'github/copilot.vim'  
+" Plug 'github/copilot.vim'  
 
 " IDE
 Plug 'tpope/vim-commentary'

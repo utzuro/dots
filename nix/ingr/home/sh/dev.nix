@@ -115,6 +115,7 @@
     minio-client
     awscli2
     awsebcli
+    ssm-session-manager-plugin
     natscli
     lnav
     postman
@@ -124,7 +125,7 @@
     sqlite
     postgresql
     redis
-    # pgcli
+    pgcli
     mariadb
     # mycli
     usql
