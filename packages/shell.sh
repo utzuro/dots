@@ -115,6 +115,11 @@ link_dotfiles() {
 
 install_vim_plugins() {
 	printf "📝 Installing vim plugins... 🚀\n"
+	if ! have_cmd vim && ! have_cmd nvim; then
+		printf "⚠️  Neither vim nor nvim found; skipping plugin install.\n"
+		return
+	fi
+
 	if have_cmd zsh; then
 		zsh -lc 'command -v vim >/dev/null 2>&1 && vim +PlugInstall +qall || true; command -v nvim >/dev/null 2>&1 && nvim +PlugInstall +qall || true'
 	else
@@ -202,6 +207,11 @@ setup_ssh() {
 		cp -n "$DIR/config/ssh/config" "$HOME/.ssh/config" || true
 	fi
 
+	if ! have_cmd ssh-keygen; then
+		printf "⚠️  ssh-keygen not found; skipping SSH key setup.\n"
+		return
+	fi
+
 	if [ ! -f "$HOME/.ssh/utzuro" ]; then
 		ssh-keygen -f "$HOME/.ssh/utzuro" -N ''
 	fi
@@ -224,7 +234,9 @@ configure_default_shell() {
 	if ! $is_msys2; then
 		if have_cmd zsh; then
 			zsh_path="$(command -v zsh)"
-			printf "%s\n" "$zsh_path" | sudo_safe tee -a /etc/shells >/dev/null || true
+			if ! grep -qx "$zsh_path" /etc/shells 2>/dev/null; then
+				printf "%s\n" "$zsh_path" | sudo_safe tee -a /etc/shells >/dev/null || true
+			fi
 			sudo_safe chsh -s "$zsh_path" "${USER}" || true
 		fi
 		return
