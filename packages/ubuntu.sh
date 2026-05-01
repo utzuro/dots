@@ -15,6 +15,13 @@ if grep -qiE "(microsoft|wsl)" /proc/version; then
 	is_wsl=true
 fi
 
+is_yes() {
+	case "${1:-}" in
+	[yY] | [yY][eE][sS]) return 0 ;;
+	*) return 1 ;;
+	esac
+}
+
 # --- Core CLI packages ---
 cli_packages=(
 	vim zsh git tmux ranger rsync wget curl file mpv
@@ -142,7 +149,7 @@ fc-cache -fv
 # --- Optional GUI setup (non-WSL only) ---
 if [[ "$is_wsl" == false ]]; then
 	read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀  " gui
-	if [[ "$gui" == "y" ]]; then
+	if is_yes "$gui"; then
 
 		# Setup input.
 		echo "⌨️ Setting up input sources..."
@@ -153,15 +160,14 @@ if [[ "$is_wsl" == false ]]; then
 
 		# Prepare Flatpak.
 		echo "📦 Setting up Flatpak..."
-		sudo apt install flatpak
-		sudo apt install gnome-software-plugin-flatpak
+		sudo apt install -y flatpak gnome-software-plugin-flatpak
 		flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-		flatpak install anki
-		flatpak install drawio
+		flatpak install -y flathub net.ankiweb.Anki
+		flatpak install -y flathub com.jgraph.drawio.desktop
 		echo "📦 Flatpak is set up!"
 
 		read -rp "🖥️ Do you want to install window manager packages? (y/N) 👀 " wm
-		if [[ "$wm" == "y" ]]; then
+		if is_yes "$wm"; then
 			echo "🪟 Installing window manager packages..."
 			sudo apt install -y "${wm_packages[@]}"
 		fi
@@ -172,24 +178,28 @@ if [[ "$is_wsl" == false ]]; then
 		systemctl --user enable --now fcitx5.service
 
 		read -rp "🎮 Is this a gaming PC? (y/N) 👀 " game
-		if [[ "$game" == "y" ]]; then
+		if is_yes "$game"; then
 			sudo apt install software-properties-common apt-transport-https curl -y
 			sudo dpkg --add-architecture i386
 			sudo apt update
-			flatpak install com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+			flatpak install -y flathub com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 		fi
 
 		# Fallbacks: snap-based tools.
-		snap_fallbacks=(
-			glow golangci-lint kubectl protobuf sqlc tango
-			slack discord chromium
-		)
-		for pkg in "${snap_fallbacks[@]}"; do
-			if ! command -v "$pkg" &>/dev/null; then
-				echo "⚠️ Installing $pkg via snap..."
-				sudo snap install "$pkg" --classic || true
-			fi
-		done
+		if command -v snap &>/dev/null; then
+			snap_fallbacks=(
+				glow golangci-lint kubectl protobuf sqlc tango
+				slack discord chromium
+			)
+			for pkg in "${snap_fallbacks[@]}"; do
+				if ! command -v "$pkg" &>/dev/null; then
+					echo "⚠️ Installing $pkg via snap..."
+					sudo snap install "$pkg" --classic || true
+				fi
+			done
+		else
+			echo "⚠️ Snap is not installed; skipping snap fallbacks."
+		fi
 
 	fi
 fi
