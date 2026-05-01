@@ -100,13 +100,14 @@ link_dotfiles() {
 		ln -sfv "$file" "$HOME/.vim/$(basename "$file")"
 	done
 
+	mkdir -p "$HOME/.vim/colors"
+	for file in "$DIR"/config/vim/colors/*.vim; do
+		ln -sfv "$file" "$HOME/.vim/colors/$(basename "$file")"
+	done
+
 	# Remove spellcheck from commented out lines
 	mkdir -p "$HOME/.vim/after/syntax"
 	ln -sfv "$DIR/config/vim/vim/after/syntax/asciidoc.vim" "$HOME/.vim/after/syntax/asciidoc.vim"
-
-	printf "📝 Installing vim plugins... 🚀\n"
-	(have_cmd vim && vim +PlugInstall +qall) || true
-	(have_cmd nvim && nvim +PlugInstall +qall) || true
 
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
@@ -120,6 +121,12 @@ link_dotfiles() {
 	for file in "$DIR"/config/opencode/skills/*; do
 		ln -sfv "$file" "$HOME/.opencode/skills/$(basename "$file")"
 	done
+}
+
+install_vim_plugins() {
+	printf "📝 Installing vim plugins... 🚀\n"
+	(have_cmd vim && vim +PlugInstall +qall) || true
+	(have_cmd nvim && nvim +PlugInstall +qall) || true
 }
 
 ### 🛠 Shell & Tool Setup (if not using Home Manager)
@@ -241,6 +248,7 @@ main() {
 	link_dotfiles
 	link_images
 	manual_shell_and_tools
+	install_vim_plugins
 	setup_ssh
 	configure_default_shell
 	printf "\n🔥 Shell tools installation complete! 🔥\n"

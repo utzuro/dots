@@ -139,39 +139,6 @@ echo "🖋 Installing fonts..."
 ./packages/install-fonts.sh
 fc-cache -fv
 
-# Go-based tools
-echo "📦 Installing Go-based dev tools..."
-export GOPATH="$HOME/go"
-mkdir -p "$GOPATH/bin"
-export PATH="$GOPATH/bin:$PATH"
-
-go install github.com/kyleconroy/sqlc/cmd/sqlc@latest || true
-go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest || true
-go install github.com/fatih/gomodifytags@latest || true
-go install github.com/josharian/impl@latest || true
-go install github.com/rogpeppe/godef@latest || true
-
-# Direct installs
-if [ -d "$HOME/.nvm" ]; then
-	echo "⏭️  nvm already installed at ~/.nvm, skipping."
-else
-	wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
-fi
-
-wget -qO- https://get.pnpm.io/install.sh | sh -
-
-if [ -d "$HOME/.local/share/pypoetry" ]; then
-	echo "⏭️  poetry already installed at ~/.local/share/pypoetry, skipping."
-else
-	wget -qO- https://install.python-poetry.org | python3 -
-fi
-
-if [ -d "$HOME/.pyenv" ]; then
-	echo "⏭️  pyenv already installed at ~/.pyenv, skipping."
-else
-	wget -qO- https://pyenv.run | bash
-fi
-
 # GUI prompt (if not WSL)
 if [[ "$is_wsl" == false ]]; then
 	read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀  " gui
