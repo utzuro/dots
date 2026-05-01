@@ -148,7 +148,7 @@ fc-cache -fv
 
 # --- Optional GUI setup (non-WSL only) ---
 if [[ "$is_wsl" == false ]]; then
-	read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀  " gui
+	read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀 " gui
 	if is_yes "$gui"; then
 
 		# Setup input.

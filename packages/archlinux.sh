@@ -15,6 +15,13 @@ if grep -qiE "(microsoft|wsl)" /proc/version; then
 	is_wsl=true
 fi
 
+is_yes() {
+	case "${1:-}" in
+	[yY] | [yY][eE][sS]) return 0 ;;
+	*) return 1 ;;
+	esac
+}
+
 # --- Package lists ---
 cli_packages=(
 	ack age asciidoctor atool avrdude aws-cli-v2 awsebcli bat bc bmap-tools buf
@@ -38,8 +45,8 @@ gui_packages=(
 # --- Update system ---
 sudo pacman -Syu --noconfirm --sudoloop
 
-read -rp "👾 Is this a fresh Arch install? (y/N) 👀  " yn
-if [[ "$yn" == "y" ]]; then
+read -rp "👾 Is this a fresh Arch install? (y/N) 👀 " yn
+if is_yes "$yn"; then
 	echo "📦 Installing system essentials..."
 	sudo pacman -S base-devel linux linux-headers linux-firmware lvm2 sudo intel-ucode --noconfirm
 	sudo pacman -S coreutils ntp grub efibootmgr dosfstools mtools cmake dhcpcd wpa_supplicant iw iwd --noconfirm
@@ -75,8 +82,8 @@ paru -S --noconfirm --sudoloop "${cli_packages[@]}"
 
 # --- Optional GUI setup (non-WSL only) ---
 if [[ "$is_wsl" == false ]]; then
-	read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀  " gui
-	if [[ "$gui" == "y" ]]; then
+	read -rp "🎨 Do you want to install GUI and desktop tools? (y/N) 👀 " gui
+	if is_yes "$gui"; then
 		echo "🖼 Installing GUI packages..."
 		paru -S --noconfirm --sudoloop "${gui_packages[@]}"
 
@@ -86,7 +93,7 @@ if [[ "$is_wsl" == false ]]; then
 		fi
 
 		read -rp "🎮 Is this a gaming PC? (y/N) 👀 " game
-		if [[ "$game" == "y" ]]; then
+		if is_yes "$game"; then
 			paru -S --noconfirm gamescope steam wine-staging winetricks dosbox pcsx2 rpcs3-git virtualbox
 		fi
 	fi
