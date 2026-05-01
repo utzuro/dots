@@ -100,23 +100,9 @@ link_dotfiles() {
 		ln -sfv "$file" "$HOME/.vim/$(basename "$file")"
 	done
 
-	if [ -L "$HOME/.vim/colors" ]; then
-		rm -f "$HOME/.vim/colors"
-	fi
-	if [ -e "$HOME/.vim/colors" ] && [ ! -d "$HOME/.vim/colors" ]; then
-		rm -f "$HOME/.vim/colors"
-	fi
 	mkdir -p "$HOME/.vim/colors"
-	colors_dir_real="$(realpath "$HOME/.vim/colors")"
 	for file in "$DIR"/config/vim/colors/*.vim; do
-		dest="$HOME/.vim/colors/$(basename "$file")"
-		src_real="$(realpath "$file")"
-		dest_real="$colors_dir_real/$(basename "$file")"
-		if [ "$src_real" = "$dest_real" ]; then
-			printf "⚠️  Skipping self-link for %s\n" "$(basename "$file")"
-			continue
-		fi
-		ln -sfv "$file" "$dest"
+		ln -sfv "$file" "$HOME/.vim/colors/$(basename "$file")"
 	done
 
 	# Remove spellcheck from commented out lines
