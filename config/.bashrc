@@ -24,6 +24,11 @@ export GOPATH="$HOME/go"
 export GOPRIVATE="github.com/*"
 export PATH="$PATH:$GOPATH/bin"
 
+# Node (nvm)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+
 # Fonts and Nix options
 export QT_FONT_DPI="204"
 export NIXPKGS_ALLOW_INSECURE="1"

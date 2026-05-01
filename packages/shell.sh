@@ -116,10 +116,13 @@ link_dotfiles() {
 }
 
 install_vim_plugins() {
-	source $HOME/.zshrc
 	printf "📝 Installing vim plugins... 🚀\n"
-	(have_cmd vim && vim +PlugInstall +qall) || true
-	(have_cmd nvim && nvim +PlugInstall +qall) || true
+	if have_cmd zsh; then
+		zsh -lc 'command -v vim >/dev/null 2>&1 && vim +PlugInstall +qall || true; command -v nvim >/dev/null 2>&1 && nvim +PlugInstall +qall || true'
+	else
+		(have_cmd vim && vim +PlugInstall +qall) || true
+		(have_cmd nvim && nvim +PlugInstall +qall) || true
+	fi
 }
 
 ### 🛠 Shell & Tool Setup (if not using Home Manager)
@@ -216,7 +219,6 @@ link_images() {
 
 ### 🐚 Default shell handling
 configure_default_shell() {
-	source $HOME/.zshrc
 	if home_manager_detected; then
 		printf "\n📝 Home-manager detected. Skipping default shell configuration.\n"
 		return

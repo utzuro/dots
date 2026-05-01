@@ -13,6 +13,7 @@ fi
 
 source "$HOME/.nvm/nvm.sh"
 nvm install 22
+nvm alias default 22
 node -v
 
 echo "📦 Installing pnpm package manager..."
