@@ -116,10 +116,28 @@ link_dotfiles() {
 	printf "\n⌛... Linking opencode configs... 📝\n"
 	mkdir -p "$HOME"/.opencode/{commands,skills}
 	for file in "$DIR"/config/opencode/commands/*; do
-		ln -sfv "$file" "$HOME/.opencode/commands/$(basename "$file")"
+		dest="$HOME/.opencode/commands/$(basename "$file")"
+		if [ -L "$dest" ]; then
+			rm -f "$dest"
+		fi
+		if [ -d "$file" ]; then
+			mkdir -p "$dest"
+			cp -af "$file"/. "$dest"/
+		else
+			cp -af "$file" "$dest"
+		fi
 	done
 	for file in "$DIR"/config/opencode/skills/*; do
-		ln -sfv "$file" "$HOME/.opencode/skills/$(basename "$file")"
+		dest="$HOME/.opencode/skills/$(basename "$file")"
+		if [ -L "$dest" ]; then
+			rm -f "$dest"
+		fi
+		if [ -d "$file" ]; then
+			mkdir -p "$dest"
+			cp -af "$file"/. "$dest"/
+		else
+			cp -af "$file" "$dest"
+		fi
 	done
 }
 
@@ -160,12 +178,18 @@ manual_shell_and_tools() {
 		if have_cmd zsh; then
 			if [ ! -d "$HOME/.zplug" ]; then
 				curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-				printf "📝 Run 'zplug install' to install plugins.\n"
+				printf "📝 Zplug installed.\n"
 			else
 				printf "📝 Zplug already installed.\n"
 			fi
-			zsh
-			zplug install
+
+			if [ -f "$HOME/.zplug/init.zsh" ]; then
+				if ! zsh -lc 'source "$HOME/.zplug/init.zsh" && zplug install'; then
+					printf "⚠️  Zplug install failed; continuing bootstrap.\n"
+				fi
+			else
+				printf "⚠️  Zplug init script not found; skipping zplug install.\n"
+			fi
 		fi
 
 		# tmux plugin manager

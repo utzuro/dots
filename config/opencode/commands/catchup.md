@@ -1,1 +1,0 @@
-/home/void/dots/config/opencode/commands/catchup.md
