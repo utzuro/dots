@@ -124,10 +124,12 @@
     # DB
     sqlite
     postgresql
-    redis
-    pgcli
     mariadb
-    # mycli
+    redis
+
+    # clients
+    pgcli
+    mycli
     rainfrog
     usql
     lazysql
