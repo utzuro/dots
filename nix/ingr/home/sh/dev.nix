@@ -131,7 +131,7 @@
     rainfrog
     usql
     lazysql
-    atlas
+    hurl
 
     # hardware
     avrdude
