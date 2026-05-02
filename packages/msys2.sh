@@ -12,6 +12,13 @@ fail() {
 
 command -v pacman >/dev/null 2>&1 || fail "pacman not found. Run this inside MSYS2."
 
+is_yes() {
+	case "${1:-}" in
+	[yY] | [yY][eE][sS]) return 0 ;;
+	*) return 1 ;;
+	esac
+}
+
 echo
 echo "⌛... Installing all the packages for MSYS2... 🖳"
 
@@ -97,13 +104,13 @@ pac_freshen_and_retry -S --needed "${MSYS_PACKAGES[@]}"
 log "🛠  Installing native ${MSYSTEM^^} toolchain & dev stack…"
 pac_freshen_and_retry -S --needed "${MINGW_COMMON[@]}"
 
-read -r -p "📦 Install Node.js + npm + yarn (native ${MSYSTEM^^})? (y/N) " yn_node
-if [[ "${yn_node,,}" == "y" ]]; then
+read -rp "📦 Do you want to install Node.js + npm + yarn (native ${MSYSTEM^^})? (y/N) 👀 " yn_node
+if is_yes "$yn_node"; then
 	pac_freshen_and_retry -S --needed "${MINGW_NODESET[@]}"
 fi
 
-read -r -p "📦 Install Go toolchain (native ${MSYSTEM^^})? (y/N) " yn_go
-if [[ "${yn_go,,}" == "y" ]]; then
+read -rp "📦 Do you want to install Go toolchain (native ${MSYSTEM^^})? (y/N) 👀 " yn_go
+if is_yes "$yn_go"; then
 	pac_freshen_and_retry -S --needed "${MINGW_GOSET[@]}"
 fi
 

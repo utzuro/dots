@@ -10,7 +10,7 @@ install_group() {
 		return 0
 	fi
 
-	echo "?? Installing ${title}..."
+	echo "📦 Installing ${title}..."
 	pkg install -y "${pkgs[@]}"
 }
 
@@ -18,7 +18,7 @@ apply_termux_font() {
 	local font_file=""
 
 	if ! command -v fc-match >/dev/null 2>&1; then
-		echo "??  fontconfig-utils is missing; skipping font application"
+		echo "⚠️  fontconfig-utils is missing; skipping font application"
 		return 0
 	fi
 
@@ -38,7 +38,7 @@ apply_termux_font() {
 	done
 
 	if [[ -z "$font_file" || ! -f "$font_file" ]]; then
-		echo "??  Could not locate an installed monospace TTF; skipping ~/.termux/font.ttf setup"
+		echo "⚠️  Could not locate an installed monospace TTF; skipping ~/.termux/font.ttf setup"
 		return 0
 	fi
 
@@ -49,13 +49,13 @@ apply_termux_font() {
 		termux-reload-settings || true
 	fi
 
-	echo "?? Applied terminal font from: $font_file"
+	echo "✅ Applied terminal font from: $font_file"
 }
 
 echo
-echo "?... Installing packages for Termux... ??"
+echo "⌛... Installing packages for Termux... 🖳"
 
-echo "?? Updating package metadata..."
+echo "🔄 Updating package metadata..."
 pkg update -y
 pkg upgrade -y
 
@@ -131,3 +131,6 @@ install_group "system, utility and serial tools" "${system_packages[@]}"
 install_group "proot tools" "${container_packages[@]}"
 install_group "fonts" "${font_packages[@]}"
 apply_termux_font
+
+echo
+echo "✅ Termux package installation complete!"

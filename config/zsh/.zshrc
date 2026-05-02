@@ -45,10 +45,22 @@ export CHROME_EXECUTABLE="chrome"
 
 export GOPATH="$HOME/go"
 export GOPRIVATE="github.com/*"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$GOPATH/bin"
 
 export NIXPKGS_ALLOW_INSECURE="1"
 export NIXPKGS_ALLOW_UNFREE="1"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 export QT_FONT_DPI="204"
 

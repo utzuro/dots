@@ -1,16 +1,17 @@
-echo
-echo "⌛... Configuring Linux ... 🖳"
-DIR="$(
-	cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit
-	pwd -P
-)"
+#!/usr/bin/env bash
+set -e
 
-# Set up user groups:
 echo
-echo "⌛... Adding user to a necessary groups... 👥"
-if [ -n "$USER" ]; then USER=$(whoami); fi
+echo "⌛... Configuring Linux... 🖳"
+
+# --- Set up user groups ---
+echo
+echo "⌛... Adding user to required groups... 👥"
+if [ -z "${USER:-}" ]; then USER=$(whoami); fi
 sudo usermod -aG input "$USER"
 sudo usermod -aG docker "$USER"
 sudo usermod -aG plugdev "$USER"
 sudo usermod -aG vboxusers "$USER"
-sudo usermod -aG lp "$USER" # bluetooth
+sudo usermod -aG lp "$USER" # Bluetooth
+
+echo "✅ Linux group configuration complete!"

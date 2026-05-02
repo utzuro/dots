@@ -44,9 +44,7 @@ create_directories() {
 ### 📝 File Setup
 create_default_files() {
 	printf "\n⌛... Creating default files... 📝\n"
-	: >"$HOME/.zprofile"
-	: >"$HOME/.secrets"
-	: >"$HOME/.awsrc"
+	touch "$HOME/.zprofile" "$HOME/.secrets" "$HOME/.awsrc"
 }
 
 ### 🧙 Clone Scripts Repo
@@ -100,26 +98,34 @@ link_dotfiles() {
 		ln -sfv "$file" "$HOME/.vim/$(basename "$file")"
 	done
 
+	mkdir -p "$HOME/.vim/colors"
+	for file in "$DIR"/config/vim/colors/*.vim; do
+		ln -sfv "$file" "$HOME/.vim/colors/$(basename "$file")"
+	done
+
 	# Remove spellcheck from commented out lines
 	mkdir -p "$HOME/.vim/after/syntax"
 	ln -sfv "$DIR/config/vim/vim/after/syntax/asciidoc.vim" "$HOME/.vim/after/syntax/asciidoc.vim"
-
-	printf "📝 Installing vim plugins... 🚀\n"
-	(have_cmd vim && vim +PlugInstall +qall) || true
-	(have_cmd nvim && nvim +PlugInstall +qall) || true
 
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
 	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/"
 
-	printf "\n⌛... Linking opencode configs... 📝\n"
-	mkdir -p "$HOME"/.opencode/{commands,skills}
-	for file in "$DIR"/config/opencode/commands/*; do
-		ln -sfv "$file" "$HOME/.opencode/commands/$(basename "$file")"
-	done
-	for file in "$DIR"/config/opencode/skills/*; do
-		ln -sfv "$file" "$HOME/.opencode/skills/$(basename "$file")"
-	done
+}
+
+install_vim_plugins() {
+	printf "📝 Installing vim plugins... 🚀\n"
+	if ! have_cmd vim && ! have_cmd nvim; then
+		printf "⚠️  Neither vim nor nvim found; skipping plugin install.\n"
+		return
+	fi
+
+	if have_cmd zsh; then
+		zsh -lc 'command -v vim >/dev/null 2>&1 && vim +PlugInstall +qall || true; command -v nvim >/dev/null 2>&1 && nvim +PlugInstall +qall || true'
+	else
+		(have_cmd vim && vim +PlugInstall +qall) || true
+		(have_cmd nvim && nvim +PlugInstall +qall) || true
+	fi
 }
 
 ### 🛠 Shell & Tool Setup (if not using Home Manager)
@@ -137,7 +143,7 @@ manual_shell_and_tools() {
 		ln -sfv "$DIR/config/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
 		printf "\n⌛... Getting ready files that shouldn't be linked... 🌐\n"
-		: >"$HOME/.profile"
+		touch "$HOME/.profile"
 
 		# Oh My Zsh
 		if have_cmd zsh; then
@@ -153,12 +159,17 @@ manual_shell_and_tools() {
 		if have_cmd zsh; then
 			if [ ! -d "$HOME/.zplug" ]; then
 				curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-				printf "📝 Run 'zplug install' to install plugins.\n"
+				printf "📝 Zplug installed.\n"
+				if [ -f "$HOME/.zplug/init.zsh" ]; then
+					if ! zsh -lc 'source "$HOME/.zplug/init.zsh" && zplug install'; then
+						printf "⚠️  Zplug install failed; continuing bootstrap.\n"
+					fi
+				else
+					printf "⚠️  Zplug init script not found; skipping zplug install.\n"
+				fi
 			else
 				printf "📝 Zplug already installed.\n"
 			fi
-			zsh
-			zplug install
 		fi
 
 		# tmux plugin manager
@@ -196,6 +207,11 @@ setup_ssh() {
 		cp -n "$DIR/config/ssh/config" "$HOME/.ssh/config" || true
 	fi
 
+	if ! have_cmd ssh-keygen; then
+		printf "⚠️  ssh-keygen not found; skipping SSH key setup.\n"
+		return
+	fi
+
 	if [ ! -f "$HOME/.ssh/utzuro" ]; then
 		ssh-keygen -f "$HOME/.ssh/utzuro" -N ''
 	fi
@@ -218,7 +234,9 @@ configure_default_shell() {
 	if ! $is_msys2; then
 		if have_cmd zsh; then
 			zsh_path="$(command -v zsh)"
-			printf "%s\n" "$zsh_path" | sudo_safe tee -a /etc/shells >/dev/null || true
+			if ! grep -qx "$zsh_path" /etc/shells 2>/dev/null; then
+				printf "%s\n" "$zsh_path" | sudo_safe tee -a /etc/shells >/dev/null || true
+			fi
 			sudo_safe chsh -s "$zsh_path" "${USER}" || true
 		fi
 		return
@@ -241,6 +259,7 @@ main() {
 	link_dotfiles
 	link_images
 	manual_shell_and_tools
+	install_vim_plugins
 	setup_ssh
 	configure_default_shell
 	printf "\n🔥 Shell tools installation complete! 🔥\n"
