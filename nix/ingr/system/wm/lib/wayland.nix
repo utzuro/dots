@@ -23,16 +23,6 @@
     # };
   };
 
-  security = {
-    pam.services.swaylock = {
-      text = ''
-        auth include login
-        auth include sddm
-      '';
-    };
-    pam.services.login.enableGnomeKeyring = true;
-  };
-
   xdg.portal.wlr.enable = lib.mkForce true;
 
   environment.systemPackages = with pkgs;

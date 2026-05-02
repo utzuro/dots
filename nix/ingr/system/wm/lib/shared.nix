@@ -59,8 +59,15 @@
   security.pam.services = {
     sddm.enableGnomeKeyring = true;
     login.enableGnomeKeyring = true;
+    swaylock = {
+      text = ''
+        auth include login
+        auth include sddm
+      '';
+    };
   };
   programs.seahorse.enable = true;
+
   # KWallet for credential storage (alternative to gnome-keyring)
   # security.pam.services.sddm.enableKwallet = true;
 
