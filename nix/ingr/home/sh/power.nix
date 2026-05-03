@@ -97,7 +97,7 @@
     mdns-scanner
 
     # net-analysis
-    tshark
+    # tshark
 
     # legacy
     libdvdcss
