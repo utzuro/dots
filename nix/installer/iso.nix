@@ -2,7 +2,7 @@
 # mkpasswd > ingr/system/lib/hashedPasswordFile # clean the file
 # export NIX_PATH=nixos-config=$PWD/iso.nix:nixpkgs=channel:nixos-unstable
 #  nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage 
-{ ... }:
+{ lib, ... }:
 
 let
   user = {
@@ -39,4 +39,8 @@ in
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
+  # Avoid spamming cli with audit errors
+  services.journald.audit = false;
+  services.audit.enable = lib.mkForce false;
+  security.auditd.enable = false;
 }
