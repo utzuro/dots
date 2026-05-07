@@ -51,6 +51,7 @@
       ]
     ))
     uv
+    poetry
     nox
     ruff
 
