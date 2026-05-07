@@ -25,8 +25,6 @@
 
   environment.systemPackages = with pkgs.kdePackages; [
     # Wayland support
-    xwaylandvideobridge # Screen sharing in X11 apps on Wayland
-    wayland-protocols
     plasma-workspace
     plasma-integration # Better Qt app integration
 

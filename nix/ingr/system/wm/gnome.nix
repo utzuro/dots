@@ -26,5 +26,4 @@
 
   # Avoid conflicts between different desktop environments
   programs.seahorse.enable = lib.mkForce false;
-
 }
