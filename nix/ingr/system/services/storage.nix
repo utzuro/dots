@@ -6,7 +6,7 @@
     package = pkgs.postgresql_18;
     ensureDatabases = [ "mydatabase" ];
     enableTCPIP = true;
-    port = 5430;
+    settings.port = 5430;
     authentication = pkgs.lib.mkOverride 10 ''
       #type database DBuser origin-address auth-method
       local all      all     trust

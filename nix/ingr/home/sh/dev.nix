@@ -138,6 +138,7 @@
     # hardware
     avrdude
     libinput
+    kicad
 
     # system
     diffutils
