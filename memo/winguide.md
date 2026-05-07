@@ -24,8 +24,19 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 
-## Other installs:
+then run ./bootstrap.sh
 
-https://www.autohotkey.com/
-https://git-scm.com/downloads/win
-https://sourceforge.net/projects/eartrumpet.mirror/
+## WSL
+
+### Shring wsl disk image
+
+```powershell
+# in Windows PowerShell
+$distro = "NixOS"
+$vhd = (Get-ChildItem HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss |
+  ? { $_.GetValue("DistributionName") -eq $distro }
+).GetValue("BasePath") + "\ext4.vhdx"
+
+wsl --shutdown
+Optimize-VHD -Path $vhd -Mode Full
+```

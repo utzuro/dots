@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+DIR="$(realpath "$(dirname "$0")/..")"
+
 # --- Scoop bootstrap (PowerShell required) ---
 # > Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 # > irm get.scoop.sh | iex
@@ -18,10 +20,10 @@ scoop bucket add extras
 scoop install neovim
 
 # Temporary workaround to make Neovim config work on Windows.
-rm -rf ~/AppData/Local/nvim
-cp -r ~/alchemy/dots/config/vim/nvim ~/AppData/Local/
-rm -rf ~/AppData/Local/nvim/colors
-cp -r ~/alchemy/dots/config/vim/colors ~/AppData/Local/nvim/
+rm -rf "$HOME/AppData/Local/nvim"
+cp -r "$DIR/config/vim/nvim" "$HOME/AppData/Local/"
+rm -rf "$HOME/AppData/Local/nvim/colors"
+cp -r "$DIR/config/vim/colors" "$HOME/AppData/Local/nvim/"
 
 scoop install eza fzf ripgrep
 scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
