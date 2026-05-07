@@ -43,6 +43,13 @@
     cargo-watch
 
     # python
+    ## tools
+    uv
+    poetry
+    nox
+    ruff
+    ## dpes
+    pg_config
     (pkgs.python3.withPackages (
       python-pkgs: with python-pkgs; [
         pip
@@ -50,10 +57,6 @@
         wheel
       ]
     ))
-    uv
-    poetry
-    nox
-    ruff
 
     # c/c++
     cmake
