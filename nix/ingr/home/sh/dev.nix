@@ -49,7 +49,6 @@
     nox
     ruff
     ## dpes
-    pg_config
     (pkgs.python3.withPackages (
       python-pkgs: with python-pkgs; [
         pip
