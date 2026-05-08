@@ -37,6 +37,7 @@ scoop install mingw grpc-tools grpcurl
 scoop install kitty nu wezterm alacritty # can't decide which to use
 scoop install vscode
 scoop install dbeaver
+scoop install opencode
 
 # --- Notes for NixOS WSL ---
 # WezTerm config:
