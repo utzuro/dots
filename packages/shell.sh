@@ -110,6 +110,8 @@ link_dotfiles() {
 	printf "\n⌛... Linking hx configs... 📝\n"
 	mkdir -p "$HOME/.config/helix"
 	ln -sfv "$DIR/config/helix/config.toml" "$HOME/.config/helix/config.toml"
+	mkdir -p "$HOME/.config/helix/themes"
+	ln -sfv "$DIR/config/helix/themes/void.toml" "$HOME/.config/helix/themes/void.toml"
 
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"

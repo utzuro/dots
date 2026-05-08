@@ -1,0 +1,231 @@
+# blackula-violet.toml
+# A Dracula-inspired Helix theme with a pure black editor background
+# and stronger violet / magenta emphasis.
+
+# Syntax ---------------------------------------------------------------
+attribute = { fg = "violet_bright" }
+type = { fg = "violet" }
+"type.builtin" = { fg = "magenta", modifiers = ["bold"] }
+"type.parameter" = { fg = "violet_soft" }
+"type.enum" = { fg = "violet" }
+"type.enum.variant" = { fg = "pink" }
+constructor = { fg = "violet_bright" }
+
+constant = { fg = "violet_bright" }
+"constant.builtin" = { fg = "magenta_hot" }
+"constant.builtin.boolean" = { fg = "magenta_hot", modifiers = ["bold"] }
+"constant.character" = { fg = "pink" }
+"constant.character.escape" = { fg = "cyan" }
+"constant.numeric" = { fg = "orange" }
+"constant.numeric.integer" = { fg = "orange" }
+"constant.numeric.float" = { fg = "orange" }
+
+string = { fg = "yellow" }
+"string.regexp" = { fg = "cyan" }
+"string.special" = { fg = "pink" }
+"string.special.path" = { fg = "cyan" }
+"string.special.url" = { fg = "cyan", modifiers = ["underlined"] }
+"string.special.symbol" = { fg = "magenta" }
+
+comment = { fg = "comment", modifiers = ["italic"] }
+"comment.line.documentation" = { fg = "comment", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "comment", modifiers = ["italic"] }
+"comment.unused" = { fg = "muted", modifiers = ["italic"] }
+
+variable = { fg = "fg" }
+"variable.builtin" = { fg = "magenta", modifiers = ["bold"] }
+"variable.parameter" = { fg = "pink" }
+"variable.other.member" = { fg = "violet_soft" }
+"variable.other.member.private" = { fg = "violet_dim" }
+label = { fg = "magenta_hot" }
+
+punctuation = { fg = "muted" }
+"punctuation.delimiter" = { fg = "violet_dim" }
+"punctuation.bracket" = { fg = "violet_soft" }
+"punctuation.special" = { fg = "magenta_hot" }
+
+keyword = { fg = "magenta", modifiers = ["bold"] }
+"keyword.control" = { fg = "magenta_hot", modifiers = ["bold"] }
+"keyword.control.conditional" = { fg = "magenta_hot", modifiers = ["bold"] }
+"keyword.control.repeat" = { fg = "magenta_hot", modifiers = ["bold"] }
+"keyword.control.import" = { fg = "violet_bright" }
+"keyword.control.return" = { fg = "magenta_hot", modifiers = ["bold"] }
+"keyword.control.exception" = { fg = "red", modifiers = ["bold"] }
+"keyword.operator" = { fg = "violet_bright" }
+"keyword.directive" = { fg = "pink" }
+"keyword.function" = { fg = "magenta" }
+"keyword.storage" = { fg = "magenta" }
+"keyword.storage.type" = { fg = "magenta", modifiers = ["bold"] }
+"keyword.storage.modifier" = { fg = "violet_bright" }
+operator = { fg = "violet_bright" }
+
+function = { fg = "violet_bright" }
+"function.builtin" = { fg = "magenta_hot" }
+"function.method" = { fg = "violet_soft" }
+"function.method.private" = { fg = "violet_dim" }
+"function.macro" = { fg = "pink", modifiers = ["bold"] }
+"function.special" = { fg = "magenta" }
+
+tag = { fg = "magenta" }
+"tag.builtin" = { fg = "magenta_hot" }
+namespace = { fg = "violet_soft" }
+special = { fg = "pink" }
+
+# Markup ---------------------------------------------------------------
+markup = { fg = "fg" }
+"markup.heading" = { fg = "magenta_hot", modifiers = ["bold"] }
+"markup.heading.marker" = { fg = "violet_bright" }
+"markup.heading.1" = { fg = "magenta_hot", modifiers = ["bold"] }
+"markup.heading.2" = { fg = "violet_bright", modifiers = ["bold"] }
+"markup.heading.3" = { fg = "pink", modifiers = ["bold"] }
+"markup.heading.4" = { fg = "violet_soft", modifiers = ["bold"] }
+"markup.heading.5" = { fg = "magenta" }
+"markup.heading.6" = { fg = "violet" }
+"markup.list" = { fg = "violet_bright" }
+"markup.list.unnumbered" = { fg = "violet_bright" }
+"markup.list.numbered" = { fg = "magenta" }
+"markup.list.checked" = { fg = "green" }
+"markup.list.unchecked" = { fg = "comment" }
+"markup.bold" = { fg = "pink", modifiers = ["bold"] }
+"markup.italic" = { fg = "violet_soft", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link" = { fg = "cyan" }
+"markup.link.url" = { fg = "cyan", modifiers = ["underlined"] }
+"markup.link.label" = { fg = "violet_bright" }
+"markup.link.text" = { fg = "pink" }
+"markup.quote" = { fg = "comment", modifiers = ["italic"] }
+"markup.raw" = { fg = "violet_soft" }
+"markup.raw.inline" = { fg = "violet_bright", bg = "surface" }
+"markup.raw.block" = { fg = "violet_soft", bg = "surface" }
+
+# Diffs ----------------------------------------------------------------
+"diff.plus" = { fg = "green" }
+"diff.plus.gutter" = { fg = "green" }
+"diff.minus" = { fg = "red" }
+"diff.minus.gutter" = { fg = "red" }
+"diff.delta" = { fg = "violet_bright" }
+"diff.delta.moved" = { fg = "cyan" }
+"diff.delta.conflict" = { fg = "orange" }
+"diff.delta.gutter" = { fg = "violet_bright" }
+
+# Interface ------------------------------------------------------------
+"ui.background" = { bg = "black" }
+"ui.background.separator" = { fg = "surface2" }
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "fg", bg = "selection", modifiers = ["bold"] }
+"ui.text.inactive" = { fg = "muted" }
+"ui.text.info" = { fg = "violet_bright" }
+"ui.text.directory" = { fg = "violet_bright", modifiers = ["bold"] }
+
+"ui.cursor" = { fg = "black", bg = "violet" }
+"ui.cursor.normal" = { fg = "black", bg = "violet" }
+"ui.cursor.insert" = { fg = "black", bg = "magenta" }
+"ui.cursor.select" = { fg = "black", bg = "pink" }
+"ui.cursor.match" = { fg = "black", bg = "violet_bright", modifiers = ["bold"] }
+"ui.cursor.primary" = { fg = "black", bg = "magenta_hot" }
+"ui.cursor.primary.normal" = { fg = "black", bg = "violet_bright" }
+"ui.cursor.primary.insert" = { fg = "black", bg = "magenta_hot" }
+"ui.cursor.primary.select" = { fg = "black", bg = "pink" }
+
+"ui.cursorline.primary" = { bg = "surface" }
+"ui.cursorline.secondary" = { bg = "surface" }
+"ui.cursorcolumn.primary" = { bg = "surface" }
+"ui.cursorcolumn.secondary" = { bg = "surface" }
+
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection_primary" }
+"ui.highlight" = { bg = "surface2" }
+"ui.highlight.frameline" = { bg = "surface2" }
+
+"ui.gutter" = { fg = "muted", bg = "black" }
+"ui.gutter.selected" = { fg = "violet_bright", bg = "surface" }
+"ui.linenr" = { fg = "muted" }
+"ui.linenr.selected" = { fg = "magenta_hot", modifiers = ["bold"] }
+
+"ui.statusline" = { fg = "fg", bg = "surface2" }
+"ui.statusline.inactive" = { fg = "muted", bg = "black" }
+"ui.statusline.normal" = { fg = "black", bg = "violet_bright", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "black", bg = "magenta_hot", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "black", bg = "pink", modifiers = ["bold"] }
+"ui.statusline.separator" = { fg = "violet_dim", bg = "surface2" }
+
+"ui.bufferline" = { fg = "muted", bg = "black" }
+"ui.bufferline.active" = { fg = "magenta_hot", bg = "surface", modifiers = ["bold"] }
+"ui.bufferline.background" = { bg = "black" }
+
+"ui.popup" = { fg = "fg", bg = "surface" }
+"ui.popup.info" = { fg = "violet_bright", bg = "surface2" }
+"ui.window" = { fg = "surface2" }
+"ui.help" = { fg = "fg", bg = "surface" }
+
+"ui.menu" = { fg = "fg", bg = "surface" }
+"ui.menu.selected" = { fg = "black", bg = "magenta", modifiers = ["bold"] }
+"ui.menu.scroll" = { fg = "violet_bright", bg = "surface2" }
+
+"ui.picker.header" = { fg = "magenta_hot", bg = "black", modifiers = ["bold"] }
+"ui.picker.header.column" = { fg = "violet_bright" }
+"ui.picker.header.column.active" = { fg = "black", bg = "violet_bright", modifiers = ["bold"] }
+
+"ui.virtual.ruler" = { bg = "surface" }
+"ui.virtual.whitespace" = { fg = "surface2" }
+"ui.virtual.indent-guide" = { fg = "surface2" }
+"ui.virtual.inlay-hint" = { fg = "muted", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.parameter" = { fg = "violet_dim", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.type" = { fg = "magenta_dim", modifiers = ["italic"] }
+"ui.virtual.wrap" = { fg = "violet_dim" }
+"ui.virtual.jump-label" = { fg = "black", bg = "magenta_hot", modifiers = ["bold"] }
+
+"ui.debug.breakpoint" = { fg = "red" }
+"ui.debug.active" = { fg = "black", bg = "orange" }
+
+# Completion / hover markdown -----------------------------------------
+"markup.normal.completion" = { fg = "fg" }
+"markup.heading.completion" = { fg = "magenta_hot", modifiers = ["bold"] }
+"markup.raw.inline.completion" = { fg = "violet_bright", bg = "surface2" }
+"markup.normal.hover" = { fg = "fg" }
+"markup.heading.hover" = { fg = "violet_bright", modifiers = ["bold"] }
+"markup.raw.inline.hover" = { fg = "violet_bright", bg = "surface2" }
+
+# Diagnostics ----------------------------------------------------------
+warning = { fg = "orange" }
+error = { fg = "red" }
+info = { fg = "cyan" }
+hint = { fg = "violet_soft" }
+diagnostic = { underline = { color = "violet_dim", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "violet_soft", style = "curl" } }
+"diagnostic.info" = { underline = { color = "cyan", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "orange", style = "curl" } }
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+tabstop = { fg = "black", bg = "violet_bright" }
+
+# Palette --------------------------------------------------------------
+# Keep this table last: all keys after [palette] are treated as colors.
+[palette]
+black = "#000000"
+fg = "#F8F8F2"
+muted = "#6E5F87"
+comment = "#7A68A6"
+
+surface = "#0B0014"
+surface2 = "#160024"
+selection = "#2B0A3D"
+selection_primary = "#3A0D55"
+
+violet = "#BD93F9"
+violet_soft = "#D6B8FF"
+violet_bright = "#A875FF"
+violet_dim = "#7B5BBF"
+
+magenta = "#FF79C6"
+magenta_hot = "#FF4FD8"
+magenta_dim = "#B0528F"
+pink = "#FF9CE3"
+
+cyan = "#8BE9FD"
+green = "#50FA7B"
+yellow = "#F1FA8C"
+orange = "#FFB86C"
+red = "#FF5555"
