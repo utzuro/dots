@@ -22,6 +22,7 @@
 
     # core
     neovim
+    emacs
     helix
     yazi
     ack
