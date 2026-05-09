@@ -23,6 +23,7 @@
   hardware.nvidia = {
     nvidiaSettings = true;
     modesetting.enable = true;
+    nvidiaPersistenced = true;
     powerManagement.enable = true;
     powerManagement.finegrained = false; # Only for Optimus laptops
     open = true; # still beta

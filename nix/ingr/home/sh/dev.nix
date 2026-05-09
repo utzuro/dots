@@ -75,6 +75,8 @@
     # functional
     nixpkgs-fmt
     nil
+    sbcl
+    rlwrap
     ghc
     cabal-install
     stack
