@@ -4,7 +4,7 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_18;
-    ensureDatabases = [ "mydatabase" ];
+    ensureDatabases = [ "shared" ];
     enableTCPIP = true;
     settings.port = 5430;
     authentication = pkgs.lib.mkOverride 10 ''
@@ -13,7 +13,7 @@
       # ... other auth rules ...
 
       # ipv4
-      host  all      all     127.0.0.1/32   trust
+      host  all      all     all            trust
       # ipv6
       host  all      all     ::1/128        trust
     '';

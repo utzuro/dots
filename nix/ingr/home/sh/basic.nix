@@ -22,6 +22,7 @@
 
     # core
     neovim
+    helix
     yazi
     ack
     ripgrep

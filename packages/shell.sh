@@ -107,6 +107,12 @@ link_dotfiles() {
 	mkdir -p "$HOME/.vim/after/syntax"
 	ln -sfv "$DIR/config/vim/vim/after/syntax/asciidoc.vim" "$HOME/.vim/after/syntax/asciidoc.vim"
 
+	printf "\n⌛... Linking hx configs... 📝\n"
+	mkdir -p "$HOME/.config/helix"
+	ln -sfv "$DIR/config/helix/config.toml" "$HOME/.config/helix/config.toml"
+	mkdir -p "$HOME/.config/helix/themes"
+	ln -sfv "$DIR/config/helix/themes/void.toml" "$HOME/.config/helix/themes/void.toml"
+
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
 	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/"

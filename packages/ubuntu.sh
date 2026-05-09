@@ -34,6 +34,7 @@ cli_packages=(
 	python3-pip python3-setuptools python3-wheel
 	golang-go
 	ruby
+	pgcli
 
 	# db
 	sqlite3 postgresql redis
@@ -41,7 +42,7 @@ cli_packages=(
 	# libs
 	screen minicom picocom tio
 	meson graphviz imagemagick ffmpeg
-	libfuse2 libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
+	libfuse2 libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libpq-dev
 	libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libzstd-dev
 )
 

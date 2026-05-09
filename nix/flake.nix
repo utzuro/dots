@@ -147,11 +147,10 @@
 
           };
 
-        x240 =
+        vm =
           let
             system = {
-              inherit arch; host = "x240";
-              storageDriver = "btrfs";
+              inherit arch; host = "voidpc";
             };
             user = {
               name = "void";
@@ -159,8 +158,69 @@
           in
           lib.nixosSystem {
             modules = [
+              # Only for NixOS
+              disko.nixosModules.disko
+              ./ingr/machines/${system.host}/hardware-configuration.nix
+              ./ingr/system/boot.nix
+              ./ingr/system/basic.nix
+              ./ingr/system/firewall.nix
+              ./ingr/system/dev.nix
+              ./ingr/system/network/settings.nix
+
+              ./ingr/system/wm/hyprland.nix
+
+              ./ingr/system/power/pc.nix
+              ./ingr/system/hardware/intel.nix
+              ./ingr/system/hardware/storage.nix
+              ./ingr/system/hardware/video.nix
+
+              ./ingr/system/hardware/nfs.nix
+
+              # temporary fixes, etc
+              ./ingr/system/temp.nix
+
             ];
+
             specialArgs = { inherit system inputs user; };
+
+          };
+
+        x240 =
+          let
+            system = {
+              inherit arch; host = "voidpc";
+            };
+            user = {
+              name = "void";
+            };
+          in
+          lib.nixosSystem {
+            modules = [
+              # Only for NixOS
+              disko.nixosModules.disko
+              ./ingr/machines/${system.host}/hardware-configuration.nix
+              ./ingr/system/boot.nix
+              ./ingr/system/basic.nix
+              ./ingr/system/firewall.nix
+              ./ingr/system/dev.nix
+              ./ingr/system/network/settings.nix
+
+              ./ingr/system/wm/hyprland.nix
+
+              ./ingr/system/power/pc.nix
+              ./ingr/system/hardware/intel.nix
+              ./ingr/system/hardware/storage.nix
+              ./ingr/system/hardware/video.nix
+
+              ./ingr/system/hardware/nfs.nix
+
+              # temporary fixes, etc
+              ./ingr/system/temp.nix
+
+            ];
+
+            specialArgs = { inherit system inputs user; };
+
           };
       };
 
