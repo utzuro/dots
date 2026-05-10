@@ -66,6 +66,9 @@ Plug 'leoluz/nvim-dap-go'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'npm ci'}
 Plug 'sheerun/vim-polyglot'
 
+"repl
+Plug 'olical/conjure'
+
 " syntax
 Plug 'fatih/vim-go'
 Plug 'thosakwe/vim-flutter'
