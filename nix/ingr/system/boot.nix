@@ -1,11 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   boot = {
     # kernelPackages = pkgs.linuxPackages_zen;
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     consoleLogLevel = 0;
-    supportedFilesystems = [ "btrfs" "ext4" "xfs" ];
+    supportedFilesystems = {
+      btrfs = true;
+      ext4 = true;
+      xfs = true;
+      zfs = lib.mkForce false;
+    };
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     initrd.systemd.enable = true;

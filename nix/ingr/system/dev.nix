@@ -8,7 +8,5 @@
     ];
 
   services.flatpak.enable = true;
-
-  xdg.portal.wlr.enable = true;
 }
 

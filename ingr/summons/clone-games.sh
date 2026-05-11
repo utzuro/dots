@@ -94,6 +94,12 @@ repos=(
 	# emulators
 	"https://github.com/hrydgard/ppsspp"
 	"https://github.com/RPCS3/rpcs3"
+	"https://github.com/libretro/RetroArch"
+	"https://github.com/scummvm/scummvm"
+	"https://github.com/vita3k/vita3k"
+	"https://github.com/seleuco/MAME4droid-Current"
+	"https://github.com/melonDS-emu/melonDS"
+	"https://github.com/dolphin-emu/dolphin"
 
 	# tools
 	"https://github.com/LibreVR/Revive"

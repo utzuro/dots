@@ -98,11 +98,12 @@
       options = [ "rw" "uid=1000" "nofail" "noatime" ];
     };
 
-  #fileSystems."/mnt/li" =
-  #  { device = "/dev/disk/by-uuid/182ABA512ABA2B9E";
-  #    fsType = "ntfs3";
-  #    options = [ "rw" "uid=1000" "nofail" "noatime" ];
-  #  };
+  fileSystems."/mnt/li" =
+    {
+      device = "/dev/disk/by-uuid/182ABA512ABA2B9E";
+      fsType = "ntfs3";
+      options = [ "rw" "uid=1000" "nofail" "noatime" ];
+    };
 
   fileSystems."/mnt/darkarts" =
     {

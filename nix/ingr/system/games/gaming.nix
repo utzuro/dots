@@ -1,6 +1,37 @@
 { pkgs, ... }:
 
+let
+  gog = pkgs.writeShellApplication {
+    name = "gog";
+    runtimeInputs = with pkgs; [
+      umu-launcher
+      coreutils
+    ];
+
+    text = ''
+      set -euo pipefail
+
+      if [ "$#" -lt 2 ]; then
+        echo "usage: gog <prefix-name> <exe-or-installer> [args...]" >&2
+        exit 2
+      fi
+
+      prefix_name="$1"
+      shift
+
+      export WINEPREFIX="''${WINEPREFIX:-$HOME/darkarts/lib/prefixes/$prefix_name}"
+      export STORE="''${STORE:-gog}"
+      export GAMEID="''${GAMEID:-umu-default}"
+
+      export PROTONPATH="''${PROTONPATH:-GE-Proton}"
+
+      mkdir -p "$WINEPREFIX"
+      exec umu-run "$@"
+    '';
+  };
+in
 {
+
   hardware = {
     graphics.enable32Bit = true;
     steam-hardware.enable = true;
@@ -14,20 +45,13 @@
 
   environment.systemPackages = with pkgs; [
 
-    linuxConsoleTools
-    jstest-gtk
-
-    # (retroarch.withCores (cores: with cores; [
-    #   genesis-plus-gx
-    #   snes9x
-    #   beetle-psx-hw
-    # ]))
-
-    # heroic
-    # lutris
-    # bottles
-    oversteer
-    adwaita-icon-theme
+    #========================LANUCHERS
+    gog
+    steam-run
+    heroic
+    lutris
+    bottles
+    adwaita-icon-theme # dep
 
     wineWow64Packages.staging
     winetricks
@@ -36,36 +60,54 @@
       mingwSupport = true;
     })
 
-    # (lutris.override {
-    #   extraLibraries = pkgs: [
-    #     # If any games are unable to run 
-    #     # due to missing dependencies, 
-    #     # libraries can be installed here.
-    #   ];
-    #   extraPkgs = pkgs: [
-    #     # If any games are unable to run 
-    #     # due to missing dependencies, 
-    #     # pkgs can be installed here.
-    #   ];
-    # })
+    (lutris.override {
+      extraLibraries = pkgs: [
+        # If any games are unable to run 
+        # due to missing dependencies, 
+        # libraries can be installed here.
+      ];
+      extraPkgs = pkgs: [
+        # If any games are unable to run 
+        # due to missing dependencies, 
+        # pkgs can be installed here.
+      ];
+    })
 
+    #========================TOOLS
+    oversteer
+    mangohud
+    gamescope
+    lgogdownloader
+    linuxConsoleTools
+    jstest-gtk
+
+    #========================EMU
+    scummvm
+    dosbox-staging
+
+    retroarch-full
+    # specify cores if full fails
+    # (retroarch.withCores (cores: with cores; [
+    #   genesis-plus-gx
+    #   snes9x
+    #   beetle-psx-hw
+    # ]))
+    ppsspp
+    dolphin-emu
+    yabause # sega saturn
+    flycast # sega dreamcast
+    atari800
+    ryubing
+
+    moonlight-qt
+
+    #========================OPEN GAMES
     # https://theforceengine.github.io/
     # https://github.com/JACoders/OpenJK
     # Wait for The Dark Mode to come to pkgs
 
-
-    dosbox-staging
-    # retroarch-full
-    # dolphin-emu
-    # yabause # sega saturn
-    # flycast # sega dreamcast
-    # atari800
-
-    # moonlight-qt
-
-    #========================OPEN GAMES
     #===Engine Recreations
-    # vcmi
+    vcmi
     # fheroes2
     # fallout-ce
     # fallout2-ce
@@ -73,14 +115,14 @@
     # openxcom
     # openmw
     # exult
-    # openjk
-    # theforceengine
+    openjk
+    theforceengine
 
     #===Strategy
     wesnoth
     unciv
     mindustry-wayland #mindustry
-    # opendune
+    opendune
     zeroad
     unvanquished
 
@@ -100,7 +142,7 @@
     #===Lan Party
     openarena
     assaultcube
-    # supertuxkart
+    supertuxkart
 
     #===MMO
     # runelite
@@ -120,8 +162,8 @@
     #===Simulation
     # colobot
     # rigsofrods-bin
-    # freeorion
-    # flightgear
+    freeorion
+    flightgear
 
     ###########################################
     ## BUILDING ISSUES
