@@ -107,7 +107,7 @@ in
     # Wait for The Dark Mode to come to pkgs
 
     #===Engine Recreations
-    vcmi
+    # vcmi
     # fheroes2
     # fallout-ce
     # fallout2-ce

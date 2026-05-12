@@ -40,7 +40,7 @@ in
       set -g status-right ' #{cpu_percentage}  #{sysstat_mem} 󰚥 #(cut -d" " -f1 /proc/loadavg)   #{battery_percentage} #{battery_remain} %H:%M:%S'
 
       # Navigation
-      set -g @vim_navigator_pattern '(\S+/)?g?\.?(view|l?n?vim?x?|fzf|nvr|lvim|nvim-qt|neovide)(diff)?(-wrapped)?'
+      # set -g @vim_navigator_pattern '(\S+/)?g?\.?(view|l?n?vim?x?|fzf|nvr|lvim|nvim-qt|neovide)(diff)?(-wrapped)?'
 
       # --- run plugin scripts AFTER setting status so tokens get expanded ---
       run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
