@@ -8,6 +8,8 @@
   # Configs
   fonts.fontDir.enable = true;
 
+  services.flatpak.enable = true;
+
   xdg = {
     portal = {
       enable = true;
