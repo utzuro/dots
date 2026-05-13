@@ -63,7 +63,10 @@ set undodir=~/.vim/undodir " Directory to store undo files
 " IDE-LIKE FEATURES
 " ==========================================================
 syntax enable           " Enable syntax highlighting
+set wildmenu
+set wildignorecase
 set wildignore+=**/node_modules/**,**/.git/**,**/dist/**,**/build/** " Ignore common directories
+set wildmode=longest:full,full
 set number              " Show line numbers
 set relativenumber      " Show relative line numbers
 
