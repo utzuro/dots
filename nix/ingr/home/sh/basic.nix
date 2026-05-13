@@ -57,7 +57,6 @@
     iw
     ethtool
     libnatpmp
-    busybox
     ipcalc
     nmap
     tcpdump

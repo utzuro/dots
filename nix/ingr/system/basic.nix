@@ -157,7 +157,6 @@ in
     nmap
     tcpdump
     dig
-    busybox
     speedtest-cli
     speedtest-go
     speedtest-rs

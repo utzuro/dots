@@ -7,7 +7,6 @@
     tmux
     openssh
     zsh
-    busybox
     zip
     unzip
   ];

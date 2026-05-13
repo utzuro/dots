@@ -29,6 +29,14 @@ let
     "audio"
     "gamemode"
   ];
+
+  summons = lib.cleanSourceWith {
+    src = ./summons;
+  };
+
+  vcmi = lib.cleanSourceWith {
+    src = ../../../.local/share/vcmi;
+  };
 in
 {
   _module.args = {
@@ -339,7 +347,19 @@ in
         || name == "hashedPasswordFile");
   };
 
-  # conflict fixes
+  isoImage.contents = [
+    {
+      source = summons;
+      target = "/summons";
+    }
+
+    {
+      source = vcmi;
+      target = "/home/${normalUser}/.local/share/vcmi";
+    }
+  ];
+
+  # conflict fixe
   services.journald.audit = false;
   security.audit.enable = lib.mkForce false;
   security.auditd.enable = false;
