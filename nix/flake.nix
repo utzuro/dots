@@ -62,6 +62,11 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tuicr = {
+      url = "github:agavra/tuicr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, disko, nix-gaming, ... }@inputs:

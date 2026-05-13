@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, user, inputs, ... }:
 
 {
 
@@ -141,6 +141,8 @@
 
   home.packages = with pkgs; [
     onefetch
+    jujutsu
+    inputs.agents.packages.${system}.tuicr
   ];
 
 }
