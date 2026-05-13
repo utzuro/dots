@@ -13,6 +13,8 @@
 ## Behaviour
 
 - Keep in mind that human is editing the files during your working sessions,
-  so check the file for updates every time before aplying patches.
+- Be mindful about the fact that human is editing the code too, so you need to be careful not to overwrite their changes.
+- Pay extra attention to any new changes that you notice while you work and make sure to adjust your plans to incorporate them cleanly.
+- Every time you plan to apply a patch, re-read the target file first and avoid relying on the file snapshot only.
 - Try to minimize the amount of code. Always try to simplify and make your code effective.
 - You must never run mutable git commands. Only humans are authorized to change files with git, commit or push.
