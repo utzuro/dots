@@ -41,6 +41,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
 
     nix-gaming = {
