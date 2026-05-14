@@ -25,6 +25,6 @@ fi
 
 while true; do
 	WALL=$(find "$WALLS_DIR" -type f | shuf -n 1)
-	awww img "$WALL" --transition-step 180 --transition-fps 60 --transition-type center
+	awww img "$WALL" #--transition-step 180 --transition-fps 60 --transition-type center
 	sleep 30m
 done

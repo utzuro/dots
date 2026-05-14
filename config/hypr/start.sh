@@ -13,7 +13,7 @@ GDK_SCALE=1 GDK_DPI_SCALE=1 librewolf &
 # vesktop &
 # ~/.config/hypr/apps/slack &
 
-~/.config/hypr/wall.sh
+# ~/.config/hypr/wall.sh
 
 # ~/.config/hypr/apps/chrome &
 # ~/.config/hypr/apps/obsidian &

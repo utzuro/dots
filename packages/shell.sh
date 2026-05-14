@@ -115,7 +115,10 @@ link_dotfiles() {
 
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
-	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/"
+	mkdir -p "$HOME/.config/opencode"
+	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
+	mkdir -p "$HOME/.pi/agent"
+	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/.pi/agent/AGENTS.md"
 
 }
 
