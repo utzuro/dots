@@ -20,6 +20,10 @@
       url = "github:StevenBlack/hosts";
       flake = false;
     };
+    agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, nixos-wsl, ... }@inputs:

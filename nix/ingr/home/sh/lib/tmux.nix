@@ -18,6 +18,8 @@ in
     terminal = "screen-256color";
     escapeTime = 0;
     extraConfig = ''
+      set -g extended-keys on
+      set -g extended-keys-format csi-u
       set-option -g status-style bg=colour0,fg=colour141
       set -g status-interval 2
       set -g status-right-length 150
