@@ -5,6 +5,8 @@
 {
   description = "NixOS in MicroVMs";
 
+  inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
+
   nixConfig = {
     extra-substituters = [ "https://microvm.cachix.org" ];
     extra-trusted-public-keys = [ "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys=" ];
@@ -29,6 +31,7 @@
         voidvm = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
+            ./apps.nix
             microvm.nixosModules.microvm
             {
               networking.hostName = "void-network";
