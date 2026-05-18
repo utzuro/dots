@@ -105,6 +105,11 @@
   };
 
   # Bluetooth
+  # autosuspend causes random disconects
+  boot.extraModprobeConfig = ''
+    options btusb enable_autosuspend=0
+  '';
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

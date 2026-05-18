@@ -140,7 +140,7 @@
               ./ingr/system/games/steam.nix
 
               # Below can be used on mac/wsl
-              ./ingr/system/services/homeassistant.nix
+              # ./ingr/system/services/homeassistant.nix
               # ./ingr/system/games/game-server.nix # TODO
               ./ingr/system/services/sync.nix # TODO
               ./ingr/system/services/cloud.nix

@@ -42,7 +42,19 @@
     steam-tui
     steamback
     steam-devices-udev-rules
+    game-devices-udev-rules
+    SDL2
   ];
+
+  hardware.steam-hardware.enable = true;
+  hardware.uinput.enable = true;
+  services.udev.packages = with pkgs; [
+    steam-devices-udev-rules
+    game-devices-udev-rules
+  ];
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c24f", GROUP="input", MODE="0660", TAG+="uaccess"
+  '';
 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS =

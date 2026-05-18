@@ -90,6 +90,8 @@ let
     XDG_MUSIC_DIR = "$HOME/magic";
     XDG_PICTURES_DIR = "$HOME/magic";
     XDG_VIDEOS_DIR = "$HOME/magic";
+
+    WINEPREFIX = "$HOME/darkarts/lib/prefixes/wine";
   };
 
 in
