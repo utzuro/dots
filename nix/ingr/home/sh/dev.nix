@@ -103,6 +103,7 @@
 
     # other
     lua
+    lua-language-server
     ghostscript
 
     # writing
