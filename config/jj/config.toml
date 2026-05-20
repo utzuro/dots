@@ -1,0 +1,20 @@
+[user]
+name = "utzuro"
+email = "utzuro@pm.me"
+
+[ui]
+editor = ["nvim", "-n"]
+merge-editor = "mergiraf"
+diff-formatter = ":git"
+conflict-marker-style = "git"
+
+[[--scope]]
+--when.commands = ["diff", "show"]
+[--scope.ui]
+pager = ["delta", "-s"]
+
+[snapshot]
+max-new-file-size = "5MiB"
+
+[remotes.origin]
+auto-track-created-bookmarks = "*"

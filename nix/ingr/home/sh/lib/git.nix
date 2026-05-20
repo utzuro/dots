@@ -65,7 +65,6 @@
 
     };
 
-
     # diffs
 
     diff-so-fancy = {
@@ -137,12 +136,19 @@
       };
     };
 
+    # tools
+    mergiraf = {
+      enable = true;
+      enableGitIntegration = true;
+      enableJujutsuIntegration = true;
+    };
   };
 
   home.packages = with pkgs; [
     onefetch
     jujutsu
     inputs.agents.packages.${system}.tuicr
+    mergiraf
   ];
 
 }

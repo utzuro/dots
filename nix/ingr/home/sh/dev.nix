@@ -103,6 +103,7 @@
 
     # other
     lua
+    lua-language-server
     ghostscript
 
     # writing
@@ -131,7 +132,9 @@
     postgresql
     mariadb
     redis
-
+    ## managers
+    prisma
+    prisma_language_server
     # clients
     pgcli
     mycli

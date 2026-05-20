@@ -15,29 +15,10 @@
 #n::Send "{PgDn}"
 #p::Send "{PgUp}"
 
-; Switch between windows
-; ^j::Send "{Alt down}{Tab}{Alt up}"
-; ^k::Send "{Alt down}{Shift down}{Tab}{Shift up}{Alt up}"
-
-
-; Keyboard Layout
+; keyboard Layout
 CapsLock::Send "{Shift down}{Alt}{Shift up}"
 F2::Send "{Alt down}{``}{Alt up}"
 F1::Send "{Alt down}{``}{Alt up}"
-
-
-; Open apps
-; #n::
-; {
-;     if WinExist("ahk_class Notepad")
-;         WinActivate 
-;     else
-;         Run "notepad"
-; }
-#enter::Run "C:\Program Files\Git\git-bash.exe"
-
-
-; Shortcuts overwriting
 
 ; media keys
 #m::Send "{Media_Play_Pause}"
@@ -52,4 +33,3 @@ F1::Send "{Alt down}{``}{Alt up}"
 
 ; Text shortcuts
 >!s::Send "ы"
-; ::ue::Unreal Engine 5
