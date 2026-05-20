@@ -8,7 +8,7 @@ config.default_prog = { "nu" }
 -- behavior
 config.disable_default_mouse_bindings = true
 config.disable_default_key_bindings = true
-config.default_cwd = workspace
+config.default_cwd = alchemy
 config.audible_bell = "Disabled"
 config.scrollback_lines = 5000
 config.unicode_version = 12
@@ -68,7 +68,7 @@ config.colors = {
       fg_color = "#c0c0c0",
     },
   },
-},
+}
 
 -- config.command_palette_bg_color = "#080808"
 -- config.command_palette_fg_color = "#EAEAEA"
@@ -102,7 +102,7 @@ config.window_frame = {
   border_top_color = "black",
 }
 
-wezterm.on("window-config-reloaded", function(window,pane)
+wezterm.on("window-config-reloaded", function(window, _)
   window:focus()
 end)
 
@@ -110,24 +110,28 @@ end)
 local Constants = {
   window_decorations = {
     default = config.window_decorations,
-    zen = "RESIZE",
+    zen = "NONE",
   },
 }
 local State = {
-  virtual_full_screen = false,
+  virtual_full_screen = {},
 }
 local Actions = {
   ToggleVirtualFullScreen = wezterm.action_callback(function(window, _)
+    local window_id = window:window_id()
     local overrides = window:get_config_overrides() or {}
-    if State.virtual_full_screen then
+    local is_virtual_full_screen = State.virtual_full_screen[window_id]
+
+    if is_virtual_full_screen then
       overrides.window_decorations = Constants.window_decorations.default
       window:restore()
     else
       overrides.window_decorations = Constants.window_decorations.zen
       window:maximize()
     end
+
     window:set_config_overrides(overrides)
-    State.virtual_full_screen = not State.virtual_full_screen
+    State.virtual_full_screen[window_id] = not is_virtual_full_screen
   end),
 }
 
@@ -258,13 +262,6 @@ config.keys = {
     mods = "ALT|SHIFT",
     action = wezterm.action.SpawnCommandInNewWindow {
       args = { "nu", "-c", "nvim" },
-    },
-  },
-  {
-    key = "n",
-    mods = "ALT|SHIFT",
-    action = wezterm.action.SpawnCommandInNewWindow {
-      args = { "nu" },
     },
   },
   {
