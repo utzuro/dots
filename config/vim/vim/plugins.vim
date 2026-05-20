@@ -68,6 +68,7 @@ Plug 'sheerun/vim-polyglot'
 
 "repl
 Plug 'olical/conjure'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " syntax
 Plug 'fatih/vim-go'

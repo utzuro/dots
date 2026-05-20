@@ -139,6 +139,8 @@ in
 
       # Shell options
       set -o vi
+      typeset -U path PATH
+      path=(~/alchemy/scripts ~/alchemy/scripts/**/*(/N) $path)
       export fpath=(~/.zsh/completion $fpath)
     '';
   };

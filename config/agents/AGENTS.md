@@ -4,17 +4,22 @@
 
 ## Code style
 
-- Write code that is simple and easy to read by humans.
+- Write code that is clean, simple and easy to read by humans.
 - Avoid side-effects: every function must do one thing obvious from the name.
 - Avoid comments if they are not vital. Code should explain itself.
-- Always be consistent with the codebase: check similar code and follow it's patterns.
+- Always be consistent with the codebase: check similar existing code and follow it's patterns.
 - Avoid workarounds or code smell. When task requires the workaround, let me know.
+- Clarify with me when anything is unclear
+- Follow the ADR if you find one.
 
 ## Behaviour
 
-- Keep in mind that human is editing the files during your working sessions,
 - Be mindful about the fact that human is editing the code too, so you need to be careful not to overwrite their changes.
-- Pay extra attention to any new changes that you notice while you work and make sure to adjust your plans to incorporate them cleanly.
+- Pay extra attention to any new changes that you notice appeared while you were working and make sure to adjust your plans to incorporate them cleanly.
 - Every time you plan to apply a patch, re-read the target file first and avoid relying on the file snapshot only.
-- Try to minimize the amount of code. Always try to simplify and make your code effective.
+- Try to minimize the amount of code. Always try to simplify and make your code smart and effective.
 - You must never run mutable git commands. Only humans are authorized to change files with git, commit or push.
+
+## Attention
+
+- Don't pay attention to unrelated untracked files in the git tree.

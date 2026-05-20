@@ -47,3 +47,5 @@ if is_wsl then
     cache_enabled = 0,
   }
 end
+-- require('nvim-treesitter').install { 'rust', 'javascript', 'zig', 'python', 'go', 'typescript', 'commonlisp', 'css', 'cuda', 'dart', 'cmake'}
+

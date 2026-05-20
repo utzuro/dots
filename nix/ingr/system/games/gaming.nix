@@ -22,11 +22,25 @@ let
       export WINEPREFIX="''${WINEPREFIX:-$HOME/darkarts/lib/prefixes/$prefix_name}"
       export STORE="''${STORE:-gog}"
       export GAMEID="''${GAMEID:-umu-default}"
-
       export PROTONPATH="''${PROTONPATH:-GE-Proton}"
 
+      export WINEESYNC="''${WINEESYNC:-1}"
+      export WINEFSYNC="''${WINEFSYNC:-1}"
+      export WINEDLLOVERRIDES="winemenubuilder.exe=;''${WINEDLLOVERRIDES:-}"
+      export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath [ pkgs.SDL2 ]}:''${LD_LIBRARY_PATH:-}"
+
+      exe="$1"
+      shift
+
+      if [[ "$exe" == */* ]]; then
+        exe_dir="$(dirname "$exe")"
+        exe_name="$(basename "$exe")"
+        cd "$exe_dir"
+        exe="./$exe_name"
+      fi
+
       mkdir -p "$WINEPREFIX"
-      exec umu-run "$@"
+      exec umu-run "$exe" "$@"
     '';
   };
 in
