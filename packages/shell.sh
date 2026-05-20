@@ -118,9 +118,9 @@ link_dotfiles() {
 	ln -sfv "$DIR/config/jj/config.toml" "$HOME/.config/jj/config.toml"
 
 	printf "\n⌛... Linking wezterm configs... 📝\n"
-	mkdir -p "$HOME/.config/wezterm/colors/"
+	mkdir -p "$HOME/.config/wezterm/" # colors/"
 	ln -sfv "$DIR/config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
-	ln -sfv "$DIR/config/wezterm/colors/void.toml" "$HOME/.config/wezterm/colors/void.toml"
+	# ln -sfv "$DIR/config/wezterm/colors/void.toml" "$HOME/.config/wezterm/colors/void.toml"
 
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
