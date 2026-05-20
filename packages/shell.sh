@@ -113,6 +113,15 @@ link_dotfiles() {
 	mkdir -p "$HOME/.config/helix/themes"
 	ln -sfv "$DIR/config/helix/themes/void.toml" "$HOME/.config/helix/themes/void.toml"
 
+	printf "\n⌛... Linking jj configs... 📝\n"
+	mkdir -p "$HOME/.config/jj"
+	ln -sfv "$DIR/config/jj/config.toml" "$HOME/.config/jj/config.toml"
+
+	printf "\n⌛... Linking wezterm configs... 📝\n"
+	mkdir -p "$HOME/.config/wezterm/colors/"
+	ln -sfv "$DIR/config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+	ln -sfv "$DIR/config/wezterm/colors/void.toml" "$HOME/.config/wezterm/colors/void.toml"
+
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
 	mkdir -p "$HOME/.config/opencode"
