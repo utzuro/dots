@@ -62,7 +62,7 @@ Plug 'mattn/emmet-vim'
 Plug 'habamax/vim-godot'
 Plug 'mfussenegger/nvim-dap'
 Plug 'leoluz/nvim-dap-go'
-Plug 'dastanaron/prisma.vim'
+Plug 'dastanaron/prisma.nvim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'npm ci'}
 Plug 'sheerun/vim-polyglot'
