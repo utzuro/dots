@@ -23,8 +23,8 @@ config.colors = {
   foreground = "#c0c0c0",
   background = "#040709",
 
-  cursor_bg = "#c1c1c1",
-  cursor_fg = "#090a04",
+  cursor_bg = "#8b118b",
+  cursor_fg = "#ffffff",
   cursor_border = "#7fbfff",
   selection_fg = "#c0c0c0",
   selection_bg = "#303030",
