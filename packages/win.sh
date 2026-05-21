@@ -31,6 +31,7 @@ scoop install ffmpeg vim neovim 7zip curl wget openssh coreutils yt-dlp
 # --- Development tools ---
 scoop install python go protobuf nodejs rustup cmake
 scoop install mingw grpc-tools grpcurl
+scoop install latex
 
 # --- GUI tools ---
 # scoop install libreoffice qbittorrent vlc sumatrapdf anki
