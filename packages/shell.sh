@@ -124,25 +124,17 @@ link_dotfiles() {
 
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
-	mkdir -p "$HOME/.config/opencode"
-	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
-	mkdir -p "$HOME/.pi/agent"
 	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/.pi/agent/AGENTS.md"
-
-	printf "\n⌛... Linking agent skills... 🧠\n"
-	mkdir -p "$HOME/.codex/skills" "$HOME/.opencode/skills"
+	mkdir -p "$HOME/.agents/skills"
 	for skill in "$DIR"/config/agents/skills/*; do
 		[ -e "$skill" ] || continue
 		skill_name="$(basename "$skill")"
-		for skill_dir in "$HOME/.codex/skills" "$HOME/.opencode/skills"; do
-			destination="$skill_dir/$skill_name"
-			if [ -e "$destination" ] || [ -L "$destination" ]; then
-				rm -rf "$destination"
-			fi
-			ln -sfv "$skill" "$destination"
-		done
+		destination="$HOME/.agents/skills/$skill_name"
+		if [ -e "$destination" ] || [ -L "$destination" ]; then
+			rm -rf "$destination"
+		fi
+		ln -sfv "$skill" "$destination"
 	done
-
 }
 
 install_vim_plugins() {
