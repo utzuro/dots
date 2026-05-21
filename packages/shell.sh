@@ -124,6 +124,9 @@ link_dotfiles() {
 
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
+	mkdir -p "$HOME/.pi/agent/themes"
+	ln -sfv "$DIR/config/pi/settings.json" "$HOME/.pi/agent/settings.json"
+	ln -sfv "$DIR/config/pi/themes/void.json" "$HOME/.pi/agent/themes/void.json"
 	ln -sfv "$DIR/config/agents/AGENTS.md" "$HOME/.pi/agent/AGENTS.md"
 	mkdir -p "$HOME/.agents/skills"
 	for skill in "$DIR"/config/agents/skills/*; do
