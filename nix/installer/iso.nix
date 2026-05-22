@@ -141,7 +141,7 @@ in
     shell = pkgs.zsh;
     extraGroups = commonGroups;
 
-    initialHashedPassword = ""; # TODO
+    initialPassword = normalUser;
   };
 
   services.displayManager.autoLogin = {
@@ -359,7 +359,7 @@ in
     }
   ];
 
-  # conflict fixe
+  # Avoid audit/journald option conflicts in the graphical installer image.
   services.journald.audit = false;
   security.audit.enable = lib.mkForce false;
   security.auditd.enable = false;

@@ -3,17 +3,16 @@
 {
 
   services = {
-    # TODO: Serving games ideas:
-    # Homm
-    # WoW / other mmo?
-    # Arma / Squad
-    # Minecraft / Factorio / Terraria
-    # Quake, Doom, UT, Xonotic
-    # OpenRA
-    # 0 A.D. 
-    # Mage (xmage)
-
-    # Voice chat server
+    # Candidate server modules:
+    # - HoMM
+    # - WoW / other MMO
+    # - Arma / Squad
+    # - Minecraft / Factorio / Terraria
+    # - Quake, Doom, UT, Xonotic
+    # - OpenRA
+    # - 0 A.D.
+    # - Mage (XMage)
+    # - voice chat
 
     # Streaming games via Moonlight
     sunshine = {

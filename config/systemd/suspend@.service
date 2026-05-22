@@ -1,12 +1,12 @@
 [Unit]
-Description=User suspend actions
+Description=Lock %i's screen before suspend
 Before=sleep.target
+
 [Service]
+Type=simple
 User=%i
-type=forking
-Environment="DISPLAY=:0"
-ExecStart=/home/void/.config/i3/lock.sh
-ExecPostStart=/usr/bin/sleep 1
+Environment=DISPLAY=:0
+ExecStart=/home/%i/.config/i3/lock.sh
 
 [Install]
 WantedBy=sleep.target

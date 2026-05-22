@@ -61,6 +61,9 @@
     let
       arch = "x86_64-linux";
       lib = nixpkgs.lib;
+      dirs = {
+        config = ../../config;
+      };
       pkgs = (import nixpkgs {
         system = arch;
         config = {
@@ -79,8 +82,6 @@
     in
     {
 
-      # Settings are different across the machines
-      doCheckByDefault = false;
       nixosConfigurations = {
 
         voidpc =
@@ -89,15 +90,19 @@
               inherit arch; host = "voidpc";
               storageDriver = "overlay2";
             };
+            user = {
+              name = "void";
+            };
           in
           lib.nixosSystem {
+            system = arch;
             modules = [
-              # Only on virtual guest
+              # Virtual guest integrations.
+              ./common.nix
               ./virtualbox.nix
               ./vmware.nix
               ./xen.nix
 
-              # Only for NixOS
               ../ingr/system/basic.nix
               ../ingr/system/dev.nix
               ../ingr/system/network/settings.nix
@@ -115,7 +120,7 @@
               ../ingr/system/games/gaming.nix
               ../ingr/system/games/steam.nix
 
-              # Below can be used on mac/wsl
+              # Optional service modules.
               # ../ingr/system/services/homeassistant.nix
               # ../ingr/system/services/sync.nix
               ../ingr/system/services/cloud.nix
@@ -123,25 +128,11 @@
 
             ];
 
-            specialArgs = { inherit system inputs; };
+            specialArgs = { inherit system inputs user; };
           };
 
-        x240 =
-          let
-            system = {
-              inherit arch; host = "x240";
-              storageDriver = "btrfs";
-            };
-          in
-          lib.nixosSystem {
-            modules = [
-            ];
-            specialArgs = { inherit system inputs; };
-          };
       };
 
-
-      # Settings different across users
       homeConfigurations = {
         backupFileExtension = "backup";
         void =
@@ -177,10 +168,9 @@
               inputs.stylix.homeModules.stylix
             ];
 
-            extraSpecialArgs = { inherit user inputs; };
+            extraSpecialArgs = { inherit user inputs dirs; };
           };
 
-        # use the same user name, but different configurations for different machines
         ubuntu =
           let
             user = {
@@ -202,7 +192,7 @@
 
               inputs.stylix.homeModules.stylix
             ];
-            extraSpecialArgs = { inherit user inputs; };
+            extraSpecialArgs = { inherit user inputs dirs; };
           };
       };
     };

@@ -1,9 +1,9 @@
 {
-  description = "root config file for macOS using nix-darwin";
+  description = "nix-darwin config";
 
-  # example usage:
+  # Example:
   # - nix flake update
-  # nix run nix-darwin -- switch --flake .#shigoto
+  # - nix run nix-darwin -- switch --flake .#corp
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -16,53 +16,37 @@
     };
   };
 
-  outputs = { nixpkgs, nix-darwin }@inputs:
-
+  outputs = { nix-darwin, ... }@inputs:
     let
-      arch = "x86_64-linux";
+      arch = "aarch64-darwin";
       lib = nix-darwin.lib;
-      pkgs = (import nixpkgs {
-        system = arch;
-        hostPlatform = arch;
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = (_: true);
-        };
-      });
-
     in
     {
-
-      # Settings are different across the machines
-      nixosConfigurations = {
-
-        darwinConfigurations."corp" =
-          let
-            system = {
-              inherit arch; host = "corp";
-            };
-          in
-          lib.darwinSystem {
-            modules = [
-              ./dev.nix
-
-              # Config MacOS
-              ({
-                nix.settings.experimental-features = "nix-command flakes";
-                system.stateVersion = 5;
-                nixpkgs.hostPlatform = "aarch64-darwin";
-
-                system.defaults = {
-                  dock.autohide = true;
-                  NSGlobalDomain.AppleICUForce24HourTime = true;
-                  NSGlobalDomain.AppleShowAllExtensions = true;
-                  NSGlobalDomain.AppleInterfaceStyle = "Dark";
-                };
-              })
-
-            ];
-            specialArgs = { inherit system pkgs inputs; };
+      darwinConfigurations.corp =
+        let
+          system = {
+            inherit arch;
+            host = "corp";
           };
+        in
+        lib.darwinSystem {
+          modules = [
+            ./dev.nix
+            {
+              nix.settings.experimental-features = "nix-command flakes";
+              nixpkgs.hostPlatform = arch;
+              system.stateVersion = 5;
 
-      };
-    }
+              system.defaults = {
+                dock.autohide = true;
+                NSGlobalDomain.AppleICUForce24HourTime = true;
+                NSGlobalDomain.AppleShowAllExtensions = true;
+                NSGlobalDomain.AppleInterfaceStyle = "Dark";
+              };
+            }
+          ];
+
+          specialArgs = { inherit inputs system; };
+        };
+    };
+}

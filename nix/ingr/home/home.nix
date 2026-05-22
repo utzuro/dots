@@ -14,12 +14,6 @@ in
   home.homeDirectory = homeDir;
   targets.genericLinux.enable = true;
 
-  imports = [
-
-    # something essential?
-
-  ];
-
   programs.home-manager.enable = true;
   home.stateVersion = "26.05";
 }

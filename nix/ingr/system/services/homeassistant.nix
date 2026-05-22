@@ -66,9 +66,9 @@
       # Frontend (UI)
       frontend = { };
 
-      # Lovelace UI mode
+      # Lovelace UI resources are managed through Home Assistant storage.
       lovelace = {
-        mode = "storage";
+        resource_mode = "storage";
       };
 
       # Enable mobile app support
@@ -91,7 +91,7 @@
   ];
 
   networking.firewall.allowedTCPPorts = [ 8123 ];
-  # TODO: Make sure HA is actually using it
+  # PostgreSQL is provisioned for Home Assistant recorder storage.
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "hass" ];

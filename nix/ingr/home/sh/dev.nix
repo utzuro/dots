@@ -48,7 +48,7 @@
     poetry
     nox
     ruff
-    ## dpes
+    ## deps
     (pkgs.python3.withPackages (
       python-pkgs: with python-pkgs; [
         pip

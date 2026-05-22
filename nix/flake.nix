@@ -100,7 +100,7 @@
     in
     {
 
-      # Settings are different across the machines
+      # NixOS host profiles.
       nixosConfigurations = {
 
         voidpc =
@@ -114,7 +114,6 @@
           in
           lib.nixosSystem {
             modules = [
-              # Only for NixOS
               disko.nixosModules.disko
               ./ingr/machines/${system.host}/hardware-configuration.nix
               ./ingr/system/boot.nix
@@ -135,19 +134,19 @@
 
               ./ingr/system/hardware/nfs.nix
 
-              ./ingr/system/games/gaming.nix #TODO
+              ./ingr/system/games/gaming.nix
               ./ingr/system/games/steam.nix
 
-              # Below can be used on mac/wsl
+              # Optional service modules.
               # ./ingr/system/services/homeassistant.nix
-              # ./ingr/system/games/game-server.nix # TODO
-              ./ingr/system/services/sync.nix # TODO
+              # ./ingr/system/games/game-server.nix
+              ./ingr/system/services/sync.nix
               ./ingr/system/services/cloud.nix
               ./ingr/system/services/ml.nix
               ./ingr/system/services/storage.nix
               ./ingr/system/services/monitoring.nix
 
-              # temporary fixes, etc
+              # Local overrides and compatibility fixes.
               ./ingr/system/temp.nix
 
             ];
@@ -167,7 +166,6 @@
           in
           lib.nixosSystem {
             modules = [
-              # Only for NixOS
               disko.nixosModules.disko
               ./ingr/machines/${system.host}/hardware-configuration.nix
               ./ingr/system/boot.nix
@@ -185,7 +183,7 @@
 
               ./ingr/system/hardware/nfs.nix
 
-              # temporary fixes, etc
+              # Local overrides and compatibility fixes.
               ./ingr/system/temp.nix
 
             ];
@@ -205,7 +203,6 @@
           in
           lib.nixosSystem {
             modules = [
-              # Only for NixOS
               disko.nixosModules.disko
               ./ingr/machines/${system.host}/hardware-configuration.nix
               ./ingr/system/boot.nix
@@ -223,7 +220,7 @@
 
               ./ingr/system/hardware/nfs.nix
 
-              # temporary fixes, etc
+              # Local overrides and compatibility fixes.
               ./ingr/system/temp.nix
 
             ];
@@ -234,7 +231,7 @@
       };
 
 
-      # Settings different across users
+      # Home Manager profiles.
       homeConfigurations = {
         void =
           let

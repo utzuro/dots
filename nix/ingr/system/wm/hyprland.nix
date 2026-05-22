@@ -15,7 +15,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # Not using any bar or now
+    # Bar alternatives kept disabled for now.
     # waybar
     # eww
     hyprlock

@@ -2,3 +2,5 @@
 hyprpaper.conf
 hyprlux.toml
 *.secret.*
+config/ncmpcpp/error.log
+config/newsboat/cache.db

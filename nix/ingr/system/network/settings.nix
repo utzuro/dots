@@ -26,7 +26,7 @@
     };
   };
 
-  # TODO: setup wifi here
+  # Enable this block on hosts managed by systemd-networkd Wi-Fi.
   # systemd.network.networks."20-w" = {
   #   matchConfig.Name = "wl*";
   #   networkConfig = {

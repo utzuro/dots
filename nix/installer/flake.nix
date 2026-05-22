@@ -70,7 +70,7 @@
       arch = "x86_64-linux";
       lib = nixpkgs.lib;
       dirs = {
-        config = ../config;
+        config = ../../config;
       };
       pkgs = (import nixpkgs {
         system = arch;
@@ -90,8 +90,6 @@
     in
     {
 
-      # Settings are different across the machines
-      doCheckByDefault = false;
       nixosConfigurations = {
 
         voidpc =
@@ -104,38 +102,38 @@
             };
           in
           lib.nixosSystem {
+            system = arch;
             modules = [
-              # Only for NixOS
               disko.nixosModules.disko
-              ./ingr/machines/${system.host}/hardware-configuration.nix
-              ./ingr/system/boot.nix
-              ./ingr/system/basic.nix
-              ./ingr/system/firewall.nix
-              ./ingr/system/dev.nix
-              ./ingr/system/network/settings.nix
-              ./ingr/system/network/vpn.nix
-              ./ingr/system/virtualization.nix
+              ../ingr/machines/${system.host}/hardware-configuration.nix
+              ../ingr/system/boot.nix
+              ../ingr/system/basic.nix
+              ../ingr/system/firewall.nix
+              ../ingr/system/dev.nix
+              ../ingr/system/network/settings.nix
+              ../ingr/system/network/vpn.nix
+              ../ingr/system/virtualization.nix
 
-              ./ingr/system/wm/all.nix
-              # ./ingr/system/gui.nix # move to home manager
+              ../ingr/system/wm/all.nix
+              # ../ingr/system/gui.nix # move to home manager
 
-              ./ingr/system/power/pc.nix
-              ./ingr/system/hardware/intel.nix
-              ./ingr/system/hardware/video.nix
-              ./ingr/system/hardware/nvidia.nix
+              ../ingr/system/power/pc.nix
+              ../ingr/system/hardware/intel.nix
+              ../ingr/system/hardware/video.nix
+              ../ingr/system/hardware/nvidia.nix
 
-              ./ingr/system/hardware/nfs.nix
+              ../ingr/system/hardware/nfs.nix
 
-              ./ingr/system/games/gaming.nix
-              ./ingr/system/games/steam.nix
+              ../ingr/system/games/gaming.nix
+              ../ingr/system/games/steam.nix
 
-              # Below can be used on mac/wsl
-              ./ingr/system/services/homeassistant.nix
-              # ./ingr/system/services/sync.nix
-              ./ingr/system/services/cloud.nix
-              ./ingr/system/services/ml.nix
-              ./ingr/system/services/storage.nix
-              # ./ingr/system/services/monitoring.nix
+              # Optional service modules.
+              ../ingr/system/services/homeassistant.nix
+              # ../ingr/system/services/sync.nix
+              ../ingr/system/services/cloud.nix
+              ../ingr/system/services/ml.nix
+              ../ingr/system/services/storage.nix
+              # ../ingr/system/services/monitoring.nix
 
             ];
 
@@ -143,25 +141,8 @@
 
           };
 
-        x240 =
-          let
-            system = {
-              inherit arch; host = "x240";
-              storageDriver = "btrfs";
-            };
-            user = {
-              name = "void";
-            };
-          in
-          lib.nixosSystem {
-            modules = [
-            ];
-            specialArgs = { inherit system inputs user; };
-          };
       };
 
-
-      # Settings different across users
       homeConfigurations = {
         void =
           let
@@ -175,27 +156,27 @@
             inherit pkgs;
             modules = [
 
-              ./ingr/home/home.nix
-              ./ingr/home/env.nix
-              ./ingr/home/theme.nix
-              ./ingr/home/fonts.nix
+              ../ingr/home/home.nix
+              ../ingr/home/env.nix
+              ../ingr/home/theme.nix
+              ../ingr/home/fonts.nix
 
-              ./ingr/home/wm/all.nix
+              ../ingr/home/wm/all.nix
 
-              ./ingr/home/sh/basic.nix
-              ./ingr/home/sh/power.nix
-              ./ingr/home/sh/learn.nix
-              ./ingr/home/sh/dev.nix
-              ./ingr/home/sh/games.nix
-              ./ingr/home/sh/subs.nix
+              ../ingr/home/sh/basic.nix
+              ../ingr/home/sh/power.nix
+              ../ingr/home/sh/learn.nix
+              ../ingr/home/sh/dev.nix
+              ../ingr/home/sh/games.nix
+              ../ingr/home/sh/subs.nix
 
-              ./ingr/home/gui/browser.nix
-              ./ingr/home/gui/dev.nix
-              ./ingr/home/gui/media.nix
-              ./ingr/home/gui/comms.nix
-              ./ingr/home/gui/games.nix
+              ../ingr/home/gui/browser.nix
+              ../ingr/home/gui/dev.nix
+              ../ingr/home/gui/media.nix
+              ../ingr/home/gui/comms.nix
+              ../ingr/home/gui/games.nix
 
-              # ./ingr/home/corp.nix
+              # ../ingr/home/corp.nix
 
               inputs.stylix.homeModules.stylix
             ];
@@ -203,7 +184,6 @@
             extraSpecialArgs = { inherit user inputs dirs; };
           };
 
-        # use the same user name, but different configurations for different machines
         ubuntu =
           let
             user = {
@@ -214,15 +194,15 @@
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [
-              ./ingr/home/home.nix
-              ./ingr/home/env.nix
-              ./ingr/home/fonts.nix
+              ../ingr/home/home.nix
+              ../ingr/home/env.nix
+              ../ingr/home/fonts.nix
 
-              ./ingr/home/sh/basic.nix
-              ./ingr/home/sh/power.nix
-              ./ingr/home/sh/media.nix
-              ./ingr/home/sh/dev.nix
-              ./ingr/home/sh/games.nix
+              ../ingr/home/sh/basic.nix
+              ../ingr/home/sh/power.nix
+              ../ingr/home/sh/media.nix
+              ../ingr/home/sh/dev.nix
+              ../ingr/home/sh/games.nix
 
               inputs.stylix.homeModules.stylix
             ];

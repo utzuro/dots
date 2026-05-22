@@ -9,6 +9,36 @@
 
   services = {
     awww.enable = true;
+
+    mako = {
+      enable = true;
+      settings = {
+        font = lib.mkForce "${config.stylix.fonts.sansSerif.name} 24";
+
+        width = 600;
+        height = 200;
+        padding = 20;
+        max-icon-size = 96;
+        border-radius = 0;
+        icons = true;
+        layer = "top";
+        margin = 10;
+        markup = true;
+
+        ignore-timeout = false;
+        default-timeout = 3000;
+
+        on-button-left = "dismiss";
+        on-button-middle = "dismiss-all";
+        on-button-right = "dismiss";
+
+        "actionable=true" = {
+          anchor = "top-left";
+        };
+        actions = true;
+        anchor = "top-right";
+      };
+    };
   };
 
 

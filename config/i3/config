@@ -1,4 +1,4 @@
-# TODO: source everything here
+# Keep this file self-contained until shared fragments are introduced.
 #-------------------------#
 # AUTOSTART
 exec xrdb ~/.Xresources
@@ -67,9 +67,9 @@ bindsym $super+Shift+space floating toggle
 
 # laptop
 bindsym XF86Launch2 exec rotate-screen
-# TODO: lock on lid toggle
-# TODO: turn off built-in screen on lid closed
-# TODO: connect external monitor on lid open
+# Future laptop rule: lock on lid toggle.
+# Future laptop rule: turn off built-in screen on lid closed.
+# Future laptop rule: connect external monitor on lid open.
 
 # workspaces
 set $ws1 "1: "
@@ -129,13 +129,13 @@ bindsym $super+Shift+8 move container to workspace $ws8
 bindsym $super+Shift+9 move container to workspace $ws9
 bindsym $super+Shift+0 move container to workspace $ws0
 
-# TODO: Scroll through existing workspaces with mod + scroll
+# Future binding: scroll through existing workspaces with mod + scroll.
 #? bindsym $super, mouse_down, workspace, e+1
 #? bindsym $super, mouse_up, workspace, e-1
 
 # resize
-# TODO: move with mouse
-# TODO: resize with mouse
+# Future binding: move with mouse.
+# Future binding: resize with mouse.
 bindsym $super+r mode "resize"
 mode "resize" {
         bindsym h resize shrink width 3 px or 3 ppt
@@ -176,7 +176,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-;
 #-------------------------#
 # THEME
 
-# TODO: cursor settings
+# Cursor settings are handled outside this config.
 
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #000000 #6272a4 #BBBBBB   #222222

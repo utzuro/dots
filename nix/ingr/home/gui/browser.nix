@@ -49,9 +49,9 @@
   # LIBREWOLF
 
 
-  # After changing to this librwwolf started crashing
+  # Disabled: this declaration made LibreWolf crash and needs a safer migration
+  # from the current Firefox-style options.
   # programs.librewolf = {
-  #   # TODO: update librewolf declaration to include firefox options
   #   enable = true;
   #   settings = {
   #     "font.size.variable.x-western" = "20";

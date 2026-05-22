@@ -3,8 +3,7 @@
 {
   virtualisation.virtualbox.guest = {
     enable = true;
-    clillpboard = true;
+    clipboard = true;
     dragAndDrop = true;
-    x11 = true;
   };
 }

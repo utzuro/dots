@@ -36,7 +36,7 @@
     # kanji
     noto-fonts-cjk-sans
 
-    # TODO: setup
+    # Installed for editors/terminals that opt into it.
     monaspace
   ];
 }
