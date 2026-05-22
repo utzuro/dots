@@ -101,7 +101,6 @@
     {
 
       # Settings are different across the machines
-      doCheckByDefault = false;
       nixosConfigurations = {
 
         voidpc =
@@ -198,7 +197,7 @@
         x240 =
           let
             system = {
-              inherit arch; host = "voidpc";
+              inherit arch; host = "x240";
             };
             user = {
               name = "void";

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 rm -rf ~/.mozilla/firefox/void/containers.json
 rm -rf ~/.mozilla/firefox/void/containers.json.backup
 rm -rf ~/.config/mimeapps.list

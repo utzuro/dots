@@ -134,7 +134,7 @@
     redis
     ## managers
     prisma
-    prisma_language_server
+    prisma-language-server
     # clients
     pgcli
     mycli

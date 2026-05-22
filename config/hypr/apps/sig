@@ -1,1 +1,2 @@
+#!/usr/bin/env bash
 signal-desktop $ELECTRON_FLAGS

@@ -11,7 +11,7 @@
 
     polarity = "dark";
     base16Scheme = ./lib/theme.yaml;
-    image = ./lib/i/background.png;
+    image = ./lib/i/background.jpg;
 
     opacity = {
       applications = 0.8;

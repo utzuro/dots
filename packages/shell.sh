@@ -248,7 +248,7 @@ setup_ssh() {
 link_images() {
 	printf "\n⌛... Linking image files... 🖇\n"
 	ln -sfv "$DIR/ingr/i/.face" "$HOME/.face" || true
-	ln -sfv "$DIR/ingr/i/background.png" "$HOME/background.png" || true
+	ln -sfv "$DIR/ingr/i/background.jpg" "$HOME/background.jpg" || true
 }
 
 ### 🐚 Default shell handling
