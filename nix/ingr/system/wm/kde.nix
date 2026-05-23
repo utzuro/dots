@@ -8,12 +8,15 @@
 
   # Use KDE's portal for better integration
   xdg.portal = {
-    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+    extraPortals = [
+      pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.kdePackages.kwallet
+    ];
     # Let KDE portal handle KDE apps, GTK portal handle GTK apps
     config = {
       kde = {
         default = [ "kde" "gtk" ];
-        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+        "org.freedesktop.impl.portal.Secret" = [ "kwallet" ];
       };
     };
   };

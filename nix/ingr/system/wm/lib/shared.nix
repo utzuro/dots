@@ -9,6 +9,13 @@
   fonts.fontDir.enable = true;
 
   services.flatpak.enable = true;
+  services.dbus.packages = [
+    (pkgs.writeTextDir "share/dbus-1/services/org.freedesktop.secrets.service" ''
+      [D-BUS Service]
+      Name=org.freedesktop.secrets
+      Exec=${pkgs.kdePackages.kwallet}/bin/ksecretd
+    '')
+  ];
 
   xdg = {
     portal = {
@@ -16,8 +23,12 @@
       wlr.enable = true;
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
+        pkgs.kdePackages.kwallet
       ];
-      config.common.default = "*";
+      config.common = {
+        default = "*";
+        "org.freedesktop.impl.portal.Secret" = [ "kwallet" ];
+      };
     };
     mime.enable = true;
   };
@@ -60,8 +71,17 @@
 
   # Security
   security.pam.services = {
-    sddm.enableGnomeKeyring = true;
-    login.enableGnomeKeyring = true;
+    sddm = {
+      enableGnomeKeyring = lib.mkForce false;
+      kwallet.enable = true;
+    };
+    login = {
+      enableGnomeKeyring = lib.mkForce false;
+      kwallet = {
+        enable = true;
+        forceRun = true;
+      };
+    };
     swaylock = {
       text = ''
         auth include login
@@ -69,10 +89,15 @@
       '';
     };
   };
-  programs.seahorse.enable = true;
+  programs.seahorse.enable = lib.mkForce false;
 
-  # KWallet for credential storage (alternative to gnome-keyring)
-  # security.pam.services.sddm.enableKwallet = true;
+  environment.etc."xdg/kwalletrc".text = ''
+    [Wallet]
+    Enabled=true
+
+    [org.freedesktop.secrets]
+    apiEnabled=true
+  '';
 
   # Apps useful for any desktop environment
 
@@ -102,6 +127,7 @@
     alacritty
     st
     kdePackages.konsole
+    kdePackages.kwalletmanager
 
     # theme
     adwaita-icon-theme

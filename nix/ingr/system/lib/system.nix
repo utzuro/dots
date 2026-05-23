@@ -17,7 +17,7 @@
 
   security.rtkit.enable = true;
   services = {
-    gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = lib.mkForce false;
     gvfs = {
       enable = true;
       package = lib.mkForce pkgs.gvfs;

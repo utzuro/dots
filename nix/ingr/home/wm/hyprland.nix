@@ -28,12 +28,14 @@
         ignore-timeout = false;
         default-timeout = 3000;
 
-        on-button-left = "dismiss";
+        on-button-left = ''exec makoctl menu -n "$id" -- fuzzel --dmenu'';
         on-button-middle = "dismiss-all";
         on-button-right = "dismiss";
 
         "actionable=true" = {
           anchor = "top-left";
+          ignore-timeout = false;
+          default-timeout = 3000;
         };
         actions = true;
         anchor = "top-right";
@@ -88,8 +90,8 @@
   };
 
   wayland.windowManager.hyprland.plugins = [
-    inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
-    inputs.hyprland-easymotion.packages.${pkgs.system}.hyprland-easymotion
+    inputs.hypr-darkwindow.packages.${pkgs.stdenv.hostPlatform.system}.Hypr-DarkWindow
+    inputs.hyprland-easymotion.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-easymotion
     pkgs.hyprlandPlugins.hyprgrass
     pkgs.hyprlandPlugins.hyprtrails
     pkgs.hyprlandPlugins.hypr-dynamic-cursors
@@ -147,7 +149,7 @@
     anyrun = {
       enable = true;
       config = {
-        plugins = with inputs.anyrun.packages.${pkgs.system}; [
+        plugins = with inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}; [
           applications
           stdin
           rink

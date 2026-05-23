@@ -106,6 +106,9 @@
     # android
     android-tools
     jmtpfs
+
+    # lib
+    gum
   ];
 
   nixpkgs.overlays = [

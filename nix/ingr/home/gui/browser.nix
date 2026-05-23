@@ -97,7 +97,7 @@
     profiles.${user.name} = {
       isDefault = true;
 
-      extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+      extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
         multi-account-containers
 
         ublock-origin

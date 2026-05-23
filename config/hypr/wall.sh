@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-awww-daemon &>/dev/null &
-
 EXTERNAL_DISK="/mnt/seance/mysticism"
 EXTERNAL_ALT="/mnt/zalot/mysticism"
 HOME_DIR="$HOME/mysticism"

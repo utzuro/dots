@@ -8,5 +8,7 @@
     qbittorrent
     qgis
     kooha
+    calibre
+    calibre-web
   ];
 }

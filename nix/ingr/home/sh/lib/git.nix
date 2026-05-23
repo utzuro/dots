@@ -147,7 +147,7 @@
   home.packages = with pkgs; [
     onefetch
     jujutsu
-    inputs.agents.packages.${system}.tuicr
+    inputs.agents.packages.${pkgs.stdenv.hostPlatform.system}.tuicr
     mergiraf
   ];
 

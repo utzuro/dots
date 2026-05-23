@@ -20,6 +20,8 @@
     LEDGER = "$HOME/alchemy/manuscripts/ledger/main.ledger";
     ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
 
+    PI_OFFLINE = "1";
+
     # DEV
     # Go
     GOPATH = "$HOME/go";
