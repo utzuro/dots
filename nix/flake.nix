@@ -74,7 +74,14 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, disko, nix-gaming, ... }@inputs:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      disko,
+      nix-gaming,
+      ...
+    }@inputs:
 
     let
       arch = "x86_64-linux";
@@ -82,23 +89,26 @@
       dirs = {
         config = ../config;
       };
-      pkgs = (import nixpkgs {
-        system = arch;
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = (_: true);
-          android_sdk.accept_license = true;
-          doCheckByDefault = false;
-        };
-        overlays = [
-          (final: prev: {
-            gaming = nix-gaming.packages.${arch};
-          })
-        ];
-      });
+      pkgs = (
+        import nixpkgs {
+          system = arch;
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = (_: true);
+            android_sdk.accept_license = true;
+            doCheckByDefault = false;
+          };
+          overlays = [
+            (final: prev: {
+              gaming = nix-gaming.packages.${arch};
+            })
+          ];
+        }
+      );
 
     in
     {
+      formatter.${arch} = pkgs.nixfmt-tree;
 
       # NixOS host profiles.
       nixosConfigurations = {
@@ -106,7 +116,8 @@
         voidpc =
           let
             system = {
-              inherit arch; host = "voidpc";
+              inherit arch;
+              host = "voidpc";
             };
             user = {
               name = "void";
@@ -158,7 +169,8 @@
         vm =
           let
             system = {
-              inherit arch; host = "voidpc";
+              inherit arch;
+              host = "voidpc";
             };
             user = {
               name = "void";
@@ -195,7 +207,8 @@
         x240 =
           let
             system = {
-              inherit arch; host = "x240";
+              inherit arch;
+              host = "x240";
             };
             user = {
               name = "void";
@@ -229,7 +242,6 @@
 
           };
       };
-
 
       # Home Manager profiles.
       homeConfigurations = {

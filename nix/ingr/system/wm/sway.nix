@@ -12,7 +12,7 @@
   };
 
   # monitor hot swapping
-  # exec sleep 5; systemctl --user start kanshi.service 
+  # exec sleep 5; systemctl --user start kanshi.service
   systemd.user.services.kanshi = {
     description = "kanshi daemon";
     environment = {
@@ -21,9 +21,8 @@
     };
     serviceConfig = {
       Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+      ExecStart = "${pkgs.kanshi}/bin/kanshi -c kanshi_config_file";
     };
   };
-
 
 }

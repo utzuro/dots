@@ -2,41 +2,44 @@
 
 {
   fonts.fontconfig.enable = true;
-  home.packages = with pkgs; with nerd-fonts; [
+  home.packages =
+    with pkgs;
+    with nerd-fonts;
+    [
 
-    # main
-    hack
-    dejavu_fonts # default
-    go-mono
-    geist-mono
-    commit-mono
-    inconsolata-lgc
-    _0xproto
-    source-sans-pro
+      # main
+      hack
+      dejavu_fonts # default
+      go-mono
+      geist-mono
+      commit-mono
+      inconsolata-lgc
+      _0xproto
+      source-sans-pro
 
-    # bitmap
-    gohufont
+      # bitmap
+      gohufont
 
-    # compability
-    wineWow64Packages.fonts
-    liberation
-    tinos
-    arimo
-    cousine
-    noto
+      # compability
+      wineWow64Packages.fonts
+      liberation
+      tinos
+      arimo
+      cousine
+      noto
 
-    # support
-    powerline-fonts
-    font-awesome
-    noto-fonts-color-emoji
-    hurmit
-    hasklug
-    symbols-only
+      # support
+      powerline-fonts
+      font-awesome
+      noto-fonts-color-emoji
+      hurmit
+      hasklug
+      symbols-only
 
-    # kanji
-    noto-fonts-cjk-sans
+      # kanji
+      noto-fonts-cjk-sans
 
-    # Installed for editors/terminals that opt into it.
-    monaspace
-  ];
+      # Installed for editors/terminals that opt into it.
+      monaspace
+    ];
 }

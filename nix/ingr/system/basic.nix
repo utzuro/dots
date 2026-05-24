@@ -44,13 +44,12 @@ let
 in
 {
 
-  imports =
-    [
-      ./lib/system.nix
-      ./lib/user.nix
-      ./lib/security.nix
-      ./lib/fonts.nix
-    ];
+  imports = [
+    ./lib/system.nix
+    ./lib/user.nix
+    ./lib/security.nix
+    ./lib/fonts.nix
+  ];
 
   system.copySystemConfiguration = false;
   system.stateVersion = "26.05";
@@ -184,6 +183,7 @@ in
     # user environment & OS tooling
     home-manager
     nixos-generators
+    nixfmt-tree
     zsync
   ];
 

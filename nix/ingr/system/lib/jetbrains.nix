@@ -1,4 +1,9 @@
-{ pkgs, system, plugins, ... }:
+{
+  pkgs,
+  system,
+  plugins,
+  ...
+}:
 
 let
   pluginList = [
@@ -49,25 +54,27 @@ let
 in
 {
 
+  environment.systemPackages =
+    with pkgs;
+    with plugins.lib."${system.arch}";
+    [
+      jetbrains.jdk
 
-  environment.systemPackages = with pkgs; with plugins.lib."${system.arch}"; [
-    jetbrains.jdk
+      vscode
+      android-studio
+      jetbrains.writerside
 
-    vscode
-    android-studio
-    jetbrains.writerside
-
-    (buildIdeWithPlugins jetbrains "goland" pluginList)
-    (buildIdeWithPlugins jetbrains "clion" pluginList)
-    (buildIdeWithPlugins jetbrains "rider" pluginList)
-    (buildIdeWithPlugins jetbrains "webstorm" pluginList)
-    # (buildIdeWithPlugins jetbrains "idea-ultimate" pluginList)
-    # (buildIdeWithPlugins jetbrains "pycharm-professional" pluginList)
-    # (buildIdeWithPlugins jetbrains "rust-rover" pluginList)
-    # (buildIdeWithPlugins jetbrains "ruby-mine" pluginList)
-    # (buildIdeWithPlugins jetbrains "datagrip" pluginList)
-    # (buildIdeWithPlugins jetbrains "dataspell" pluginList)
-    # (buildIdeWithPlugins jetbrains "aqua" pluginList)
-  ];
+      (buildIdeWithPlugins jetbrains "goland" pluginList)
+      (buildIdeWithPlugins jetbrains "clion" pluginList)
+      (buildIdeWithPlugins jetbrains "rider" pluginList)
+      (buildIdeWithPlugins jetbrains "webstorm" pluginList)
+      # (buildIdeWithPlugins jetbrains "idea-ultimate" pluginList)
+      # (buildIdeWithPlugins jetbrains "pycharm-professional" pluginList)
+      # (buildIdeWithPlugins jetbrains "rust-rover" pluginList)
+      # (buildIdeWithPlugins jetbrains "ruby-mine" pluginList)
+      # (buildIdeWithPlugins jetbrains "datagrip" pluginList)
+      # (buildIdeWithPlugins jetbrains "dataspell" pluginList)
+      # (buildIdeWithPlugins jetbrains "aqua" pluginList)
+    ];
 
 }

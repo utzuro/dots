@@ -99,7 +99,7 @@
 
     # Fix flickering with NVIDIA
     unredir-if-possible = false;
-    
+
     # Performance
     use-damage = true;
   '';

@@ -1,4 +1,9 @@
-{ pkgs, user, inputs, ... }:
+{
+  pkgs,
+  user,
+  inputs,
+  ...
+}:
 
 {
 
@@ -124,7 +129,10 @@
       enableZshIntegration = true;
       settings = {
         lightTheme = false;
-        activeBorderColor = [ "violet" "bold" ];
+        activeBorderColor = [
+          "violet"
+          "bold"
+        ];
         inactiveBorderColor = [ "black" ];
         selectedLineBgColor = [ "default" ];
         git = {

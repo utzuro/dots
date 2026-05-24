@@ -4,7 +4,10 @@
 {
   nixpkgs.config.allowUnfree = true;
   nix.package = pkgs.nixVersions.latest;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
     "nixos-config=$HOME/dots/nix/configuration.nix"
@@ -47,6 +50,9 @@
       "samba"
     ];
   };
-  nix.settings.trusted-users = [ user.name "root" ];
+  nix.settings.trusted-users = [
+    user.name
+    "root"
+  ];
   programs.zsh.enable = true;
 }

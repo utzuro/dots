@@ -4,8 +4,7 @@
   services = {
 
     autorandr.enable = true;
-    udev.extraRules = ''
-      ACTION=="change", SUBSYSTEM=="drm", RUN+="${pkgs.autorandr}/bin/autorandr -c"'';
+    udev.extraRules = ''ACTION=="change", SUBSYSTEM=="drm", RUN+="${pkgs.autorandr}/bin/autorandr -c"'';
 
   };
 

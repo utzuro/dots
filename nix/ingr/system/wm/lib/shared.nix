@@ -39,10 +39,10 @@
 
     # DPI settings
     dpi = 204;
-    displayManager.sessionCommands = ''  
-      ${pkgs.xrdb}/bin/xrdb -merge <<EOF  
-      Xft.dpi: 100  
-    EOF  
+    displayManager.sessionCommands = ''
+        ${pkgs.xrdb}/bin/xrdb -merge <<EOF  
+        Xft.dpi: 100  
+      EOF  
     '';
 
     desktopManager.runXdgAutostartIfNone = true;

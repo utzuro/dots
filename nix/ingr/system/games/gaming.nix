@@ -76,13 +76,13 @@ in
 
     (lutris.override {
       extraLibraries = pkgs: [
-        # If any games are unable to run 
-        # due to missing dependencies, 
+        # If any games are unable to run
+        # due to missing dependencies,
         # libraries can be installed here.
       ];
       extraPkgs = pkgs: [
-        # If any games are unable to run 
-        # due to missing dependencies, 
+        # If any games are unable to run
+        # due to missing dependencies,
         # pkgs can be installed here.
       ];
     })
@@ -135,7 +135,7 @@ in
     #===Strategy
     wesnoth
     unciv
-    mindustry-wayland #mindustry
+    mindustry-wayland # mindustry
     opendune
     zeroad
     unvanquished
@@ -182,7 +182,7 @@ in
     ###########################################
     ## BUILDING ISSUES
     # warzone2100
-    # devilutionx 
+    # devilutionx
   ];
 
   programs.firejail.wrappedBinaries = {

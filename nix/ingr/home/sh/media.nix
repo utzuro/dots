@@ -41,7 +41,6 @@
       scroll_down_album
   '';
 
-
   xdg.configFile."mimeapps.list".force = true;
   xdg.mimeApps = {
     enable = true;

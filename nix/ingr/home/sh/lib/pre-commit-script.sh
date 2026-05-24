@@ -72,6 +72,34 @@ run_and_add() {
 	git add -- "${files[@]}"
 }
 
+nearest_flake_dir() {
+	local dir
+	dir=$(dirname "$1")
+	while [ "$dir" != "." ] && [ "$dir" != "/" ]; do
+		if [ -f "$dir/flake.nix" ]; then
+			printf '%s\n' "$dir"
+			return 0
+		fi
+		dir=$(dirname "$dir")
+	done
+
+	if [ -f flake.nix ]; then
+		printf '.\n'
+		return 0
+	fi
+
+	return 1
+}
+
+add_unique_flake_dir() {
+	local candidate="$1"
+	local existing
+	for existing in "${nix_flake_dirs[@]}"; do
+		[ "$existing" = "$candidate" ] && return 0
+	done
+	nix_flake_dirs+=("$candidate")
+}
+
 # ---- Formatters / Linters by language --------------------------------------
 
 # Python: ruff format (you asked for this explicitly)
@@ -318,12 +346,25 @@ if [ "${#xml[@]}" -gt 0 ]; then
 	fi
 fi
 
-# Nix: nixpkgs-fmt
+# Nix: use the nearest flake formatter, falling back to nixpkgs-fmt.
 if [ "${#nix[@]}" -gt 0 ]; then
-	if have nixpkgs-fmt; then
+	nix_flake_dirs=()
+	for f in "${nix[@]}"; do
+		if flake_dir=$(nearest_flake_dir "$f"); then
+			add_unique_flake_dir "$flake_dir"
+		fi
+	done
+
+	if have nix && [ "${#nix_flake_dirs[@]}" -gt 0 ]; then
+		for flake_dir in "${nix_flake_dirs[@]}"; do
+			echo "→ nix fmt ($flake_dir): ${#nix[@]} file(s)"
+			(cd "$flake_dir" && nix fmt)
+		done
+		git add -- "${nix[@]}"
+	elif have nixpkgs-fmt; then
 		run_and_add "nixpkgs-fmt" "${nix[@]}"
 	else
-		echo "⚠️  nixpkgs-fmt not found; skipping .nix formatting. Install via: nix-env -iA nixpkgs.nixpkgs-fmt (or flakes)."
+		echo "⚠️  nix formatter not found; install nix or nixpkgs-fmt."
 	fi
 fi
 

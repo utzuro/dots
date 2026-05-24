@@ -5,15 +5,17 @@
     nixpkgs.url = "nixpkgs/nixos-24.05";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       pkgs = import nixpkgs { system = "x86_64-linux"; };
       pkgsAarch64 = import nixpkgs { system = "aarch64-linux"; };
 
-      # Different iso file can be specified in the drive-parameter, for example for Ubuntu Server ARM64.  
-      iso = (pkgsAarch64.nixos {
-        imports = [ "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix" ];
-      }).config.system.build.isoImage;
+      # Different iso file can be specified in the drive-parameter, for example for Ubuntu Server ARM64.
+      iso =
+        (pkgsAarch64.nixos {
+          imports = [ "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix" ];
+        }).config.system.build.isoImage;
 
       vmScript = pkgs.writeScriptBin "run-nixos-vm" ''
         #!${pkgs.runtimeShell}
@@ -32,4 +34,3 @@
       defaultPackage.x86_64-linux = vmScript;
     };
 }
-

@@ -1,8 +1,13 @@
-{ pkgs, user, inputs, ... }:
+{
+  pkgs,
+  user,
+  inputs,
+  ...
+}:
 
 {
   nixpkgs.overlays = [
-    # QUTEBROWSER 
+    # QUTEBROWSER
 
     (final: prev: {
       qutebrowser = prev.qutebrowser.override {
@@ -48,7 +53,6 @@
 
   # LIBREWOLF
 
-
   # Disabled: this declaration made LibreWolf crash and needs a safer migration
   # from the current Firefox-style options.
   # programs.librewolf = {
@@ -89,7 +93,9 @@
     pref("webgl.disabled",true);
   '';
 
-  home.sessionVariables = { DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf"; };
+  home.sessionVariables = {
+    DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
+  };
 
   # FIREFOX
   programs.firefox = {
@@ -142,39 +148,50 @@
         engines = {
 
           "Kagi" = {
-            urls = [{ template = "https://kagi.com/search?q={searchTerms}"; }];
+            urls = [ { template = "https://kagi.com/search?q={searchTerms}"; } ];
             icon = "https://kagi.com/favicon.ico";
-            definedAliases = [ "@k" "kagi" ];
+            definedAliases = [
+              "@k"
+              "kagi"
+            ];
           };
 
           "Nix Packages" = {
-            urls = [{
-              template = "https://search.nixos.org/packages";
-              params = [
-                { name = "type"; value = "packages"; }
-                { name = "query"; value = "{searchTerms}"; }
-              ];
-            }];
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
 
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [ "@np" ];
           };
 
           "NixOS Wiki" = {
-            urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; }];
+            urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
             icon = "https://wiki.nixos.org/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = [ "@nw" ];
           };
 
           "Jisho" = {
-            urls = [{ template = "https://jisho.org/search/{searchTerms}"; }];
+            urls = [ { template = "https://jisho.org/search/{searchTerms}"; } ];
             icon = "https://jisho.org/favicon.ico";
             definedAliases = [ "@j" ];
           };
 
           "Amazon" = {
-            urls = [{ template = "https://www.amazon.co.jp/s?k={searchTerms}"; }];
+            urls = [ { template = "https://www.amazon.co.jp/s?k={searchTerms}"; } ];
             icon = "https://www.amazon.com/favicon.ico";
             definedAliases = [ "@a" ];
           };
@@ -199,19 +216,45 @@
         # "gift", "vacation", "food", "fruit", "pet", "tree", "chill"
 
         # colors:
-        # "blue", "turquoise", "green", "yellow", "orange", 
+        # "blue", "turquoise", "green", "yellow", "orange",
         # "red", "pink", "purple", "toolbar"
 
-        anon = { color = "purple"; icon = "fingerprint"; id = 1; };
-        utzuro = { color = "pink"; icon = "briefcase"; id = 2; };
-        adept = { color = "orange"; icon = "pet"; id = 3; };
-        ai = { color = "turquoise"; icon = "tree"; id = 4; };
-        shopping = { color = "green"; icon = "cart"; id = 5; };
-        blocked = { color = "red"; icon = "fence"; id = 6; };
-        gig = { color = "green"; icon = "dollar"; id = 7; };
+        anon = {
+          color = "purple";
+          icon = "fingerprint";
+          id = 1;
+        };
+        utzuro = {
+          color = "pink";
+          icon = "briefcase";
+          id = 2;
+        };
+        adept = {
+          color = "orange";
+          icon = "pet";
+          id = 3;
+        };
+        ai = {
+          color = "turquoise";
+          icon = "tree";
+          id = 4;
+        };
+        shopping = {
+          color = "green";
+          icon = "cart";
+          id = 5;
+        };
+        blocked = {
+          color = "red";
+          icon = "fence";
+          id = 6;
+        };
+        gig = {
+          color = "green";
+          icon = "dollar";
+          id = 7;
+        };
       };
     };
   };
 }
-
-

@@ -3,7 +3,11 @@
 
 {
   boot = {
-    kernelModules = [ "i2c-dev" "i2c-piix4" "cpufreq_schedutil" ];
+    kernelModules = [
+      "i2c-dev"
+      "i2c-piix4"
+      "cpufreq_schedutil"
+    ];
   };
 
   powerManagement.enable = true;

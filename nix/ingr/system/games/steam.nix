@@ -6,7 +6,7 @@
 # - gamescope %command% to run in container
 # Or combine with
 # mangohud gamemoderun %command% OR MANGOHUD=1 gamemoderun %command%
-# Specify container parameters 
+# Specify container parameters
 # gamescope -W 3840 -H 2160 -r 119 -f -e -- mangohud gamemoderun %command%
 
 {
@@ -57,7 +57,6 @@
   '';
 
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-      "\${HOME}/.steam/root/compatibilitytools.d"; # for protonup to work
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d"; # for protonup to work
   };
 }

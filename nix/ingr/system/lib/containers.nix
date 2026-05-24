@@ -28,7 +28,7 @@
     kubectl
     kubernetes-helm
     kompose
-    # podman-compose 
+    # podman-compose
     docker
     docker-compose
     compose2nix
@@ -36,4 +36,3 @@
   ];
 
 }
-

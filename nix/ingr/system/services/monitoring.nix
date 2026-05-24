@@ -1,172 +1,178 @@
 { config, pkgs, ... }:
 
 let
-  systemDashboard = pkgs.writeTextDir "system-overview.json" (builtins.toJSON {
-    uid = "nixos-otel-system";
-    title = "NixOS system via OpenTelemetry";
-    tags = [ "nixos" "opentelemetry" "prometheus" ];
-    timezone = "browser";
-    schemaVersion = 39;
-    version = 1;
-    refresh = "10s";
-    time = {
-      from = "now-1h";
-      to = "now";
-    };
+  systemDashboard = pkgs.writeTextDir "system-overview.json" (
+    builtins.toJSON {
+      uid = "nixos-otel-system";
+      title = "NixOS system via OpenTelemetry";
+      tags = [
+        "nixos"
+        "opentelemetry"
+        "prometheus"
+      ];
+      timezone = "browser";
+      schemaVersion = 39;
+      version = 1;
+      refresh = "10s";
+      time = {
+        from = "now-1h";
+        to = "now";
+      };
 
-    panels = [
-      {
-        id = 1;
-        title = "CPU busy";
-        type = "timeseries";
-        datasource = {
-          type = "prometheus";
-          uid = "prometheus";
-        };
-        gridPos = {
-          h = 8;
-          w = 12;
-          x = 0;
-          y = 0;
-        };
-        fieldConfig = {
-          defaults = {
-            unit = "percent";
-            min = 0;
-            max = 100;
+      panels = [
+        {
+          id = 1;
+          title = "CPU busy";
+          type = "timeseries";
+          datasource = {
+            type = "prometheus";
+            uid = "prometheus";
           };
-          overrides = [ ];
-        };
-        targets = [
-          {
-            refId = "A";
-            expr = ''100 * (1 - avg(rate(system_cpu_time_seconds_total{state="idle"}[5m])))'';
-            legendFormat = "busy";
-          }
-        ];
-      }
+          gridPos = {
+            h = 8;
+            w = 12;
+            x = 0;
+            y = 0;
+          };
+          fieldConfig = {
+            defaults = {
+              unit = "percent";
+              min = 0;
+              max = 100;
+            };
+            overrides = [ ];
+          };
+          targets = [
+            {
+              refId = "A";
+              expr = ''100 * (1 - avg(rate(system_cpu_time_seconds_total{state="idle"}[5m])))'';
+              legendFormat = "busy";
+            }
+          ];
+        }
 
-      {
-        id = 2;
-        title = "Memory used";
-        type = "timeseries";
-        datasource = {
-          type = "prometheus";
-          uid = "prometheus";
-        };
-        gridPos = {
-          h = 8;
-          w = 12;
-          x = 12;
-          y = 0;
-        };
-        fieldConfig = {
-          defaults = {
-            unit = "percent";
-            min = 0;
-            max = 100;
+        {
+          id = 2;
+          title = "Memory used";
+          type = "timeseries";
+          datasource = {
+            type = "prometheus";
+            uid = "prometheus";
           };
-          overrides = [ ];
-        };
-        targets = [
-          {
-            refId = "A";
-            expr = ''100 * sum(system_memory_usage_bytes{state="used"}) / sum(system_memory_usage_bytes)'';
-            legendFormat = "used";
-          }
-        ];
-      }
+          gridPos = {
+            h = 8;
+            w = 12;
+            x = 12;
+            y = 0;
+          };
+          fieldConfig = {
+            defaults = {
+              unit = "percent";
+              min = 0;
+              max = 100;
+            };
+            overrides = [ ];
+          };
+          targets = [
+            {
+              refId = "A";
+              expr = ''100 * sum(system_memory_usage_bytes{state="used"}) / sum(system_memory_usage_bytes)'';
+              legendFormat = "used";
+            }
+          ];
+        }
 
-      {
-        id = 3;
-        title = "Filesystem used";
-        type = "timeseries";
-        datasource = {
-          type = "prometheus";
-          uid = "prometheus";
-        };
-        gridPos = {
-          h = 8;
-          w = 12;
-          x = 0;
-          y = 8;
-        };
-        fieldConfig = {
-          defaults = {
-            unit = "percent";
-            min = 0;
-            max = 100;
+        {
+          id = 3;
+          title = "Filesystem used";
+          type = "timeseries";
+          datasource = {
+            type = "prometheus";
+            uid = "prometheus";
           };
-          overrides = [ ];
-        };
-        targets = [
-          {
-            refId = "A";
-            expr = ''100 * (1 - (sum by (mountpoint) (system_filesystem_usage_bytes{state="free", mountpoint!~"/(run|dev|proc|sys).*"}) / sum by (mountpoint) (system_filesystem_usage_bytes{mountpoint!~"/(run|dev|proc|sys).*"})))'';
-            legendFormat = "{{mountpoint}}";
-          }
-        ];
-      }
+          gridPos = {
+            h = 8;
+            w = 12;
+            x = 0;
+            y = 8;
+          };
+          fieldConfig = {
+            defaults = {
+              unit = "percent";
+              min = 0;
+              max = 100;
+            };
+            overrides = [ ];
+          };
+          targets = [
+            {
+              refId = "A";
+              expr = ''100 * (1 - (sum by (mountpoint) (system_filesystem_usage_bytes{state="free", mountpoint!~"/(run|dev|proc|sys).*"}) / sum by (mountpoint) (system_filesystem_usage_bytes{mountpoint!~"/(run|dev|proc|sys).*"})))'';
+              legendFormat = "{{mountpoint}}";
+            }
+          ];
+        }
 
-      {
-        id = 4;
-        title = "Network IO";
-        type = "timeseries";
-        datasource = {
-          type = "prometheus";
-          uid = "prometheus";
-        };
-        gridPos = {
-          h = 8;
-          w = 12;
-          x = 12;
-          y = 8;
-        };
-        fieldConfig = {
-          defaults = {
-            unit = "Bps";
+        {
+          id = 4;
+          title = "Network IO";
+          type = "timeseries";
+          datasource = {
+            type = "prometheus";
+            uid = "prometheus";
           };
-          overrides = [ ];
-        };
-        targets = [
-          {
-            refId = "A";
-            expr = ''sum by (device, direction) (rate(system_network_io_bytes_total[5m]))'';
-            legendFormat = "{{device}} {{direction}}";
-          }
-        ];
-      }
+          gridPos = {
+            h = 8;
+            w = 12;
+            x = 12;
+            y = 8;
+          };
+          fieldConfig = {
+            defaults = {
+              unit = "Bps";
+            };
+            overrides = [ ];
+          };
+          targets = [
+            {
+              refId = "A";
+              expr = "sum by (device, direction) (rate(system_network_io_bytes_total[5m]))";
+              legendFormat = "{{device}} {{direction}}";
+            }
+          ];
+        }
 
-      {
-        id = 5;
-        title = "Postgres exporter up";
-        type = "stat";
-        datasource = {
-          type = "prometheus";
-          uid = "prometheus";
-        };
-        gridPos = {
-          h = 4;
-          w = 6;
-          x = 0;
-          y = 16;
-        };
-        fieldConfig = {
-          defaults = {
-            unit = "none";
+        {
+          id = 5;
+          title = "Postgres exporter up";
+          type = "stat";
+          datasource = {
+            type = "prometheus";
+            uid = "prometheus";
           };
-          overrides = [ ];
-        };
-        targets = [
-          {
-            refId = "A";
-            expr = "pg_up";
-            legendFormat = "pg_up";
-          }
-        ];
-      }
-    ];
-  });
+          gridPos = {
+            h = 4;
+            w = 6;
+            x = 0;
+            y = 16;
+          };
+          fieldConfig = {
+            defaults = {
+              unit = "none";
+            };
+            overrides = [ ];
+          };
+          targets = [
+            {
+              refId = "A";
+              expr = "pg_up";
+              legendFormat = "pg_up";
+            }
+          ];
+        }
+      ];
+    }
+  );
 in
 {
   services = {

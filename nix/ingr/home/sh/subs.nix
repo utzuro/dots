@@ -59,7 +59,10 @@
       }
 
       {
-        tags = [ "dev" "sre" ];
+        tags = [
+          "dev"
+          "sre"
+        ];
         url = "https://www.datadoghq.com/blog/index.xml";
       }
 
@@ -85,7 +88,10 @@
         url = "https://www.schneier.com/blog/atom.xml";
       }
       {
-        tags = [ "reverse" "engineering" ];
+        tags = [
+          "reverse"
+          "engineering"
+        ];
         url = "https://www.reddit.com/r/ReverseEngineering/.rss";
       }
       {
@@ -95,7 +101,10 @@
 
       # security
       {
-        tags = [ "security" "datadog" ];
+        tags = [
+          "security"
+          "datadog"
+        ];
         url = "https://securitylabs.datadoghq.com/rss/feed.xml";
       }
 
@@ -157,4 +166,3 @@
     ];
   };
 }
-

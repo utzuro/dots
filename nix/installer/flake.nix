@@ -64,7 +64,14 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, disko, nix-gaming, ... }@inputs:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      disko,
+      nix-gaming,
+      ...
+    }@inputs:
 
     let
       arch = "x86_64-linux";
@@ -72,20 +79,22 @@
       dirs = {
         config = ../../config;
       };
-      pkgs = (import nixpkgs {
-        system = arch;
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = (_: true);
-          android_sdk.accept_license = true;
-          doCheckByDefault = false;
-        };
-        overlays = [
-          (final: prev: {
-            gaming = nix-gaming.packages.${arch};
-          })
-        ];
-      });
+      pkgs = (
+        import nixpkgs {
+          system = arch;
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = (_: true);
+            android_sdk.accept_license = true;
+            doCheckByDefault = false;
+          };
+          overlays = [
+            (final: prev: {
+              gaming = nix-gaming.packages.${arch};
+            })
+          ];
+        }
+      );
 
     in
     {
@@ -95,7 +104,8 @@
         voidpc =
           let
             system = {
-              inherit arch; host = "voidpc";
+              inherit arch;
+              host = "voidpc";
             };
             user = {
               name = "void";

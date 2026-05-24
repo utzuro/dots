@@ -16,7 +16,8 @@
     };
   };
 
-  outputs = { nix-darwin, ... }@inputs:
+  outputs =
+    { nix-darwin, ... }@inputs:
     let
       arch = "aarch64-darwin";
       lib = nix-darwin.lib;

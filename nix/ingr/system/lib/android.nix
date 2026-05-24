@@ -6,4 +6,3 @@
     androidenv.androidPkgs.all
   ];
 }
-

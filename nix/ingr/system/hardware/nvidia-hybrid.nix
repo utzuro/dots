@@ -2,11 +2,10 @@
 
 {
   nix.settings.substituters = [ "https://cuda-maintainers.cachix.org" ];
-  services.xserver.videoDrivers =
-    [
-      "nvidia"
-      "modesetting"
-    ];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "modesetting"
+  ];
 
   # Virtualization
   hardware.nvidia-container-toolkit.enable = true;

@@ -15,7 +15,10 @@
     # Let KDE portal handle KDE apps, GTK portal handle GTK apps
     config = {
       kde = {
-        default = [ "kde" "gtk" ];
+        default = [
+          "kde"
+          "gtk"
+        ];
         "org.freedesktop.impl.portal.Secret" = [ "kwallet" ];
       };
     };
@@ -26,54 +29,57 @@
     # Use "plasmax11" for X11 session if Wayland has issues
   };
 
-  environment.systemPackages = with pkgs.kdePackages; [
-    # Wayland support
-    plasma-workspace
-    plasma-integration # Better Qt app integration
+  environment.systemPackages =
+    with pkgs.kdePackages;
+    [
+      # Wayland support
+      plasma-workspace
+      plasma-integration # Better Qt app integration
 
-    # Account integration
-    kaccounts-integration
-    kaccounts-providers
-    signond # SSO daemon for accounts
+      # Account integration
+      kaccounts-integration
+      kaccounts-providers
+      signond # SSO daemon for accounts
 
-    # System tools
-    packagekit-qt # Software updates
-    ksystemstats # System monitoring
-    plasma-systemmonitor # System monitor app
-    kinfocenter # System information
-    partitionmanager # Disk management
-    filelight # Disk usage visualization
+      # System tools
+      packagekit-qt # Software updates
+      ksystemstats # System monitoring
+      plasma-systemmonitor # System monitor app
+      kinfocenter # System information
+      partitionmanager # Disk management
+      filelight # Disk usage visualization
 
-    # KDE applications (essentials)
-    dolphin # File manager
-    dolphin-plugins
-    ark # Archive manager
-    spectacle # Screenshots
-    gwenview # Image viewer
-    okular # Document viewer
-    kate # Text editor
-    kcalc # Calculator
-    kcharselect # Character picker
+      # KDE applications (essentials)
+      dolphin # File manager
+      dolphin-plugins
+      ark # Archive manager
+      spectacle # Screenshots
+      gwenview # Image viewer
+      okular # Document viewer
+      kate # Text editor
+      kcalc # Calculator
+      kcharselect # Character picker
 
-    # Networking
-    plasma-nm # NetworkManager applet
-    kdeconnect-kde # Phone integration
+      # Networking
+      plasma-nm # NetworkManager applet
+      kdeconnect-kde # Phone integration
 
-    # Multimedia
-    plasma-pa # PulseAudio/PipeWire applet
-    elisa # Music player (optional)
+      # Multimedia
+      plasma-pa # PulseAudio/PipeWire applet
+      elisa # Music player (optional)
 
-    # Appearance
-    breeze-icons
-    oxygen-icons
+      # Appearance
+      breeze-icons
+      oxygen-icons
 
-    # Portal support
-    xdg-desktop-portal-kde
-  ] ++ (with pkgs; [
-    # Non-KDE but useful with Plasma
-    libportal # Portal library
-    libportal-qt6 # Qt6 portal bindings
-  ]);
+      # Portal support
+      xdg-desktop-portal-kde
+    ]
+    ++ (with pkgs; [
+      # Non-KDE but useful with Plasma
+      libportal # Portal library
+      libportal-qt6 # Qt6 portal bindings
+    ]);
 
   # KDE Connect (phone integration)
   # programs.kdeconnect.enable = true;

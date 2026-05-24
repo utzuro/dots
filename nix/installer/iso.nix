@@ -5,7 +5,12 @@
 # ISO will be under:
 #   result-iso/iso/*.iso
 
-{ lib, pkgs, modulesPath, ... }:
+{
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}:
 
 let
   liveUser = "nixos";
@@ -122,8 +127,15 @@ in
   boot.tmp.tmpfsSize = "80%";
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "root" liveUser normalUser ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    trusted-users = [
+      "root"
+      liveUser
+      normalUser
+    ];
     max-jobs = "auto";
     cores = 0;
   };
@@ -303,7 +315,12 @@ in
   system.activationScripts.liveDotfiles = {
     deps = [ "users" ];
     text = ''
-      for u in ${lib.escapeShellArgs [ liveUser normalUser ]}; do
+      for u in ${
+        lib.escapeShellArgs [
+          liveUser
+          normalUser
+        ]
+      }; do
         if ! id "$u" >/dev/null 2>&1; then
           continue
         fi
@@ -338,13 +355,18 @@ in
   # embed a copy of config repo into /etc/nixos/voidos.
   environment.etc."nixos/voidos".source = lib.cleanSourceWith {
     src = ../.;
-    filter = path: type:
-      let name = baseNameOf path;
-      in !(name == ".git"
+    filter =
+      path: type:
+      let
+        name = baseNameOf path;
+      in
+      !(
+        name == ".git"
         || name == "result"
         || name == "result-iso"
         || name == "secrets"
-        || name == "hashedPasswordFile");
+        || name == "hashedPasswordFile"
+      );
   };
 
   isoImage.contents = [

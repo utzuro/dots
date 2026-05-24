@@ -23,7 +23,6 @@
       # package = pkgs.waydroid-nftables;
     };
 
-
     # Works but libvirtd is better on linux
     # virtualbox.host = {
     #   enable = true;
@@ -97,4 +96,3 @@
   ];
 
 }
-

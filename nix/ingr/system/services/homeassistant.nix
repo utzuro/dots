@@ -4,10 +4,11 @@
   services.home-assistant = {
     enable = true;
     configDir = "/var/lib/hass";
-    extraPackages = ps: with ps; [
-      psycopg2
-      numpy
-    ];
+    extraPackages =
+      ps: with ps; [
+        psycopg2
+        numpy
+      ];
 
     extraComponents = [
       # Components required to complete the onboarding
@@ -95,9 +96,11 @@
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "hass" ];
-    ensureUsers = [{
-      name = "hass";
-      ensureDBOwnership = true;
-    }];
+    ensureUsers = [
+      {
+        name = "hass";
+        ensureDBOwnership = true;
+      }
+    ];
   };
 }

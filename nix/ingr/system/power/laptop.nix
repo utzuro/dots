@@ -3,7 +3,11 @@
 
 {
   boot = {
-    kernelModules = [ "i2c-dev" "i2c-piix4" "cpufreq_powersave" ];
+    kernelModules = [
+      "i2c-dev"
+      "i2c-piix4"
+      "cpufreq_powersave"
+    ];
   };
 
   powerManagement.enable = true; # managed by tlp
@@ -19,4 +23,3 @@
     ];
   };
 }
-

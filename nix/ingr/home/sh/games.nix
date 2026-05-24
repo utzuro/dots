@@ -16,10 +16,10 @@
 
     # arcade
     ltris
-    bastet #tetris
+    bastet # tetris
     ninvaders
     njam
-    nsnake #nudoku
+    nsnake # nudoku
     gltron
     moon-buggy
 

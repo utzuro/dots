@@ -34,9 +34,14 @@
     dbus.enable = true;
     udev = {
       enable = true;
-      packages = with pkgs; [ platformio-core openocd ];
+      packages = with pkgs; [
+        platformio-core
+        openocd
+      ];
     };
-    sysprof = { enable = true; };
+    sysprof = {
+      enable = true;
+    };
   };
 
   # Allows nix-ld to be used as the default linker.

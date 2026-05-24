@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
 
@@ -32,4 +37,4 @@
     mesa
     mesa-demos
   ];
-} 
+}

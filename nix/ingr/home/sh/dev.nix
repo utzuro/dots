@@ -23,7 +23,7 @@
     # go
     go
     gopls
-    gotags #gomod2nix
+    gotags # gomod2nix
     gofumpt
     golangci-lint
     goda

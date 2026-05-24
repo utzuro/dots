@@ -3,8 +3,17 @@
 
 {
   boot = {
-    kernelModules = [ "xe" "i2c-dev" "i2c-piix4" ];
-    kernelParams = [ "intel_idle.max_cstate=1" "i915.enable_dc=0" "ahci.mobile_lpm_policy=1" "i915.force_probe=7d55" ];
+    kernelModules = [
+      "xe"
+      "i2c-dev"
+      "i2c-piix4"
+    ];
+    kernelParams = [
+      "intel_idle.max_cstate=1"
+      "i915.enable_dc=0"
+      "ahci.mobile_lpm_policy=1"
+      "i915.force_probe=7d55"
+    ];
   };
 
   powerManagement = {
@@ -16,8 +25,8 @@
     lidSwitch = "suspend-then-hibernate";
     lidSwitchExternalPower = "lock";
     lidSwitchDocked = "ignore";
-    # one of "ignore", "poweroff", "reboot", 
-    # "halt", "kexec", "suspend", "hibernate", 
+    # one of "ignore", "poweroff", "reboot",
+    # "halt", "kexec", "suspend", "hibernate",
     # "hybrid-sleep", "suspend-then-hibernate", "lock"
   };
 
@@ -74,4 +83,3 @@
     ];
   };
 }
-

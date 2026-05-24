@@ -15,27 +15,33 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-on-droid }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nix-on-droid,
+    }:
 
     let
       arch = "aarch64-linux";
-      pkgs = (import nixpkgs {
-        system = arch;
-        config = {
-          # allowUnfree = true;
-          allowUnfreePredicate = (_: true); #rar
-        };
-      });
+      pkgs = (
+        import nixpkgs {
+          system = arch;
+          config = {
+            # allowUnfree = true;
+            allowUnfreePredicate = (_: true); # rar
+          };
+        }
+      );
 
     in
     {
-      nixOnDroidConfigurations.default =
-        nix-on-droid.lib.nixOnDroidConfiguration {
-          inherit pkgs;
-          modules = [
-            ./system.nix
-            ./home.nix
-          ];
-        };
+      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        inherit pkgs;
+        modules = [
+          ./system.nix
+          ./home.nix
+        ];
+      };
     };
 }

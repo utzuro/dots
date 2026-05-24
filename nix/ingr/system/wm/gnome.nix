@@ -10,9 +10,7 @@
     desktopManager.gnome.enable = false;
   };
 
-  environment.systemPackages =
-    (with pkgs; [ ])
-    ++ (with pkgs.gnomeExtensions; [ appindicator ]);
+  environment.systemPackages = (with pkgs; [ ]) ++ (with pkgs.gnomeExtensions; [ appindicator ]);
 
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
 

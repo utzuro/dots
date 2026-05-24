@@ -26,7 +26,13 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixos-wsl, ... }@inputs:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixos-wsl,
+      ...
+    }@inputs:
     let
       arch = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -112,7 +118,14 @@
               }
             ];
 
-            specialArgs = { inherit system pkgs inputs user; };
+            specialArgs = {
+              inherit
+                system
+                pkgs
+                inputs
+                user
+                ;
+            };
           };
       };
 
