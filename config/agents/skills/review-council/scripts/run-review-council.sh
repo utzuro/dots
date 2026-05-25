@@ -68,7 +68,9 @@ context_files="$({
 } | awk '!seen[$0]++' | sort)"
 project_docs="$({
 	for file in PLAN.md SPEC.md ADR.md; do
-		[[ -f "$repo_root/$file" ]] && echo "$repo_root/$file"
+		if [[ -f "$repo_root/$file" ]]; then
+			echo "$repo_root/$file"
+		fi
 	done
 } | sort)"
 run_id="$(date +%Y%m%d-%H%M%S)"
