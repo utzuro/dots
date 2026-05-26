@@ -18,6 +18,8 @@
     "orange": "#ff9f1c",
     "green": "#39ff14",
     "red": "#ff3b6b",
+    "userPanel": "#2a0040",
+    "userText": "#fff27a",
     "textMuted": "#b8a7d9",
     "textDim": "#66547f",
     "borderMuted": "#302044"
@@ -36,8 +38,8 @@
     "thinkingText": "textMuted",
 
     "selectedBg": "#241033",
-    "userMessageBg": "black",
-    "userMessageText": "",
+    "userMessageBg": "userPanel",
+    "userMessageText": "userText",
     "customMessageBg": "black",
     "customMessageText": "",
     "customMessageLabel": "magentaSoft",
