@@ -5,7 +5,8 @@ description: Runs a parallel council of read-only Pi code reviewers with distinc
 
 # Review Council
 
-Use this skill to review current code changes by delegating to separate read-only Pi subprocesses. The caller agent must not perform the review itself and must not modify files while using this skill.
+Use this skill to review current code changes when user asks for a final review by delegating to separate read-only Pi subprocesses. The caller agent must not perform the review itself and must not modify files while using this skill.
+This is heavy task, so run it only for a final review.
 
 ## Quick start
 
