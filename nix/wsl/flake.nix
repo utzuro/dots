@@ -65,7 +65,17 @@
           lib.nixosSystem {
             system = arch;
             modules = [
-              { nix.registry.nixpkgs.flake = nixpkgs; }
+              {
+                nix.registry.nixpkgs.flake = nixpkgs;
+                nixpkgs = {
+                  hostPlatform = arch;
+                  config = {
+                    allowUnfree = true;
+                    allowUnfreePredicate = (_: true);
+                    android_sdk.accept_license = true;
+                  };
+                };
+              }
 
               ./apps.nix
               ../ingr/system/basic.nix
@@ -73,7 +83,7 @@
               # ../ingr/system/network/settings.nix
 
               ../ingr/system/services/storage.nix
-              # ../ingr/system/temp.nix
+              ../ingr/system/temp.nix
 
               # Setup WSL
               nixos-wsl.nixosModules.default
@@ -124,7 +134,6 @@
             specialArgs = {
               inherit
                 system
-                pkgs
                 inputs
                 user
                 ;
