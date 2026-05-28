@@ -48,4 +48,6 @@ if is_wsl then
   }
 end
 -- require('nvim-treesitter').install { 'rust', 'javascript', 'zig', 'python', 'go', 'typescript', 'commonlisp', 'css', 'cuda', 'dart', 'cmake'}
-
+local langs = { 'rust', 'javascript', 'zig', 'python', 'go', 'typescript', 'commonlisp', 'css', 'cuda', 'dart', 'cmake'}
+vim.treesitter.language.reqgister('tsx', 'typescriptreact')
+require('nvim-treesitter').install(langs)
