@@ -19,6 +19,7 @@
     #pprof
     devcontainer
     heaptrack
+    tree-sitter
 
     # go
     go
