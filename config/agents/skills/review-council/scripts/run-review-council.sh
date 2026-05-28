@@ -21,10 +21,8 @@ Environment:
   PI_REVIEW_BASE      Base ref to compare against. Default: main, then origin/main.
   PI_REVIEW_TIMEOUT   Per-reviewer timeout. Default: 900s.
   PI_REVIEWERS        Comma-separated ids, or all. Default: all.
-                      ids: pragmatic, clean-architecture, paranoid,
-                           reliability, security, adversary, wise,
-                           simple-dude, qa, rockstar, product-manager,
-                           grumpy-critic, arbiter
+                      ids: pragmatic, clean-architecture, edge-reliability,
+                           security, qa
   PI_REVIEW_MODEL     Optional model passed to each pi subprocess.
 HELP
 	exit 0
@@ -85,7 +83,10 @@ system_prompt_file="$tmp_dir/system-prompt.md"
 cat >"$system_prompt_file" <<'SYSTEM_PROMPT'
 You are a read-only code reviewer subprocess. Review only from your assigned perspective. Do not modify files or run non-read-only commands.
 
-Report only concrete, actionable issues introduced by this patch that the author would likely fix. Ignore taste/style unless it hides a real correctness, maintainability, test, product, or production risk. If claiming breakage, name the affected path/scenario. Keep line ranges short and preferably on changed lines.
+Report only concrete, actionable issues introduced by this patch that the author would likely fix. 
+Avoid overengineering and make sure extra complexity justifes risk mitigation before introducing one.
+Ignore taste/style unless it hides a real correctness or risk.
+If claiming breakage, name the affected path/scenario. Keep line ranges short and preferably on changed lines.
 
 Priorities: P0 blocking, P1 urgent, P2 normal, P3 low.
 
@@ -141,7 +142,7 @@ Process:
 - Stay in your reviewer role and report only concrete, actionable findings.
 - Read listed AGENTS.md and root PLAN.md/SPEC.md/ADR.md when useful.
 - Start from the diff; inspect surrounding code with read-only tools as needed.
-- Treat untracked files as new files.
+- Treat untracked files as new files but ignore if they are not part of the reviewed change.
 - Do not edit, format, or run fix commands.
 
 Context files that may be relevant:
@@ -264,19 +265,11 @@ out_files=()
 err_files=()
 exit_files=()
 
-start_reviewer "pragmatic" "Pragmatic reviewer" "Check for obvious errors, missing implementation, misunderstood requirements, broken handling, incorrect assumptions, and code paths that simply will not work. Think like a builder validating that the implementation is complete enough to run. Prefer concrete bugs over taste."
-start_reviewer "clean-architecture" "Clean architecture reviewer" "Check maintainability, separation of concerns, responsibility boundaries, naming, reuse, coupling, observability, hidden side effects, unnecessary duplication, unnecessary fragmentation, and whether the code is simple to understand and reason about."
-start_reviewer "paranoid" "Paranoid reviewer" "Analyze edge cases, failure modes, all important flows, unexpected inputs, state transitions, invalid states, and whether behavior remains acceptable when things go wrong."
-start_reviewer "reliability" "Reliability reviewer" "Attack retries, concurrency, idempotency, timeouts, cancellation, resource leaks, partial failure, rollback/partial-success behavior, data loss/corruption, degraded dependencies, and race-prone state transitions."
-start_reviewer "security" "Security reviewer" "Attack trust boundaries, auth/authz, secrets, injection, deserialization, unsafe file/network/shell usage, dependency and supply-chain exposure, and places where a malicious user can cross privilege or data boundaries."
-start_reviewer "adversary" "Adversary reviewer" "Try to produce concrete counterexamples and exploit cases. Look for malicious inputs, worst-case sequences, invalid states, invariant violations, and the smallest scenario that breaks the patch's assumptions."
-start_reviewer "wise" "Wise reviewer" "Take a bird's-eye view. Check whether the implementation fits the system, domain, and direction; notice missed obvious product/domain/system concerns; call out when the change moves in the wrong direction."
-start_reviewer "simple-dude" "Simple dude" "Protect against overengineering. Point out code, tests, abstractions, configuration, branching, or workflows that are too complex and can be reasonably safely simplified or removed."
+start_reviewer "pragmatic" "Pragmatic/product reviewer" "Check for obvious errors, missing implementation, misunderstood requirements, broken handling, incorrect assumptions, code paths that simply will not work or will produce undesirable results and/or effect, and whether the implementation is complete enough to run. Also check specs, business requirements, invariants, risk assumptions, and user/client expectations; focus on gaps that could make clients angry, confused, blocked, unsupported, or unhappy even if the code technically works. Prefer concrete bugs over taste."
+start_reviewer "clean-architecture" "Architecture/simplicity reviewer" "Check maintainability, separation of concerns, responsibility boundaries, naming, reuse, coupling, observability, hidden side effects, unnecessary duplication, unnecessary fragmentation, and whether the code is simple to understand and reason about. Protect against overengineering and accidental complexity. Point out code, tests, abstractions, configuration, branching, or workflows that can be reasonably safely simplified or removed. Also look for creative, elegant, high-leverage alternatives that are grounded in this patch and likely worth author attention."
+start_reviewer "edge-reliability" "Edge/reliability/adversary reviewer" "Analyze edge cases, failure modes, all important flows, unexpected inputs, state transitions, invalid states, retries, concurrency, idempotency, timeouts, cancellation, resource leaks, partial failure, rollback/partial-success behavior, data loss/corruption, degraded dependencies, and race-prone state transitions. Try to produce concrete counterexamples, malicious inputs, worst-case sequences, invariant violations, and the smallest scenario that breaks the patch's assumptions. Be strict about production risk, but report only concrete actionable findings grounded in the patch that are serious and probable enough to justify code changes."
+start_reviewer "security" "Security reviewer" "Attack trust boundaries, auth/authz, secrets, injection, deserialization, unsafe file/network/shell usage, dependency and supply-chain exposure, and places where a malicious user can cross privilege or data boundaries. Don't be over paranoid and work only on real threats."
 start_reviewer "qa" "QA reviewer" "Review tests derived from specs and business requirements rather than implementation-detail coupling. Flag missing requirement coverage, cheating, brittle, excessive, too-broad, duplicated, or unnecessary tests. Prefer small, generalized, clearly necessary tests."
-start_reviewer "rockstar" "Rockstar reviewer" "Look for creative, powerful, elegant, high-leverage alternatives that could fit the problem much better. Only report ideas grounded in this patch and likely worth author attention."
-start_reviewer "product-manager" "Product manager" "Check whether the implementation follows specs, business requirements, invariants, risk assumptions, and user/client expectations. Focus on gaps that could make clients angry, confused, blocked, unsupported, or unhappy even if the code technically works."
-start_reviewer "grumpy-critic" "Grumpy critic" "Be strict, tired, and hard to impress. Attack anything that is not written in the best reasonable way or could cause production issues. Still report only concrete, actionable findings grounded in the patch."
-start_reviewer "arbiter" "Arbiter reviewer" "Act as an evidence auditor. Compare every potential claim against the diff, context files, and read-only tool results before reporting it; reject speculation, overclaims, and findings that cannot be tied to an actual path/scenario."
 
 if [[ "${#pids[@]}" -eq 0 ]]; then
 	echo "Error: no reviewers selected by PI_REVIEWERS=$reviewer_filter" >&2
