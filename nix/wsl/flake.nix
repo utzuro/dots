@@ -73,7 +73,7 @@
               # ../ingr/system/network/settings.nix
 
               ../ingr/system/services/storage.nix
-              ../ingr/system/temp.nix
+              # ../ingr/system/temp.nix
 
               # Setup WSL
               nixos-wsl.nixosModules.default
