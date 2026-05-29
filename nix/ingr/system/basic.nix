@@ -115,14 +115,6 @@ in
     msr-tools
     coppwr
 
-    # audio & pipewire
-    alsa-utils
-    crosspipe
-    pwvucontrol
-    pavucontrol
-    easyeffects
-    playerctl
-
     # filesystem & disks
     gparted
     gptfdisk
@@ -162,17 +154,13 @@ in
     librespeed-cli
     librespeed-rust
 
-    # bluetooth & wireless UI
-    bluetuith
-    bluetui
-    overskride
-
     # hardware testing & stress
     memtest86plus
     stressapptest
 
     # media tools
     mpv
+    vlc
     ffmpeg
     imagemagick
 

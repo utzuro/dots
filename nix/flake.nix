@@ -129,6 +129,7 @@
               ./ingr/machines/${system.host}/hardware-configuration.nix
               ./ingr/system/boot.nix
               ./ingr/system/basic.nix
+              ./ingr/system/audio.nix
               ./ingr/system/firewall.nix
               ./ingr/system/dev.nix
               ./ingr/system/network/settings.nix

@@ -1,4 +1,4 @@
-{ system, ... }:
+{ system, pkgs, ... }:
 
 {
   networking.hostName = "${system.host}";
@@ -127,4 +127,12 @@
     };
   };
   services.blueman.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    # bluetooth & wireless UI
+    bluetuith
+    bluetui
+    overskride
+  ];
+
 }
