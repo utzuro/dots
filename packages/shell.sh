@@ -119,6 +119,7 @@ link_dotfiles() {
 
 	printf "\n⌛... Linking yazi configs... 📝\n"
 	mkdir -p "$HOME/.config/yazi/plugins"
+	ln -sfv "$DIR/config/yazi/init.lua" "$HOME/.config/yazi/init.lua"
 	ln -sfv "$DIR/config/yazi/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 	ln -sfv "$DIR/config/yazi/keymap.toml" "$HOME/.config/yazi/keymap.toml"
 	yazi_plugin="$HOME/.config/yazi/plugins/minimal.yazi"
