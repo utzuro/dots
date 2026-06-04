@@ -38,7 +38,8 @@ scoop install latex
 scoop install kitty nu wezterm alacritty # can't decide which to use
 scoop install vscode
 scoop install dbeaver
-scoop install opencode
+scoop install opencode pi-coding-agent oh-my-pi codex
+scoop install chatgpt
 
 # --- Notes for NixOS WSL ---
 # WezTerm config:
