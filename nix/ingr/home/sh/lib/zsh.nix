@@ -35,7 +35,13 @@ let
     changes = "git diff main --color-words";
     chmain = "git diff main --name-only";
     chmaster = "git diff main --name-only";
-    chdev = "git diff main --name-only";
+    chdev = "git diff dev --name-only";
+
+    # nix
+    nsh = "nix develop --command zsh";
+    snsh = "nix develop --impure --command secretspec run --profile development -- zsh";
+    MY_HOMEMANAGER = "~/alchemy/summons/nixos/home-manager";
+    build-my-home = "./ingr/cleanup && home-manager switch --flake .#${user.name} --impure"; # --override-input home-manager ~/alchemy/summons/nixos/home-manager --impure";
 
     # run apps from terminal
     # apps
@@ -73,13 +79,7 @@ let
     libre = "nohup librewolf >/dev/null 2>&1 &";
     firefox = "nohup firefox >/dev/null 2>&1 &";
 
-    ## AI
-    expl = "gh copilot explain ";
-    sugg = "gh copilot suggest";
-
     # system
-    MY_HOMEMANAGER = "~/alchemy/summons/nixos/home-manager";
-    build-my-home = "./ingr/cleanup && home-manager switch --flake .#${user.name} --impure"; # --override-input home-manager ~/alchemy/summons/nixos/home-manager --impure";
     open-port = "while true ; do date ; natpmpc -a 1 0 udp 60 -g 10.2.0.1 && natpmpc -a 1 0 tcp 60 -g 10.2.0.1 || { echo -e 'ERROR' ; break ; } ; sleep 45 ; done";
 
     XDG_DESKTOP_DIR = "$HOME/";

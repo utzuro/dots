@@ -128,7 +128,7 @@ hl.bind(mainMod .. " + T", sh("uwsm app -- " .. terminal))
 hl.bind("ALT + T", sh("uwsm app -- " .. terminal))
 
 hl.bind(mainMod .. " + E", sh("uwsm app -- " .. fileManager))
-hl.bind(mainMod .. " + SHIFT + Q", sh("uwsm app -- ~/.config/hypr/kill.sh"))
+hl.bind(mainMod .. " + SHIFT + Q", sh("~/.config/hypr/kill.sh"))
 
 hl.bind(mainMod .. " + SHIFT + R", sh("hyprctl reload"))
 
