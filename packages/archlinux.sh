@@ -43,7 +43,7 @@ gui_packages=(
 )
 
 # --- Update system ---
-sudo pacman -Syu --noconfirm --sudoloop
+sudo pacman -Syu --noconfirm
 
 read -rp "👾 Is this a fresh Arch install? (y/N) 👀 " yn
 if is_yes "$yn"; then
