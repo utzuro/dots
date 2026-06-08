@@ -244,7 +244,7 @@ hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@120", position = "auto-right
 hl.monitor({ output = "HDMI-A-2", mode = "1600x1200@60",  position = "auto-down", scale = 1, transform = 0, bitdepth = 10 }) -- TV
 
 -- hl.monitor({ output = "DP-1", disabled = true })
--- hl.monitor({ output = "HDMI-A-1", disabled = true })
+hl.monitor({ output = "HDMI-A-1", disabled = true })
 
 hl.config({
   opengl = {
