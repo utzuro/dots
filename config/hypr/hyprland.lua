@@ -128,7 +128,7 @@ hl.bind(mainMod .. " + T", sh("uwsm app -- " .. terminal))
 hl.bind("ALT + T", sh("uwsm app -- " .. terminal))
 
 hl.bind(mainMod .. " + E", sh("uwsm app -- " .. fileManager))
-hl.bind(mainMod .. " + SHIFT + Q", sh("uwsm app -- ~/.config/hypr/kill.sh"))
+hl.bind(mainMod .. " + SHIFT + Q", sh("~/.config/hypr/kill.sh"))
 
 hl.bind(mainMod .. " + SHIFT + R", sh("hyprctl reload"))
 
@@ -244,7 +244,7 @@ hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@120", position = "auto-right
 hl.monitor({ output = "HDMI-A-2", mode = "1600x1200@60",  position = "auto-down", scale = 1, transform = 0, bitdepth = 10 }) -- TV
 
 -- hl.monitor({ output = "DP-1", disabled = true })
--- hl.monitor({ output = "HDMI-A-1", disabled = true })
+hl.monitor({ output = "HDMI-A-1", disabled = true })
 
 hl.config({
   opengl = {

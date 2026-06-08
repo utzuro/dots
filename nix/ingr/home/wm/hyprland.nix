@@ -120,6 +120,8 @@
     hyprland-autoname-workspaces
     hyprland-monitor-attached
     hyprland-per-window-layout
+
+    papirus-icon-theme
   ];
 
   programs = {
@@ -210,7 +212,7 @@
           selection = "8A2BE2fa";
           border = "FF00FFfa";
         };
-        # dmenu.exit-immediately-if-empty = true;
+        dmenu.exit-immediately-if-empty = true;
       };
     };
 

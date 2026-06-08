@@ -117,6 +117,17 @@ link_dotfiles() {
 	mkdir -p "$HOME/.config/jj"
 	ln -sfv "$DIR/config/jj/config.toml" "$HOME/.config/jj/config.toml"
 
+	printf "\n⌛... Linking yazi configs... 📝\n"
+	mkdir -p "$HOME/.config/yazi/plugins"
+	ln -sfv "$DIR/config/yazi/init.lua" "$HOME/.config/yazi/init.lua"
+	ln -sfv "$DIR/config/yazi/yazi.toml" "$HOME/.config/yazi/yazi.toml"
+	ln -sfv "$DIR/config/yazi/keymap.toml" "$HOME/.config/yazi/keymap.toml"
+	yazi_plugin="$HOME/.config/yazi/plugins/minimal.yazi"
+	if [ -e "$yazi_plugin" ] || [ -L "$yazi_plugin" ]; then
+		rm -rf "$yazi_plugin"
+	fi
+	ln -sfv "$DIR/plugins/yazi/minimal.yazi" "$yazi_plugin"
+
 	printf "\n⌛... Linking wezterm configs... 📝\n"
 	mkdir -p "$HOME/.config/wezterm/" # colors/"
 	ln -sfv "$DIR/config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"

@@ -38,10 +38,13 @@
     protoc-gen-go
     protoc-gen-go-grpc
 
-    rustup
-    rustc
+    cargo
     cargo-edit
     cargo-watch
+    clippy
+    rust-analyzer
+    rustc
+    rustfmt
 
     # python
     ## tools
