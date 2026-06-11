@@ -1,0 +1,66 @@
+[colors]
+ansi = [ "#000", "#f18196", "#8df181", "#f1c981", "#8581f1", "#ab8beb", "#8be3eb", "#68696c" ]
+brights = [ "#000", "#f18196", "#8df181", "#f1c981", "#8581f1", "#ab8beb", "#8be3eb", "#fbfcfc" ]
+
+background = "#000"
+foreground = "#fff"
+
+compose_cursor = '#f1c981'
+cursor_bg = "#fbfcfc"
+cursor_border = "#fbfcfc"
+cursor_fg = "#fbfcfc"
+
+selection_bg = "#68696c"
+selection_fg = "#000"
+
+scrollbar_thumb = '#000'
+split = '#4f5053'
+
+[colors.indexed]
+
+[colors.tab_bar]
+background = "#000"
+
+[colors.tab_bar.active_tab]
+bg_color = "#000"
+fg_color = "#f18196"
+intensity = "Normal"
+underline = "None"
+italic = false
+strikethrough = false
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#000"
+fg_color = "#68696c"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#f18196"
+fg_color = "#68696c"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab]
+bg_color = "#000000"
+fg_color = "#4f5053"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#f18196"
+fg_color = "#68696c"
+intensity = "Normal"
+italic = true
+strikethrough = false
+underline = "None"
+
+[metadata]
+name = 'voidcraft'
+origin_url = 'https://github.com/daniilium/voidcraft-wezterm-theme'
