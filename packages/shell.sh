@@ -129,9 +129,12 @@ link_dotfiles() {
 	ln -sfv "$DIR/plugins/yazi/minimal.yazi" "$yazi_plugin"
 
 	printf "\n⌛... Linking wezterm configs... 📝\n"
-	mkdir -p "$HOME/.config/wezterm/" # colors/"
+	mkdir -p "$HOME/.config/wezterm/colors"
 	ln -sfv "$DIR/config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
-	# ln -sfv "$DIR/config/wezterm/colors/void.toml" "$HOME/.config/wezterm/colors/void.toml"
+	for file in "$DIR/config/wezterm/colors"/*.toml; do
+		[ -f "$file" ] || continue
+		ln -sfv "$file" "$HOME/.config/wezterm/colors/$(basename "$file")"
+	done
 
 	# Agents
 	printf "\n⌛... Linking agents configs... 📝\n"
