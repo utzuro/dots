@@ -1,48 +1,59 @@
 {
   disko.devices = {
     disk = {
-      main = {
+      sda = {
         type = "disk";
-        device = "/dev/vdb";
+        device = "/dev/sda";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-              size = "512M";
+              label = "boot";
+              name = "ESP";
+              size = "1G";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                mountOptions = [
+                  "defaults"
+                ];
               };
             };
             luks = {
               size = "100%";
+              label = "luks";
               content = {
                 type = "luks";
-                name = "crypted";
-                # disable settings.keyFile if you want to use interactive password entry
-                #passwordFile = "/tmp/secret.key"; # Interactive
-                settings = {
-                  allowDiscards = true;
-                  # keyFile = "/tmp/secret.key";
-                };
-                # additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
+                name = "cryptroot";
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-f" ];
+                  extraArgs = [
+                    "-L"
+                    "nixos"
+                    "-f"
+                  ];
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
                       mountOptions = [
+                        "subvol=root"
                         "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "/root-blank" = {
+                      mountOptions = [
+                        "subvol=root-blank"
+                        "nodatacow"
                         "noatime"
                       ];
                     };
                     "/home" = {
                       mountpoint = "/home";
                       mountOptions = [
+                        "subvol=home"
                         "compress=zstd"
                         "noatime"
                       ];
@@ -50,13 +61,44 @@
                     "/nix" = {
                       mountpoint = "/nix";
                       mountOptions = [
+                        "subvol=nix"
                         "compress=zstd"
                         "noatime"
                       ];
                     };
-                    "/swap" = {
-                      mountpoint = "/.swapvol";
-                      swap.swapfile.size = "16G";
+                    "/persist" = {
+                      mountpoint = "/persist";
+                      mountOptions = [
+                        "subvol=persist"
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "/log" = {
+                      mountpoint = "/var/log";
+                      mountOptions = [
+                        "subvol=log"
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "/lib" = {
+                      mountpoint = "/var/lib";
+                      mountOptions = [
+                        "subvol=lib"
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "/persist/swap" = {
+                      mountpoint = "/persist/swap";
+                      mountOptions = [
+                        "subvol=swap"
+                        "noatime"
+                        "nodatacow"
+                        "compress=no"
+                      ];
+                      swap.swapfile.size = "18G";
                     };
                   };
                 };
@@ -67,4 +109,8 @@
       };
     };
   };
+
+  fileSystems."/persist".neededForBoot = true;
+  fileSystems."/var/log".neededForBoot = true;
+  fileSystems."/var/lib".neededForBoot = true;
 }
