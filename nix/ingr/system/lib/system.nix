@@ -44,6 +44,13 @@
     };
   };
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd"; # one of "lzo", "lz4", "zstd"
+    priority = 5;
+    memoryPercent = 50;
+  };
+
   # Allows nix-ld to be used as the default linker.
   programs.nix-ld = {
     enable = true;
