@@ -243,6 +243,23 @@ hl.monitor({ output = "DP-1",     mode = "3840x2160@60",  position = "auto-left"
 hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@120", position = "auto-right", scale = 1, transform = 0, bitdepth = 10 }) -- TV
 hl.monitor({ output = "HDMI-A-2", mode = "1600x1200@60",  position = "auto-down", scale = 1, transform = 0, bitdepth = 10 }) -- TV
 
+local workspace_monitor_rules = {
+  { monitor = "DP-2", workspaces = { 1, 3, 4, 17 } },
+  { monitor = "DP-1", workspaces = { 2, 5 } },
+  { monitor = "HDMI-A-2", workspaces = { 10, 13 } },
+}
+
+for _, rule in ipairs(workspace_monitor_rules) do
+  for index, workspace in ipairs(rule.workspaces) do
+    hl.workspace_rule({
+      workspace = tostring(workspace),
+      monitor = rule.monitor,
+      default = index == 1,
+      persistent = true,
+    })
+  end
+end
+
 -- hl.monitor({ output = "DP-1", disabled = true })
 hl.monitor({ output = "HDMI-A-1", disabled = true })
 
