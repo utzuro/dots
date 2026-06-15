@@ -21,9 +21,9 @@
                 ];
               };
             };
-            luks = {
+            nixenc = {
               size = "100%";
-              label = "luks";
+              label = "nixenc";
               content = {
                 type = "luks";
                 name = "cryptroot";
