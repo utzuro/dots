@@ -1,6 +1,6 @@
 ---
 name: loop
-description: "Runs an iterative PLAN.md execution loop: pick one small issue, implement it, run review-council, address major findings, update the plan, and repeat until complete. Use when the user invokes /loop, asks to work through PLAN.md iteratively, or wants review-driven plan completion."
+description: "Runs an iterative PLAN.md execution loop: pick one small issue, run it in an isolated subprocess, review, address major findings, update the plan, and repeat until complete. Use when the user invokes /loop, asks to work through PLAN.md iteratively, or wants review-driven plan completion."
 argument-hint: "Loop goal or constraints"
 ---
 
@@ -69,7 +69,7 @@ If no item is small or clear enough, update `PLAN.md` with the ambiguity and ask
 
 ### 3. Mark progress in PLAN.md
 
-Before implementation, update or create a concise progress section in `PLAN.md` using the document's existing style when possible:
+Identify the selected issue and pass it to the loop subprocess. If needed, the subprocess can also create/update the concise progress section to keep the parent context clean.
 
 ```md
 ## Loop Progress
@@ -83,12 +83,28 @@ Before implementation, update or create a concise progress section in `PLAN.md` 
 
 Keep this section factual and short. Preserve existing plan structure and user edits.
 
-### 4. Implement and verify
+### 4. Implement and verify (isolated subprocess)
 
-- Make the smallest clean code/doc/test change for the selected issue.
-- Add or update tests for business requirements when applicable.
-- Run the narrowest useful checks first, then broader checks if cheap.
-- If verification cannot run, record why in `PLAN.md`.
+- Delegate the actual implementation and verification to an isolated pi subprocess to keep the main context clean:
+
+```bash
+bash ~/.agents/skills/loop/scripts/run-loop-cycle.sh "<selected issue text>"
+```
+
+The worker will:
+
+- make the smallest clean change for the selected issue,
+- add/update required tests and checks,
+- run narrow checks first, then broader checks if cheap,
+- update `PLAN.md` progress for this run.
+
+Optional tuning environment variables:
+
+- `PI_LOOP_TIMEOUT` (default: `900s`)
+- `PI_LOOP_MODEL` (model passed to worker subprocess)
+- `PI_LOOP_TOOLS` (tools for worker; default: `read,edit,write,grep,find,ls,bash`)
+
+If verification cannot run, record why in `PLAN.md`.
 
 ### 5. Review council
 
@@ -100,7 +116,7 @@ Do not treat the council output as automatically correct. Triage findings agains
 
 - Fix every major finding that is valid, in scope, and proportionate.
 - Reject or defer findings whose fix would add unjustified complexity, even if the finding is technically valid.
-- Re-run relevant tests/checks after fixes.
+- Re-run relevant tests/checks after fixes (preferably by re-running `run-loop-cycle.sh` with a focused task).
 - Re-run `review-council` if major code changes were made in response to review or if any major finding needs confirmation.
 - Record fixed, deferred, and rejected findings in `PLAN.md` with short rationale.
 
