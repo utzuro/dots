@@ -17,7 +17,7 @@
     manu = "$alchemy/manuscripts";
     manuscripts = "$alchemy/manuscripts";
     STARDICT_DATA_DIR = "$manuscripts/ingredients/dicts/dic";
-    LEDGER = "$HOME/alchemy/manuscripts/ledger/main.ledger";
+    LEDGER = "$HOME/alchemy/magic/manuscripts/ledger/main.ledger";
     ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
 
     PI_OFFLINE = "1";

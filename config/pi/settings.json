@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.75.4",
-  "defaultProvider": "openai-codex",
+  "defaultProvider": "openai-codex-2",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "high",
   "theme": "void",
@@ -16,6 +16,7 @@
     "npm:@juicesharp/rpiv-btw@1.2.1",
     "npm:pi-markdown-preview@0.9.7",
     "git:github.com/utzuro/pi-cmatrix",
-    "git:github.com/mvanhorn/last30days-skill"
+    "git:github.com/mvanhorn/last30days-skill",
+    "npm:pi-multi-pass"
   ]
 }

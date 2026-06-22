@@ -238,14 +238,14 @@ hl.bind("switch:off:Lid Switch", delayed_dpms("enable"), { locked = true })
 -- 🖥️ Rendering
 -- ──────────────
 
-hl.monitor({ output = "DP-2",     mode = "3840x2160@120", position = "0x0",       scale = 1, transform = 0, bitdepth = 10 }) -- main
-hl.monitor({ output = "DP-1",     mode = "3840x2160@60",  position = "auto-left",  scale = 1, transform = 1, bitdepth = 10 }) -- secondary
-hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@120", position = "auto-right", scale = 1, transform = 0, bitdepth = 10 }) -- TV
-hl.monitor({ output = "HDMI-A-2", mode = "1600x1200@60",  position = "auto-down", scale = 1, transform = 0, bitdepth = 10 }) -- TV
+hl.monitor({ output = "DP-2",     mode = "3840x2160@120", position = "0x0",       scale = 1, transform = 0, bitdepth = 10 }) -- main screens: 1, 3, 4, 17
+hl.monitor({ output = "DP-1",     mode = "3840x2160@60",  position = "auto-left",  scale = 1, transform = 1, bitdepth = 10 }) -- secondary screens: 2, 5
+hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@120", position = "auto-right", scale = 1, transform = 0, bitdepth = 10 }) -- TV screens: nothing assigned
+hl.monitor({ output = "HDMI-A-2", mode = "1600x1200@60",  position = "auto-down", scale = 1, transform = 0, bitdepth = 10 }) -- eInk screens: 10, 13
 
 local workspace_monitor_rules = {
   { monitor = "DP-2", workspaces = { 1, 3, 4, 17 } },
-  { monitor = "DP-1", workspaces = { 2, 5 } },
+  { monitor = "DP-1", workspaces = { 2, 5, 8 } },
   { monitor = "HDMI-A-2", workspaces = { 10, 13 } },
 }
 
@@ -262,6 +262,7 @@ end
 
 -- hl.monitor({ output = "DP-1", disabled = true })
 hl.monitor({ output = "HDMI-A-1", disabled = true })
+hl.monitor({ output = "HDMI-A-2", disabled = true })
 
 hl.config({
   opengl = {
