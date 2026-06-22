@@ -82,6 +82,9 @@ link_dotfiles() {
 	rm -rf "$HOME/.config/nix"
 	ln -sfv "$DIR/config/nix" "$HOME/.config/"
 
+	printf "\n⌛... Linking npm configs... 📝\n"
+	ln -sfv "$DIR/config/npm/.npmrc" "$HOME/.npmrc"
+
 	printf "\n⌛... Linking vim configs... 📝\n"
 	ln -sfv "$DIR/config/vim/vimrc" "$HOME/.vimrc"
 
