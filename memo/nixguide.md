@@ -20,3 +20,10 @@ Building btrfs based encrypted filesystem.
 ```sh
 lsblk -f # choose which disk to use
 ```
+
+Use @disk-config to partition. Replace the /dev/sda with target disk and run:
+`sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount /tmp/disk-config.nix`
+
+Check with: `mount | grep /mnt`.
+
+Then generate basic configs with `sudo nixos-generate-config --no-filesystems --root /mnt`.
