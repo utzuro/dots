@@ -25,6 +25,7 @@ Make the current project, or the explicit target directory named by the user, us
    - `nix build`
    - `nix develop -c true`
    - `nix run` only when the app is known to be safe; otherwise use a safe argument such as `--help` or ask first.
+8. Ensure flake.nix exposes the formatter.
 
 ## Flake shape
 

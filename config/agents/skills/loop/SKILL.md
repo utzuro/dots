@@ -1,134 +1,113 @@
 ---
 name: loop
-description: "Runs an iterative PLAN.md execution loop: pick one small issue, run it in an isolated subprocess, review, address major findings, update the plan, and repeat until complete. Use when the user invokes /loop, asks to work through PLAN.md iteratively, or wants review-driven plan completion."
+description: "Runs an iterative PLAN.md execution loop: pick one small issue, run it in an isolated worker subprocess, review, address major findings, update the plan, and repeat until complete. Use when the user invokes /loop, asks to work through PLAN.md iteratively, or wants review-driven plan completion."
 argument-hint: "Loop goal or constraints"
 ---
 
 # Loop
 
-Use this skill to advance `PLAN.md` with tight review-driven cycles. Treat user arguments as the loop goal, priority, or stopping constraint.
+Advance `PLAN.md` in small review-driven cycles. User arguments are goals, priorities, or stop constraints.
 
-## Loop contract
+The parent agent orchestrates only: read plan, choose scope, launch worker, verify/review, update `PLAN.md`, decide next step. Do not implement the selected chunk in the parent session except for `PLAN.md` bookkeeping or explicit user-approved emergency fixes.
 
-Each cycle must:
+## Cycle contract
 
-1. Re-read `PLAN.md` and any present root `SPEC.md` / `ADR.md` before choosing work.
-2. Pick exactly one small required issue from `PLAN.md`.
-3. Implement that issue with the smallest clean change and relevant tests/checks.
-4. Run `review-council` for the current changes.
-5. Address all major review findings related to the cycle.
-6. Update `PLAN.md` with progress, review outcome, remaining work, and the next recommended issue.
+For each chunk:
 
-Repeat while the plan still has required work, no blocker needs user input, and there is enough context/time to continue safely. If continuing would risk a rushed or oversized change, stop after updating `PLAN.md` so the next `/loop` can resume cleanly.
+1. Re-read root `PLAN.md` plus `SPEC.md` / `ADR.md` if present.
+2. Pick one small required open item with clear acceptance/verification.
+3. Update `PLAN.md` progress briefly.
+4. Launch a new isolated worker subprocess for that item.
+5. Parent verifies the worker's changes and runs focused checks.
+6. Run `review-council` on the current changes.
+7. Triage findings; send valid major fixes back to the same managed worker, or run a focused one-shot fix if using the helper script.
+8. Re-verify after fixes.
+9. Update `PLAN.md` with results, remaining blockers, and next recommended item.
+10. Close the worker subprocess; start a fresh one for the next chunk.
 
-## Major issue definition
+Repeat while required work remains, no user decision is blocked, and context/time are safe. Stop after updating `PLAN.md` if the next change would be too large, rushed, ambiguous, or context-heavy.
 
-Treat a finding as major when it involves any of:
+## Subprocess rules
 
-- failing build, failing tests, or missing required test coverage
-- incorrect behavior versus `PLAN.md`, `SPEC.md`, or user requirements
+Use `pi-subagents` for worker lifecycle when available. Before first launch, list available agents/chains and prefer packaged `worker`.
+
+- One active worker subprocess per chunk.
+- Reuse that same subprocess only for verification/review follow-ups for the current chunk.
+- Never reuse it for another `PLAN.md` item.
+- If it is still running or paused when the chunk is done, interrupt/kill it with subagent control; if completed, treat it as closed and do not resume it.
+- Do not ask the worker to launch subagents, manage the loop, or choose broader scope.
+
+When `pi-subagents` is unavailable or shell isolation is explicitly preferred, use the bundled one-shot helper instead:
+
+```bash
+bash ~/.agents/skills/loop/scripts/run-loop-cycle.sh "<selected issue text>"
+```
+
+The helper is not resumable. For follow-up fixes, re-run it with a focused task that names the failing check or valid major review finding.
+
+Worker prompts must include: repo root, plan/spec/ADR paths, selected item, allowed scope/non-goals, relevant files if known, acceptance criteria, expected checks, instruction to make real edits, and instruction to stop/escalate on unclear product/architecture/scope decisions.
+
+If the worker reports a blocker needing user input, record it in `PLAN.md` and ask one focused question.
+
+## Review triage
+
+Treat a finding as major only when it involves:
+
+- failing build/tests or missing required coverage
+- behavior wrong versus `PLAN.md`, `SPEC.md`, ADRs, or user requirements
 - data loss, security, privacy, race, or reliability risk
-- architectural inconsistency that would make the plan harder to complete
-- unhandled edge case in the core flow being changed
+- architecture drift that makes the plan harder to finish
+- unhandled core-flow edge case
 
-Minor style, naming, documentation, optional refactor comments, and valid-but-low-impact findings whose fix would add disproportionate complexity must not block the loop. Record them in `PLAN.md` only if they are useful future context.
-
-## Proportionality filter
-
-Before fixing any council finding, decide whether the fix is worth its complexity.
-
-Fix the finding only when:
-
-- it protects a stated requirement, core user flow, safety property, or maintainability constraint
-- the implementation remains small, direct, and consistent with the current design
-- the expected risk reduction is greater than the complexity introduced
-
-Defer or reject the finding when:
-
-- it is speculative, only theoretically possible, or outside the current plan scope
-- fixing it requires broad abstraction, redesign, new dependencies, or significant extra surface area
-- the current simpler behavior is acceptable for `PLAN.md` / `SPEC.md` requirements
-
-When deferring or rejecting a council finding, briefly record the rationale in `PLAN.md` under review status. Do not implement complexity just to satisfy a reviewer.
+Send a fix request only when the fix is in scope, protects a real requirement or safety/maintainability property, and stays small/direct. Defer or reject speculative, out-of-scope, high-complexity, or low-impact findings. Record the rationale briefly in `PLAN.md`.
 
 ## Workflow
 
 ### 1. Orient
 
-- Find the repository root.
-- Read root `PLAN.md`; if it is missing, ask the user whether to create it or use another plan file.
-- Read root `SPEC.md` and `ADR.md` if present.
-- Inspect current git status only with read-only commands.
-- Identify already completed work and any human changes since the last cycle.
+Find repo root. Read `PLAN.md`; if missing, ask whether to create it or use another file. Read root `SPEC.md` / `ADR.md` if present. Inspect git status with read-only commands. Notice human changes.
 
-### 2. Select one issue
+### 2. Select and mark
 
-Choose the smallest open required item that moves the plan toward completion. Prefer items with clear acceptance criteria and a fast verification path.
+Pick the smallest clear open item. If none is clear, update `PLAN.md` with the ambiguity and ask one focused question.
 
-If no item is small or clear enough, update `PLAN.md` with the ambiguity and ask the user one focused question.
-
-### 3. Mark progress in PLAN.md
-
-Identify the selected issue and pass it to the loop subprocess. If needed, the subprocess can also create/update the concise progress section to keep the parent context clean.
+Update or create a concise progress section in `PLAN.md` using the document's existing style when possible. If using the one-shot helper, the helper may do this after receiving the selected issue.
 
 ```md
 ## Loop Progress
 
 - Current focus: ...
+- Active subprocess: ...
 - Completed this run: ...
 - Review status: ...
 - Remaining major issues: ...
 - Next recommended focus: ...
 ```
 
-Keep this section factual and short. Preserve existing plan structure and user edits.
+### 3. Delegate
 
-### 4. Implement and verify (isolated subprocess)
+Launch `worker` for only the selected chunk. Prefer foreground unless the parent has useful independent work while it runs. If using the helper script, run it with the selected issue text.
 
-- Delegate the actual implementation and verification to an isolated pi subprocess to keep the main context clean:
-
-```bash
-bash ~/.agents/skills/loop/scripts/run-loop-cycle.sh "<selected issue text>"
-```
-
-The worker will:
-
-- make the smallest clean change for the selected issue,
-- add/update required tests and checks,
-- run narrow checks first, then broader checks if cheap,
-- update `PLAN.md` progress for this run.
-
-Optional tuning environment variables:
+Optional helper tuning environment variables:
 
 - `PI_LOOP_TIMEOUT` (default: `900s`)
 - `PI_LOOP_MODEL` (model passed to worker subprocess)
 - `PI_LOOP_TOOLS` (tools for worker; default: `read,edit,write,grep,find,ls,bash`)
 
-If verification cannot run, record why in `PLAN.md`.
+### 4. Verify and review
 
-### 5. Review council
+After worker completion, inspect changed files and run the narrowest useful checks first. If checks fail in scope, resume the same worker with a focused fix request, or re-run the helper with a focused fix task.
 
-Load and follow the `review-council` skill. Run it after implementation and verification, passing a short focus string that names the selected issue.
+Load and follow `review-council`; focus it on the selected item and note that implementation was delegated. Triage output, then send valid major fixes back to the same worker when possible. Re-run relevant checks after fixes. Re-run council only when major fix changes need confirmation.
 
-Do not treat the council output as automatically correct. Triage findings against the major issue definition and the proportionality filter.
+### 5. Close and continue
 
-### 6. Address review
+Re-read and update `PLAN.md` with what changed, checks/results, review decisions, blockers, next item, and whether the plan is complete. Close/kill the active worker as described above before starting another chunk.
 
 - Fix every major finding that is valid, in scope, and proportionate.
 - Reject or defer findings whose fix would add unjustified complexity, even if the finding is technically valid.
-- Re-run relevant tests/checks after fixes (preferably by re-running `run-loop-cycle.sh` with a focused task).
+- Re-run relevant tests/checks after fixes.
 - Re-run `review-council` if major code changes were made in response to review or if any major finding needs confirmation.
 - Record fixed, deferred, and rejected findings in `PLAN.md` with short rationale.
 
-### 7. Prepare next run
-
-Before stopping or starting the next cycle, re-read `PLAN.md` and update it with:
-
-- what changed
-- checks run and results
-- review findings addressed
-- unresolved major blockers, if any
-- the next smallest recommended issue
-- whether the plan appears complete
-
-Stop only when `PLAN.md` has no remaining required work, checks pass or limitations are documented, and `review-council` has no unresolved major findings.
+Stop only when no required work remains, checks pass or limitations are documented, `review-council` has no unresolved major findings, and the active worker is closed.
