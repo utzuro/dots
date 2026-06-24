@@ -5,6 +5,7 @@
   imports = [
     ./lib/tmux.nix
     ./lib/zsh.nix
+    ./lib/nushell.nix
     ./lib/lf.nix
   ];
 
