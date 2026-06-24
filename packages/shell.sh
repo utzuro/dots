@@ -120,6 +120,11 @@ link_dotfiles() {
 	mkdir -p "$HOME/.config/jj"
 	ln -sfv "$DIR/config/jj/config.toml" "$HOME/.config/jj/config.toml"
 
+	printf "\n⌛... Linking nushell configs... 📝\n"
+	mkdir -p "$HOME/.config/nushell"
+	ln -sfv "$DIR/config/nushell/config.nu" "$HOME/.config/nushell/config.nu"
+	ln -sfv "$DIR/config/nushell/env.nu" "$HOME/.config/nushell/env.nu"
+
 	printf "\n⌛... Linking yazi configs... 📝\n"
 	mkdir -p "$HOME/.config/yazi/plugins"
 	ln -sfv "$DIR/config/yazi/init.lua" "$HOME/.config/yazi/init.lua"
