@@ -46,6 +46,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
 Plug 'https://gitlab.com/hedrok/langtool-adoc-vim.git'
+Plug 'iamcco/markdown-preview.nvim'
 
 " AI
 " Plug 'github/copilot.vim'  

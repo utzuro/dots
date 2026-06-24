@@ -54,6 +54,12 @@ in
   system.copySystemConfiguration = false;
   system.stateVersion = "26.05";
 
+  boot.kernel.sysctl = {
+    "fs.inotify.max_user_watches" = 524288;
+    "fs.inotify.max_user_instances" = 1024;
+    "fs.inotify.max_queued_events" = 32768;
+  };
+
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;
