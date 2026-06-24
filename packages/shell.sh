@@ -49,6 +49,14 @@ link_nushell_configs_to() {
 	ln -sfv "$DIR/config/nushell/autoload/zoxide.nu" "$nushell_dir/autoload/zoxide.nu"
 }
 
+link_nushell_configs() {
+	printf "\n⌛... Linking nushell configs... 📝\n"
+	link_nushell_configs_to "$HOME/.config/nushell"
+	if [ -n "${APPDATA:-}" ]; then
+		link_nushell_configs_to "$(windows_path "$APPDATA")/nushell"
+	fi
+}
+
 ### 🗂 Directory Setup
 create_directories() {
 	printf "\n⌛... Creating default folders... 📂\n"
@@ -136,16 +144,6 @@ link_dotfiles() {
 	mkdir -p "$HOME/.config/jj"
 	ln -sfv "$DIR/config/jj/config.toml" "$HOME/.config/jj/config.toml"
 
-	if ! home_manager_detected; then
-		printf "\n⌛... Linking nushell configs... 📝\n"
-		link_nushell_configs_to "$HOME/.config/nushell"
-		if [ -n "${APPDATA:-}" ]; then
-			link_nushell_configs_to "$(windows_path "$APPDATA")/nushell"
-		fi
-	else
-		printf "\n📝 Home-manager detected. Skipping nushell configs.\n"
-	fi
-
 	printf "\n⌛... Linking yazi configs... 📝\n"
 	mkdir -p "$HOME/.config/yazi/plugins"
 	ln -sfv "$DIR/config/yazi/init.lua" "$HOME/.config/yazi/init.lua"
@@ -198,74 +196,72 @@ install_vim_plugins() {
 	fi
 }
 
-### 🛠 Shell & Tool Setup (if not using Home Manager)
+### 🛠 Shell & Tool Setup
 manual_shell_and_tools() {
-	if ! home_manager_detected; then
-		printf "\n⌛... Home-manager not detected — configuring shell tools manually... 🛠\n"
-		printf "\n⌛... Linking shell configs... 🖥\n"
+	printf "\n⌛... Configuring shell tools manually... 🛠\n"
+	printf "\n⌛... Linking shell configs... 🖥\n"
 
-		mkdir -p "$HOME/.config/mpd"
-		ln -sfv "$DIR/config/mpd/"* "$HOME/.config/mpd/" || true
+	mkdir -p "$HOME/.config/mpd"
+	ln -sfv "$DIR/config/mpd/"* "$HOME/.config/mpd/" || true
 
-		ln -sfv "$DIR/config/.bashrc" "$HOME/.bashrc"
-		ln -sfv "$DIR/config/tmux/.tmux.conf" "$HOME/.tmux.conf"
-		ln -sfv "$DIR/config/zsh/.zshrc" "$HOME/.zshrc"
-		ln -sfv "$DIR/config/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+	ln -sfv "$DIR/config/.bashrc" "$HOME/.bashrc"
+	ln -sfv "$DIR/config/tmux/.tmux.conf" "$HOME/.tmux.conf"
+	ln -sfv "$DIR/config/zsh/.zshrc" "$HOME/.zshrc"
+	ln -sfv "$DIR/config/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
-		printf "\n⌛... Getting ready files that shouldn't be linked... 🌐\n"
-		touch "$HOME/.profile"
+	printf "\n⌛... Getting ready files that shouldn't be linked... 🌐\n"
+	touch "$HOME/.profile"
 
-		# Oh My Zsh
-		if have_cmd zsh; then
-			if [ ! -d "$HOME/.oh-my-zsh" ]; then
-				RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
-					sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-			else
-				printf "📝 Oh My Zsh already installed.\n"
-			fi
+	# Oh My Zsh
+	if have_cmd zsh; then
+		if [ ! -d "$HOME/.oh-my-zsh" ]; then
+			RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
+				sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		else
+			printf "📝 Oh My Zsh already installed.\n"
 		fi
+	fi
 
-		# zplug
-		if have_cmd zsh; then
-			if [ ! -d "$HOME/.zplug" ]; then
-				curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-				printf "📝 Zplug installed.\n"
-				if [ -f "$HOME/.zplug/init.zsh" ]; then
-					if ! zsh -lc 'source "$HOME/.zplug/init.zsh" && zplug install'; then
-						printf "⚠️  Zplug install failed; continuing bootstrap.\n"
-					fi
-				else
-					printf "⚠️  Zplug init script not found; skipping zplug install.\n"
+	# zplug
+	if have_cmd zsh; then
+		if [ ! -d "$HOME/.zplug" ]; then
+			curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+			printf "📝 Zplug installed.\n"
+			if [ -f "$HOME/.zplug/init.zsh" ]; then
+				if ! zsh -lc 'source "$HOME/.zplug/init.zsh" && zplug install'; then
+					printf "⚠️  Zplug install failed; continuing bootstrap.\n"
 				fi
 			else
-				printf "📝 Zplug already installed.\n"
+				printf "⚠️  Zplug init script not found; skipping zplug install.\n"
 			fi
-		fi
-
-		# tmux plugin manager
-		if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-			git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
-			printf "📝 Install tmux plugins with Ctrl+B I\n"
 		else
-			printf "📝 TPM already installed.\n"
+			printf "📝 Zplug already installed.\n"
 		fi
-
-		printf "\n⌛... Linking terminal tools configs... 🖥\n"
-		mkdir -p "$HOME/.config/ncmpcpp"
-		ln -sfv "$DIR/config/ncmpcpp/"* "$HOME/.config/ncmpcpp/" || true
-
-		mkdir -p "$HOME/.config/ranger"
-		if [ ! -d "$HOME/.config/ranger/plugins/ranger_devicons" ]; then
-			git clone https://github.com/alexanderjeurissen/ranger_devicons "$HOME/.config/ranger/plugins/ranger_devicons"
-		fi
-		ln -sfv "$DIR/config/ranger/rc.conf" "$HOME/.config/ranger/rc.conf"
-
-		mkdir -p "$HOME/.config/kitty"
-		ln -sfv "$DIR/config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
-
-		printf "\n⌛... Installing and configuring OS-agnostic packages... 📦\n"
-		"$DIR/packages/osagnostic.sh"
 	fi
+
+	# tmux plugin manager
+	if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+		git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+		printf "📝 Install tmux plugins with Ctrl+B I\n"
+	else
+		printf "📝 TPM already installed.\n"
+	fi
+
+	printf "\n⌛... Linking terminal tools configs... 🖥\n"
+	mkdir -p "$HOME/.config/ncmpcpp"
+	ln -sfv "$DIR/config/ncmpcpp/"* "$HOME/.config/ncmpcpp/" || true
+
+	mkdir -p "$HOME/.config/ranger"
+	if [ ! -d "$HOME/.config/ranger/plugins/ranger_devicons" ]; then
+		git clone https://github.com/alexanderjeurissen/ranger_devicons "$HOME/.config/ranger/plugins/ranger_devicons"
+	fi
+	ln -sfv "$DIR/config/ranger/rc.conf" "$HOME/.config/ranger/rc.conf"
+
+	mkdir -p "$HOME/.config/kitty"
+	ln -sfv "$DIR/config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+
+	printf "\n⌛... Installing and configuring OS-agnostic packages... 📦\n"
+	"$DIR/packages/osagnostic.sh"
 }
 
 ### 🔐 SSH Config
@@ -296,11 +292,6 @@ link_images() {
 
 ### 🐚 Default shell handling
 configure_default_shell() {
-	if home_manager_detected; then
-		printf "\n📝 Home-manager detected. Skipping default shell configuration.\n"
-		return
-	fi
-
 	if ! $is_msys2; then
 		if have_cmd zsh; then
 			zsh_path="$(command -v zsh)"
@@ -321,6 +312,17 @@ configure_default_shell() {
 	fi
 }
 
+configure_without_home_manager() {
+	if home_manager_detected; then
+		printf "\n📝 Home-manager detected. Skipping manually managed shell configs and tools.\n"
+		return
+	fi
+
+	link_nushell_configs
+	manual_shell_and_tools
+	configure_default_shell
+}
+
 ### 🚀 Run All
 main() {
 	create_directories
@@ -328,10 +330,9 @@ main() {
 	setup_scripts_repo
 	link_dotfiles
 	link_images
-	manual_shell_and_tools
+	configure_without_home_manager
 	install_vim_plugins
 	setup_ssh
-	configure_default_shell
 	printf "\n🔥 Shell tools installation complete! 🔥\n"
 }
 
