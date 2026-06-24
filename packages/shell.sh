@@ -136,10 +136,14 @@ link_dotfiles() {
 	mkdir -p "$HOME/.config/jj"
 	ln -sfv "$DIR/config/jj/config.toml" "$HOME/.config/jj/config.toml"
 
-	printf "\n⌛... Linking nushell configs... 📝\n"
-	link_nushell_configs_to "$HOME/.config/nushell"
-	if [ -n "${APPDATA:-}" ]; then
-		link_nushell_configs_to "$(windows_path "$APPDATA")/nushell"
+	if ! home_manager_detected; then
+		printf "\n⌛... Linking nushell configs... 📝\n"
+		link_nushell_configs_to "$HOME/.config/nushell"
+		if [ -n "${APPDATA:-}" ]; then
+			link_nushell_configs_to "$(windows_path "$APPDATA")/nushell"
+		fi
+	else
+		printf "\n📝 Home-manager detected. Skipping nushell configs.\n"
 	fi
 
 	printf "\n⌛... Linking yazi configs... 📝\n"
