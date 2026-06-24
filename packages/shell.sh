@@ -33,6 +33,22 @@ sudo_safe() {
 	fi
 }
 
+windows_path() {
+	if have_cmd cygpath; then
+		cygpath -u "$1"
+	else
+		printf "%s\n" "${1//\\//}"
+	fi
+}
+
+link_nushell_configs_to() {
+	local nushell_dir="$1"
+	mkdir -p "$nushell_dir/autoload"
+	ln -sfv "$DIR/config/nushell/config.nu" "$nushell_dir/config.nu"
+	ln -sfv "$DIR/config/nushell/env.nu" "$nushell_dir/env.nu"
+	ln -sfv "$DIR/config/nushell/autoload/zoxide.nu" "$nushell_dir/autoload/zoxide.nu"
+}
+
 ### 🗂 Directory Setup
 create_directories() {
 	printf "\n⌛... Creating default folders... 📂\n"
@@ -121,9 +137,10 @@ link_dotfiles() {
 	ln -sfv "$DIR/config/jj/config.toml" "$HOME/.config/jj/config.toml"
 
 	printf "\n⌛... Linking nushell configs... 📝\n"
-	mkdir -p "$HOME/.config/nushell"
-	ln -sfv "$DIR/config/nushell/config.nu" "$HOME/.config/nushell/config.nu"
-	ln -sfv "$DIR/config/nushell/env.nu" "$HOME/.config/nushell/env.nu"
+	link_nushell_configs_to "$HOME/.config/nushell"
+	if [ -n "${APPDATA:-}" ]; then
+		link_nushell_configs_to "$(windows_path "$APPDATA")/nushell"
+	fi
 
 	printf "\n⌛... Linking yazi configs... 📝\n"
 	mkdir -p "$HOME/.config/yazi/plugins"

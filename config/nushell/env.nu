@@ -1,23 +1,29 @@
+let home = $nu.home-dir
+let is_windows = ($nu.os-info.name == "windows")
+
 $env.EDITOR = "nvim"
 $env.VISUAL = "nvim"
-$env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
 
-$env.alchemy = ($env.HOME | path join "alchemy")
+if not $is_windows {
+    $env.XDG_CONFIG_HOME = ($home | path join ".config")
+}
+
+$env.alchemy = ($home | path join "alchemy")
 $env.a = $env.alchemy
-$env.magic = ($env.HOME | path join "magic")
+$env.magic = ($home | path join "magic")
 $env.m = $env.magic
 $env.manuscripts = ($env.alchemy | path join "manuscripts")
 $env.manu = $env.manuscripts
 
-$env.GOPATH = ($env.HOME | path join "go")
+$env.GOPATH = ($home | path join "go")
 $env.GOPRIVATE = "github.com/*"
 $env.NIXPKGS_ALLOW_INSECURE = "1"
 $env.NIXPKGS_ALLOW_UNFREE = "1"
-$env.PNPM_HOME = ($env.HOME | path join ".local" "share" "pnpm")
+$env.PNPM_HOME = ($home | path join ".local" "share" "pnpm")
 
 $env.PATH = ($env.PATH
     | prepend [
-        ($env.HOME | path join ".local" "bin")
+        ($home | path join ".local" "bin")
         ($env.GOPATH | path join "bin")
         $env.PNPM_HOME
     ]
