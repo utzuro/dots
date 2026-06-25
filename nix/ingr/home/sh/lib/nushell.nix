@@ -1,5 +1,4 @@
 {
-  dirs,
   lib,
   pkgs,
   user,
@@ -7,6 +6,8 @@
 }:
 
 let
+  starshipConfig = ../../../../../config/starship.toml;
+
   simpleAliases = {
     c = "clear";
     vim = "nvim";
@@ -211,7 +212,7 @@ in
     enableFishIntegration = false;
     enableNushellIntegration = false;
     enableZshIntegration = false;
-    settings = builtins.fromTOML (builtins.readFile "${dirs.config}/starship.toml");
+    settings = builtins.fromTOML (builtins.readFile starshipConfig);
   };
 
   programs.zoxide = {
