@@ -18,66 +18,16 @@ config.animation_fps = 240
 -- config.quick_select_alphabet = "uhetaoqjkxpynsgcrlmwvzfidb"
 
 -- theme
-config.colors = {
-  -- darkvoid color scheme base
-  foreground = "#c0c0c0",
-  background = "#040709",
+config.colors = wezterm.color.load_scheme(wezterm.config_dir .. "/colors/void.toml")
 
-  cursor_bg = "#8b118b",
-  cursor_fg = "#ffffff",
-  cursor_border = "#7fbfff",
-  selection_fg = "#c0c0c0",
-  selection_bg = "#303030",
-  scrollbar_thumb = "#404040",
-
-  ansi = {
-    "#1c1c1c",
-    "#ff3131",
-    "#66b2b2",
-    "#d1d1d1",
-    "#4b8902",
-    "#b16286",
-    "#1bfd9c",
-    "#c0c0c0",
-  },
-
-  brights = {
-    "#404040",
-    "#fb4934",
-    "#b8bb26",
-    "#9efd84",
-    "#83a598",
-    "#d3869b",
-    "#8ec07c",
-    "#ebdbb2",
-  },
-
-  visual_bell = "#7fbfff",
-  tab_bar = {
-    background = "#1c1c1c",
-    active_tab = {
-      bg_color = "#303030",
-      fg_color = "#c0c0c0",
-    },
-    inactive_tab = {
-      bg_color = "#1c1c1c",
-      fg_color = "#585858",
-    },
-    inactive_tab_hover = {
-      bg_color = "#303030",
-      fg_color = "#c0c0c0",
-    },
-  },
-}
-
--- config.command_palette_bg_color = "#080808"
--- config.command_palette_fg_color = "#EAEAEA"
+config.command_palette_bg_color = "#09020f"
+config.command_palette_fg_color = "#e9ddff"
 
 config.font_size = 12
-config.line_height = 1
+config.line_height = 1.05
 config.command_palette_font_size = 14
-config.initial_cols = 200
-config.initial_rows = 45
+config.initial_cols = 160
+config.initial_rows = 40
 config.adjust_window_size_when_changing_font_size = false
 
 -- window
@@ -86,10 +36,10 @@ config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
 config.enable_scroll_bar = false
 config.window_padding = {
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
+  left = 8,
+  right = 8,
+  top = 4,
+  bottom = 4,
 }
 config.window_frame = {
   border_top_height = 0,
@@ -110,7 +60,7 @@ end)
 local Constants = {
   window_decorations = {
     default = config.window_decorations,
-    zen = "NONE",
+    zen = config.window_decorations,
   },
 }
 local State = {
