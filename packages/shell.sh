@@ -135,6 +135,7 @@ link_dotfiles() {
 
 	printf "\n⌛... Linking WSL configs... 📝\n"
 	link_or_copy "$DIR/config/win/.wslconfig" "$HOME/.wslconfig"
+	link_or_copy "$DIR/config/.bash_profile" "$HOME/.bash_profile"
 	link_or_copy "$DIR/config/.bashrc" "$HOME/.bashrc"
 
 	printf "\n⌛... Linking nix configs... 📝\n"
@@ -239,6 +240,7 @@ manual_shell_and_tools() {
 	mkdir -p "$HOME/.config/mpd"
 	ln -sfv "$DIR/config/mpd/"* "$HOME/.config/mpd/" || true
 
+	link_or_copy "$DIR/config/.bash_profile" "$HOME/.bash_profile"
 	link_or_copy "$DIR/config/.bashrc" "$HOME/.bashrc"
 	link_or_copy "$DIR/config/tmux/.tmux.conf" "$HOME/.tmux.conf"
 	link_or_copy "$DIR/config/zsh/.zshrc" "$HOME/.zshrc"

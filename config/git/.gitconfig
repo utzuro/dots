@@ -1,12 +1,16 @@
 [user]
 	email = utzuro@pm.me
 	name = utzuro
-[url "https://github_pat_SECRET@github.com/ORG"]
-	
-	; Try this ↓
-	; [url "ssh://git@github.com/"]
-	; 	insteadOf = https://github.com/
-	insteadOf = https://github.com/ORG
+
+	; [url "https://github_pat_SECRET@github.com/ORG/"]
+    ; insteadOf = https://github.com/ORG/
+
+	; [url "git@github.com:"]
+    ; insteadOf = https://github.com/
+
+	; [url "https://x-access-token:TOKEN@github.com/ORG/"]
+    ; insteadOf = git@github.com:ORG/
+    ; insteadOf = ssh://git@github.com/ORG/
 
 [push]
 	default = current
