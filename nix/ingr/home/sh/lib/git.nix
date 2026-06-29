@@ -157,6 +157,7 @@
     jujutsu
     inputs.agents.packages.${pkgs.stdenv.hostPlatform.system}.tuicr
     mergiraf
+    diffnav
   ];
 
 }
