@@ -29,18 +29,18 @@
     fonts = {
 
       serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
+        package = pkgs.libertinus;
+        name = "Libertinus Serif";
       };
 
       sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
+        package = pkgs.inter;
+        name = "Inter Variable";
       };
 
       monospace = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans Mono";
+        package = pkgs.anonymous-pro-fonts;
+        name = "Anonymous Pro";
       };
 
       emoji = {
