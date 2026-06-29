@@ -16,6 +16,7 @@
       inconsolata-lgc
       _0xproto
       source-sans-pro
+      anonymous-pro-fonts
 
       # bitmap
       gohufont

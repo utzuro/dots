@@ -41,6 +41,10 @@ scoop install dbeaver
 scoop install opencode pi-coding-agent oh-my-pi codex
 scoop install chatgpt
 
+# --- Fonts ---
+scoop bucket add nerd-fonts https://github.com/matthewjberger/scoop-nerd-fonts
+scoop install Hack-NF JetBrainsMono-NF AnonymousPro-NF Monaspace-NF NerdFontsSymbolsOnly-NF
+
 # --- Notes for NixOS WSL ---
 # WezTerm config:
 # return {

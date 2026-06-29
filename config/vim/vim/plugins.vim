@@ -28,6 +28,7 @@ Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'dbakker/vim-paragraph-motion'
 Plug 'junegunn/vim-peekaboo'
 Plug 'mhinz/vim-signify'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " TOOLS
 Plug 'justinmk/vim-sneak'
