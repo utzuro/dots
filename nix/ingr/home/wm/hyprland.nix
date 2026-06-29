@@ -8,6 +8,7 @@
 
 {
   imports = [
+    ../lib/dmenu.nix
     inputs.hyprlux.homeManagerModules.default
   ];
 
