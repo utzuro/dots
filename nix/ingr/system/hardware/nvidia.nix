@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  inherit (pkgs.cudaPackages) cccl;
+in
 {
   nix.settings = {
     substituters = [ "https://cuda-maintainers.cachix.org" ];
@@ -52,7 +55,7 @@
 
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
-    cudaPackages.cuda_cccl
+    cccl
     cudatoolkit
     ocl-icd
     vulkan-tools

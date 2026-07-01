@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  inherit (pkgs.cudaPackages) cccl;
+in
 {
   nix.settings.substituters = [ "https://cuda-maintainers.cachix.org" ];
   services.xserver.videoDrivers = [
@@ -31,7 +34,7 @@
   nixpkgs.config.cudaSupport = true;
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
-    cudaPackages.cuda_cccl
+    cccl
     # cudaPackages.cudnn
     cudatoolkit
     ocl-icd
