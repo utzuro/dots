@@ -12,14 +12,11 @@ DIR="$(realpath "$(dirname "$0")/..")"
 
 echo "⌛... Installing packages for Windows (Scoop)... 🖳"
 
-# Note: chat tools do not work well when installed with scoop, so omit them.
-
 scoop bucket add extras
 
 # --- Shell tools ---
-scoop install neovim
 
-# Temporary workaround to make Neovim config work on Windows.
+## Temporary workaround to make Neovim config work on Windows.
 rm -rf "$HOME/AppData/Local/nvim"
 cp -r "$DIR/config/vim/nvim" "$HOME/AppData/Local/"
 rm -rf "$HOME/AppData/Local/nvim/colors"

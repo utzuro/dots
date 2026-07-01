@@ -262,7 +262,7 @@ end
 
 -- hl.monitor({ output = "DP-1", disabled = true })
 hl.monitor({ output = "HDMI-A-1", disabled = true })
-hl.monitor({ output = "HDMI-A-2", disabled = true })
+-- hl.monitor({ output = "HDMI-A-2", disabled = true })
 
 hl.config({
   opengl = {
