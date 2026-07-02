@@ -89,8 +89,8 @@
     stack
     ocaml
     dune_3
-    elixir
-    erlang
+    beamPackages.elixir
+    beamPackages.erlang
 
     # web
     typescript

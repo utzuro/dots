@@ -44,6 +44,7 @@
     killall
     timer
     duf
+    parted
 
     # # media
     ffmpeg

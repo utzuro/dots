@@ -14,13 +14,13 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.luks.devices = {
-    nixenc = {
-      device = "/dev/disk/by-uuid/ab07f3ec-0277-4eaf-b559-9fb70be67248";
-      preLVM = true;
-      allowDiscards = true;
-    };
-  };
+  # boot.initrd.luks.devices = {
+  #   nixenc = {
+  #     device = "/dev/disk/by-uuid/ab07f3ec-0277-4eaf-b559-9fb70be67248";
+  #     preLVM = true;
+  #     allowDiscards = true;
+  #   };
+  # };
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"
