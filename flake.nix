@@ -1,10 +1,10 @@
 {
   description = "root config file for linux";
 
-  # example usage:
+  # example usage (run from the repo root):
   # - nix flake update
-  # - nixos-rebuild switch --flake .#<output-name> --impure --use-remote-sudo
-  # - home-manager switch --flake .#<output-name> --override-input home-manager ~/<path-to-local-home-manager-repo> --impure
+  # - nixos-rebuild switch --flake .#<output-name> --use-remote-sudo
+  # - home-manager switch --flake .#<output-name> --override-input home-manager ~/<path-to-local-home-manager-repo>
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -87,7 +87,7 @@
       arch = "x86_64-linux";
       lib = nixpkgs.lib;
       dirs = {
-        config = ../config;
+        config = ./config;
       };
       pkgs = (
         import nixpkgs {
@@ -97,6 +97,11 @@
             allowUnfreePredicate = (_: true);
             android_sdk.accept_license = true;
             doCheckByDefault = false;
+            # Explicit, per-package insecure allowances (kept visible here on
+            # purpose — do not blanket-allow via NIXPKGS_ALLOW_INSECURE).
+            permittedInsecurePackages = [
+              "pnpm-10.29.2"
+            ];
           };
           overlays = [
             (final: prev: {
@@ -126,40 +131,40 @@
           lib.nixosSystem {
             modules = [
               disko.nixosModules.disko
-              ./ingr/machines/${system.host}/hardware-configuration.nix
-              ./ingr/system/boot.nix
-              ./ingr/system/basic.nix
-              ./ingr/system/audio.nix
-              ./ingr/system/firewall.nix
-              ./ingr/system/dev.nix
-              ./ingr/system/network/settings.nix
-              ./ingr/system/network/vpn.nix
-              ./ingr/system/virtualization.nix
+              ./nix/ingr/machines/${system.host}/hardware-configuration.nix
+              ./nix/ingr/system/boot.nix
+              ./nix/ingr/system/basic.nix
+              ./nix/ingr/system/audio.nix
+              ./nix/ingr/system/network/blocklist.nix
+              ./nix/ingr/system/dev.nix
+              ./nix/ingr/system/network/settings.nix
+              ./nix/ingr/system/network/vpn.nix
+              ./nix/ingr/system/virtualization.nix
 
-              ./ingr/system/wm/all.nix
+              ./nix/ingr/system/wm/all.nix
 
-              ./ingr/system/power/pc.nix
-              ./ingr/system/hardware/intel.nix
-              ./ingr/system/hardware/storage.nix
-              ./ingr/system/hardware/video.nix
-              ./ingr/system/hardware/nvidia.nix
+              ./nix/ingr/system/power/pc.nix
+              ./nix/ingr/system/hardware/intel.nix
+              ./nix/ingr/system/hardware/storage.nix
+              ./nix/ingr/system/hardware/video.nix
+              ./nix/ingr/system/hardware/nvidia.nix
 
-              ./ingr/system/hardware/nfs.nix
+              ./nix/ingr/system/hardware/nfs.nix
 
-              ./ingr/system/games/gaming.nix
-              ./ingr/system/games/steam.nix
+              ./nix/ingr/system/games/gaming.nix
+              ./nix/ingr/system/games/steam.nix
 
               # Optional service modules.
-              # ./ingr/system/services/homeassistant.nix
-              # ./ingr/system/games/game-server.nix
-              ./ingr/system/services/sync.nix
-              ./ingr/system/services/cloud.nix
-              ./ingr/system/services/ml.nix
-              ./ingr/system/services/storage.nix
-              ./ingr/system/services/monitoring.nix
+              # ./nix/ingr/system/services/homeassistant.nix
+              # ./nix/ingr/system/games/game-server.nix
+              ./nix/ingr/system/services/sync.nix
+              ./nix/ingr/system/services/cloud.nix
+              ./nix/ingr/system/services/ml.nix
+              ./nix/ingr/system/services/storage.nix
+              ./nix/ingr/system/services/monitoring.nix
 
               # Local overrides and compatibility fixes.
-              ./ingr/system/temp.nix
+              ./nix/ingr/system/temp.nix
 
             ];
 
@@ -180,24 +185,24 @@
           lib.nixosSystem {
             modules = [
               disko.nixosModules.disko
-              ./ingr/machines/${system.host}/hardware-configuration.nix
-              ./ingr/system/boot.nix
-              ./ingr/system/basic.nix
-              ./ingr/system/firewall.nix
-              ./ingr/system/dev.nix
-              ./ingr/system/network/settings.nix
+              ./nix/ingr/machines/${system.host}/hardware-configuration.nix
+              ./nix/ingr/system/boot.nix
+              ./nix/ingr/system/basic.nix
+              ./nix/ingr/system/network/blocklist.nix
+              ./nix/ingr/system/dev.nix
+              ./nix/ingr/system/network/settings.nix
 
-              ./ingr/system/wm/hyprland.nix
+              ./nix/ingr/system/wm/hyprland.nix
 
-              ./ingr/system/power/pc.nix
-              ./ingr/system/hardware/intel.nix
-              ./ingr/system/hardware/storage.nix
-              ./ingr/system/hardware/video.nix
+              ./nix/ingr/system/power/pc.nix
+              ./nix/ingr/system/hardware/intel.nix
+              ./nix/ingr/system/hardware/storage.nix
+              ./nix/ingr/system/hardware/video.nix
 
-              ./ingr/system/hardware/nfs.nix
+              ./nix/ingr/system/hardware/nfs.nix
 
               # Local overrides and compatibility fixes.
-              ./ingr/system/temp.nix
+              ./nix/ingr/system/temp.nix
 
             ];
 
@@ -218,24 +223,24 @@
           lib.nixosSystem {
             modules = [
               disko.nixosModules.disko
-              ./ingr/machines/${system.host}/hardware-configuration.nix
-              ./ingr/system/boot.nix
-              ./ingr/system/basic.nix
-              ./ingr/system/firewall.nix
-              ./ingr/system/dev.nix
-              ./ingr/system/network/settings.nix
+              ./nix/ingr/machines/${system.host}/hardware-configuration.nix
+              ./nix/ingr/system/boot.nix
+              ./nix/ingr/system/basic.nix
+              ./nix/ingr/system/network/blocklist.nix
+              ./nix/ingr/system/dev.nix
+              ./nix/ingr/system/network/settings.nix
 
-              ./ingr/system/wm/hyprland.nix
+              ./nix/ingr/system/wm/hyprland.nix
 
-              ./ingr/system/power/pc.nix
-              ./ingr/system/hardware/intel.nix
-              ./ingr/system/hardware/storage.nix
-              ./ingr/system/hardware/video.nix
+              ./nix/ingr/system/power/laptop.nix
+              ./nix/ingr/system/hardware/intel.nix
+              ./nix/ingr/system/hardware/storage.nix
+              ./nix/ingr/system/hardware/video.nix
 
-              ./ingr/system/hardware/nfs.nix
+              ./nix/ingr/system/hardware/nfs.nix
 
               # Local overrides and compatibility fixes.
-              ./ingr/system/temp.nix
+              ./nix/ingr/system/temp.nix
 
             ];
 
@@ -258,27 +263,27 @@
             inherit pkgs;
             modules = [
 
-              ./ingr/home/home.nix
-              ./ingr/home/env.nix
-              ./ingr/home/theme.nix
-              ./ingr/home/fonts.nix
+              ./nix/ingr/home/home.nix
+              ./nix/ingr/home/env.nix
+              ./nix/ingr/home/theme.nix
+              ./nix/ingr/home/fonts.nix
 
-              ./ingr/home/wm/all.nix
+              ./nix/ingr/home/wm/all.nix
 
-              ./ingr/home/sh/basic.nix
-              ./ingr/home/sh/power.nix
-              ./ingr/home/sh/learn.nix
-              ./ingr/home/sh/dev.nix
-              ./ingr/home/sh/games.nix
-              ./ingr/home/sh/subs.nix
+              ./nix/ingr/home/sh/basic.nix
+              ./nix/ingr/home/sh/power.nix
+              ./nix/ingr/home/sh/learn.nix
+              ./nix/ingr/home/sh/dev.nix
+              ./nix/ingr/home/sh/games.nix
+              ./nix/ingr/home/sh/subs.nix
 
-              ./ingr/home/gui/browser.nix
-              ./ingr/home/gui/dev.nix
-              ./ingr/home/gui/media.nix
-              ./ingr/home/gui/comms.nix
-              ./ingr/home/gui/games.nix
+              ./nix/ingr/home/gui/browser.nix
+              ./nix/ingr/home/gui/dev.nix
+              ./nix/ingr/home/gui/media.nix
+              ./nix/ingr/home/gui/comms.nix
+              ./nix/ingr/home/gui/games.nix
 
-              # ./ingr/home/corp.nix
+              # ./nix/ingr/home/corp.nix
 
               inputs.stylix.homeModules.stylix
             ];
@@ -291,21 +296,22 @@
           let
             user = {
               name = "void";
+              public_name = "utzuro";
               email = "utzuro@pm.me";
             };
           in
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [
-              ./ingr/home/home.nix
-              ./ingr/home/env.nix
-              ./ingr/home/fonts.nix
+              ./nix/ingr/home/home.nix
+              ./nix/ingr/home/env.nix
+              ./nix/ingr/home/fonts.nix
 
-              ./ingr/home/sh/basic.nix
-              ./ingr/home/sh/power.nix
-              ./ingr/home/sh/media.nix
-              ./ingr/home/sh/dev.nix
-              ./ingr/home/sh/games.nix
+              ./nix/ingr/home/sh/basic.nix
+              ./nix/ingr/home/sh/power.nix
+              ./nix/ingr/home/sh/media.nix
+              ./nix/ingr/home/sh/dev.nix
+              ./nix/ingr/home/sh/games.nix
 
               inputs.stylix.homeModules.stylix
             ];

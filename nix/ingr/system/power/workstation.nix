@@ -18,7 +18,7 @@
 
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "balanced"; # "powersave" / "performance" / "powersave"
+    cpuFreqGovernor = "schedutil"; # balanced default; or "powersave" / "performance"
   };
 
   services.logind = {

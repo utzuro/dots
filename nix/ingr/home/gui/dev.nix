@@ -15,8 +15,9 @@
         # Try to sync drawing to the monitor refresh rate for smoothness
         sync_to_monitor = "yes";
 
-        # Enable native Wayland if available (avoids Xwayland 60 Hz cap)
-        enable_wayland = "yes";
+        # Prefer native Wayland when available, fall back to X11
+        # (kitty has no `enable_wayland` option; this is the real one)
+        linux_display_server = "auto";
 
         # Make sure scrollback updates are smooth
         scrollback_lines = 10000;

@@ -8,11 +8,6 @@
     "nix-command"
     "flakes"
   ];
-  nix.nixPath = [
-    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "nixos-config=$HOME/dots/nix/configuration.nix"
-    "/nix/var/nix/profiles/per-user/root/channels"
-  ];
 
   users.users.${user.name} = {
     isNormalUser = true;
@@ -22,22 +17,15 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB7ODfKTPOro31QduDsXcSpSrvbvlkuB2V1tCZwvjMAs"
     ];
     shell = pkgs.zsh;
+    # Only groups that actually exist on these systems.
     extraGroups = [
       "dialout"
       "adbusers"
       "audio"
-      "corectrl"
       "disk"
       "input"
-      "lp"
-      "mongodb"
-      "mysql"
-      "network"
       "networkmanager"
       "postgres"
-      "power"
-      "scanner"
-      "sound"
       "systemd-journal"
       "users"
       "video"
@@ -47,7 +35,6 @@
       "kvm"
       "libvirtd"
       "vboxusers"
-      "samba"
     ];
   };
   nix.settings.trusted-users = [

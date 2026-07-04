@@ -31,9 +31,7 @@
     ripgrep-all
     fzf
     fd
-    rsync
     zsync
-    file
     jq
     moreutils
     wget2

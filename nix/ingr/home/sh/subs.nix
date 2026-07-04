@@ -115,10 +115,6 @@
       }
       {
         tags = [ "tech" ];
-        url = "https://hackaday.com/feed/";
-      }
-      {
-        tags = [ "tech" ];
         url = "https://hnrss.org/best";
       }
       {

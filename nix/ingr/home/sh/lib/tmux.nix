@@ -27,9 +27,9 @@ in
 
       # LEFT
       set-option -g status-left '#(shell-command)'
-      set-option -g window-status-current-format '#[bold]#(echo"<<")#{window_index}#(echo ":")#{window_name}'
+      set-option -g window-status-current-format '#[bold]<<#{window_index}:#{window_name}'
       setw -g window-status-current-style fg=white,bg=colour141,bright
-      set-option -g window-status-format '#[fg=colour141]#{window_index}#(echo ":")#{window_name}'
+      set-option -g window-status-format '#[fg=colour141]#{window_index}:#{window_name}'
 
       # RIGHT
       set -g @sysstat_mem_view_tmpl '#{mem.pused}'
@@ -53,8 +53,11 @@ in
       run-shell ${pkgs.tmuxPlugins.vim-tmux-navigator}/share/tmux-plugins/vim-tmux-navigator/vim-tmux-navigator.tmux
 
     '';
+    # cpu/sysstat/net-speed/battery/prefix-highlight/vim-tmux-navigator are
+    # NOT listed here on purpose: home-manager loads `plugins` before
+    # extraConfig, so their status tokens wouldn't expand. They are run
+    # manually at the end of extraConfig above instead.
     plugins = with pkgs.tmuxPlugins; [
-      cpu
       open
       fpp
       yank
@@ -63,20 +66,14 @@ in
       copycat
       dracula
       logging
-      sysstat
       urlview
-      sysstat
       tmux-thumbs
-      battery
       tmux-fzf
       extrakto
       fuzzback
-      net-speed
       sessionist
-      prefix-highlight
       maildir-counter
       better-mouse-mode
-      vim-tmux-navigator
       vim-tmux-focus-events
 
       {

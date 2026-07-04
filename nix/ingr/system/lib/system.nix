@@ -5,12 +5,8 @@
   hardware = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
-    ipu6.enable = true;
-    # ipu6 for Tiger Lake
-    # ipu6ep for Alder Lake / Raptor Lake
-    # ipu6epmtl for Meteor Lake.
-    ipu6.platform = "ipu6ep";
-    # extra
+    # MIPI webcam stack lives in hardware/ipu6.nix — import it only on
+    # laptops that actually have an IPU6 camera.
     sensor.iio.enable = true;
   };
   environment.pathsToLink = [ "/libexec" ];
@@ -73,7 +69,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     # LC_ALL = "en_US.UTF-8"; # This overrides all other LC_* settings.
-    LC_CTYPE = "en_US.UTF8";
+    LC_CTYPE = "en_US.UTF-8";
     LC_ADDRESS = "es_VE.UTF-8";
     LC_MEASUREMENT = "es_VE.UTF-8";
     LC_MESSAGES = "en_US.UTF-8";

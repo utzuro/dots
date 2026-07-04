@@ -63,17 +63,17 @@ in
     gog
     steam-run
     heroic
-    lutris
     bottles
     adwaita-icon-theme # dep
 
-    wineWow64Packages.staging
     winetricks
+    # single wine variant to avoid PATH collisions between builds
     (wineWow64Packages.full.override {
       wineRelease = "staging";
       mingwSupport = true;
     })
 
+    # single lutris definition (plain `lutris` alongside this caused a collision)
     (lutris.override {
       extraLibraries = pkgs: [
         # If any games are unable to run

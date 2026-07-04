@@ -21,7 +21,9 @@
       verbose = true;
       luks.devices = {
         nixenc = {
-          device = "/dev/disk/by-partlabel/nixenc";
+          # mkDefault: machines with a by-uuid device in their
+          # hardware-configuration.nix (e.g. x240) override this.
+          device = lib.mkDefault "/dev/disk/by-partlabel/nixenc";
           preLVM = true;
           allowDiscards = true;
         };

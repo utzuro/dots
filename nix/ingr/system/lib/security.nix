@@ -35,30 +35,25 @@
       wheelNeedsPassword = true;
       extraRules = [
         {
+          # Use the /run/current-system paths: that's what `sudo reboot`
+          # resolves to, so store paths would never match.
           commands = [
             {
-              command = "${pkgs.systemd}/bin/systemctl suspend";
+              command = "/run/current-system/sw/bin/systemctl suspend";
               options = [ "NOPASSWD" ];
             }
             {
-              command = "${pkgs.systemd}/bin/reboot";
+              command = "/run/current-system/sw/bin/reboot";
               options = [ "NOPASSWD" ];
             }
             {
-              command = "${pkgs.systemd}/bin/poweroff";
+              command = "/run/current-system/sw/bin/poweroff";
               options = [ "NOPASSWD" ];
             }
           ];
           groups = [ "wheel" ];
         }
       ];
-      extraConfig = with pkgs; ''
-        Defaults:picloud secure_path="${
-          lib.makeBinPath [
-            systemd
-          ]
-        }:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
-      '';
     };
 
     # perf: allow any program to request real-time priority

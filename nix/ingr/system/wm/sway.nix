@@ -21,7 +21,8 @@
     };
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${pkgs.kanshi}/bin/kanshi -c kanshi_config_file";
+      # uses the default config path: ~/.config/kanshi/config
+      ExecStart = "${pkgs.kanshi}/bin/kanshi";
     };
   };
 

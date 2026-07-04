@@ -8,43 +8,11 @@
 let
   starshipConfig = ../../../../../config/starship.toml;
 
-  simpleAliases = {
-    c = "clear";
-    vim = "nvim";
-    v = "nvim";
-    ls = "eza";
-    tree = "eza --tree";
-    cat = "bat";
-    wget = "wget2";
-    todo = "nvim ~/todo";
-    mpv = "mpv --alang=jpn";
-    yt = "yt-dlp --no-playlist";
-    ytp = "yt-dlp -f 'bv*[height<=2160]+ba/b' --cookies-from-browser firefox";
+  aliases = import ./aliases.nix { inherit user; };
 
-    com = "git commit";
-    push = "git push";
-    pull = "git pull --ff-only";
-    pul = "git pull --ff-only";
-    pl = "git pull --ff-only";
-    rebase = "git pull --rebase";
-    force = "git push --force-with-lease";
-    forc = "git push --force-with-lease";
-    amend = "git commit --amend";
-    diff = "git diff --color-words";
-    cached = "git diff --cached --color-words";
-    changes = "git diff main --color-words";
-    chmain = "git diff main --name-only";
-    chmaster = "git diff main --name-only";
-    chdev = "git diff dev --name-only";
-
+  simpleAliases = aliases.core // {
     nsh = "nix develop --command nu";
     snsh = "nix develop --impure --command secretspec run --profile development -- nu";
-
-    pv = "pipe-viewer";
-    m = "myougiden";
-    t = "tango";
-    ino = "arduino-cli";
-    k8s = "kubectl";
   };
 in
 {
@@ -121,13 +89,11 @@ in
       $env.manu = $env.manuscripts
 
       $env.STARDICT_DATA_DIR = ($env.manuscripts | path join "ingredients" "dicts" "dic")
-      $env.LEDGER = ($env.manuscripts | path join "ledger" "main.ledger")
+      $env.LEDGER = ($env.alchemy | path join "magic" "manuscripts" "ledger" "main.ledger")
       $env.MY_HOMEMANAGER = ($home | path join "alchemy" "summons" "nixos" "home-manager")
 
       $env.GOPATH = ($home | path join "go")
       $env.GOPRIVATE = "github.com/*"
-      $env.NIXPKGS_ALLOW_INSECURE = "1"
-      $env.NIXPKGS_ALLOW_UNFREE = "1"
       $env.PNPM_HOME = ($home | path join ".local" "share" "pnpm")
       $env.WINEPREFIX = ($home | path join "darkarts" "lib" "prefixes" "wine")
 
@@ -173,8 +139,8 @@ in
       def addtests [] { git commit -am "add tests"; git push }
 
       def build-my-home [] {
-          ./ingr/cleanup
-          home-manager switch --flake .#${user.name} --impure
+          ~/dots/nix/ingr/cleanup
+          home-manager switch --flake ~/dots#${user.name}
       }
 
       def real [] { ledger -f $env.LEDGER bal Assets --real }

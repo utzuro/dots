@@ -5,43 +5,6 @@
 
 { pkgs, ... }:
 
-let
-
-  aliases = {
-    c = "clear";
-    vim = "nvim";
-    v = "nvim";
-    ls = "eza";
-    tree = "eza --tree";
-    cat = "bat";
-    wget = "wget2";
-    k = "ps aux | fzf | awk '{print }' | xargs -r kill -9";
-
-    # git
-    upd = "git commit -am 'minor update' && git push";
-    verupd = "git commit -am 'update version' && git push";
-    refactor = "git commit -am 'refactor' && git push";
-    hotfix = "git commit -am 'hotfix' && git push";
-    addtests = "git commit -am 'add tests' && git push";
-    push = "git push";
-    pull = "git pull --ff-only";
-    pul = "git pull --ff-only";
-    pl = "git pull --ff-only";
-    rebase = "git pull --rebase";
-    force = "git push --force-with-lease";
-    forc = "git push --force-with-lease";
-    amend = "git commit --amend";
-    diff = "git diff --color-words";
-    cached = "git diff --cached --color-words";
-    changes = "git diff main --color-words";
-    chmain = "git diff main --name-only";
-    chmaster = "git diff main --name-only";
-    chdev = "git diff main --name-only";
-
-    open-port = "while true ; do date ; natpmpc -a 1 0 udp 60 -g 10.2.0.1 && natpmpc -a 1 0 tcp 60 -g 10.2.0.1 || { echo -e 'ERROR' ; break ; } ; sleep 45 ; done";
-  };
-
-in
 {
 
   imports = [
@@ -60,12 +23,13 @@ in
     "fs.inotify.max_queued_events" = 32768;
   };
 
+  # User-facing aliases live in home-manager (nix/ingr/home/sh/lib/aliases.nix);
+  # the system zsh stays alias-free.
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
-    shellAliases = aliases;
     ohMyZsh = {
       enable = true;
       plugins = [

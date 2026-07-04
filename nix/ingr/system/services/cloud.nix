@@ -22,10 +22,8 @@
     "video"
     "render"
   ];
+  # jellyfin/jellyfin-web are provided by services.jellyfin itself
   environment.systemPackages = with pkgs; [
-    jellyfin
-    jellyfin-web
-    jellyfin-ffmpeg
     ytdl-sub # YouTube subscription manager for Jellyfin
   ];
 

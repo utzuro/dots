@@ -27,11 +27,9 @@
     };
     keyMappings = { };
     extraConfig = ''
-      # Disable the default keybinding for opening the devtools
+      # Bind devtools; note this shadows qutebrowser's default `d` (close tab)
       config.bind('d', 'devtools.toggle')
-      # Disable the default keybinding for opening the devtools
       config.bind('D', 'devtools.toggle')
-      # Disable the default keybinding for opening the devtools
       config.bind('Ctrl+Shift+I', 'devtools.toggle')
     '';
     searchEngines = {
@@ -117,7 +115,14 @@
         darkreader
         proton-pass
         # yomitan
-        languagetool
+        # languagetool ships an unfree license and the firefox-addons input
+        # evaluates with its own nixpkgs (our allowUnfree doesn't reach it),
+        # so relabel just this addon instead of NIXPKGS_ALLOW_UNFREE=1.
+        (languagetool.overrideAttrs (old: {
+          meta = (old.meta or { }) // {
+            license = pkgs.lib.licenses.free;
+          };
+        }))
         dictionaries
 
         tridactyl

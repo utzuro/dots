@@ -133,8 +133,13 @@ link_dotfiles() {
 	link_or_copy "$DIR/config/gnupg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 	link_or_copy "$DIR/config/gnupg/scdaemon.conf" "$HOME/.gnupg/scdaemon.conf"
 
-	printf "\n⌛... Linking WSL configs... 📝\n"
-	link_or_copy "$DIR/config/win/.wslconfig" "$HOME/.wslconfig"
+	# .wslconfig is read by Windows; only useful on WSL/MSYS2 setups
+	if $is_wsl || $is_msys2; then
+		printf "\n⌛... Linking WSL configs... 📝\n"
+		link_or_copy "$DIR/config/win/.wslconfig" "$HOME/.wslconfig"
+	fi
+
+	printf "\n⌛... Linking bash configs... 📝\n"
 	link_or_copy "$DIR/config/.bash_profile" "$HOME/.bash_profile"
 	link_or_copy "$DIR/config/.bashrc" "$HOME/.bashrc"
 
@@ -240,8 +245,7 @@ manual_shell_and_tools() {
 	mkdir -p "$HOME/.config/mpd"
 	ln -sfv "$DIR/config/mpd/"* "$HOME/.config/mpd/" || true
 
-	link_or_copy "$DIR/config/.bash_profile" "$HOME/.bash_profile"
-	link_or_copy "$DIR/config/.bashrc" "$HOME/.bashrc"
+	# bash configs are already linked in link_dotfiles
 	link_or_copy "$DIR/config/tmux/.tmux.conf" "$HOME/.tmux.conf"
 	link_or_copy "$DIR/config/zsh/.zshrc" "$HOME/.zshrc"
 	link_or_copy "$DIR/config/zsh/.p10k.zsh" "$HOME/.p10k.zsh"

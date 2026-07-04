@@ -5,8 +5,6 @@ let
 in
 {
 
-  networking.extraHosts = ''
-    "${blocklist}"
-  '';
+  networking.extraHosts = blocklist;
 
 }

@@ -7,6 +7,9 @@
     ./lib/mimelist.nix
   ];
 
+  # NOTE: session variables are exported in attribute-name order (uppercase
+  # sorts before lowercase), so UPPERCASE vars must not reference the
+  # lowercase shortcuts below — use $HOME paths directly.
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -16,9 +19,12 @@
     magic = "$HOME/magic";
     manu = "$alchemy/manuscripts";
     manuscripts = "$alchemy/manuscripts";
-    STARDICT_DATA_DIR = "$manuscripts/ingredients/dicts/dic";
+    STARDICT_DATA_DIR = "$HOME/alchemy/manuscripts/ingredients/dicts/dic";
     LEDGER = "$HOME/alchemy/magic/manuscripts/ledger/main.ledger";
+    MY_HOMEMANAGER = "$HOME/alchemy/summons/nixos/home-manager";
     ZATHURA_PLUGINS_PATH = "/usr/lib/zathura";
+
+    WINEPREFIX = "$HOME/darkarts/lib/prefixes/wine";
 
     PI_OFFLINE = "1";
 
@@ -32,10 +38,20 @@
     ANDROID_SDK_ROOT = "$HOME/alchemy/ingredients/android";
     # PATH = "$PATH:$HOME/alchemy/ingredients/flutter/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$HOME/.local/share/JetBrains/Toolbox/scripts";
 
-    NIXPKGS_ALLOW_INSECURE = "1";
-    NIXPKGS_ALLOW_UNFREE = "1";
-
     QT_FONT_DPI = "204";
+  };
+
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = false;
+    desktop = "$HOME";
+    download = "$HOME/channeling";
+    templates = "$HOME/magic";
+    publicShare = "$HOME/magic";
+    documents = "$HOME/magic";
+    music = "$HOME/magic";
+    pictures = "$HOME/magic";
+    videos = "$HOME/magic";
   };
 
   home.file.".profile".text = ''

@@ -4,7 +4,7 @@
   # example usage:
   # - nix flake update
   # - sudo nixos-rebuild switch --flake .#wsl --impure
-  # - home-manager switch --flake .#wsl --impure
+  # - home-manager switch --flake .#void --impure -b backup
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -142,7 +142,6 @@
       };
 
       homeConfigurations = {
-        backupFileExtension = "backup";
         void =
           let
             user = {

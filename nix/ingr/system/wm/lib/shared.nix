@@ -37,13 +37,8 @@
     enable = true;
     exportConfiguration = true;
 
-    # DPI settings
+    # DPI settings (HiDPI everywhere; QT_FONT_DPI in home env.nix matches)
     dpi = 204;
-    displayManager.sessionCommands = ''
-        ${pkgs.xrdb}/bin/xrdb -merge <<EOF  
-        Xft.dpi: 100  
-      EOF  
-    '';
 
     desktopManager.runXdgAutostartIfNone = true;
   };

@@ -9,12 +9,10 @@
     settings.port = 5430;
     authentication = pkgs.lib.mkOverride 10 ''
       #type database DBuser origin-address auth-method
-      local all      all     trust
-      # ... other auth rules ...
-
-      # ipv4
-      host  all      all     all            trust
-      # ipv6
+      # local socket
+      local all      all                    trust
+      # loopback only; never open trust auth to non-local addresses
+      host  all      all     127.0.0.1/32   trust
       host  all      all     ::1/128        trust
     '';
     initialScript = pkgs.writeText "backend-initScript" ''

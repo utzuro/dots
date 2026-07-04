@@ -1,8 +1,6 @@
 # USAGE
-# install home-manager with
-# `nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager`
-# `nix-shell '<home-manager> -A install`
-# update configs with `home-manager switch --flake .#void`
+# update configs with `home-manager switch --flake ~/dots#void`
+# (first install: `nix run home-manager -- switch --flake ~/dots#void`)
 
 { pkgs, user, ... }:
 

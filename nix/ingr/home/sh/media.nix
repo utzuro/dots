@@ -41,35 +41,6 @@
       scroll_down_album
   '';
 
-  xdg.configFile."mimeapps.list".force = true;
-  xdg.mimeApps = {
-    enable = true;
-
-    associations = {
-      added = {
-        "text/plain" = [ "neovide.desktop" ];
-        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-        "application/epub+zip" = [ "org.pwmt.zathura.desktop" ];
-        "image/*" = [ "sxiv.desktop" ];
-        "video/png" = [ "mpv.desktop" ];
-        "video/jpg" = [ "mpv.desktop" ];
-        "video/*" = [ "mpv.desktop" ];
-      };
-      removed = {
-        "application/pdf" = "calibre-ebook-viewer.desktop";
-        "application/epub+zip" = "calibre-ebook-viewer.desktop";
-      };
-    };
-
-    defaultApplications = {
-      "text/plain" = [ "neovide.desktop" ];
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-      "application/epub+zip" = [ "org.pwmt.zathura.desktop" ];
-      "image/*" = [ "sxiv.desktop" ];
-      "video/png" = [ "mpv.desktop" ];
-      "video/jpg" = [ "mpv.desktop" ];
-      "video/*" = [ "mpv.desktop" ];
-    };
-
-  };
+  # MIME associations are managed centrally in ../lib/mimelist.nix
+  # (imported via env.nix).
 }

@@ -16,19 +16,20 @@
         pre-commit = ./pre-commit-script.sh;
       };
 
+      lfs.enable = true;
+
+      signing = {
+        format = "openpgp";
+        key = user.email;
+        signByDefault = true;
+      };
+
       settings = {
         # base configs
-        lfs.enable = true;
         user.name = user.public_name;
         user.email = user.email;
 
-        signing = {
-          signer = user.public_name;
-          key = user.email;
-          signByDefault = true;
-        };
-
-        aliases = {
+        alias = {
           co = "checkout";
           sw = "switch";
         };

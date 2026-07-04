@@ -93,18 +93,7 @@
       }
     ];
 
-    # Allow traffic from local network
     trustedInterfaces = [ "lo" ];
-
-    # Trust LAN - allows all traffic from local network (convenient for game servers)
-    extraCommands = ''
-      iptables -A INPUT -s 192.168.0.0/16 -j ACCEPT
-      iptables -A INPUT -s 10.0.0.0/8 -j ACCEPT
-    '';
-    extraStopCommands = ''
-      iptables -D INPUT -s 192.168.0.0/16 -j ACCEPT || true
-      iptables -D INPUT -s 10.0.0.0/8 -j ACCEPT || true
-    '';
 
     # Log dropped packets (useful for debugging)
     logRefusedConnections = false; # Set to true to debug

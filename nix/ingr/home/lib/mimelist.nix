@@ -2,16 +2,24 @@ let
   browser = "librewolf.desktop";
   editor = "nvim.desktop";
   audioplayer = "mpv.desktop";
+  videoplayer = "mpv.desktop";
   file-manager = "org.gnome.Nautilus.desktop";
   image-viewer = "feh.desktop";
   image-editor = "feh.desktop";
-  book-viewer = "zathura.desktop";
+  book-viewer = "org.pwmt.zathura.desktop";
   torrent = "qbittorrent.desktop";
 in
 {
+  # Single source of truth for MIME associations (don't redefine xdg.mimeApps
+  # in other modules — the desktop-file names will drift).
+  xdg.configFile."mimeapps.list".force = true;
   xdg.mimeApps = rec {
     enable = true;
     associations.added = defaultApplications;
+    associations.removed = {
+      "application/pdf" = "calibre-ebook-viewer.desktop";
+      "application/epub+zip" = "calibre-ebook-viewer.desktop";
+    };
     defaultApplications = {
       "inode/directory" = file-manager;
 
@@ -22,7 +30,9 @@ in
 
       "x-scheme-handler/magnet" = torrent;
       "application/pdf" = book-viewer;
+      "application/epub+zip" = book-viewer;
       "application/x-shellscript" = editor;
+      "text/plain" = editor;
 
       "audio/aac" = audioplayer;
       "audio/ac3" = audioplayer;
@@ -30,7 +40,6 @@ in
       "audio/flac" = audioplayer;
       "audio/midi" = audioplayer;
       "audio/mp4" = audioplayer;
-      "audio/mp3" = audioplayer;
       "audio/mpeg" = audioplayer;
       "audio/ogg" = audioplayer;
       "audio/x-aiff" = audioplayer;
@@ -62,6 +71,15 @@ in
       "image/svg+xml-compressed" = image-viewer;
       "image/vnd.wap.wbmp" = image-viewer;
       "image/x-icns" = image-viewer;
+
+      "video/mp4" = videoplayer;
+      "video/mpeg" = videoplayer;
+      "video/ogg" = videoplayer;
+      "video/quicktime" = videoplayer;
+      "video/webm" = videoplayer;
+      "video/x-matroska" = videoplayer;
+      "video/x-msvideo" = videoplayer;
+      "video/x-flv" = videoplayer;
     };
   };
 }

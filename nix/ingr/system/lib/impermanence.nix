@@ -4,10 +4,12 @@
   ...
 }:
 {
+  # NOTE: currently unused. The LUKS mapping on these machines is `nixenc`
+  # (see boot.nix), not `cryptroot` — keep the device in sync before enabling.
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     echo "Rollback running" > /mnt/rollback.log
      mkdir -p /mnt
-     mount -t btrfs /dev/mapper/cryptroot /mnt
+     mount -t btrfs /dev/mapper/nixenc /mnt
 
      # Recursively delete all nested subvolumes inside /mnt/root
      btrfs subvolume list -o /mnt/root | cut -f9 -d' ' | while read subvolume; do
@@ -25,8 +27,9 @@
   '';
 
   environment.persistence."/persist" = {
+    # Never persist all of /etc on NixOS — it would shadow generated config.
+    # Persist specific state directories instead.
     directories = [
-      "/etc"
       "/var/spool"
       "/root"
       "/srv"
