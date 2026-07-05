@@ -41,8 +41,9 @@
       "*~"
       "*.swp"
 
-      ".claude/"
-      ".context/"
+      ".claude"
+      ".context"
+      "context.md"
       "todo"
       "PLAN.md"
       ".env"
