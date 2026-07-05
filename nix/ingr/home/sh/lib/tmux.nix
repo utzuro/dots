@@ -1,7 +1,8 @@
-{ pkgs, user, ... }:
+{ pkgs, config, ... }:
 
 let
-  resurrectDir = "/home/${user.name}/.tmux/resurrect";
+  # home.homeDirectory instead of /home/<user>: nix-on-droid lives elsewhere.
+  resurrectDir = "${config.home.homeDirectory}/.tmux/resurrect";
 in
 {
   programs.tmux = {

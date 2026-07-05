@@ -39,9 +39,10 @@ let
     src = ./summons;
   };
 
-  vcmi = lib.cleanSourceWith {
-    src = ../../../.local/share/vcmi;
-  };
+  # Game data lives outside the repo (~/.local/share/vcmi); only embed it
+  # when building on a machine that actually has it.
+  vcmiPath = ../../../.local/share/vcmi;
+  hasVcmi = builtins.pathExists vcmiPath;
 in
 {
   _module.args = {
@@ -83,17 +84,20 @@ in
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.supportedFilesystems = [
-    "btrfs"
-    "cifs"
-    "exfat"
-    "ext4"
-    "f2fs"
-    "ntfs"
-    "reiserfs"
-    "vfat"
-    "xfs"
-  ];
+  boot.supportedFilesystems = {
+    btrfs = true;
+    cifs = true;
+    exfat = true;
+    ext4 = true;
+    f2fs = true;
+    ntfs = true;
+    reiserfs = true;
+    vfat = true;
+    xfs = true;
+    # the base installer module enables zfs, which lags behind
+    # linuxPackages_latest and breaks evaluation
+    zfs = lib.mkForce false;
+  };
 
   hardware.enableAllFirmware = true;
   hardware.enableRedistributableFirmware = true;
@@ -122,7 +126,9 @@ in
   networking.networkmanager.enable = true;
 
   zramSwap.enable = true;
-  zramSwap.memoryPercent = 100;
+  # mkForce: ../ingr/system/lib/system.nix sets 50 for installed systems;
+  # live media has no disk swap to fall back on.
+  zramSwap.memoryPercent = lib.mkForce 100;
   boot.tmp.useTmpfs = true;
   boot.tmp.tmpfsSize = "80%";
 
@@ -150,7 +156,7 @@ in
 
   users.users.${normalUser} = {
     isNormalUser = true;
-    shell = pkgs.zsh;
+    # shell comes from ../ingr/system/lib/user.nix (via basic.nix -> core.nix)
     extraGroups = commonGroups;
 
     initialPassword = normalUser;
@@ -168,7 +174,9 @@ in
     enable = true;
 
     # Avoid starting Docker at boot; socket activation can start it on demand.
-    enableOnBoot = false;
+    # mkForce: ../ingr/system/lib/containers.nix enables it on boot for
+    # installed systems, but live media should stay lazy.
+    enableOnBoot = lib.mkForce false;
 
     # Default overlay2 is usually best. For weird live-media failures, try:
     # daemon.settings."storage-driver" = "vfs";
@@ -305,7 +313,7 @@ in
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
     dejavu_fonts
   ];
@@ -333,35 +341,45 @@ in
         install -d -m 0755 -o "$u" -g users "$home"
         install -d -m 0755 -o "$u" -g users "$home/.config"
 
-        if [ -e ${dotfiles}/zshrc ]; then
-          ln -sfn ${dotfiles}/zshrc "$home/.zshrc"
+        if [ -e ${dotfiles}/zsh/.zshrc ]; then
+          ln -sfn ${dotfiles}/zsh/.zshrc "$home/.zshrc"
           chown -h "$u:users" "$home/.zshrc" || true
         fi
 
-        if [ -e ${dotfiles}/vimrc ]; then
-          ln -sfn ${dotfiles}/vimrc "$home/.vimrc"
+        if [ -e ${dotfiles}/zsh/.p10k.zsh ]; then
+          ln -sfn ${dotfiles}/zsh/.p10k.zsh "$home/.p10k.zsh"
+          chown -h "$u:users" "$home/.p10k.zsh" || true
+        fi
+
+        if [ -e ${dotfiles}/vim/vimrc ]; then
+          ln -sfn ${dotfiles}/vim/vimrc "$home/.vimrc"
           chown -h "$u:users" "$home/.vimrc" || true
         fi
 
-        if [ -e ${dotfiles}/nvim ]; then
+        if [ -e ${dotfiles}/vim/nvim ]; then
           rm -rf "$home/.config/nvim"
-          ln -sfn ${dotfiles}/nvim "$home/.config/nvim"
+          ln -sfn ${dotfiles}/vim/nvim "$home/.config/nvim"
           chown -h "$u:users" "$home/.config/nvim" || true
         fi
       done
     '';
   };
 
-  # embed a copy of config repo into /etc/nixos/voidos.
+  # embed a copy of the config repo into /etc/nixos/voidos.
+  # ../.. is the repo root: the main flake.nix lives there, so the embedded
+  # copy is directly usable with `nixos-rebuild switch --flake`.
   environment.etc."nixos/voidos".source = lib.cleanSourceWith {
-    src = ../.;
+    src = ../..;
     filter =
       path: type:
       let
         name = baseNameOf path;
       in
       !(
-        name == ".git"
+        # sockets and other special files (e.g. microvm control.socket)
+        type == "unknown"
+        || name == ".git"
+        || name == ".claude"
         || name == "result"
         || name == "result-iso"
         || name == "secrets"
@@ -374,12 +392,11 @@ in
       source = summons;
       target = "/summons";
     }
-
-    {
-      source = vcmi;
-      target = "/home/${normalUser}/.local/share/vcmi";
-    }
-  ];
+  ]
+  ++ lib.optional hasVcmi {
+    source = lib.cleanSourceWith { src = vcmiPath; };
+    target = "/home/${normalUser}/.local/share/vcmi";
+  };
 
   # Avoid audit/journald option conflicts in the graphical installer image.
   services.journald.audit = false;

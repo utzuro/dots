@@ -3,8 +3,7 @@
 {
 
   imports = [
-    ./lib/tmux.nix
-    ./lib/zsh.nix
+    ./core.nix
     ./lib/nushell.nix
     ./lib/lf.nix
   ];
@@ -12,36 +11,19 @@
   home.packages = with pkgs; [
 
     # basic
-    vim
-    tmux
     ranger
-    rsync
-    wget
-    curl
-    file
-    less
 
     # core
-    neovim
     emacs
     helix
-    yazi
     ack
-    ripgrep
     ripgrep-all
-    fzf
-    fd
     zsync
-    jq
     moreutils
-    wget2
-    bat
     glow
     peco
     progress
-    killall
     timer
-    duf
     parted
 
     # # media
@@ -63,14 +45,5 @@
     dig
 
   ];
-
-  programs = {
-    eza = {
-      enable = true;
-      git = true;
-      icons = "always";
-    };
-
-  };
 
 }

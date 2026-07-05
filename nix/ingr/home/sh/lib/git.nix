@@ -7,54 +7,22 @@
 
 {
 
+  imports = [
+    ./git-core.nix
+  ];
+
   programs = {
     git = {
-      enable = true;
-
       # extra configs
       hooks = {
         pre-commit = ./pre-commit-script.sh;
       };
-
-      lfs.enable = true;
 
       signing = {
         format = "openpgp";
         key = user.email;
         signByDefault = true;
       };
-
-      settings = {
-        # base configs
-        user.name = user.public_name;
-        user.email = user.email;
-
-        alias = {
-          co = "checkout";
-          sw = "switch";
-        };
-
-        init.defaultBranch = "main";
-        push.autoSetupRemote = true;
-        url = {
-          "git@github.com:" = {
-            insteadOf = [
-              "gh:"
-              "github:"
-            ];
-          };
-          "git@github.com:cyber-space/" = {
-            insteadOf = [
-              "https://github.com/cyber-space/"
-            ];
-          };
-        };
-      };
-
-      ignores = [
-        "*~"
-        "*.swp"
-      ];
 
       attributes = [
         "*.pdf diff=pdf"

@@ -62,7 +62,7 @@ in
 
       vscode
       android-studio
-      jetbrains.writerside
+      # jetbrains.writerside was removed from nixpkgs (discontinued upstream)
 
       (buildIdeWithPlugins jetbrains "goland" pluginList)
       (buildIdeWithPlugins jetbrains "clion" pluginList)

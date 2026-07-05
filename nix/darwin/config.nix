@@ -1,6 +1,14 @@
-{ pkgs, self, ... }:
+{
+  pkgs,
+  inputs,
+  user,
+  ...
+}:
 {
   nixpkgs.config.allowUnfree = true;
+
+  # user-scoped system.defaults below apply to this user (nix-darwin 25.05+)
+  system.primaryUser = user.name;
   environment.systemPackages = with pkgs; [
     # cli
     neovim
@@ -39,7 +47,7 @@
 
   nix.settings.experimental-features = "nix-command flakes";
   programs.zsh.enable = true;
-  system.configurationRevision = self.rev or self.dirtyRev or null;
+  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 5;
   nixpkgs.hostPlatform = "aarch64-darwin";
 

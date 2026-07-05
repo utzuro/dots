@@ -8,9 +8,6 @@ DIR="$(
 	pwd -P
 )"
 
-# --- Shared shell setup ---
-"$DIR/shell.sh"
-
 # --- Extra EC2 packages ---
 sudo yum install -y ranger
 sudo yum install -y gcc kernel-devel make ncurses-devel

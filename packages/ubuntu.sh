@@ -144,7 +144,7 @@ echo "🐳 Docker & Docker Compose are installed and ready to use!"
 
 # --- Install fonts ---
 echo "🖋 Installing fonts..."
-./packages/install-fonts.sh
+"$DIR/install-fonts.sh"
 fc-cache -fv
 
 # --- Optional GUI setup (non-WSL only) ---

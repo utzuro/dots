@@ -78,7 +78,9 @@
               }
 
               ./apps.nix
-              ../ingr/system/basic.nix
+              # core.nix instead of basic.nix: skips firmware, PipeWire, zram,
+              # fonts and audit/clamav — Windows owns the hardware in WSL.
+              ../ingr/system/core.nix
               ../ingr/system/dev.nix
               # ../ingr/system/network/settings.nix
 

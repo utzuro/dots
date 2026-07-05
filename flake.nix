@@ -67,11 +67,6 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    tuicr = {
-      url = "github:agavra/tuicr";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -176,7 +171,7 @@
           let
             system = {
               inherit arch;
-              host = "voidpc";
+              host = "vm";
             };
             user = {
               name = "void";
@@ -184,22 +179,18 @@
           in
           lib.nixosSystem {
             modules = [
-              disko.nixosModules.disko
-              ./nix/ingr/machines/${system.host}/hardware-configuration.nix
+              # VMware Workstation/Fusion guest: encrypted btrfs layout like
+              # the physical hosts (LUKS via boot.nix), VMware guest tools.
+              # For lightweight qemu-on-Linux guests use microvm.nix instead.
+              ./nix/ingr/system/vm.nix
               ./nix/ingr/system/boot.nix
+
               ./nix/ingr/system/basic.nix
               ./nix/ingr/system/network/blocklist.nix
               ./nix/ingr/system/dev.nix
               ./nix/ingr/system/network/settings.nix
 
               ./nix/ingr/system/wm/hyprland.nix
-
-              ./nix/ingr/system/power/pc.nix
-              ./nix/ingr/system/hardware/intel.nix
-              ./nix/ingr/system/hardware/storage.nix
-              ./nix/ingr/system/hardware/video.nix
-
-              ./nix/ingr/system/hardware/nfs.nix
 
               # Local overrides and compatibility fixes.
               ./nix/ingr/system/temp.nix

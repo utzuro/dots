@@ -118,7 +118,18 @@ termux)
 	;;
 esac
 
-# --- 2. Run dotfile/shell/config installer ---
+# --- 2. Generic Linux user/group setup ---
+# NixOS manages groups declaratively; Termux/MSYS2/Git Bash have no usermod.
+case "$distro_id" in
+nixos | macos | msys2 | gitbash | termux) ;;
+*)
+	if [[ "$uname_s" == "Linux" ]]; then
+		bash "$PKG_DIR/linux.sh"
+	fi
+	;;
+esac
+
+# --- 3. Run dotfile/shell/config installer ---
 echo "🪄 Running shell config installer..."
 bash "$PKG_DIR/shell.sh"
 

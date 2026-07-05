@@ -54,6 +54,18 @@
       url = "github:StevenBlack/hosts";
       flake = false;
     };
+
+    # needed by ../ingr/home/sh/lib/git.nix (tuicr package)
+    agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # needed by ../ingr/home/wm/hyprland.nix
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -143,11 +155,11 @@
       };
 
       homeConfigurations = {
-        backupFileExtension = "backup";
         void =
           let
             user = {
               name = "void";
+              public_name = "utzuro";
               email = "utzuro@pm.me";
             };
           in
@@ -184,6 +196,7 @@
           let
             user = {
               name = "void";
+              public_name = "utzuro";
               email = "utzuro@pm.me";
             };
           in
